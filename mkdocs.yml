@@ -41,7 +41,13 @@ markdown_extensions:
 # Definition der Navigationsstruktur
 nav:
   - Home: index.md
-  - Hochvolt-Batterie: Project_X19e.md
+  - Projekt-Übersicht:
+    - Allgemeines: overview.md
+    - Technische Daten: tech_data.md
+  - Hochvolt-System:
+    - Batterie-Pack & Schaltschema: battery_pack.md
+    - BMS & Sicherheit: bms.md
+    - Thermomanagement: cooling.md
 
 plugins:
   - search
