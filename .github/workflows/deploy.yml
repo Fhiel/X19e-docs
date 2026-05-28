@@ -2,11 +2,13 @@ name: Deploy Documentation
 on:
   push:
     branches:
-      - main # Oder master, je nachdem wie dein Hauptbranch heißt
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Erzwingt Schreibrechte direkt im Skript
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -27,7 +29,6 @@ jobs:
 
       - name: Un-comment PDF Plugin for Build
         run: |
-          # Dieses kleine Skript entfernt die Raute vor dem PDF-Plugin nur für den Build auf GitHub!
           sed -i 's/#  - pdf-export:/- pdf-export:/g' mkdocs.yml
           sed -i 's/#      combined: true/    combined: true/g' mkdocs.yml
 
