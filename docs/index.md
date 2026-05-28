@@ -1,6 +1,6 @@
 # X1/9e - Technische Dokumentation
 
-Willkommen zur technischen Dokumentation für den Elektro-Umbau des Fiat Bertone X1/9.
+Willkommen zur technischen Dokumentation für den Elektro-Umbau des Bertone X1/9e.
 
 ---
 
