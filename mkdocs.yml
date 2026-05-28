@@ -1,0 +1,49 @@
+site_name: "X1/9e - Technische Dokumentation"
+site_description: "Dokumentation für den Elektro-Umbau des Fiat Bertone X1/9"
+site_author: "Frank Hielscher"
+
+# Design & Theme-Konfiguration
+theme:
+  name: material
+  language: de                  # Deutsche Menüs und Suche
+  palette:
+    # Heller Modus (Standard)
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal            # Schickes technisches Blau-Grün
+      accent: deep orange       # Akzentfarbe für Links/Hinweise
+      toggle:
+        icon: material/weather-night
+        name: In den dunklen Modus wechseln
+    # Dunkler Modus
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: In den hellen Modus wechseln
+  features:
+    - navigation.tabs           # Top-Menü statt nur Seitenleiste
+    - navigation.sections       # Strukturierte Abschnitte in der Seitenleiste
+    - toc.integrate             # Inhaltsverzeichnis der Seite rechts anzeigen
+    - content.code.copy         # Kopier-Button für Code-Blöcke (z.B. deine Skripte)
+
+# Wichtige Markdown-Erweiterungen für Tabellen, LaTeX und Definitionen
+markdown_extensions:
+  - tables                      # Saubere Tabellenunterstützung
+  - attr_list                   # Erlaubt erweiterte Formatierungen (z.B. Tabellenbreiten)
+  - md_in_html                  # Erlaubt HTML (wie das <br> in deiner Tabelle)
+  - pymdownx.superfences        # Verbesserte Code-Blöcke
+  - pymdownx.arithmatex:        # Verarbeitet dein LaTeX (Formeln) absolut sauber
+      generic: true
+
+# Definition der Navigationsstruktur
+nav:
+  - Home: index.md
+  - Hochvolt-Batterie: Project_X19e.md
+
+plugins:
+  - search
+  #- pdf-export:
+  #    combined: true
