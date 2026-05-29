@@ -107,6 +107,8 @@ Das Gesamtsystem schützt sich über eine mehrstufige Kaskade vor kritischen the
 **Stufe 3: Automatisches Hard-Derating**
 : Bei Erreichen des kritischen Temperatur-Grenzwerts greift die MCU autonom ein und begrenzt die maximale Leistungsabgabe schlagartig auf **50 %**. Das Fahrzeug bleibt zur Gefahrenabwehr voll manövrierfähig (kein plötzlicher Vortriebsverlust im fließenden Verkehr), die Hardware wird jedoch effektiv vor thermischer Zerstörung geschützt.
 
+---
+
 # 2.3 Sicherstellung des Antriebs (Dimensionierung)
 
 Dieses Kapitel belegt die rechnerische Leistungsfähigkeit des elektrischen Antriebsstrangs sowie die Speicherkapazität der Hochvoltbatterie (REESS). Es dient dem Nachweis, dass die Anforderungen an Fahrperformance, Reichweite und Steigfähigkeit gemäß den gesetzlichen Vorgaben sicher erfüllt werden.
@@ -269,10 +271,10 @@ $$\text{Verbrauch}_{100} = P_{\text{Elektrisch}} \times \left(\frac{100\text{ km
 </div>
 
 !!! info "Reichweitenprognose unter Realbedingungen"
-    Unter Berücksichtigung von Nebenverbrauchern (Heizung, LV-Bordnetzwandler) sowie variablen Fahrzyklen wird ein realistischer Praxisverbrauch von **10 bis 12 kWh/100 km** projektiert. Mit der nutzbaren Batteriekapazität von $26,5\text{ kWh}$ resultiert daraus eine verlässliche Aktionsreichweite von **200 bis 250 km**.
+    Unter Berücksichtigung von Nebenverbrauchern (Heizung, LV-Bordnetzwandler) sowie variablen Fahrzyklen wird ein realistischer Praxisverbrauch von **10 bis 12 kWh/100 km** projektiert. Mit der nutzbaren Batteriekapazität von 26,5 kWh resultiert daraus eine verlässliche Aktionsreichweite von **200 bis 250 km**.
 
 !!! success "Fazit zur elektrischen Dimensionierung"
-    Die physikalische Belastbarkeit der Batterie ($79,5\text{ kW}$) übertrifft die Motordauerleistung ($38\text{ kW}$) spürbar. Auch für die kurzzeitige Spitzenleistung des Inverters ($95\text{ kW}$ für max. 10 Sekunden) bietet das Gesamtsystem ein inhärent sicheres Fundament, da die Zellen kurzzeitig Ströme weit über $3\text{C}$ schadlos abgeben können.
+    Die physikalische Belastbarkeit der Batterie (79,5 kW) übertrifft die Motordauerleistung (38 kW) spürbar. Auch für die kurzzeitige Spitzenleistung des Inverters (95 kW für max. 10 Sekunden) bietet das Gesamtsystem ein inhärent sicheres Fundament, da die Zellen kurzzeitig Ströme weit über 3C schadlos abgeben können.
 
 ---
 
@@ -297,11 +299,21 @@ Die folgende Tabelle zeigt die im System fest hinterlegten Parameter zur Gewähr
 | Neutral Braking Rate | 15 % | Simulation eines moderaten Motor-Schleppmoments (Segel-Modus) |
 | Activation Delay|150 ms| Geschmeidiges Ansprechverhalten |
 
+!!! success "Fazit zur mechanischen Sicherstellung des Antriebs"
+    Die Zusammenführung der mechanischen Mindestanforderungen und der softwareseitigen Schutzbegrenzungen (aus Kap. 2.3.3) belegt die uneingeschränkte Betriebssicherheit des Fahrzeugs:
+    
+    * **Steigfähigkeit:** Das softwareseitig parametrierte Drehmomentlimit von **154 Nm** liegt spürbar über dem maximal erforderlichen Drehmoment von **82,5 Nm**, welches für das normgerechte Anfahren an einer 12 % Steigung im Single-Speed-Betrieb (4. Gang) benötigt wird.
+    * **Dauerleistung:** Das thermische Schutzlimit der HV-Steckverbinder von **200 A** erlaubt eine kontinuierliche mechanische Leistungsabgabe von **20,52 kW**. Dies übertrifft den realen Leistungsbedarf bei einer konstanten Autobahnfahrt von 80 km/h (ca. **7,2 kW** benötigte elektrische Leistung) um mehr als das Doppelte.
+    
+    **Gesamtergebnis:** Die softwareseitigen Begrenzungen der Motorsteuerung stellen einen hocheffektiven Komponentenschutz dar, ohne die Alltagstauglichkeit, die gesetzlichen Performance-Vorgaben oder die thermische Stabilität des Antriebsstrangs im realen Fahrbetrieb einzuschränken.
+
 ---
 
 ## 2.4 Mindestladezustand des Energiespeichers
 
 Der Mindestladezustand des Energiespeichers (SOC - State of Charge) ist vom Batteriemanagementsystem (BMS) hardwareseitig auf 5 % der maximalen Kapazität festgelegt. Die eingebauten Anzeigen im Kombi-Instrument visualisieren den aktuellen SOC analog und digital. Bei Erreichen des Mindestladezustands wird eine zusätzliche Warnmeldung im Kombi-Instrument angezeigt, um den Fahrer über die verbleibende Restreichweite zu informieren und sicherzustellen, dass das Fahrzeug auch unter diesen Bedingungen aus dem Verkehrsbereich hinausgefahren werden kann (gemäß VdTÜV 764, Kap. 3.4).
+
+---
 
 ## 2.5 Heizung/Lüftung sowie Entfrostung, Trocknung
 
@@ -311,6 +323,8 @@ Zur Erfüllung der Anforderungen nach § 35c StVZO bezüglich Beheizung, Belüft
   ursprünglichen Lüfter gemäß der OEM-Spezifikation.
 - **Beheizung der Fahrgastzelle und Windschutzscheiben-Entfrostung:** Ein elektrischer PTC-Heizer ist in den Luftstrom des vorhandenen Lüftungssystems integriert. Dieser Heizer wird elektrisch zugeschaltet und gewährleistet die Versorgung der Fahrgastzelle und insbesondere der Windschutzscheibe mit   ausreichend warmer Luft zur Funktion der Beheizung und Entfrostung/Trocknung. Die Luftverteilung für die Windschutzscheibe erfolgt durch manuelle Steuerung der Luftaustrittsklappen (Fußraum/Mittelkonsole) zur Priorisierung des Luftstroms zur Scheibe hin.
 
+---
+
 ## 2.6 Bremse
 
 Das Fahrzeug ist mit einer zweikreisigen Bremsanlage mit vier Scheiben-bremsen ausgerüstet. Es verfügt weder über einen Unterdruckbrems-verstärker noch über ein Antiblockiersystem (ABS). Die Feststellbremse wirkt mechanisch auf die Bremsen der Hinterachse. Die vorhandene Bremsanlage des Basisfahrzeugs wurde unverändert beibehalten.
@@ -319,16 +333,22 @@ Das elektrische Antriebssystem ermöglicht eine zusätzliche elektrische Bremsun
 Dieses System ist wie folgt nach UN-Regelung Nr. 13/13H als **Kategorie A** realisiert:
 
 - **Rekuperationsaktivierung (Kategorie A):** Die Aktivierung der Rekuperation erfolgt ausschließlich durch das Loslassen des Fahrpedals (Coast-Down-Rekuperation).
-- **Deaktivierung der Rekuperation:** Die Rekuperation kann für besondere Fahrbedingungen (z.B. Glatteis) über einen Schalter „**RECU OFF**" deaktiviert werden.
+- **Deaktivierung der Rekuperation:** Die Rekuperation kann für besondere Fahrbedingungen (z.B. Glatteis) über den Schalter „**RECU OFF**" deaktiviert werden.
 - **Keine Integration in die Betriebsbremsanlage:** Die  Rekuperationsfunktion ist **nicht** in die Betriebsbremsanlage integriert. Das Bremspedal betätigt ausschließlich die mechanischen Reibbremsen. Ein Blockieren der Räder durch das Rekuperationssystem ist durch die ausschließliche Aktivierung über das Fahrpedal und fehlende Koppelung mit dem Bremspedal ausgeschlossen.
+
+---
 
 ## 2.7 Lenkung
 
 Die Lenkeinrichtung des Fahrzeugs ist unverändert und entspricht der Originalspezifikation. Das Fahrzeug verfügt über keine Servolenkung und die mechanische Lenkeinheit wurde nicht modifiziert.
 
+---
+
 ## 2.8 Grundfunktion der elektrischen Systeme
 
 Die grundlegenden elektrischen Funktionen des Fahrzeugs, insbesondere die in § 47 StVZO geforderten Beleuchtungseinrichtungen (z.B. Standlicht, Warnblinkanlage) sowie das akustische Warnsystem, bleiben auch bei einem Ausfall oder der Deaktivierung des Hochvolt-Antriebssystems uneingeschränkt funktionsfähig. Dies wird durch das Vorhandensein eines separaten 12V-Bordnetz-Energiespeichers (12V-Batterie) sichergestellt.
+
+---
 
 ## 2.9 Batterie und Batteriemanagementsystem (REESS, BMS)
 
@@ -339,8 +359,6 @@ Das Rechargeable Energy Storage System (REESS) ist das zentrale Bauteil für die
 * **Bestandteile:** Das REESS besteht aus insgesamt fünf gebrauchten Tesla Model S Modulen (5.3 kWh/Modul), die zu einem 2er-Pack und einem 3er-Pack konfiguriert sind. Details zur Kapazität und Nennspannung sind in Kapitel 1.3 dargestellt.
 * **Qualitätssicherung der Zellen:** Der Nachweis der Prüfung und Zertifizierung der verwendeten Zellen gemäß den Anforderungen der  UN-Regelung Nr. 38.3 ist im **Anhang X.X** beigefügt. *(*todo:* passende Anhangs-Referenz einfügen)*. Die verbauten Zellen (Panasonic NCR18650B) sind Teil zertifizierter Module.
 * **Integration:** Die Module werden durch das BMS überwacht, um einen  sicheren Betrieb auch mit gebrauchten Komponenten zu gewährleisten.
-
-### 2.9.2 BMS (Batteriemanagementsystem)
 
 ### 2.9.2 BMS (Batteriemanagementsystem)
 
@@ -380,9 +398,11 @@ Um die für Klauenkupplungen kritischen, harten Lastwechsel zu minimieren und di
 
 Durch die Kombination aus professionell gefertigten mechanischen Komponenten und einer darauf abgestimmten, bauteilschonenden Software-Parametrierung wird eine betriebssichere und dauerhaltbare Kraftübertragung gewährleistet.
 
-### 2.10.. Motoraufhängung (Motor Cradle)
+### 2.10. Motoraufhängung (Motor Cradle)
 
-Zur Abstützung des Motorgewichts am hinteren Ende (Encoder-Seite) und zur Aufnahme des Reaktionsdrehmoments kommt eine originale Motorhalterung („Motor Cradle") des Herstellers NetGain Motors zum Einsatz:  
+Zur Abstützung des Motorgewichts am hinteren Ende (Encoder-Seite) und zur Aufnahme des Reaktionsdrehmoments kommt eine originale Motorhalterung „Motor Cradle" des Herstellers NetGain Motors zum Einsatz:  
 
-* **Konstruktion:** Der Halter aus korrosionsbeständigem, verzinktem   Stahl umschließt mit 220 mm Innendurchmesser das Motorgehäuse formschlüssig.
+* **Konstruktion:** Der Halter aus korrosionsbeständigem, verzinktem Stahl umschließt mit 220 mm Innendurchmesser das Motorgehäuse formschlüssig.
 * **Schwingungsentkopplung:** Die Aufhängung erfolgt über integrierte **Gummibuchsen** (Rubber Bushings). Diese sorgen für eine Schwingungstechnische Entkopplung zwischen der Antriebseinheit und der Fahrzeugkarosserie, minimieren die Übertragung von Körperschall und verhindern Spannungsrisse in der Struktur.
+
+---
