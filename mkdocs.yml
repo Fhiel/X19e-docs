@@ -2,16 +2,14 @@ site_name: "X1/9e - Technische Dokumentation"
 site_description: "Dokumentation für den Elektro-Umbau des Fiat Bertone X1/9 nach TÜV-Vorgaben"
 site_author: "Frank Hielscher"
 
-# Design & Theme-Konfiguration
 theme:
   name: material
   custom_dir: theme
-  language: de                  # Deutsche Menüs und Suche
+  language: de
   font:
-    text: Montserrat            # Setzt Montserrat als primäre Schriftart
+    text: Montserrat
     code: Roboto Mono
   palette:
-    # 1. Standard: Heller Modus (Perfekt für die PDF-Vorschau und den Druck)
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: black
@@ -19,7 +17,6 @@ theme:
       toggle:
         icon: material/weather-night
         name: In den dunklen Modus wechseln
-    # 2. Dunkler Modus (Optional via Toggle im Web)
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
@@ -28,10 +25,10 @@ theme:
         icon: material/weather-sunny
         name: In den hellen Modus wechseln
   features:
-    - navigation.tabs           # Top-Menü statt nur Seitenleiste
-    - navigation.sections       # Strukturierte Abschnitte in der Seitenleiste
-    - toc.integrate             # Inhaltsverzeichnis der Seite rechts anzeigen
-    - content.code.copy         # Kopier-Button für Code-Blöcke
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - content.code.copy
 
 extra_css:
   - stylesheets/custom.css
@@ -41,20 +38,18 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
 
-# Wichtige Markdown-Erweiterungen
 markdown_extensions:
-  - tables                      # Saubere Tabellenunterstützung
-  - attr_list                   # Erlaubt erweiterte Formatierungen
-  - md_in_html                  # Erlaubt HTML
-  - pymdownx.superfences        # Verbesserte Code-Blöcke
-  - pymdownx.arithmatex:        # Verarbeitet dein LaTeX absolut sauber
-      generic: true             # JETZT KORREKT EINGERÜCKT (4 Leerzeichen!)
-  - admonition                  # Aktiviert die !!! Struktur
-  - pymdownx.details            # Erlaubt einklappbare Boxen
-  - pymdownx.inlinehilite       # Hilft bei der Formatierung innerhalb von Boxen
-  - def_list                    # Aktiviert Definitionslisten (: auf neuer Zeile)
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - def_list
 
-# Navigationsstruktur nach TÜV-Merkblatt
 nav:
   - Home: index.md
   - Inhalt:
@@ -69,5 +64,3 @@ nav:
 
 plugins:
   - search
-#  - pdf-export:
-#      combined: true
