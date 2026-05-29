@@ -11,14 +11,7 @@ theme:
     text: Montserrat            # Setzt Montserrat als primäre Schriftart
     code: Roboto Mono
   palette:
-    # Wir setzen Slate (Dark) als primären Modus, passend zu deinem Web-Stil
-    - media: "(prefers-color-scheme: light)"
-      scheme: slate
-      primary: black
-      accent: amber
-      toggle:
-        icon: material/weather-sunny
-        name: In den hellen Modus wechseln
+    # 1. Standard: Heller Modus (Perfekt für die PDF-Vorschau und den Druck)
     - media: "(prefers-color-scheme: light)"
       scheme: default
       primary: black
@@ -26,6 +19,14 @@ theme:
       toggle:
         icon: material/weather-night
         name: In den dunklen Modus wechseln
+    # 2. Dunkler Modus (Optional via Toggle im Web)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: In den hellen Modus wechseln
   features:
     - navigation.tabs           # Top-Menü statt nur Seitenleiste
     - navigation.sections       # Strukturierte Abschnitte in der Seitenleiste
@@ -44,10 +45,10 @@ extra_javascript:
 markdown_extensions:
   - tables                      # Saubere Tabellenunterstützung
   - attr_list                   # Erlaubt erweiterte Formatierungen
-  - md_in_html                  # Erlaubt HTML (wie das <br> in deiner Tabelle)
+  - md_in_html                  # Erlaubt HTML
   - pymdownx.superfences        # Verbesserte Code-Blöcke
-  - pymdownx.arithmatex:        # Verarbeitet dein LaTeX (Formeln) absolut sauber
-      generic: true
+  - pymdownx.arithmatex:        # Verarbeitet dein LaTeX absolut sauber
+      generic: true             # JETZT KORREKT EINGERÜCKT (4 Leerzeichen!)
   - admonition                  # Aktiviert die !!! Struktur
   - pymdownx.details            # Erlaubt einklappbare Boxen
   - pymdownx.inlinehilite       # Hilft bei der Formatierung innerhalb von Boxen
