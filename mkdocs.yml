@@ -1,55 +1,72 @@
 site_name: "X1/9e - Technische Dokumentation"
-site_description: "Dokumentation für den Elektro-Umbau des Fiat Bertone X1/9"
+site_description: "Dokumentation für den Elektro-Umbau des Fiat Bertone X1/9 nach TÜV-Vorgaben"
 site_author: "Frank Hielscher"
 
 # Design & Theme-Konfiguration
 theme:
   name: material
+  custom_dir: theme
   language: de                  # Deutsche Menüs und Suche
+  font:
+    text: Montserrat            # Setzt Montserrat als primäre Schriftart
+    code: Roboto Mono
   palette:
-    # Heller Modus (Standard)
+    # Wir setzen Slate (Dark) als primären Modus, passend zu deinem Web-Stil
     - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: teal            # Schickes technisches Blau-Grün
-      accent: deep orange       # Akzentfarbe für Links/Hinweise
-      toggle:
-        icon: material/weather-night
-        name: In den dunklen Modus wechseln
-    # Dunkler Modus
-    - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: teal
-      accent: deep orange
+      primary: black
+      accent: amber
       toggle:
         icon: material/weather-sunny
         name: In den hellen Modus wechseln
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/weather-night
+        name: In den dunklen Modus wechseln
   features:
     - navigation.tabs           # Top-Menü statt nur Seitenleiste
     - navigation.sections       # Strukturierte Abschnitte in der Seitenleiste
     - toc.integrate             # Inhaltsverzeichnis der Seite rechts anzeigen
-    - content.code.copy         # Kopier-Button für Code-Blöcke (z.B. deine Skripte)
+    - content.code.copy         # Kopier-Button für Code-Blöcke
 
-# Wichtige Markdown-Erweiterungen für Tabellen, LaTeX und Definitionen
+extra_css:
+  - stylesheets/custom.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
+
+# Wichtige Markdown-Erweiterungen
 markdown_extensions:
   - tables                      # Saubere Tabellenunterstützung
-  - attr_list                   # Erlaubt erweiterte Formatierungen (z.B. Tabellenbreiten)
+  - attr_list                   # Erlaubt erweiterte Formatierungen
   - md_in_html                  # Erlaubt HTML (wie das <br> in deiner Tabelle)
   - pymdownx.superfences        # Verbesserte Code-Blöcke
   - pymdownx.arithmatex:        # Verarbeitet dein LaTeX (Formeln) absolut sauber
       generic: true
+  - admonition                  # Aktiviert die !!! Struktur
+  - pymdownx.details            # Erlaubt einklappbare Boxen
+  - pymdownx.inlinehilite       # Hilft bei der Formatierung innerhalb von Boxen
+  - def_list                    # Aktiviert Definitionslisten (: auf neuer Zeile)
 
-# Definition der Navigationsstruktur
+# Navigationsstruktur nach TÜV-Merkblatt
 nav:
   - Home: index.md
-  - Projekt-Übersicht:
-    - Allgemeines: overview.md
-    - Technische Daten: tech_data.md
-  - Hochvolt-System:
-    - Batterie-Pack & Schaltschema: battery_pack.md
-    - BMS & Sicherheit: bms.md
-    - Thermomanagement: cooling.md
+  - Inhalt:
+    - 1 Technische Kurzbeschreibung: kurzbeschreibung.md
+    - 2 Funktionssicherheit: funktionssicherheit.md
+    - 3 Elektrische Sicherheit: elektrische_sicherheit.md
+    - 4 Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
+    - 5 Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
+    - 6 Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
+  - Anhang:
+    - Anhang: anhang.md
 
 plugins:
   - search
-  #- pdf-export:
-  #    combined: true
+#  - pdf-export:
+#      combined: true
