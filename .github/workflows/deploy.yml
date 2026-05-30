@@ -25,21 +25,15 @@ jobs:
 
       - name: Install Python Dependencies
         run: |
-          pip install mkdocs-material mkdocs-pdf-export-plugin
+          pip install mkdocs-material mkdocs-with-pdf
 
       - name: Pre-Build to generate PDF
         run: |
-          # 1. Den downloads-Ordner erstellen, BEVOR der finale Deploy-Build läuft
           mkdir -p docs/downloads
-          
-          # 2. Einmal lokal im Runner bauen, damit das PDF-Plugin die Datei erzeugt
           mkdocs build
-          
-          # 3. Das erzeugte PDF suchen und exakt benannt in docs/downloads/ sichern
-          find site/ -name "*.pdf" -exec cp {} docs/downloads/X19e_Technische_Dokumentation.pdf \;
+          # mkdocs-with-pdf legt das fertige Dokument direkt als "document.pdf" in site/ ab
+          cp site/pdf/document.pdf docs/downloads/X19e_Technische_Dokumentation.pdf 2>/dev/null || cp site/document.pdf docs/downloads/X19e_Technische_Dokumentation.pdf 2>/dev/null || find site/ -name "*.pdf" -exec cp {} docs/downloads/X19e_Technische_Dokumentation.pdf \;
 
       - name: Build and Deploy to GitHub Pages
         run: |
-          # 4. Jetzt erst den offiziellen Deploy ausführen. 
-          # MkDocs findet jetzt das PDF im docs/downloads/-Ordner und lädt es hoch.
           mkdocs gh-deploy --force

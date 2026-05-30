@@ -55,38 +55,44 @@ h1, h2, h3 {
 }
 
 @media print {
-    /* Hebt jegliche Flexbox- und Höhenbegrenzungen des Themes auf */
-    .md-content, 
-    .md-content__inner, 
-    article, 
-    body, 
-    html {
+    /* Container-Layouts für den Fließtext öffnen */
+    .md-content, .md-content__inner, article {
         display: block !important;
         height: auto !important;
         overflow: visible !important;
-        float: none !important;
-        max-height: none !important;
     }
 
-    /* Verhindert, dass leere Container Seitenumbrüche erzwingen */
-    .md-sidebar, 
-    .md-header, 
-    .md-footer, 
-    .md-nav {
+    /* Radikal alle ungenutzten Web-Elemente ausblenden */
+    .md-sidebar, .md-header, .md-footer, .md-nav, .md-top, .md-banner {
         display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    /* Sorgt dafür, dass Infoboxen und Tabellen sauber mitwandern */
-    .admonition {
+    /* Kontrollierte Seitenumbrüche: NUR bei Hauptkapiteln (H1) zwingend */
+    h1 {
+        page-break-before: always !important;
         page-break-inside: avoid !important;
     }
-    
-    table {
-        width: 100% !important;
+
+    /* Unterüberschriften dürfen NICHT alleine am Seitenende stehen */
+    h2, h3, h4 {
+        page-break-before: auto !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    /* Absätze und Listen dürfen frei fließen (beseitigt willkürliche Leerseiten) */
+    p, li {
         page-break-inside: auto !important;
     }
-    
-    tr {
+
+    /* Bilder und Boxen stabilisieren */
+    figure, img, .admonition {
         page-break-inside: avoid !important;
+        max-width: 100% !important;
+        height: auto !important;
     }
 }

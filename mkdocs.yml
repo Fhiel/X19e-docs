@@ -62,5 +62,10 @@ nav:
 
 plugins:
   - search
-  - pdf-export:
-      combined: true
+  - with-pdf:
+        author: Frank Hielscher
+        cover: true
+        back_cover: false
+        toc_title: "Abbildungsverzeichnis und Inhalt"
+        # Verhindert das erzwungene Starten auf ungeraden Seiten (stoppt Leerseiten)
+        page_size: A4
