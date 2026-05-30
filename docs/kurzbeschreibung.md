@@ -1,8 +1,8 @@
-# 1 Technische Kurzbeschreibung
+# Technische Kurzbeschreibung
 
-## 1.1 Allgemeines
+## Allgemeines
 
-### 1.1.1 Angaben zum Fahrzeug
+### Angaben zum Fahrzeug
 
 | Fahrzeugparameter | Spezifikation / Wert |
 | :--- | :--- |
@@ -10,24 +10,24 @@
 | **Typ** | 128AS1 |
 | **Tag der Erstzulassung** | 1983 |
 | **Fahrzeugklasse** | M1 |
-| **Bezeichnung** | Bertone X1/9e <br> umgerüstet auf batterieelektrischen Antrieb (BEV) <br>durch Privatperson |
+| **Bezeichnung** | Bertone X1/9e <br> umgerüstet auf batterieelektrischen Antrieb (BEV) <br> durch Privatperson |
 | **Kraftübertragung** | Durch konventionelles Getriebe |
 | **Betriebsspannung HV-Batterie** | 114 V DC |
 
-!!! info "Zusätzliche Informationen zur Fahrzeugtechnik"
-    Die Bremsanlage (ohne Unterdruckkraftverstärker) und Lenkung (ohne Servo) des Basisfahrzeugs bleiben mechanisch und hydraulisch unangetastet. Die Beheizung der Frontscheibe wurde durch ein elektrisches System ersetzt.
+!!! info ""
+    **Zusätzliche Informationen zur Fahrzeugtechnik:** Die Bremsanlage (ohne Unterdruckkraftverstärker) und Lenkung (ohne Servo) des Basisfahrzeugs bleiben mechanisch und hydraulisch unangetastet. Die Beheizung der Frontscheibe wurde durch ein elektrisches System ersetzt.
 
-### 1.1.2 Name und Anschrift des Umrüsters
+### Name und Anschrift des Umrüsters
 
 Frank Hielscher, 97816 Lohr a. Main
 
 ---
 
-## 1.2 Antriebssystem (Powertrain)
+## Antriebssystem (Powertrain)
 
 **Systembezeichnung:** NetGain HyPer 9 IS™ (Integrated System)
 
-### 1.2.1 Elektromotor (Antriebsmotor)
+### Elektromotor (Antriebsmotor)
 
 | Parameter | Spezifikation |
 | :--- | :--- |
@@ -38,7 +38,7 @@ Frank Hielscher, 97816 Lohr a. Main
 | **Nenndrehzahl** | 3.200 U/min (S1-Dauerbetrieb) |
 | **Maximaldrehzahl** | 8.000 U/min |
 
-### 1.2.2 Inverter / Motor Controller
+### Inverter / Motor Controller
 
 | Parameter | Spezifikation |
 | :--- | :--- |
@@ -47,21 +47,19 @@ Frank Hielscher, 97816 Lohr a. Main
 | **Type Code** | ACX1S75000000 |
 | **Rating Data** | 80/100V, 750 A (Maximalstrom) |
 
----
-
-### 1.2.3 Zusammenfassende Leistungsdaten des Gesamtsystems (Eintragungswerte)
+### Zusammenfassende Leistungsdaten des Gesamtsystems (Eintragungswerte)
 
 | Leistungsdaten | Wert / Zustand |
 | :--- | :--- |
 | **Maximale 30-Minuten-Leistung** | 38 kW (Dauerleistung gemäß Herstellerangabe Systemintegrator NetGain; abgeleitet aus S1-Betrieb) |
 | **Maximale Nutzleistung** | 95 kW (Spitzenleistung) |
-| **Maximales Drehmoment** | 234 Nm <br>*(Hinweis: Begrenzung via Controller-Mapping auf **154 Nm** zum Schutz des Original-Getriebes parametriert, siehe Abschnitt 6)* |
+| **Maximales Drehmoment** | 234 Nm <br>*(Hinweis: Begrenzung via Controller-Mapping auf **154 Nm** zum Schutz des Original-Getriebes parametriert)* |
 
 ---
 
-## 1.3 Energiespeichersystem REESS
+## Energiespeichersystem REESS
 
-### 1.3.1 Technische Daten
+### Technische Daten
 
 | Parameter | Spezifikation / Angabe |
 | :--- | :--- |
@@ -80,87 +78,81 @@ Frank Hielscher, 97816 Lohr a. Main
 | **Batteriemanagementsystem (BMS)** | SimpBMS (Master-Slave-System mit TESLA Slave Boards) |
 | **Überladeschutz** | Integriert im BMS (automatische Abschaltung) |
 | **Überhitzungsschutz** | 2 Temperatursensoren pro Modul und Notabschaltung durch BMS |
-| **Thermomanagement** | **Typ:** Aktive Flüssigkeitskühlung<br>**Konstruktion:** Die Kühlung erfolgt über Kühlschleifen, die direkt entlang der Zellen innerhalb jedes Moduls geführt sind.<br>**Verschaltung:** Alle Kühlkreisläufe der einzelnen Module sind parallel geschaltet, um eine gleichmäßige Temperaturverteilung zu gewährleisten.<br>**Medium:** G48 (Glysantin) korrosionsgeschützt und frostsicher |
+| **Thermomanagement** | **Typ:** Aktive Flüssigkeitskühlung<br>**Konstruktion:** Die Kühlung erfolgt über Kühlschleifen, die direkt entlang der Zellen innerhalb jedes Moduls geführt sind.<br>**Verschaltung:** Alle Kühlkreisläufe der einzelnen Module sind parallel geschaltet.<br>**Medium:** G48 (Glysantin) korrosionsgeschützt und frostsicher |
 | **Gehäusematerial** | Aluminium |
 | **Gewicht (gesamt)** | 185 kg |
-| **Maintenance Service Disconnect (MSD)** | **Typ:** NISTAR NI4-1-S630-2NYA (je Batteriepack).<br>**Funktion:** Trennt bei Entfernung die interne Serienschaltung der Module und senkt, insbesondere beim 3er-Pack, dadurch die Spannung auf Kleinspannungsniveau (< 60V DC). |
+| **Maintenance Service Disconnect (MSD)** | **Typ:** NISTAR NI4-1-S630-2NYA (je Batteriepack).<br>**Funktion:** Trennt bei Entfernung die interne Serienschaltung der Module und senkt die Spannung auf Kleinspannungsniveau (< 60V DC). |
 | **Sicherung** | EATON BUSSMANN EBSD-630A (je Batteriepack) |
 
-
-### 1.3.2 Schematische Darstellung des Funktionsbereiches
+### Schematische Darstellung des Funktionsbereiches
 
 <figure id="schaltschema">
-  <img src="./Pictures/10000001000001AE000001E644E7AB05.png" alt="Schaltschema des Batterie-Packs">
+  <img src="../Pictures/10000001000001AE000001E644E7AB05.png" alt="Schaltschema des Batterie-Packs">
   <figcaption style="text-align: center;">Abbildung 1: Schaltschema des Batterie-Packs</figcaption>
 </figure>
 
-### 1.3.3 Beschreibung, Zeichnungen oder Bilder des REESS mit Erläuterungen zu folgenden Punkten
+### Beschreibung und Gehäuseaufbau des REESS
 
-- **Aufbau Tesla 5,3 kWh Modul** (5 x vorhanden):
+* **Aufbau Tesla 5,3 kWh Modul** (5 x vorhanden):
+
 <figure id="teslamodul">
-  <img src="./Pictures/10000001000003EF0000029355764FB8.png">
+  <img src="../Pictures/10000001000003EF0000029355764FB8.png">
   <figcaption style="text-align: center;">Abbildung 2: TESLA 5,3 kWh Modul</figcaption>
 </figure>
 
-- Module im Battery Pack eingebaut (2 x vorhanden):
+* **Module im Battery Pack eingebaut** (2 x vorhanden):
 
 <figure id="batterypack">
-  <img src="./Pictures/10000001000002FF00000275EB32AD3B.png">
+  <img src="../Pictures/10000001000002FF00000275EB32AD3B.png">
   <figcaption style="text-align: center;">Abbildung 3: Pack mit zwei Modulen (Deckel entfernt)</figcaption>
 </figure>
 
-#### 1.3.4 Battery Pack rear (Aufbau, Werkstoffe und physische Abmessungen)
+#### Battery Pack rear (Aufbau, Werkstoffe und physische Abmessungen)
 
-Eigenbau, basierend auf zwei gebrauchten TESLA Model S 5,3 kWh Modulen   inkl. HV-Buchse mit HVIL Kontakten, MSD und HV-Relais, integrierter Kühlkreislauf, Notentlüftungs- & Druckausgleichselement.
+Eigenbau, basierend auf zwei gebrauchten TESLA Model S 5,3 kWh Modulen inkl. HV-Buchse mit HVIL Kontakten, MSD und HV-Relais, integrierter Kühlkreislauf, Notentlüftungs- & Druckausgleichselement.
 
 | Parameter | Spezifikation / Angabe |
-| :-------- | :--------------------- |
+| :--- | :--- |
 | **Konstruktion:** | Seitenwände aus 28 mm x 240 mm Aluminium-Systemprofil verschraubt mit <br> Front- und Rückseite aus 6 mm Aluminiumplatten. <br> Deckel- und Boden aus 5 mm Aluminiumplatten. |
-  | **Abdichtung:** |  Neopren Zellkautschuk CR-150 |
-  | **Abmessung:** | 340 mm x 240 mm x 788 mm |
-  | **Gewicht:** | 80 kg |
-  | **Kapazität:** | 10,6 kWh |
-  | **Nennspannung:** | 45,6 V |
+| **Abdichtung:** | Neopren Zellkautschuk CR-150 |
+| **Abmessung:** | 340 mm x 240 mm x 788 mm |
+| **Gewicht:** | 80 kg |
+| **Kapazität:** | 10,6 kWh |
+| **Nennspannung:** | 45,6 V |
 
-#### 1.3.5 Battery Pack front (Aufbau, Werkstoffe und physische Abmessungen)
+#### Battery Pack front (Aufbau, Werkstoffe und physische Abmessungen)
 
-  Eigenbau, basierend auf drei gebrauchten TESLA Model S 5,3 kWh Modulen inkl. HV-Buchse mit HVIL Kontakten, MSD und HV-Relais, integrierter   Kühlkreislauf, Notentlüftungs- & Druckausgleichselement.
+Eigenbau, basierend auf drei gebrauchten TESLA Model S 5,3 kWh Modulen inkl. HV-Buchse mit HVIL Kontakten, MSD und HV-Relais, integrierter Kühlkreislauf, Notentlüftungs- & Druckausgleichselement.
 
 | Parameter | Spezifikation / Angabe |
-| :-------- | :--------------------- |
+| :--- | :--- |
 | **Konstruktion:** | Seitenwände aus 28 mm Aluminium-Systemprofil verschraubt mit <br> Front- und Rückseite aus 6 mm Aluminiumplatten. <br> Deckel- und Boden aus 5 mm Aluminiumplatten. |
-  | **Abdichtung:** | Neopren Zellkautschuk CR-150 |
-  | **Abmessung:** | 340 mm x 320 mm x 788 mm |
-  | **Gewicht:** | 105 kg |
-  | **Kapazität:** | 15,9 kWh |
-  | **Nennspannung:**| 68,4 V |
+| **Abdichtung:** | Neopren Zellkautschuk CR-150 |
+| **Abmessung:** | 340 mm x 320 mm x 788 mm |
+| **Gewicht:** | 105 kg |
+| **Kapazität:** | 15,9 kWh |
+| **Nennspannung:** | 68,4 V |
 
-### 1.3.6 Beschreibung und Zeichnungen des Einbaus des REESS im Fahrzeug:
+### Geometrische Integration des REESS im Fahrzeug
 
 <figure id="x19esideview">
-  <img src="./Pictures/10000001000004780000018607BE8E65.png">
+  <img src="../Pictures/10000001000004780000018607BE8E65.png">
   <figcaption style="text-align: center;">Abbildung 4: Seitenansicht Bertone X1/9 Platzierung der Batterie</figcaption>
 </figure>
 
-
-![Zeichnung 5: Draufsicht Bertone X1/9 Platzierung
-Batterie Module](./Pictures/10000001000002E10000014B954768BF.png "fig:")
-
 <figure id="x19etopview">
-  <img src="./Pictures/10000001000002E10000014B954768BF.png">
+  <img src="../Pictures/10000001000002E10000014B954768BF.png">
   <figcaption style="text-align: center;">Abbildung 5: Draufsicht Bertone X1/9 Platzierung Batterie Module</figcaption>
 </figure>
 
-### 1.3.7 Mechanische Integration und Crashsicherheit (REESS-Befestigung)
+### Mechanische Integration und Crashsicherheit (REESS-Befestigung)
 
 Die physische Integration der Batteriegehäuse im Fahrzeug wurde unter Berücksichtigung der statischen und dynamischen Lastanforderungen konstruiert:
 
 * **Vorderer Batterie-Pack (3er-Modulblock):** Die Platzierung erfolgt im vorderen Kofferraum. Die mechanische Verbindung mit der Karosserie wird über vier hochfeste Stahlwinkel realisiert. Diese sind mit jeweils zwei M8-Schrauben am Pack-Gehäuse sowie mit 7/16" UNF-Schrauben am Fahrzeug-Zwischenboden und der Spritzwand verschraubt. Zur flächigen Lasteinleitung in das Karosserieblech kommen großflächige, FIA-konforme Gurt-Verstärkungsplatten aus Stahl auf den Außenseiten zum Einsatz.
 * **Hinterer Batterie-Pack (2er-Modulblock):** Die Montage erfolgt im Motorraum oberhalb des Getriebes (Position des ehemaligen Zylinderkopfs/Einspritzanlage). Zur Befestigung werden die fahrzeugseitigen Original-Aufnahmepunkte der oberen Werks-Motoraufhängung genutzt.
 
----
-
-### 1.3.8 Thermomanagement und elektronische Steuerung
+### Thermomanagement und elektronische Steuerung
 
 | Systemkomponente | Technische Ausführung / Spezifikation |
 | :--- | :--- |
@@ -171,7 +163,7 @@ Die physische Integration der Batteriegehäuse im Fahrzeug wurde unter Berücksi
 
 ---
 
-## 1.4 Ladesystem
+## Ladesystem
 
 | Parameter | Spezifikation / Angabe |
 | :--- | :--- |
@@ -179,12 +171,12 @@ Die physische Integration der Batteriegehäuse im Fahrzeug wurde unter Berücksi
 | **Ladebetriebsart** | Mode 2 und Mode 3 |
 | **Maximale Ladeleistung** | 3,3 kW |
 | **Ladespannung** | 230 V AC (einphasig, 16 A) |
-| **Ladezeit <br> (SOC 0–100 %)** | Ca. 8 Stunden für vollständige Ladung |
+| **Ladezeit (SOC 0–100 %)** | Ca. 8 Stunden für vollständige Ladung |
 | **Sicherheitsfunktionen** | Automatische Verriegelung des Ladekabels im Injektor während des Ladevorgangs |
 
 ---
 
-## 1.5 Hochvolt-Leitungen
+## Hochvolt-Leitungen
 
 | Parameter | Spezifikation / Angabe |
 | :--- | :--- |
@@ -194,7 +186,7 @@ Die physische Integration der Batteriegehäuse im Fahrzeug wurde unter Berücksi
 
 ---
 
-## 1.6 Sicherheitskomponenten
+## Sicherheitskomponenten
 
 | Parameter | Spezifikation / Angabe |
 | :--- | :--- |
@@ -204,18 +196,18 @@ Die physische Integration der Batteriegehäuse im Fahrzeug wurde unter Berücksi
 
 ---
 
-## 1.7 Elektrisches Netzsystem
+## Elektrisches Netzsystem
 
 **Ausführung:** Isoliertes Netz (IT-System)
 
-!!! info "Schnittstelle zur Ladeinfrastruktur (Schutzleiter PE)"
-    Es erfolgt fahrzeugseitig keine separate Überwachung des Schutzleiters (PE) im reinen IT-Fahrnetz. Die Schutzleiterverbindung wird beim Ladevorgang durch die externe Wallbox über das standardisierte Typ-2-Ladekabel hergestellt. Es wird regulatorisch vorausgesetzt, dass die speisende Ladeinfrastruktur einen normgerechten Schutzleiter bereitstellt und diesen eigenständig überwacht.
+!!! info ""
+    **Schnittstelle zur Ladeinfrastruktur (Schutzleiter PE):** Es erfolgt fahrzeugseitig keine separate Überwachung des Schutzleiters (PE) im reinen IT-Fahrnetz. Die Schutzleiterverbindung wird beim Ladevorgang durch die externe Wallbox über das standardisierte Typ-2-Ladekabel hergestellt. Es wird regulatorisch vorausgesetzt, dass die speisende Ladeinfrastruktur einen normgerechten Schutzleiter bereitstellt und diesen eigenständig überwacht.
 
 ---
 
-## 1.8 Gewichtsbilanz und Achslasten
+## Gewichtsbilanz und Achslasten
 
-### 1.8.1 Referenzwerte aus dem Fahrzeugschein (Serienzustand vor Umbau)
+### Referenzwerte aus dem Fahrzeugschein (Serienzustand vor Umbau)
 
 | Parameter | Zulässiger Wert |
 | :--- | :--- |
@@ -224,7 +216,7 @@ Die physische Integration der Batteriegehäuse im Fahrzeug wurde unter Berücksi
 | **Zulässige Achslast hinten** | 700 kg |
 | **Zulässiges Gesamtgewicht** | 1200 kg |
 
-### 1.8.2 Ermittelte Ist-Werte (Radlastwaage nach EV-Umbau)
+### Ermittelte Ist-Werte (Radlastwaage nach EV-Umbau)
 
 | Parameter | Gemessener Ist-Wert |
 | :--- | :--- |
@@ -232,13 +224,11 @@ Die physische Integration der Batteriegehäuse im Fahrzeug wurde unter Berücksi
 | **Ist-Gewicht Hinterachse** | 480 kg |
 | **Neues Gesamt-Leergewicht** | 995 kg |
 
----
-
-### 1.8.3 Umbaukonzept und Gewichtsverteilung (Zuladung)
+### Umbaukonzept und Gewichtsverteilung (Zuladung)
 
 Aufgrund der klassischen Mittelmotor-Architektur des Basisfahrzeugs und der strengen gesetzlichen Limitierung der vorderen Achslast auf maximal 510 kg wurde bei der Umrüstung besonderer Wert auf eine gesetzeskonforme, ausgewogene Gewichtsverteilung gelegt. 
 
-### 1.8.4 Bauliche Maßnahmen zur Einhaltung der Achslasten
+### Bauliche Maßnahmen zur Einhaltung der Achslasten
 
 Um eine Überladung der Vorderachse im regulären Fahr- und Passagierbetrieb konstruktiv auszuschließen, steht der vordere Gepäckraum durch die feste Positionierung des vorderen Batterie-Packs (105 kg) für weiteres Gepäck nicht mehr zur Verfügung. Er ist baulich so dimensioniert, dass er rein funktionsbedingt nur noch der Aufnahme des originalen Targa-Dachs dient.
 

@@ -4,7 +4,6 @@ site_author: "Frank Hielscher"
 
 theme:
   name: material
-  custom_dir: theme
   language: de
   font:
     text: Montserrat
@@ -62,10 +61,3 @@ nav:
 
 plugins:
   - search
-  - with-pdf:
-        author: Frank Hielscher
-        cover: true
-        back_cover: false
-        toc_title: "Abbildungsverzeichnis und Inhalt"
-        # Verhindert das erzwungene Starten auf ungeraden Seiten (stoppt Leerseiten)
-        page_size: A4
