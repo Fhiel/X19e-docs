@@ -47,7 +47,6 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.inlinehilite
   - def_list
-  - implicit_figures
 
 nav:
   - Home: index.md
