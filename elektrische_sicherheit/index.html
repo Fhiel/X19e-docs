@@ -1,0 +1,1162 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dokumentation für den Elektro-Umbau des Fiat Bertone X1/9 nach TÜV-Vorgaben">
+      
+      
+        <meta name="author" content="Frank Hielscher">
+      
+      
+      
+        <link rel="prev" href="../funktionssicherheit/">
+      
+      
+        <link rel="next" href="../sicherheit_des_energiespeichers/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>3 Elektrische Sicherheit - X1/9e - Technische Dokumentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Montserrat";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-elektrische-sicherheit" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href=".." title="X1/9e - Technische Dokumentation" class="md-header__button md-logo" aria-label="X1/9e - Technische Dokumentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            X1/9e - Technische Dokumentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3 Elektrische Sicherheit
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="In den dunklen Modus wechseln"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="In den dunklen Modus wechseln" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="In den hellen Modus wechseln"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="In den hellen Modus wechseln" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Hauptnavigation" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../kurzbeschreibung/" class="md-tabs__link">
+          
+  
+  
+  Inhalt
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../anhang/" class="md-tabs__link">
+          
+  
+  
+  Anhang
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="X1/9e - Technische Dokumentation" class="md-nav__button md-logo" aria-label="X1/9e - Technische Dokumentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    X1/9e - Technische Dokumentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhalt
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Inhalt
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kurzbeschreibung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Technische Kurzbeschreibung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../funktionssicherheit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 Funktionssicherheit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Elektrische Sicherheit
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Elektrische Sicherheit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#33-isolationsuberwachungssystem-imd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Isolationsüberwachungssystem (IMD)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Isolationsüberwachungssystem (IMD)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-parametrierte-schwellenwerte-und-signalisierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 Parametrierte Schwellenwerte und Signalisierung
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-systemintegration-und-zweistufige-zuschaltlogik-precharge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 Systemintegration und zweistufige Zuschaltlogik (Precharge)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#34-hochvoltkreise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Hochvoltkreise
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#35-ausfallsicherheit-elektrisches-netz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 Ausfallsicherheit elektrisches Netz
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 Ausfallsicherheit elektrisches Netz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351-leitungsquerschnitte-und-absicherung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.1 Leitungsquerschnitte und Absicherung
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352-spezifikation-der-hochvolt-komponenten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.2 Spezifikation der Hochvolt-Komponenten
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-konzept-des-softwarebasierten-uberlastschutzes-vcu-algorithmus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5.3 Konzept des softwarebasierten Überlastschutzes (VCU-Algorithmus)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5.3 Konzept des softwarebasierten Überlastschutzes (VCU-Algorithmus)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-mathematischer-nachweis-und-physikalische-herleitung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Mathematischer Nachweis und physikalische Herleitung
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-ablauf-der-softwareseitigen-regelung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Ablauf der softwareseitigen Regelung
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#36-spannungsfreischaltung-des-hv-systems-bei-wartung-und-notfall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Spannungsfreischaltung des HV-Systems bei Wartung und Notfall
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sicherheit_des_energiespeichers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Sicherheit des Energiespeichers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../umweltschutz_und_vertraeglichkeit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Umweltschutz und Umweltverträglichkeit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../umfassender_personenschutz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 Umfassender Personenschutz - Schutz für Dritte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anhang
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Anhang
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anhang/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anhang
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-elektrische-sicherheit">3 Elektrische Sicherheit</h1>
+<p>Die elektrische Sicherheit des umgerüsteten Fahrzeugs wurde gemäß den Maßgaben der DGUV 200-005 als HV-eigensicheres Fahrzeug ausgelegt, um einen vollständigen Berührungs- und Lichtbogenschutz des Hochvolt-Systems zu gewährleisten. Die Umsetzung folgt den Anforderungen der UN-Regelung Nr. 100 in ihrer aktuell gültigen Fassung.</p>
+<p>Um die geforderte HV-Eigensicherheit zu erreichen, wurden folgende Maßnahmen umgesetzt:</p>
+<ol>
+<li>
+<p><strong>Sicherheitsgerichtete Abschaltung des HV-Systems</strong></p>
+<ul>
+<li>Die <strong>kontrollierte Spannungsfreischaltung</strong> des HV-Systems erfolgt durch Batterie-Hauptrelais (Contactor) am Plus- und Minuspol <strong>jedes Batteriepacks</strong>. Diese Schütze (SMR – System Main Relay) werden vom Batteriemanagementsystem (SimpBMS) gesteuert.</li>
+<li>Bei <strong>kritischen Fehlern</strong> oder drastischen Grenzwertverletzungen werden die Hauptschütze unmittelbar geöffnet, was eine sofortige galvanische Trennung des HV-Stromkreises zur Folge hat.</li>
+<li>Ein <strong>Isolationsfehler</strong> wird durch das Isolationsüberwachungssystem (IMD) kontinuierlich detektiert und führt zur Startblockierung.</li>
+<li>Bei einem internen <strong>Kurzschluss</strong> innerhalb des HV-Systems wird die Überstromsicherung (Hauptsicherung) zerstört, wodurch der Kurzschluss unterbrochen und das Hochvoltsystem passiv abgeschaltet wird. Dies stellt eine <strong>sekundäre Schutzmaßnahme</strong> dar und ergänzt die primäre Sicherheitslogik.</li>
+</ul>
+</li>
+<li>
+<p><strong>Lichtbogen- und Berührschutz</strong></p>
+<ul>
+<li>Alle HV-Kabelverbindungen, die aus den REESS-Gehäusen herausführen, sind in <strong>lichtbogensicherer Ausführung</strong> über berührgeschützte Steckverbinder realisiert. Schraubverbindungen werden ausschließlich innerhalb der geschützten Gehäuse verwendet.</li>
+<li>Eine <strong>Pilotlinie (HV-Interlock - HVIL)</strong> wurde installiert. Diese 12-Volt-Ringleitung verbindet alle HV-Steckverbinder und Maintenance Service Disconnect (MSD)-Einrichtungen. Sie gewährleistet, dass das HV-System bei Manipulation oder unbedachtem Trennen von Komponenten augenblicklich spannungsfrei geschaltet wird, bevor ein direkter Kontakt zu spannungsführenden Teilen möglich ist.</li>
+</ul>
+</li>
+<li>
+<p><strong>Potentialausgleich und elektromagnetische Verträglichkeit</strong></p>
+<ul>
+<li>Alle Gehäuse des REESS, der HV-Distribution und die Schirmungen der HV-Leitungen sind miteinander und mit der Fahrzeugmasse (Karosserie) <strong>elektrisch leitend verbunden und geerdet</strong>, um einen sicheren Potentialausgleich zu gewährleisten und die elektromagnetische Verträglichkeit sicherzustellen.</li>
+</ul>
+</li>
+<li>
+<p><strong>Schutz gegen direktes Berühren (IP-Schutzklassen)</strong></p>
+<ul>
+<li>Alle spannungsführenden HV-Komponenten sind gemäß den Anforderungen der UN-Regelung Nr. 100 mit den folgenden Schutzgraden gegen direktes Berühren umgesetzt:<ul>
+<li><strong>IPXXD (drahtsicher):</strong> Im Fahrgast- und Laderaum</li>
+<li><strong>IPXXB (fingersicher):</strong> Am Rest des Fahrzeugs.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Sicherstellung durch HVIL und MSD:</strong>
+* <strong>HVIL-Steckverbinder:</strong> Bei getrennten HVIL-Steckverbindern (z. B. an den Batteriepacks) wird durch die sofortige Unterbrechung der Pilotlinie und die daraus resultierende Abschaltung der Schütze sichergestellt, dass die verbleibende Spannung <strong>innerhalb einer Sekunde auf unter 60 V DC absinkt</strong>. Dies verhindert eine Gefährdung beim Trennen von Hochvoltkomponenten am Fahrzeug.
+* <strong>Maintenance Service Disconnect (MSD):</strong> Jeder Batteriepack ist mit einem MSD ausgestattet. Diese können <strong>ohne Werkzeug</strong> gezogen werden und erfüllen im getrennten Zustand die Berührschutzanforderung nach <strong>IPXXB</strong>, wodurch ein sicheres Arbeiten am Fahrzeug ermöglicht wird.</p>
+</li>
+<li>
+<p><strong>Kennzeichnung von Abdeckung und Gehäuse der HV-Komponenten</strong></p>
+<ul>
+<li>Auf allen Abdeckungen und Gehäusen, deren Entfernung eine Berührung spannungsführender HV-Komponenten ermöglichen würde, ist ein Warnsymbol gemäß „Warnung vor gefährlicher elektrischer Spannung“ angebracht.</li>
+</ul>
+</li>
+</ol>
+<figure id="warning">
+  <img src="./Pictures/1000000100000240000000457D57448F.png">
+  <figcaption style="text-align: center;">Abbildung 7: Warnung vor gefährlicher elektrischer Spannung</figcaption>
+</figure>
+
+<ul>
+<li>Alle HV-Leitungen, die nicht direkt in geschlossenen Gehäusen verlegt sind, besitzen eine intensiv orangefarbene Außenhülle zur sofortigen, eindeutigen Erkennbarkeit.</li>
+</ul>
+<hr />
+<h2 id="33-isolationsuberwachungssystem-imd">3.3 Isolationsüberwachungssystem (IMD)</h2>
+<p>Zur kontinuierlichen Überwachung des galvanisch getrennten Hochvoltsystems (IT-Netz) ist ein <strong>BENDER iso165C-1</strong> Isolationsüberwachungssystem (IMD) integriert. Das System überwacht permanent den Isolationswiderstand (<i>R</i><sub>iso</sub>) zwischen allen spannungsführenden HV-Komponenten (Plus- und Minusseite) und der Fahrzeugmasse (Karosserie, Kl. 31).</p>
+<p>Damit wird die geforderte <strong>Ein-Fehler-Toleranz</strong> nach VdTÜV-Merkblatt 764 vollumfänglich erfüllt: Ein erster, einfacher Isolationsfehler führt nicht zu einer unmittelbaren Gefährdung, sondern wird zuverlässig detektiert und signalisiert.</p>
+<h3 id="331-parametrierte-schwellenwerte-und-signalisierung">3.3.1 Parametrierte Schwellenwerte und Signalisierung</h3>
+<p>Die Reaktion des Fahrzeugs auf eine Veränderung des Isolationszustandes ist zweistufig ausgeführt:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sicherheitsstufe</th>
+<th style="text-align: left;">Widerstandswert</th>
+<th style="text-align: left;">Systemreaktion / Signalisierung im Cockpit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Normalzustand</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(&gt; 400\text{ k}\Omega\)</span></td>
+<td style="text-align: left;">System arbeitet im Nennbereich. Keine optische oder akustische Warnung.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stufe 1: Vorwarnung</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\le 400\text{ k}\Omega\)</span></td>
+<td style="text-align: left;"><strong>Optische Signalisierung:</strong> Auf dem Kombi-Instrument wird permanent die Statusmeldung „ISO WARN“ ausgegeben. Der Fahrbetrieb bleibt uneingeschränkt möglich.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stufe 2: Hauptalarm</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(\le 250\text{ k}\Omega\)</span></td>
+<td style="text-align: left;"><strong>Interventionsschwelle:</strong> Auf dem Kombi-Instrument wird das Signal „ISO ERR“ visualisiert. Ein Schließen der HV-Schütze (Startvorgang) wird bei diesem Wert systemseitig blockiert.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Hinweis: Eine detaillierte Aufschlüsselung der Displaymeldungen auf den Anzeigegeräten befindet sich in Kapitel „Anzeigen und Bedienelemente“.</em></p>
+<hr />
+<h3 id="332-systemintegration-und-zweistufige-zuschaltlogik-precharge">3.3.2 Systemintegration und zweistufige Zuschaltlogik (Precharge)</h3>
+<p>Das Hochvoltsystem verfügt über eine sequenzielle Zuschaltlogik. Diese gewährleistet einen lastfreien Start der internen Batterieschütze sowie eine normgerechte Vorschaltladung (Precharge) der Zwischenkreiskondensatoren des Inverters, um schädliche Einschaltströme (Lichtbögen) zu verhindern.</p>
+<p>Ein fehlerfreier Isolationswiderstand (<i>R</i><sub>iso</sub> &gt; 250 k&Omega;) ist die zwingende logische Voraussetzung (Interlock) für die Einleitung der folgenden Start-Sequenz:</p>
+<ol>
+<li><strong>Zuschaltung REESS (Lastfrei):</strong> Bei Aktivierung der Startbereitschaft (Klemme 15) schließt das Batteriemanagementsystem (SimpBMS) zunächst die allpoligen Schütze innerhalb der beiden Batteriepacks (vorn und hinten). Da das nachgelagerte Inverter-Hauptschütz in der zentralen HV-Distribution zu diesem Zeitpunkt noch physisch geöffnet ist, erfolgt das Schließen der Batterie-Schütze völlig strom- und lastfrei. Ein Verschleiß der Schützkontakte wird konstruktiv ausgeschlossen. Das IMD überwacht ab diesem Moment die HV-Strecke bis zur HV-Distribution.</li>
+<li><strong>Vorschaltladung (Precharge) durch Inverter:</strong> Das System nutzt die integrierte Precharge-Logik des Motorcontrollers. Das eingesetzte Invertermodell (<em>NetGain HyPer-Drive X1, NON-ISOLATED Logic</em>) verfügt gemäß Herstellervorgabe (<em>NetGain User Manual Rev. A.1, S. 15</em>) über einen internen Precharge-Widerstand. Mit Anliegen der Steuerspannung lädt der Inverter seine internen Zwischenkreiskondensatoren kontrolliert hoch, bis das Spannungsniveau der Batteriespannung angeglichen ist.</li>
+<li><strong>Freigabe Hauptschütz (HV-Distribution):</strong> Erst nach erfolgreichem und plausibilisiertem Abschluss der Vorschaltladung steuert die Logik des Inverters das Inverter-Hauptschütz in der HV-Distribution an und schließt dieses. Damit ist das Gesamtsystem unterbrechungsfrei und bauteilschonend mit dem Antriebsstrang verbunden. Die volle Leistung des Traktionsantriebs wird freigegeben. Das IMD überwacht nun kontinuierlich das gesamte, geschlossene HV-Bordnetz.</li>
+</ol>
+<hr />
+<h2 id="34-hochvoltkreise">3.4 Hochvoltkreise</h2>
+<p>Alle Hochvoltkreise des Antriebssystems sind als <strong>isoliertes Netz (IT-System)</strong> ausgeführt. Die Leitungen des Plus- und Minuspols werden vollständig vom Fahrzeugchassis getrennt geführt und sind zu keinem Zeitpunkt mit der Fahrzeugmasse verbunden.</p>
+<hr />
+<h2 id="35-ausfallsicherheit-elektrisches-netz">3.5 Ausfallsicherheit elektrisches Netz</h2>
+<p>Das elektrische Netz des Antriebssystems ist so dimensioniert und ausgelegt, dass unter allen vorhersehbaren Betriebsbedingungen und Lastfällen ein vorzeitiges Versagen ausgeschlossen ist (gemäß VdTÜV-Merkblatt 764, Kap. 4.5). Die Absicherung teilt sich auf in einen hardwarebasierten Kurzschlussschutz und einen softwarebasierten Überlastschutz.</p>
+<h3 id="351-leitungsquerschnitte-und-absicherung">3.5.1 Leitungsquerschnitte und Absicherung</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Systemkomponente</th>
+<th style="text-align: center;">Strombelastbarkeit Leitungen (mm²)</th>
+<th style="text-align: center;">Sicherung (A)</th>
+<th style="text-align: left;">Schutzfunktion (Software)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>REESS und Inverter</strong> (38.000 W)</td>
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">630 (Schmelz)</td>
+<td style="text-align: left;">Begrenzung auf max. 200 A DC (VCU-Algorithmus)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ladegerät / Charger</strong> (3.300 W)</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">40 (Schmelz)</td>
+<td style="text-align: left;">Elektronische Überwachung durch BMS und Ladegerät</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Motor / Inverter</strong> (38.000 W)</td>
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">200 (MCU)</td>
+<td style="text-align: left;">Elektronisch über Inverter: Begrenzung auf max. 154 Nm Drehmoment</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DC/DC Converter</strong> (1.000 W)</td>
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">12 (Schmelz)</td>
+<td style="text-align: left;">Elektronische Begrenzung im Wandler</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Heizung / Heating</strong> (500 W)</td>
+<td style="text-align: center;">0,75</td>
+<td style="text-align: center;">5 (Schmelz)</td>
+<td style="text-align: left;">Thermische Abschaltung</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info hinweis zur absicherung des motors">
+<p class="admonition-title">Info</p>
+<p>Die Absicherung des Motors ist in der Motor Control Unit (MCU) integriert und wird elektronisch überwacht.</p>
+</div>
+<h3 id="352-spezifikation-der-hochvolt-komponenten">3.5.2 Spezifikation der Hochvolt-Komponenten</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Komponente</th>
+<th style="text-align: left;">Hersteller / Typ</th>
+<th style="text-align: center;">Nennstrom (Dauer)</th>
+<th style="text-align: center;">Spitzenstrom (Peak)</th>
+<th style="text-align: left;">Normkonformität / Nachweis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>HV-Kabel</strong></td>
+<td style="text-align: left;">Huber + Suhner</td>
+<td style="text-align: center;">ca. 350 A</td>
+<td style="text-align: center;">&gt; 700 A</td>
+<td style="text-align: left;">ISO 19642 (Automotive Standard)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>HV-Steckverbinder</strong></td>
+<td style="text-align: left;">Amphenol / Radsert</td>
+<td style="text-align: center;">200 A</td>
+<td style="text-align: center;">ca. 400 A</td>
+<td style="text-align: left;">IEC 61984 / UL 1977</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hauptschütze</strong></td>
+<td style="text-align: left;">Gigavac</td>
+<td style="text-align: center;">350 A</td>
+<td style="text-align: center;">&gt; 1.000 A</td>
+<td style="text-align: left;">UL 508 / IEC 60947</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hauptsicherung</strong></td>
+<td style="text-align: left;">Eaton Bussmann EBSD</td>
+<td style="text-align: center;">630 A</td>
+<td style="text-align: center;">Kurzschluss-Abschaltung</td>
+<td style="text-align: left;">IEC 60269-4 / Träge Charakteristik</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info hinweis zum überlastschutz der steckverbinder">
+<p class="admonition-title">Info</p>
+<p>Da die Steckverbinder für einen nominalen Dauerstrom von 200 A ausgelegt sind, wird der maximale DC-Batteriestrom durch die VCU (ESP32) über das BMS-Proxy-CAN-Protokoll (ID 0x246) bei steigender Motordrehzahl dynamisch begrenzt (siehe Software-Berechnung in Kap. 3.5.3). Ein thermisches Versagen der Steckverbinder wird dadurch zuverlässig verhindert.</p>
+</div>
+<hr />
+<h3 id="353-konzept-des-softwarebasierten-uberlastschutzes-vcu-algorithmus">3.5.3 Konzept des softwarebasierten Überlastschutzes (VCU-Algorithmus)</h3>
+<p>Um die im System verbauten HV-Steckverbinder (Spezifikation: 200 A Nennstrom) vor thermischer Überlastung im Dauerbetrieb zu schützen, wird ein dynamischer Schutzalgorithmus in der Vehicle Control Unit (VCU / ESP32) implementiert. Da der Inverter (<em>SME AC-X1</em>) im Torque-Modus betrieben wird, erfolgt die Strombegrenzung indirekt über eine drehzahlabhängige Reduzierung des Drehmoment-Sollwerts entlang einer definierten Hüllkurve.</p>
+<h4 id="a-mathematischer-nachweis-und-physikalische-herleitung">A. Mathematischer Nachweis und physikalische Herleitung</h4>
+<p>Die maximale elektrische Leistung bei einer Nennspannung von 114 V DC und einem maximal zulässigen Dauerstrom der Steckverbinder von 200 A beträgt:</p>
+<div class="arithmatex">
+$$P_{\text{el, max}} = 114\text{ V} \times 200\text{ A} = 22.800\text{ W} = 22,8\text{ kW}$$
+</div>
+
+<p>Unter Berücksichtigung eines konservativen Gesamtwirkungsgrades von &eta; = 90 % (Inverter und Motor zusammen) ergibt sich die maximal zulässige mechanische Leistung an der Motorwelle, bevor die thermische Grenze der Steckverbinder erreicht wird:</p>
+<div class="arithmatex">
+$$P_{\text{mech, max}} = P_{\text{el, max}} \times 0,90 = 22.800\text{ W} \times 0,90 = 20.520\text{ W} = 20,52\text{ kW}$$
+</div>
+
+<p>Die mechanische Leistung eines rotierenden Motors berechnet sich aus dem Drehmoment (<i>M</i> in Nm) und der Drehzahl (<i>n</i> in U/min):</p>
+<div class="arithmatex">
+$$P_{\text{mech}} = M \times 2\pi \times \frac{n}{60}$$
+</div>
+
+<p>Umgestellt nach der Drehzahl (<i>n</i>) unter Einsatz des gewünschten Hardware-Drehmomentlimits zum Schutz des Getriebes (<i>M</i> = 154 Nm) ergibt sich der exakte Umschaltpunkt der Regelung:</p>
+<div class="arithmatex">
+$$n = \frac{P_{\text{mech, max}} \times 60}{M \times 2\pi} = \frac{20.520\text{ W} \times 60}{154\text{ Nm} \times 2\pi} = \frac{1.231.200}{967,61} \approx 1.272,4\text{ U/min}$$
+</div>
+
+<p>Für alle Drehzahlen oberhalb dieses Schnittpunktes lässt sich das maximal zulässige Drehmoment (<i>M</i><sub>Limit</sub> in Nm) als hyperbolische Funktion beschreiben, bei der der DC-Batteriestrom exakt konstant auf der 200 A-Grenze verbleibt:</p>
+<div class="arithmatex">
+$$M_{\text{Limit}}(n) = \frac{P_{\text{mech, max}}}{\omega} = \frac{20.520\text{ W} \times 60}{2\pi \times n} \approx \frac{127.240}{n}$$
+</div>
+
+<hr />
+<h4 id="b-ablauf-der-softwareseitigen-regelung">B. Ablauf der softwareseitigen Regelung</h4>
+<p>Der in der VCU hinterlegte Algorithmus teilt das Kennfeld basierend auf der errechneten Grenzdrehzahl von <strong>1.272 U/min</strong> in zwei distinkte Regelbereiche auf:</p>
+<dl>
+<dt>Bereich 1: <i>n</i> &le; 1.272 U/min (Konstantes Drehmoment)</dt>
+<dd>Das maximal vom Fahrer angeforderte Drehmoment wird bis zum vordefinierten Hardware-Schutzlimit von <strong>154 Nm</strong> vollständig freigegeben. In diesem Drehzahlbereich bleibt der DC-Batteriestrom anfahrbedingt und aufgrund der geringen mechanischen Leistung weit unter der kritischen 200 A-Schwelle (z. B. ca. 78 A bei 500 U/min).</dd>
+<dt>Bereich 2: <i>n</i> &gt; 1.272 U/min (Konstante Leistung / Hyperbolische Drosselung)</dt>
+<dd>Der VCU-Algorithmus berechnet zyklisch bei jeder eingehenden CAN-Botschaft des Motors das reduzierte Drehmoment-Limit (<i>M</i><sub>Limit</sub>). Dieses wird als maximal zulässiger Prozentwert (<em>limit_percent</em>) über das BMS-Proxy-Protokoll (CAN-ID 0x246) an den Inverter übermittelt. Das Drehmoment wird präzise entlang der 20,52 kW-Hyperbel gedrosselt. Ein Ansteigen des DC-Batteriestroms über 200 A wird dadurch softwareseitig aktiv und unfehlbar unterbunden.</dd>
+</dl>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Die genaue softwareseitige Implementierung (C++ Quellcode der VCU auf dem ESP32) ist im Anhang unter Kapitel 8.13 vollumfänglich dokumentiert.*</p>
+</div>
+<h2 id="36-spannungsfreischaltung-des-hv-systems-bei-wartung-und-notfall">3.6 Spannungsfreischaltung des HV-Systems bei Wartung und Notfall</h2>
+<p>Zur Durchführung von Wartungsarbeiten oder in Notfallsituationen kann das HV-System schnell und sicher spannungsfrei geschaltet werden:</p>
+<ul>
+<li><strong>Maintenance Service Disconnect (MSD):</strong> An jedem Batteriepack ist ein MSD-Stecker vorhanden, der ohne Werkzeug zugänglich ist (nach Öffnen des vorderen Kofferraums bzw. des Motorraums). Das Ziehen des MSD-Steckers unterbricht die interne Serienschaltung des Batteriepacks und somit physikalisch den HV-Stromkreis im gesamten Fahrzeug.</li>
+<li><strong>Pilotlinie (HVIL):</strong> Die 12-Volt-Pilotlinie ist integraler Bestandteil aller HV-Steckverbinder. Die Gestaltung der Steckerkontakte gewährleistet, dass die HVIL-Verbindung bei einem Trennvorgang <strong>immer zuerst unterbrochen</strong> wird. Dies führt zur sofortigen Abschaltung der Hochvolt-Hauptrelais. Erst im Anschluss daran, bei weiterer Trennung der Steckverbindung, werden die HV-Kontakte selbst gelöst, wodurch eine <strong>lichtbogensichere Trennung</strong> sichergestellt wird.</li>
+<li><strong>Allpolige Abschaltung:</strong> Das HV-System wird seitens des REESS immer allpolig (Plus- und Minuspol mit separaten Schützen) innerhalb der Gehäuse abgeschaltet.</li>
+<li><strong>Notwendigkeit des MSD:</strong> Obwohl die Pilotlinie das HV-System auch beim Abklemmen der 12-Volt-Bordbatterie spannungsfrei schaltet, ist das <strong>Abziehen des MSD-Steckers</strong> für Wartungsarbeiten am Hochvoltsystem <strong>zwingend vorgeschrieben</strong>, um eine physische Trennung und somit höchste Sicherheit zu gewährleisten.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

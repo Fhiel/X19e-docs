@@ -1,0 +1,1505 @@
+
+<!doctype html>
+<html lang="de" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Dokumentation für den Elektro-Umbau des Fiat Bertone X1/9 nach TÜV-Vorgaben">
+      
+      
+        <meta name="author" content="Frank Hielscher">
+      
+      
+      
+        <link rel="prev" href="../kurzbeschreibung/">
+      
+      
+        <link rel="next" href="../elektrische_sicherheit/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>2 Funktionssicherheit - X1/9e - Technische Dokumentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Montserrat";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/custom.css">
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#funktionssicherheit" class="md-skip">
+          Zum Inhalt
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Kopfzeile">
+    <a href=".." title="X1/9e - Technische Dokumentation" class="md-header__button md-logo" aria-label="X1/9e - Technische Dokumentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            X1/9e - Technische Dokumentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2 Funktionssicherheit
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="In den dunklen Modus wechseln"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="In den dunklen Modus wechseln" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="In den hellen Modus wechseln"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="In den hellen Modus wechseln" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Suche" placeholder="Suche" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Suche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Zurücksetzen" aria-label="Zurücksetzen" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Hauptnavigation" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../kurzbeschreibung/" class="md-tabs__link">
+          
+  
+  
+  Inhalt
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../anhang/" class="md-tabs__link">
+          
+  
+  
+  Anhang
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="X1/9e - Technische Dokumentation" class="md-nav__button md-logo" aria-label="X1/9e - Technische Dokumentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    X1/9e - Technische Dokumentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inhalt
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Inhalt
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kurzbeschreibung/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Technische Kurzbeschreibung
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 Funktionssicherheit
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 Funktionssicherheit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Inhaltsverzeichnis">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ladevorgang-und-betriebssicherheit-technisches-sicherheitskonzept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ladevorgang und Betriebssicherheit (Technisches Sicherheitskonzept)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ladevorgang und Betriebssicherheit (Technisches Sicherheitskonzept)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technische-basisdaten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Technische Basisdaten
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sicherheitslogik-bei-ladebeginn-handshake-verriegelung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sicherheitslogik bei Ladebeginn (Handshake &amp; Verriegelung)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schutzleiteranbindung-pe-und-isolationsuberwachung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Schutzleiteranbindung (PE) und Isolationsüberwachung
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sicherheitslogik-bei-beendigung-des-ladevorgangs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sicherheitslogik bei Beendigung des Ladevorgangs
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fahrbetrieb-betriebssicherheit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fahrbetrieb (Betriebssicherheit)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fahrbetrieb (Betriebssicherheit)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aktivierung-der-fahrbereitschaft-start-sequenz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aktivierung der Fahrbereitschaft (Start-Sequenz)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fahren-anhalten-und-umsteuerung-fahrtrichtung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fahren, Anhalten und Umsteuerung (Fahrtrichtung)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#warnsysteme-beim-verlassen-des-fahrzeugs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Warnsysteme beim Verlassen des Fahrzeugs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thermomanagement-und-leistungsverminderung-derating" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thermomanagement und Leistungsverminderung (Derating)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sicherstellung-des-antriebs-dimensionierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sicherstellung des Antriebs (Dimensionierung)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Sicherstellung des Antriebs (Dimensionierung)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leistung-des-motors-und-elektrische-dimensionierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Leistung des Motors und elektrische Dimensionierung
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fahrleistungen-und-reichweitenabschatzung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fahrleistungen und Reichweitenabschätzung
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fahrleistungen und Reichweitenabschätzung">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-anfahrvermogen-an-steigungen-gema-vdtuv-764-kap-33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A. Anfahrvermögen an Steigungen (gemäß VdTÜV 764, Kap. 3.3)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-energieverbrauch-und-reichweitenprognose-konstant-80-kmh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B. Energieverbrauch und Reichweitenprognose (konstant 80 km/h)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parametrierung-des-elektrischen-antriebs-softwareseitige-begrenzungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parametrierung des elektrischen Antriebs (Softwareseitige Begrenzungen)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mindestladezustand-des-energiespeichers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mindestladezustand des Energiespeichers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#heizungluftung-sowie-entfrostung-trocknung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heizung/Lüftung sowie Entfrostung, Trocknung
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bremse" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bremse
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lenkung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lenkung
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grundfunktion-der-elektrischen-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Grundfunktion der elektrischen Systeme
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#batterie-und-batteriemanagementsystem-reess-bms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Batterie und Batteriemanagementsystem (REESS, BMS)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Batterie und Batteriemanagementsystem (REESS, BMS)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reess-energiespeicher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        REESS (Energiespeicher)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bms-batteriemanagementsystem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BMS (Batteriemanagementsystem)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aktive-systemreaktion-bei-grenzwertverletzungen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aktive Systemreaktion bei Grenzwertverletzungen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mechanische-antriebsintegration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mechanische Antriebsintegration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Mechanische Antriebsintegration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motor-getriebe-adapterplatte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motor-Getriebe-Adapterplatte
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wellenkupplung" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wellenkupplung
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motoraufhangung-motor-cradle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Motoraufhängung (Motor Cradle)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../elektrische_sicherheit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 Elektrische Sicherheit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sicherheit_des_energiespeichers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Sicherheit des Energiespeichers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../umweltschutz_und_vertraeglichkeit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Umweltschutz und Umweltverträglichkeit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../umfassender_personenschutz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 Umfassender Personenschutz - Schutz für Dritte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anhang
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Anhang
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../anhang/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Anhang
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="funktionssicherheit">Funktionssicherheit</h1>
+<h2 id="ladevorgang-und-betriebssicherheit-technisches-sicherheitskonzept">Ladevorgang und Betriebssicherheit (Technisches Sicherheitskonzept)</h2>
+<h3 id="technische-basisdaten">Technische Basisdaten</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Spezifikation / Angabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ladeanschluss</strong></td>
+<td style="text-align: left;">Typ 2 (gemäß DIN EN 62196-2), fahrzeugseitiges Inlet (Berührschutz nach IPXXB)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ladebetriebsart</strong></td>
+<td style="text-align: left;">Mode 2 oder Mode 3 (AC-Laden)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Max. Ladeleistung</strong></td>
+<td style="text-align: left;">3,3 kW (einphasig)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Onboard-Ladegerät</strong></td>
+<td style="text-align: left;">Elcon TC Charger HK-MF-108-32 (galvanisch getrennt)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sicherheitslogik-bei-ladebeginn-handshake-verriegelung">Sicherheitslogik bei Ladebeginn (Handshake &amp; Verriegelung)</h3>
+<p>Die Initiierung des Ladevorgangs erfolgt über einen normgerechten Ablauf zwischen dem Fahrzeug-Inlet und der Ladeinfrastruktur (Wallbox/Ladesäule):</p>
+<ol>
+<li><strong>Steckerkennung (PP-Kontakt):</strong> Beim Einstecken erfasst das dedizierte Ladecontroller-Modul (<strong>„SimpCharge“</strong>) den Widerstandswert des Proximity Pilot (PP) und erkennt die physische Präsenz des Ladekabels.</li>
+<li><strong>Wegfahrsperre (Drive Inhibit gem. VdTÜV 764):</strong> Unverzüglich nach der PP-Erkennung setzt das gekoppelte Batteriemanagementsystem (SimpBMS) das Hardware-Sicherheits-Signal <em>Drive Inhibit</em>. <ul>
+<li>Der Inverter erhält software- und hardwareseitig keine Traktionsfreigabe.</li>
+<li>Auf dem Cockpit-Display wird der Status „CHARGE“ dauerhaft visualisiert. Ein Umschalten in den Modus „DRIVE“ ist blockiert.</li>
+</ul>
+</li>
+<li><strong>Leistungserfassung (CP-Kontakt):</strong> Das SimpCharge-Modul wertet das PWM-Signal des Control Pilot (CP) aus und ermittelt die netzseitige maximale Leistungsvorgabe.</li>
+<li><strong>Verriegelung &amp; Freigabe:</strong> Nach erfolgreichem Handshake verriegelt der elektromechanische Aktuator den Stecker im Inlet. Das SimpBMS schließt die Ladeschütze und übermittelt den Ladebefehl via CAN-Bus an das Elcon-Ladegerät.</li>
+</ol>
+<h3 id="schutzleiteranbindung-pe-und-isolationsuberwachung">Schutzleiteranbindung (PE) und Isolationsüberwachung</h3>
+<ul>
+<li><strong>Potentialausgleich:</strong> Während des gesamten AC-Ladevorgangs ist das Fahrzeugchassis über den PE-Leiter des Typ-2-Kabels niederohmig mit dem Erdungspotential der Ladeinfrastruktur verbunden.</li>
+<li><strong>Galvanische Trennung:</strong> Das Onboard-Ladegerät gewährleistet eine strikte galvanische Trennung zwischen der AC-Netzseite und der DC-Hochvoltseite des Fahrzeugs.</li>
+<li><strong>HV-Isolationsprüfung:</strong> Das integrierte Isolationsüberwachungssystem (IMD) bleibt permanent aktiv und führt vor dem endgültigen Zuschalten der Hochvoltschütze einen automatischen Selbsttest durch.</li>
+</ul>
+<h3 id="sicherheitslogik-bei-beendigung-des-ladevorgangs">Sicherheitslogik bei Beendigung des Ladevorgangs</h3>
+<p>Das SimpBMS überwacht fortlaufend die Einzelzellspannungen und den Ladezustand (SoC). Der Abschalt- und Trennvorgang ist sequentiell gegen Lichtbogenbildung und Fehlbedienung geschützt:</p>
+<ol>
+<li><strong>Ladestopp:</strong> Bei Erreichen der Ladeschlussspannung kommandiert das BMS das Ladegerät zur stufenlosen Leistungsabregelung bis auf 0 Ampere.</li>
+<li><strong>Unterbrechung unter Last ausgeschlossen:</strong> Die elektromechanische Verriegelung des Ladekabels im Fahrzeug-Inlet bleibt nach Ladeende aktiv. Eine physische Trennung des Kabels unter Last ist unmöglich.</li>
+<li><strong>Manuelle Abschalt-Sequenz:</strong> Zum bewussten Beenden des Ladevorgangs wird ein separater Taster im Innenraum betätigt.<ul>
+<li><strong>Schritt A:</strong> Der Taster unterbricht die CP-Signalleitung.</li>
+<li><strong>Schritt B:</strong> Die Ladeinfrastruktur schaltet die AC-Spannung augenblicklich lastfrei ab.</li>
+<li><strong>Schritt C:</strong> Erst nach Spannungsfreiheit gibt der Aktuator den Stecker mechanisch frei.</li>
+<li><strong>Schritt D:</strong> Nach dem Abziehen des Steckers hebt das BMS das <em>Drive Inhibit</em>-Signal auf.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="fahrbetrieb-betriebssicherheit">Fahrbetrieb (Betriebssicherheit)</h2>
+<p>Um eine Gefährdung des Fahrers oder Dritter auszuschließen, ist das Antriebssystem mit harten Verriegelungsbedingungen (Interlocks) ausgestattet. Die Einhaltung der funktionalen Sicherheitsanforderungen gemäß VdTÜV-Merkblatt 764 (Kapitel 3.2) wird wie folgt umgesetzt:</p>
+<h3 id="aktivierung-der-fahrbereitschaft-start-sequenz">Aktivierung der Fahrbereitschaft (Start-Sequenz)</h3>
+<p>Die Zuschaltung der Hochvolt-Traktionsbatterie zum Inverter erfordert eine zwingende logische und zeitliche Reihenfolge. Fehlt eine der folgenden Bedingungen, wird die HV-Zuschaltung blockiert:</p>
+<ul>
+<li><strong>Lade-Interlock:</strong> Das Typ-2-Ladekabel muss physisch vom Fahrzeug getrennt sein (Signal <em>Drive Inhibit</em> inaktiv).</li>
+<li><strong>Mechanische Freigabe:</strong> Die Diebstahlsicherung (Lenkradschloss) muss durch den mechanischen Zündschlüssel entriegelt und auf Position 1 (Klemme 15R) gedreht sein.</li>
+<li><strong>Fahrtrichtungs-Interlock:</strong> Der elektrische Fahrtrichtungsschalter muss sich zwingend in der neutralen Position „N“ befinden.</li>
+<li><strong>Brems-Interlock:</strong> Das Bremspedal muss aktiv betätigt sein (Signalabgriff redundant über den mechanisch-hydraulischen Bremslichtschalter), um ein unkontrolliertes Anrollen beim Schließen der Schütze zu verhindern.</li>
+</ul>
+<div class="admonition success">
+<p class="admonition-title">Systemfreigabe</p>
+<p>Sind alle Bedingungen erfüllt und wird der Schlüssel auf Position 2 (Klemme 15) gedreht, fahren die Steuergeräte (MCU, BMS, VCU) hoch. Das IMD führt den Selbsttest durch und zeigt den Isolationswiderstand im Kombi-Instrument an. Die HV-Schütze schließen. Der Zustand „aktiver Fahrbetrieb möglich“ wird durch die optische Anzeige <strong>„DRIVE“</strong> im BMS-Display signalisiert.</p>
+</div>
+<hr />
+<h3 id="fahren-anhalten-und-umsteuerung-fahrtrichtung">Fahren, Anhalten und Umsteuerung (Fahrtrichtung)</h3>
+<p>Maßnahmen gegen unbeabsichtigte Beschleunigung und fehlerhafte Umsteuerung im Fahrbetrieb:</p>
+<ul>
+<li><strong>Zweikanaliges Fahrpedal:</strong> Die Drehmomentanforderung erfolgt über ein redundantes, zweikanaliges Analog-Potentiometer. Die MCU führt fortlaufend eine Plausibilitätsprüfung beider Signalstränge durch. Bei einer unzulässigen Signaldifferenz oder einem Leitungsbruch wird das System sofort in einen sicheren Zustand geregelt (Leistungsbegrenzung oder sofortiger Not-Stopp).</li>
+<li><strong>Neutral-Start-Sicherheit:</strong> Eine direkte Umschaltung der Fahrtrichtung zwischen Vorwärts (D) und Rückwärts (R) unter Last wird durch die MCU blockiert. Ein Richtungswechsel erfordert zwingend den Stillstand des Fahrzeugs und den bewussten Zwischenschritt über die Position „N“ (Neutral). Die gewählte Fahrtrichtung wird permanent im zentralen Blickfeld angezeigt.</li>
+<li><strong>Drehzahlüberwachung:</strong> Die Drehrichtung und die exakte Drehzahl des Motors werden sicherheitsgerichtet durch einen integrierten elektronischen Geber (3-Pin Hall-Effekt-Sensor) kontinuierlich erfassungstechnisch überwacht und an die MCU gemeldet.</li>
+</ul>
+<hr />
+<h3 id="warnsysteme-beim-verlassen-des-fahrzeugs">Warnsysteme beim Verlassen des Fahrzeugs</h3>
+<p>Zur Vermeidung eines ungesicherten Verlassens des fahrbereiten Fahrzeugs ist eine akustische Warnlogik (Buzzer) integriert, welche die Signale der Türkontaktschalter auswertet:</p>
+<ul>
+<li><strong>Szenario 1 (Aktive Fahrbereitschaft):</strong> Öffnet der Fahrer die Fahrertür, während das HV-System noch aktiv ist (Zündung auf Position 2), ertönt ein permanenter, unüberhörbarer Warnton.</li>
+<li><strong>Szenario 2 (Fehlende Wegrollsicherung):</strong> Wird die Zündung ausgeschaltet (Position 0), aber die mechanische Handbremse wurde nicht angezogen, generiert das System beim Öffnen der Fahrertür ebenfalls ein akustisches Warnsignal.</li>
+</ul>
+<hr />
+<h3 id="thermomanagement-und-leistungsverminderung-derating">Thermomanagement und Leistungsverminderung (Derating)</h3>
+<p>Das Gesamtsystem schützt sich über eine mehrstufige Kaskade vor kritischen thermischen Zuständen und warnt den Fahrer rechtzeitig vor einer systemseitigen Abschaltung:</p>
+<ul>
+<li><strong>Stufe 1 (Aktive Kühlung):</strong> Die MCU überwacht die Inverter- und Motortemperaturen. Bei ansteigenden Werten steuert die VCU automatisch die elektrische Tesla-Kühlmittelpumpe sowie die Zusatzlüfter an, um die thermische Energie abzuführen.</li>
+<li><strong>Stufe 2 (Optische Vorwarnung):</strong> Steigt die Temperatur trotz maximaler Kühlleistung weiter an, wird im Kombi-Instrument die Warnmeldung <strong>„TEMP“</strong> ausgegeben. Der Fahrer wird hierdurch aufgefordert, die Leistungsentnahme proaktiv und manuell zu reduzieren.</li>
+<li><strong>Stufe 3 (Automatisches Hard-Derating):</strong> Bei Erreichen des kritischen Temperatur-Grenzwerts greift die MCU autonom ein und begrenzt die maximale Leistungsabgabe schlagartig auf <strong>50 %</strong>. Das Fahrzeug bleibt zur Gefahrenabwehr voll manövrierfähig (kein plötzlicher Vortriebsverlust im fließenden Verkehr), die Hardware wird jedoch effektiv vor thermischer Zerstörung geschützt.</li>
+</ul>
+<hr />
+<h2 id="sicherstellung-des-antriebs-dimensionierung">Sicherstellung des Antriebs (Dimensionierung)</h2>
+<p>Dieses Kapitel belegt die rechnerische Leistungsfähigkeit des elektrischen Antriebsstrangs sowie die Speicherkapazität der Hochvoltbatterie (REESS). Es dient dem Nachweis, dass die Anforderungen an Fahrperformance, Reichweite und Steigfähigkeit gemäß den gesetzlichen Vorgaben sicher erfüllt werden.</p>
+<h3 id="leistung-des-motors-und-elektrische-dimensionierung">Leistung des Motors und elektrische Dimensionierung</h3>
+<p>Der eingesetzte Elektromotor (NetGain HyPer 9) verfügt über eine nominelle Dauerleistung von 38 kW. Die Hochvoltbatterie besteht aus 5 Tesla Model S Modulen mit einer Gesamtkapazität von 26,5 kWh bei einer Nennspannung von 114 V DC. </p>
+<p>Nachfolgend wird die physische Fähigkeit des Speichers zur Bereitstellung der Ströme hergeleitet:</p>
+<ul>
+<li><strong>Strombedarf bei kontinuierlicher Dauerleistung (38 kW):</strong>
+  Zur Bereitstellung der Dauerleistung von 38 kW bei der System-Nennspannung von 114 V DC ergibt sich ein kontinuierlicher Strombedarf von:</li>
+</ul>
+<div class="arithmatex">
+$$I_{\text{Motor}_{\text{Dauer}}} = \frac{P}{U_{\text{Batt}}} = \frac{38.000\text{ W}}{114\text{ V}} \approx 333,3\text{ A}$$
+</div>
+
+<ul>
+<li><strong>Rechnerische Batteriekapazität (<span class="arithmatex">\(Q_{\text{Batt}}\)</span>):</strong>
+  Aus der bereitgestellten Energie von 26,5 kWh und der Nennspannung resultiert eine Gesamtkapazität von:</li>
+</ul>
+<div class="arithmatex">
+$$Q_{\text{Batt}} = \frac{\text{Energie (kWh)} \times 1000}{U_{\text{Standard}}} = \frac{26,5\text{ kWh} \times 1000}{114\text{ V}} \approx 232,5\text{ Ah}$$
+</div>
+
+<ul>
+<li><strong>Maximaler physikalischer Entladestrom (C-Rating):</strong>
+  Basierend auf dem konservativen C-Rating von 3 (Zell-Herstellerangabe für kontinuierliche Entladung) kann der Akkupack theoretisch folgenden maximalen Dauerstrom abgeben:</li>
+</ul>
+<div class="arithmatex">
+$$I_{\text{Batt}_{\text{max}}} = Q_{\text{Batt}} \times C_{\text{Rating}} = 232,5\text{ Ah} \times 3 \approx 697,5\text{ A}$$
+</div>
+
+<ul>
+<li><strong>Maximale physikalische Leistungsabgabe der Batterie:</strong>
+  Daraus resultiert eine maximale, vom Energiespeicher physisch bereitstellbare Leistung von:</li>
+</ul>
+<div class="arithmatex">
+$$P_{\text{Batt}_{\text{max}}} = U_{\text{Batt}} \times I_{\text{Batt}_{\text{max}}} = 114\text{ V} \times 697,5\text{ A} \approx 79.515\text{ W} \approx 79,5\text{ kW}$$
+</div>
+
+<div class="admonition success">
+<p><strong>Fazit zur elektrischen Dimensionierung:</strong> Die physikalische Belastbarkeit der Batterie (<span class="arithmatex">\(79,5\text{ kW}\)</span>) übertrifft die Motordauerleistung (<span class="arithmatex">\(38\text{ kW}\)</span>) spürbar. Auch für die kurzzeitige Spitzenleistung des Inverters (<span class="arithmatex">\(95\text{ kW}\)</span> für max. 10 Sekunden) bietet das Gesamtsystem ein inhärent sicheres Fundament, da die Zellen kurzzeitig Ströme weit über <span class="arithmatex">\(3\text{C}\)</span> schadlos abgeben können.</p>
+</div>
+<hr />
+<h3 id="fahrleistungen-und-reichweitenabschatzung">Fahrleistungen und Reichweitenabschätzung</h3>
+<p>Die folgenden mechanischen Berechnungen basieren auf den ermittelten Ist-Werten des umgerüsteten Fahrzeugs (<span class="arithmatex">\(m = 995\text{ kg}\)</span> Leergewicht).</p>
+<p><strong>Fahrzeug-Eckdaten für die Simulation:</strong> * <strong>Effektiver Raddurchmesser (185/60 R13):</strong> 0,552 m (Radius <span class="arithmatex">\(r = 0,276\text{ m}\)</span>)<br />
+<em> </em><em>Luftwiderstandsbeiwert (<span class="arithmatex">\(c_{\text{w}}\)</span>):</em><em> 0,36 (konservative Schätzung für Karosserieform)<br />
+</em> <strong>Stirnfläche (<span class="arithmatex">\(A\)</span>):</strong> ca. 1,7 m²<br />
+<em> </em><em>Gesamtwirkungsgrad Antrieb (<span class="arithmatex">\(\eta\)</span>):</em><em> ca. 90 % (Motor inkl. Inverter)<br />
+</em> <strong>Getriebeübersetzung (konstant im 4. Gang):</strong> <span class="arithmatex">\(i = 4,252\)</span>  </p>
+<h4 id="a-anfahrvermogen-an-steigungen-gema-vdtuv-764-kap-33">A. Anfahrvermögen an Steigungen (gemäß VdTÜV 764, Kap. 3.3)</h4>
+<p>Das Fahrzeug muss eine Steigung von 12 % (<span class="arithmatex">\(\alpha \approx 6,82^\circ\)</span>) aus dem Stillstand heraus problemlos fünfmal innerhalb von pfünf Minuten bewältigen können.</p>
+<ul>
+<li><strong>Hangabtriebskraft (<span class="arithmatex">\(F_{\text{Steigung}}\)</span>):</strong></li>
+</ul>
+<div class="arithmatex">
+$$F_{\text{Steigung}} = m \times g \times \sin(\alpha) = 995\text{ kg} \times 9,81\text{ m/s}^2 \times \sin(6,82^\circ) \approx 1172,7\text{ N}$$
+</div>
+
+<ul>
+<li><strong>Rollwiderstandskraft (<span class="arithmatex">\(F_{\text{Roll}}\)</span>) bei <span class="arithmatex">\(c_{\text{rr}} = 0,01\)</span>:</strong></li>
+</ul>
+<div class="arithmatex">
+$$F_{\text{Roll}} = m \times g \times c_{\text{rr}} = 995\text{ kg} \times 9,81\text{ m/s}^2 \times 0,01 \approx 97,6\text{ N}$$
+</div>
+
+<ul>
+<li><strong>Erforderliche Gesamtzugkraft beim Anfahren:</strong></li>
+</ul>
+<div class="arithmatex">
+$$F_{\text{Total}_{\text{Anfahren}}} = F_{\text{Steigung}} + F_{\text{Roll}} = 1172,7\text{ N} + 97,6\text{ N} \approx 1270,3\text{ N}$$
+</div>
+
+<ul>
+<li><strong>Erforderliches Drehmoment an den Hinterrädern:</strong></li>
+</ul>
+<div class="arithmatex">
+$$M_{\text{Rad}_{\text{Anfahren}}} = F_{\text{Total}_{\text{Anfahren}}} \times r = 1270,3\text{ N} \times 0,276\text{ m} \approx 350,6\text{ Nm}$$
+</div>
+
+<ul>
+<li><strong>Resultierendes Motordrehmoment (im 4. Gang):</strong></li>
+</ul>
+<div class="arithmatex">
+$$M_{\text{Motor}_{\text{Anfahren}}} = \frac{M_{\text{Rad}_{\text{Anfahren}}}}{i} = \frac{350,6\text{ Nm}}{4,252} \approx 82,5\text{ Nm}$$
+</div>
+
+<div class="admonition note">
+<p><strong>Anmerkung zum Single-Speed-Betrieb:</strong> Da der Motor das benötigte Drehmoment von 82,5 Nm im 4. Gang aus dem Stand heraus spielend bereitstellt (Maximalmoment ungedrosselt 234 Nm), ist ein permanentes Fahren im 4. Gang als „Single-Speed-Konzept“ möglich. Ein mechanischer Schaltvorgang ist im Regelbetrieb nicht erforderlich.</p>
+</div>
+<h4 id="b-energieverbrauch-und-reichweitenprognose-konstant-80-kmh">B. Energieverbrauch und Reichweitenprognose (konstant 80 km/h)</h4>
+<ul>
+<li><strong>Luftwiderstandskraft (<span class="arithmatex">\(F_{\text{Luft}}\)</span>) bei <span class="arithmatex">\(v = 22,2\text{ m/s}\)</span> (<span class="arithmatex">\(80\text{ km/h}\)</span>) und Luftdichte <span class="arithmatex">\(\rho = 1,225\text{ kg/m}^3\)</span>:</strong></li>
+</ul>
+<div class="arithmatex">
+$$F_{\text{Luft}} = 0,5 \times c_{\text{w}} \times A \times \rho \times v^2 = 0,5 \times 0,36 \times 1,7\text{ m}^2 \times 1,225\text{ kg/m}^3 \times (22,2\text{ m/s})^2 \approx 194,0\text{ N}$$
+</div>
+
+<ul>
+<li><strong>Gesamtfahrwiderstandskraft (<span class="arithmatex">\(F_{\text{Total}}\)</span>):</strong></li>
+</ul>
+<div class="arithmatex">
+$$F_{\text{Total}} = F_{\text{Roll}} + F_{\text{Luft}} = 97,6\text{ N} + 194,0\text{ N} = 291,6\text{ N}$$
+</div>
+
+<ul>
+<li><strong>Leistungsbedarf an der Radachse:</strong></li>
+</ul>
+<div class="arithmatex">
+$$P_{\text{Achse}} = F_{\text{Total}} \times v = 291,6\text{ N} \times 22,2\text{ m/s} \approx 6472\text{ W} \approx 6,5\text{ kW}$$
+</div>
+
+<ul>
+<li><strong>Elektrischer Leistungsbedarf (ab Batterie, bei <span class="arithmatex">\(\eta = 0,90\)</span>):</strong></li>
+</ul>
+<div class="arithmatex">
+$$P_{\text{Elektrisch}} = \frac{P_{\text{Achse}}}{\eta} = \frac{6,5\text{ kW}}{0,90} \approx 7,2\text{ kW}$$
+</div>
+
+<ul>
+<li><strong>Mathematischer Netto-Verbrauch pro 100 km:</strong></li>
+</ul>
+<div class="arithmatex">
+$$\text{Verbrauch}_{100} = P_{\text{Elektrisch}} \times \left(\frac{100\text{ km}}{80\text{ km/h}}\right) = 7,2\text{ kW} \times 1,25\text{ h} = 9,0\text{ kWh/100 km}$$
+</div>
+
+<div class="admonition info">
+<p><strong>Reichweitenprognose unter Realbedingungen:</strong> Unter Berücksichtigung von Nebenverbrauchern (Heizung, LV-Bordnetzwandler) sowie variablen Fahrzyklen wird ein realistischer Praxisverbrauch von <strong>10 bis 12 kWh/100 km</strong> projektiert. Mit der nutzbaren Batteriekapazität von 26,5 kWh resultiert daraus eine verlässliche Aktionsreichweite von <strong>200 bis 250 km</strong>.</p>
+</div>
+<hr />
+<h3 id="parametrierung-des-elektrischen-antriebs-softwareseitige-begrenzungen">Parametrierung des elektrischen Antriebs (Softwareseitige Begrenzungen)</h3>
+<p>Um die mechanischen Kraftübertragungskomponenten des Basisfahrzeugs (Serien-Getriebe und Kupplung) wirksam vor den extremen, schlagartigen Drehmomentspitzen des Elektromotors zu schützen, wird die Motorsteuerung (MCU) als primäres Begrenzungsorgan eingesetzt. </p>
+<p>Die softwareseitige Limitierung wird über die Steuerungssoftware <em>SMARTView</em> direkt auf dem SME-Controller hinterlegt. Das detaillierte Herleitungskonzept des softwarebasierten Überlastschutzes wird vertiefend im Anhang dokumentiert.</p>
+<p>Die folgende Tabelle zeigt die im System fest hinterlegten Parameter zur Gewährleistung der Betriebssicherheit:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter (SmartView)</th>
+<th style="text-align: left;">Parametrierter Wert</th>
+<th style="text-align: left;">Schutzziel / Technische Begründung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Control Mode</td>
+<td style="text-align: left;">Torque Mode</td>
+<td style="text-align: left;">Lineares Ansprechverhalten analog zum Serienzustand.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Max. Motor Speed</td>
+<td style="text-align: left;">5.500 rpm</td>
+<td style="text-align: left;">Einhaltung der max. Getriebeeingangsdrehzahl.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Max. Torque Limit</td>
+<td style="text-align: left;">154 Nm</td>
+<td style="text-align: left;">Hardware-Schutz: Begrenzung liegt knapp unter dem Nennmoment der Kupplung (160 Nm).</td>
+</tr>
+<tr>
+<td style="text-align: left;">Min. Torque Accel Time</td>
+<td style="text-align: left;">1,8 s</td>
+<td style="text-align: left;">Lastschlagdämpfung: Verhindert schlagartige Belastung der Mechanik.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Brake Priority</td>
+<td style="text-align: left;">Aktiviert</td>
+<td style="text-align: left;">Sicherheitsabschaltung bei Bremsbetätigung.</td>
+</tr>
+<tr>
+<td style="text-align: left;">SRO (Static Return)</td>
+<td style="text-align: left;">Aktiviert</td>
+<td style="text-align: left;">Verhindert Anfahren beim Einschalten.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Controlled Roll-Off</td>
+<td style="text-align: left;">Aktiviert</td>
+<td style="text-align: left;">Verhindert unkontrolliertes Rollen im Stand.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hill Hold</td>
+<td style="text-align: left;">By Pedal Brake</td>
+<td style="text-align: left;">Erleichtert das Anfahren an Steigungen.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Neutral Braking Rate</td>
+<td style="text-align: left;">15 %</td>
+<td style="text-align: left;">Simulation eines moderaten Motor-Schleppmoments (Segel-Modus).</td>
+</tr>
+<tr>
+<td style="text-align: left;">Activation Delay</td>
+<td style="text-align: left;">150 ms</td>
+<td style="text-align: left;">Geschmeidiges Ansprechverhalten.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition success">
+<p><strong>Fazit zur mechanischen Sicherstellung des Antriebs:</strong> Die Zusammenführung der mechanischen Mindestanforderungen und der softwareseitigen Schutzbegrenzungen belegt die uneingeschränkte Betriebssicherheit des Fahrzeugs:</p>
+<ul>
+<li><strong>Steigfähigkeit:</strong> Das softwareseitig parametrierte Drehmomentlimit von <strong>154 Nm</strong> liegt spürbar über dem maximal erforderlichen Drehmoment von <strong>82,5 Nm</strong>, welches für das normgerechte Anfahren an einer 12 % Steigung im Single-Speed-Betrieb (4. Gang) benötigt wird.</li>
+<li><strong>Dauerleistung:</strong> Das thermische Schutzlimit der HV-Steckverbinder von <strong>200 A</strong> erlaubt eine kontinuierliche mechanische Leistungsabgabe von <strong>20,52 kW</strong>. Dies übertrifft den realen Leistungsbedarf bei einer konstanten Autobahnfahrt von 80 km/h (ca. <strong>7,2 kW</strong> benötigte elektrische Leistung) um mehr als das Doppelte.</li>
+</ul>
+<p><strong>Gesamtergebnis:</strong> Die softwareseitigen Begrenzungen der Motorsteuerung stellen einen hocheffektiven Komponentenschutz dar, ohne die Alltagstauglichkeit, die gesetzlichen Performance-Vorgaben oder die thermische Stabilität des Antriebsstrangs im realen Fahrbetrieb einzuschränken.</p>
+</div>
+<hr />
+<h2 id="mindestladezustand-des-energiespeichers">Mindestladezustand des Energiespeichers</h2>
+<p>Der Mindestladezustand des Energiespeichers (SOC - State of Charge) ist vom Batteriemanagementsystem (BMS) hardwareseitig auf 5 % der maximalen Kapazität festgelegt. Die eingebauten Anzeigen im Kombi-Instrument visualisieren den aktuellen SOC analog und digital. Bei Erreichen des Mindestladezustands wird eine zusätzliche Warnmeldung im Kombi-Instrument angezeigt, um den Fahrer über die verbleibende Restreichweite zu informieren und sicherzustellen, dass das Fahrzeug auch unter diesen Bedingungen aus dem Verkehrsbereich hinausgefahren werden kann (gemäß VdTÜV 764, Kap. 3.4).</p>
+<hr />
+<h2 id="heizungluftung-sowie-entfrostung-trocknung">Heizung/Lüftung sowie Entfrostung, Trocknung</h2>
+<p>Zur Erfüllung der Anforderungen nach § 35c StVZO bezüglich Beheizung, Belüftung und Entfrostung der Scheiben wurde das bestehende manuelle Lüftungssystem des Basisfahrzeugs beibehalten und mit einem elektrischen PTC-Heizer ergänzt.</p>
+<ul>
+<li><strong>Belüftung der Fahrgastzelle:</strong> Die active Belüftung der Fahrgastzelle erfolgt über die vorhandenen Lüftungswege und den ursprünglichen Lüfter gemäß der OEM-Spezifikation.</li>
+<li><strong>Beheizung der Fahrgastzelle und Windschutzscheiben-Entfrostung:</strong> Ein elektrischer PTC-Heizer ist in den Luftstrom des vorhandenen Lüftungssystems integriert. Dieser Heizer wird elektrisch zugeschaltet und gewährleistet die Versorgung der Fahrgastzelle und insbesondere der Windschutzscheibe mit ausreichend warmer Luft zur Funktion der Beheizung und Entfrostung / Trocknung. Die Luftverteilung für die Windschutzscheibe erfolgt durch manuelle Steuerung der Luftaustrittsklappen (Fußraum/Mittelkonsole) zur Priorisierung des Luftstroms zur Scheibe hin.</li>
+</ul>
+<hr />
+<h2 id="bremse">Bremse</h2>
+<p>Das Fahrzeug ist mit einer zweikreisigen Bremsanlage mit vier Scheibenbremsen ausgerüstet. Es verfügt weder über einen Unterdruckbremsverstärker noch über ein Antiblockiersystem (ABS). Die Feststellbremse wirkt mechanisch auf die Bremsen der Hinterachse. Die vorhandene Bremsanlage des Basisfahrzeugs wurde unverändert beibehalten.</p>
+<p>Das elektrische Antriebssystem ermöglicht eine zusätzliche elektrische Bremsunterstützung durch Energierückgewinnung (Rekuperationsprinzip). Dieses System ist wie folgt nach UN-Regelung Nr. 13/13H als <strong>Kategorie A</strong> realisiert:</p>
+<ul>
+<li><strong>Rekuperationsaktivierung (Kategorie A):</strong> Die Aktivierung der Rekuperation erfolgt ausschließlich durch das Loslassen des Fahrpedals (Coast-Down-Rekuperation).</li>
+<li><strong>Deaktivierung der Rekuperation:</strong> Die Rekuperation kann für besondere Fahrbedingungen (z.B. Glatteis) über den Schalter „<strong>RECU OFF</strong>“ deaktiviert werden.</li>
+<li><strong>Keine Integration in die Betriebsbremsanlage:</strong> Die Rekuperationsfunktion ist <strong>not</strong> in die Betriebsbremsanlage integriert. Das Bremspedal betätigt ausschließlich die mechanischen Reibbremsen. Ein Blockieren der Räder durch das Rekuperationssystem ist durch die ausschließliche Aktivierung über das Fahrpedal und fehlende Koppelung mit dem Bremspedal ausgeschlossen.</li>
+</ul>
+<hr />
+<h2 id="lenkung">Lenkung</h2>
+<p>Die Lenkeinrichtung des Fahrzeugs ist unverändert und entspricht der Originalspezifikation. Das Fahrzeug verfügt über keine Servolenkung und die mechanische Lenkeinheit wurde nicht modifiziert.</p>
+<hr />
+<h2 id="grundfunktion-der-elektrischen-systeme">Grundfunktion der elektrischen Systeme</h2>
+<p>Die grundlegenden elektrischen Funktionen des Fahrzeugs, insbesondere die in § 47 StVZO geforderten Beleuchtungseinrichtungen (z.B. Standlicht, Warnblinkanlage) sowie das akustische Warnsystem, bleiben auch bei einem Ausfall oder der Deaktivierung des Hochvolt-Antriebssystems uneingeschränkt funktionsfähig. Dies wird durch das Vorhandensein eines separaten 12V-Bordnetz-Energiespeichers (12V-Batterie) sichergestellt.</p>
+<hr />
+<h2 id="batterie-und-batteriemanagementsystem-reess-bms">Batterie und Batteriemanagementsystem (REESS, BMS)</h2>
+<p>Das Rechargeable Energy Storage System (REESS) ist das zentrale Bauteil für die Speicherung der elektrischen Energie. Um die geforderte elektrische und funktionale Sicherheit zu gewährleisten, ist es mit einem dedizierten Batteriemanagementsystem (BMS) ausgestattet.</p>
+<h3 id="reess-energiespeicher">REESS (Energiespeicher)</h3>
+<ul>
+<li><strong>Bestandteile:</strong> Das REESS besteht aus insgesamt fünf gebrauchten Tesla Model S Modulen (5.3 kWh/Modul), die zu einem 2er-Pack und einem 3er-Pack konfiguriert sind. Details zur Kapazität und Nennspannung sind in Kapitel 1.3 dargestellt.</li>
+<li><strong>Qualitätssicherung der Zellen:</strong> Der Nachweis der Prüfung und Zertifizierung der verwendeten Zellen gemäß den Anforderungen der UN-Regelung Nr. 38.3 ist im Anhang beigefügt. Die verbauten Zellen (Panasonic NCR18650B) sind Teil zertifizierter Module.</li>
+<li><strong>Integration:</strong> Die Module werden durch das BMS überwacht, um einen sicheren Betrieb auch mit gebrauchten Komponenten zu gewährleisten.</li>
+</ul>
+<h3 id="bms-batteriemanagementsystem">BMS (Batteriemanagementsystem)</h3>
+<ul>
+<li><strong>Architektur:</strong> Es wird ein <strong>SimpBMS</strong> in einer Master-Slave-Konfiguration eingesetzt. Dieses System nutzt die originalen Tesla-Slave-Boards, die direkt auf den Modulen verbaut sind, zur kontinuierlichen Datenakquise.</li>
+<li><strong>Überwachungsfunktionen:</strong><ul>
+<li><strong>Zellspannungen:</strong> Das SimpBMS erfasst und überwacht kontinuierlich sämtliche Einzelzellspannungen innerhalb der Module. Die integrierten Balancierfunktionen der Slave-Boards werden zur Zellpflege aktiv genutzt.</li>
+<li><strong>Temperaturüberwachung:</strong> Die in den Tesla-Modulen integrierten Temperatursensoren werden vom SimpBMS zyklisch ausgelesen und überwacht.</li>
+<li><strong>C-Rating und Strom:</strong> Der maximale Entlade- und Ladestrom wird permanent überwacht und bei Überschreitung der Grenzwerte systemseitig limitiert.</li>
+<li><strong>Gesamtspannung:</strong> Das System führt eine kontinuierliche Plausibilitätsprüfung der Gesamtspannung des REESS durch.</li>
+</ul>
+</li>
+<li><strong>Grenzwertüberwachung:</strong> Das BMS ist mit fest definierten Ansprech- und Schwellenwerten für alle sicherheitskritischen Parameter (Spannung, Strom, Temperatur) parametriert, um bei Grenzwertverletzungen eine automatische Sicherheitsabschaltung einzuleiten.</li>
+</ul>
+<h3 id="aktive-systemreaktion-bei-grenzwertverletzungen">Aktive Systemreaktion bei Grenzwertverletzungen</h3>
+<p>Bei Über- oder Unterschreitung der definierten Ansprech- und Schwellwerte reagiert das BMS aktiv und sicherheitsgerichtet, um Personen- und Sachschäden zu vermeiden und die Lebensdauer der Batterie zu maximieren:</p>
+<ul>
+<li><strong>Kommunikation/Regelung:</strong> Das BMS kommuniziert via CAN-Bus mit dem Onboard-Ladegerät (zur Reduzierung oder Abschaltung des Ladestroms), dem Inverter (zur Reduzierung oder Abschaltung der Leistungsanforderung) und der Vehicle Control Unit (VCU).</li>
+<li><strong>Direkte Abschaltung (Schütze):</strong> Bei kritischen Fehlern oder drastischer Grenzwertverletzung aktiviert das BMS unmittelbar die Notabschaltung durch die direkte Ansteuerung der Hauptschütze (Contactor) im REESS, welche (getrennt für Plus- und Minuspol) den Hochvolt-Stromkreis trennen. Dies gewährleistet die sofortige Spannungsfreischaltung des Antriebssystems.</li>
+<li><strong>Display:</strong> Das SimpBMS Master-Modul verfügt über ein separates Display, welches dem Servicepersonal den Abruf aller relevanten Parameter und Systemzustände für Diagnosezwecke ermöglicht.</li>
+</ul>
+<hr />
+<h2 id="mechanische-antriebsintegration">Mechanische Antriebsintegration</h2>
+<p>Die betriebsfeste und passgenaue Verbindung des Elektromotors (NetGain Hyper9) mit dem Original-Fünfganggetriebe des Bertone X1/9 wird durch eine professionell gefertigte Adapterlösung sichergestellt. Alle Komponenten zur mechanischen Kraftübertragung wurden vom europäischen Fachbetrieb bezogen bzw. in Auftrag gegeben.</p>
+<h3 id="motor-getriebe-adapterplatte">Motor-Getriebe-Adapterplatte</h3>
+<p>Eine speziell für diese Fahrzeug-Motor-Kombination angefertigte Adapterplatte aus hochfestem Stahl stellt die exakte koaxiale Ausrichtung zwischen der Motorwelle und der Getriebeeingangswelle sicher. Die präzise Fertigung der Platte durch einen Fachbetrieb gewährleistet die für eine lange Lebensdauer der Wellenlager und der Kupplung notwendige Fluchtungsgenauigkeit. Die Verschraubung der Platte erfolgt mit hochfesten Maschinenschrauben, die mit dem vom Hersteller empfohlenen Drehmoment angezogen wurden.</p>
+<h3 id="wellenkupplung">Wellenkupplung</h3>
+<p>Die Kraftübertragung zwischen Motor- und Getriebewelle erfolgt über eine <strong>Klauenkupplung mit einem Elastomer-Dämpfungselement</strong>. Diese Kupplung wurde als passendes Zubehör für den Hyper9-Antriebsstrang vom genannten Fachhändler bezogen.</p>
+<p><strong><em>Begründung der Auslegung und Maßnahmen zur Dauerhaltbarkeit:</em></strong>
+Die Verwendung dieser Kupplungsart bietet den Vorteil, minimale Fluchtungsungenauigkeiten sowie hochfrequente Vibrationen des Antriebsstrangs durch das elastische Zwischenelement effektiv zu dämpfen.
+Um die für Klauenkupplungen kritischen, harten Lastwechsel zu minimieren und die Dauerhaltbarkeit des Elastomerelements zu maximieren, wurden im Motorcontroller (MCU) folgende Maßnahmen parametriert:
+* <strong>Drehmomentenrampen ("Slew Rate"):</strong> Die Anstiegs- und Abfallzeit des Drehmoments wurde auf einen weichen Übergang eingestellt, um schlagartige Belastungen auf die Kupplung zu vermeiden.
+* <strong>Begrenzung des Maximaldrehmoments:</strong> Das maximale Motordrehmoment wurde softwareseitig auf 154 Nm begrenzt, was sowohl dem Schutz des Original-Getriebes als auch der Entlastung des Kupplungselements dient.</p>
+<p>Durch die Kombination aus professionell gefertigten mechanischen Komponenten und einer darauf abgestimmten, bauteilschonenden Software-Parametrierung wird eine betriebssichere und dauerhaltbare Kraftübertragung gewährleistet.</p>
+<h3 id="motoraufhangung-motor-cradle">Motoraufhängung (Motor Cradle)</h3>
+<p>Zur Abstützung des Motorgewichts am hinteren Ende (Encoder-Seite) und zur Aufnahme des Reaktionsdrehmoments kommt eine originale Motorhalterung „Motor Cradle“ des Herstellers NetGain Motors zum Einsatz:  </p>
+<ul>
+<li><strong>Konstruktion:</strong> Der Halter aus korrosionsbeständigem, verzinktem Stahl umschließt mit 220 mm Innendurchmesser das Motorgehäuse formschlüssig.</li>
+<li><strong>Schwingungsentkopplung:</strong> Die Aufhängung erfolgt über integrierte <strong>Gummibuchsen</strong> (Rubber Bushings). Diese sorgen für eine schwingungstechnische Entkopplung zwischen der Antriebseinheit und der Fahrzeugkarosserie, minimieren die Übertragung von Körperschall und verhindern Spannungsrisse in der Struktur.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>

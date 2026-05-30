@@ -1,0 +1,98 @@
+/* Custom Styles für das X1/9e Handbuch */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+:root {
+    /* Deine Farbpalette */
+    --bg-color: #000000;
+    --card-bg: #0d0d0d;
+    --bertone-gold: #d4af37;
+    --instrument-green: #00e68a; 
+    --instrument-glow: rgba(0, 230, 138, 0.65);
+    --warning-red: #ff1a1a; 
+    --text-main: #ffffff;
+    --text-dim: #888888;
+    --border-ui: #1a1a1a;
+
+    /* Überschreiben der MkDocs Material Farbvariablen */
+    --md-text-font: 'Montserrat', sans-serif;
+    
+    /* Farbzuweisungen für Primär (Header) und Akzente (Links, Buttons) */
+    --md-primary-fg-color: var(--bg-color);
+    --md-primary-fg-color--dark: var(--bg-color);
+    --md-accent-fg-color: var(--bertone-gold);
+    --md-accent-fg-color--transparent: rgba(212, 175, 55, 0.1);
+}
+
+/* Dunkles Schema für die gesamte App erzwingen / anpassen */
+[data-md-color-scheme="slate"] {
+    --md-default-bg-color: var(--bg-color);
+    --md-default-bg-color--light: var(--card-bg);
+    --md-default-fg-color: var(--text-main);
+    --md-default-fg-color--light: var(--text-dim);
+    
+    /* Akzente im Text */
+    --md-typeset-color: var(--text-main);
+    --md-typeset-a-color: var(--instrument-green); /* Links leuchten instrumenten-grün */
+    
+    /* Rahmen und UI-Linien */
+    --md-border-color: var(--border-ui);
+}
+
+/* Kleiner Design-Glow für aktive Menüpunkte und Überschriften */
+.md-nav__link--active {
+    color: var(--bertone-gold) !important;
+    font-weight: bold;
+}
+
+h1, h2, h3 {
+    color: var(--bertone-gold) !important;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+/* Wichtige Hinweise/Admonitions im Instrumenten-Look */
+.md-typeset .admonition.note {
+    border-left-color: var(--instrument-green);
+}
+
+@media print {
+    /* Container-Layouts für den Fließtext öffnen */
+    .md-content, .md-content__inner, article {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+    }
+
+    /* Radikal alle ungenutzten Web-Elemente ausblenden */
+    .md-sidebar, .md-header, .md-footer, .md-nav, .md-top, .md-banner {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Kontrollierte Seitenumbrüche: NUR bei Hauptkapiteln (H1) zwingend */
+    h1 {
+        page-break-before: always !important;
+        page-break-inside: avoid !important;
+    }
+
+    /* Unterüberschriften dürfen NICHT alleine am Seitenende stehen */
+    h2, h3, h4 {
+        page-break-before: auto !important;
+        page-break-after: avoid !important;
+        page-break-inside: avoid !important;
+    }
+
+    /* Absätze und Listen dürfen frei fließen (beseitigt willkürliche Leerseiten) */
+    p, li {
+        page-break-inside: auto !important;
+    }
+
+    /* Bilder und Boxen stabilisieren */
+    figure, img, .admonition {
+        page-break-inside: avoid !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
