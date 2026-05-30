@@ -29,12 +29,17 @@ jobs:
 
       - name: Pre-Build to generate PDF
         run: |
+          # 1. Den downloads-Ordner erstellen, BEVOR der finale Deploy-Build läuft
+          mkdir -p docs/downloads
+          
+          # 2. Einmal lokal im Runner bauen, damit das PDF-Plugin die Datei erzeugt
           mkdocs build
-          # Das generierte PDF wird aus dem site-Ordner gerettet und in den docs-Ordner für die Webseite kopiert
-          # Falls das PDF anders heißt, passe den Namen kurz an (meistens site_name.pdf)
-          mkdir -p docs/pdf
-          cp site/*.pdf docs/pdf/technische_dokumentation.pdf 2>/dev/null || cp site/pdf/*.pdf docs/pdf/technische_dokumentation.pdf 2>/dev/null || true
+          
+          # 3. Das erzeugte PDF suchen und exakt benannt in docs/downloads/ sichern
+          find site/ -name "*.pdf" -exec cp {} docs/downloads/X19e_Technische_Dokumentation.pdf \;
 
       - name: Build and Deploy to GitHub Pages
         run: |
+          # 4. Jetzt erst den offiziellen Deploy ausführen. 
+          # MkDocs findet jetzt das PDF im docs/downloads/-Ordner und lädt es hoch.
           mkdocs gh-deploy --force
