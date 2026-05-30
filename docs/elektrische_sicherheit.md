@@ -21,15 +21,19 @@ Um die geforderte HV-Eigensicherheit zu erreichen, wurden folgende Maßnahmen um
     * Alle spannungsführenden HV-Komponenten sind gemäß den Anforderungen der UN-Regelung Nr. 100 mit den folgenden Schutzgraden gegen direktes Berühren umgesetzt:
         * **IPXXD (drahtsicher):** Im Fahrgast- und Laderaum
         * **IPXXB (fingersicher):** Am Rest des Fahrzeugs.
-
-**Sicherstellung durch HVIL und MSD:**
-* **HVIL-Steckverbinder:** Bei getrennten HVIL-Steckverbindern (z. B. an den Batteriepacks) wird durch die sofortige Unterbrechung der Pilotlinie und die daraus resultierende Abschaltung der Schütze sichergestellt, dass die verbleibende Spannung **innerhalb einer Sekunde auf unter 60 V DC absinkt**. Dies verhindert eine Gefährdung beim Trennen von Hochvoltkomponenten am Fahrzeug.
-* **Maintenance Service Disconnect (MSD):** Jeder Batteriepack ist mit einem MSD ausgestattet. Diese können **ohne Werkzeug** gezogen werden und erfüllen im getrennten Zustand die Berührschutzanforderung nach **IPXXB**, wodurch ein sicheres Arbeiten am Fahrzeug ermöglicht wird.
+    
+    **Sicherstellung durch HVIL und MSD:**
+    * **HVIL-Steckverbinder:** Bei getrennten HVIL-Steckverbindern (z. B. an den Batteriepacks) wird durch die sofortige Unterbrechung der Pilotlinie und die daraus resultierende Abschaltung der Schütze sichergestellt, dass die verbleibende Spannung **innerhalb einer Sekunde auf unter 60 V DC absinkt**. Dies verhindert eine Gefährdung beim Trennen von Hochvoltkomponenten am Fahrzeug.
+    * **Maintenance Service Disconnect (MSD):** Jeder Batteriepack ist mit einem MSD ausgestattet. Diese können **ohne Werkzeug** gezogen werden und erfüllen im getrennten Zustand die Berührschutzanforderung nach **IPXXB**, wodurch ein sicheres Arbeiten am Fahrzeug ermöglicht wird.
 
 5. **Kennzeichnung von Abdeckung und Gehäuse der HV-Komponenten**
     * Auf allen Abdeckungen und Gehäusen, deren Entfernung eine Berührung spannungsführender HV-Komponenten ermöglichen würde, ist ein Warnsymbol gemäß „Warnung vor gefährlicher elektrischer Spannung“ angebracht.
 
-![Warnzeichen „Warnung vor gefährlicher elektrischer Spannung“](./Pictures/1000000100000240000000457D57448F.png){alt="Zeichnung 7: Warnzeichen \"Warnung vor gefährlicher elektrischer Spannung\""}
+<figure id="warning">
+  <img src="./Pictures/1000000100000240000000457D57448F.png">
+  <figcaption style="text-align: center;">Abbildung 7: Warnung vor gefährlicher elektrischer Spannung</figcaption>
+</figure>
+
 
 * Alle HV-Leitungen, die nicht direkt in geschlossenen Gehäusen verlegt sind, besitzen eine intensiv orangefarbene Außenhülle zur sofortigen, eindeutigen Erkennbarkeit.
 
@@ -87,7 +91,8 @@ Das elektrische Netz des Antriebssystems ist so dimensioniert und ausgelegt, das
 | **DC/DC Converter** (1.000 W) | 4 | 12 (Schmelz) | Elektronische Begrenzung im Wandler |
 | **Heizung / Heating** (500 W) | 0,75 | 5 (Schmelz) | Thermische Abschaltung |
 
-*Hinweis zur Absicherung des Motors: Die Absicherung des Motors ist in der Motor Control Unit (MCU) integriert und wird elektronisch überwacht.*
+!!! info Hinweis zur Absicherung des Motors
+    Die Absicherung des Motors ist in der Motor Control Unit (MCU) integriert und wird elektronisch überwacht.
 
 ### 3.5.2 Spezifikation der Hochvolt-Komponenten
 
@@ -98,7 +103,8 @@ Das elektrische Netz des Antriebssystems ist so dimensioniert und ausgelegt, das
 | **Hauptschütze** | Gigavac | 350 A | > 1.000 A | UL 508 / IEC 60947 |
 | **Hauptsicherung** | Eaton Bussmann EBSD | 630 A | Kurzschluss-Abschaltung | IEC 60269-4 / Träge Charakteristik |
 
-*Hinweis zum Überlastschutz der Steckverbinder: Da die Steckverbinder für einen nominalen Dauerstrom von 200 A ausgelegt sind, wird der maximale DC-Batteriestrom durch die VCU (ESP32) über das BMS-Proxy-CAN-Protokoll (ID 0x246) bei steigender Motordrehzahl dynamisch begrenzt (siehe Software-Berechnung in Kap. 3.5.4). Ein thermisches Versagen der Steckverbinder wird dadurch zuverlässig verhindert.*
+!!! info Hinweis zum Überlastschutz der Steckverbinder
+    Da die Steckverbinder für einen nominalen Dauerstrom von 200 A ausgelegt sind, wird der maximale DC-Batteriestrom durch die VCU (ESP32) über das BMS-Proxy-CAN-Protokoll (ID 0x246) bei steigender Motordrehzahl dynamisch begrenzt (siehe Software-Berechnung in Kap. 3.5.3). Ein thermisches Versagen der Steckverbinder wird dadurch zuverlässig verhindert.
 
 ---
 
@@ -150,7 +156,8 @@ Bereich 1: <i>n</i> &le; 1.272 U/min (Konstantes Drehmoment)
 Bereich 2: <i>n</i> &gt; 1.272 U/min (Konstante Leistung / Hyperbolische Drosselung)
 : Der VCU-Algorithmus berechnet zyklisch bei jeder eingehenden CAN-Botschaft des Motors das reduzierte Drehmoment-Limit (<i>M</i><sub>Limit</sub>). Dieses wird als maximal zulässiger Prozentwert (*limit_percent*) über das BMS-Proxy-Protokoll (CAN-ID 0x246) an den Inverter übermittelt. Das Drehmoment wird präzise entlang der 20,52 kW-Hyperbel gedrosselt. Ein Ansteigen des DC-Batteriestroms über 200 A wird dadurch softwareseitig aktiv und unfehlbar unterbunden.
 
-*Hinweis: Die genaue softwareseitige Implementierung (C++ Quellcode der VCU auf dem ESP32) ist im Anhang unter Kapitel 8.13 vollumfänglich dokumentiert.*
+!!! info 
+    Die genaue softwareseitige Implementierung (C++ Quellcode der VCU auf dem ESP32) ist im Anhang unter Kapitel 8.13 vollumfänglich dokumentiert.*
 
 ## 3.6 Spannungsfreischaltung des HV-Systems bei Wartung und Notfall
 

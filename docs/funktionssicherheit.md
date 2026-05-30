@@ -318,10 +318,9 @@ Der Mindestladezustand des Energiespeichers (SOC - State of Charge) ist vom Batt
 ## 2.5 Heizung/Lüftung sowie Entfrostung, Trocknung
 
 Zur Erfüllung der Anforderungen nach § 35c StVZO bezüglich Beheizung, Belüftung und Entfrostung der Scheiben wurde das bestehende manuelle Lüftungssystem des Basisfahrzeugs beibehalten und mit einem elektrischen PTC-Heizer ergänzt.
-- **Belüftung der Fahrgastzelle:** Die aktive Belüftung der
-  Fahrgastzelle erfolgt über die vorhandenen Lüftungswege und den
-  ursprünglichen Lüfter gemäß der OEM-Spezifikation.
-- **Beheizung der Fahrgastzelle und Windschutzscheiben-Entfrostung:** Ein elektrischer PTC-Heizer ist in den Luftstrom des vorhandenen Lüftungssystems integriert. Dieser Heizer wird elektrisch zugeschaltet und gewährleistet die Versorgung der Fahrgastzelle und insbesondere der Windschutzscheibe mit   ausreichend warmer Luft zur Funktion der Beheizung und Entfrostung/Trocknung. Die Luftverteilung für die Windschutzscheibe erfolgt durch manuelle Steuerung der Luftaustrittsklappen (Fußraum/Mittelkonsole) zur Priorisierung des Luftstroms zur Scheibe hin.
+
+- **Belüftung der Fahrgastzelle:** Die aktive Belüftung der Fahrgastzelle erfolgt über die vorhandenen Lüftungswege und den ursprünglichen Lüfter gemäß der OEM-Spezifikation.
+- **Beheizung der Fahrgastzelle und Windschutzscheiben-Entfrostung:** Ein elektrischer PTC-Heizer ist in den Luftstrom des vorhandenen Lüftungssystems integriert. Dieser Heizer wird elektrisch zugeschaltet und gewährleistet die Versorgung der Fahrgastzelle und insbesondere der Windschutzscheibe mit   ausreichend warmer Luft zur Funktion der Beheizung und Entfrostung / Trocknung. Die Luftverteilung für die Windschutzscheibe erfolgt durch manuelle Steuerung der Luftaustrittsklappen (Fußraum/Mittelkonsole) zur Priorisierung des Luftstroms zur Scheibe hin.
 
 ---
 

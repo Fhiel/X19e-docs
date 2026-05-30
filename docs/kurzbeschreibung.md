@@ -90,23 +90,24 @@ Frank Hielscher, 97816 Lohr a. Main
 ### 1.3.2 Schematische Darstellung des Funktionsbereiches
 
 <figure id="schaltschema">
-  <img src="./Pictures/10000001000001AE000001E644E7AB05.png" alt="Schaltschema Batterie Pack">
-  <figcaption>Abbildung 1: Schaltschema des Batterie-Packs</figcaption>
+  <img src="./Pictures/10000001000001AE000001E644E7AB05.png" alt="Schaltschema des Batterie-Packs">
+  <figcaption style="text-align: center;">Abbildung 1: Schaltschema des Batterie-Packs</figcaption>
 </figure>
 
 ### 1.3.3 Beschreibung, Zeichnungen oder Bilder des REESS mit Erläuterungen zu folgenden Punkten
 
 - **Aufbau Tesla 5,3 kWh Modul** (5 x vorhanden):
+<figure id="teslamodul">
+  <img src="./Pictures/10000001000003EF0000029355764FB8.png">
+  <figcaption style="text-align: center;">Abbildung 2: TESLA 5,3 kWh Modul</figcaption>
+</figure>
 
-![TESLA 5,3 kWh
-Modul](./Pictures/10000001000003EF0000029355764FB8.png){alt="Zeichnung 2: TESLA 5,3 kWh Modul"
-"}
+- Module im Battery Pack eingebaut (2 x vorhanden):
 
-- Darstellung Battery Pack Aufbau (2 x vorhanden):
-
-![Pack mit zwei Modulen (Deckel
-entfernt)](./Pictures/10000001000002FF00000275EB32AD3B.png){alt="Zeichnung 3: Pack mit zwei Modulen (Deckel entfernt)"
-"}
+<figure id="batterypack">
+  <img src="./Pictures/10000001000002FF00000275EB32AD3B.png">
+  <figcaption style="text-align: center;">Abbildung 3: Pack mit zwei Modulen (Deckel entfernt)</figcaption>
+</figure>
 
 #### 1.3.4 Battery Pack rear (Aufbau, Werkstoffe und physische Abmessungen)
 
@@ -136,10 +137,19 @@ Eigenbau, basierend auf zwei gebrauchten TESLA Model S 5,3 kWh Modulen   inkl. H
 
 ### 1.3.6 Beschreibung und Zeichnungen des Einbaus des REESS im Fahrzeug:
 
-![Zeichnung 4: Seitenansicht Bertone X1/9 Platzierung der Batterie
-Packs](./Pictures/10000001000004780000018607BE8E65.png "fig:")![Zeichnung 5: Draufsicht Bertone X1/9 Platzierung
-Batterie
-Module](./Pictures/10000001000002E10000014B954768BF.png "fig:")
+<figure id="x19esideview">
+  <img src="./Pictures/10000001000004780000018607BE8E65.png">
+  <figcaption style="text-align: center;">Abbildung 4: Seitenansicht Bertone X1/9 Platzierung der Batterie</figcaption>
+</figure>
+
+
+![Zeichnung 5: Draufsicht Bertone X1/9 Platzierung
+Batterie Module](./Pictures/10000001000002E10000014B954768BF.png "fig:")
+
+<figure id="x19etopview">
+  <img src="./Pictures/10000001000002E10000014B954768BF.png">
+  <figcaption style="text-align: center;">Abbildung 5: Draufsicht Bertone X1/9 Platzierung Batterie Module</figcaption>
+</figure>
 
 ### 1.3.7 Mechanische Integration und Crashsicherheit (REESS-Befestigung)
 
@@ -169,7 +179,7 @@ Die physische Integration der Batteriegehäuse im Fahrzeug wurde unter Berücksi
 | **Ladebetriebsart** | Mode 2 und Mode 3 |
 | **Maximale Ladeleistung** | 3,3 kW |
 | **Ladespannung** | 230 V AC (einphasig, 16 A) |
-| **Ladezeit (SOC 0–100 %)** | Ca. 8 Stunden für vollständige Ladung |
+| **Ladezeit <br> (SOC 0–100 %)** | Ca. 8 Stunden für vollständige Ladung |
 | **Sicherheitsfunktionen** | Automatische Verriegelung des Ladekabels im Injektor während des Ladevorgangs |
 
 ---

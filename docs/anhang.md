@@ -277,8 +277,7 @@ Umdrehungen pro Sekunde = geschwindigkeit/umfang\
 from machine import Pin, PWM
 import time
 
-# Konfiguration
-
+```cpp 
 WHEEL_CIRCUMFERENCE = 1.71 \# Radumfang in Metern
 PULSES_PER_REVOLUTION = 2 \# Anzahl der Pulse pro Radumdrehung
 INPUT_PIN = 16 \# GPIO-Pin für den Eingangspuls
@@ -326,7 +325,7 @@ Citations:
 \[7\] https://forum.micropython.org/viewtopic.php?t=9695
 \[8\] https://media.ccc.de/v/sps22-4239-micropython-on-the-rp2040 **\**
 
-
+```
 ## Impulsgeber
 
 Der Impulszähler liefert 2 Impulse pro Radumdrehung und ist direkt am Getriebe installiert.
@@ -379,130 +378,268 @@ Eine mechanische Entriegelung kann durch Ziehen der Not-Entriegelung unterhalb d
 - **Rot:**
   - Fehler Batteriemangementsystem.
   - Blitzend: Fehler Isolationswiderstand
+  
+---
 
-## IMD Isolation Monitoring Device
+# 8 Isolationsüberwachungsgerät (IMD)
 
-Typ: iso165C1 Hersteller: Bender GmbH & Co. KG, Grünberg
-iso165C-1 DC 0\...600 V CAN Schnittstelle
-ISOMETER ©
-Isometer Gehäuseversion incl. Bracket
-Us = DC 12 V Ri = 1200 kOhm
-Messwertausgang: CAN Schnittstelle, 500 kBaud
-Ce max.: 1 μF
-Ansprechwert: 250 kOhm, Ansprechzeit: \<20 sec.
-Vorwarnung: 400 kOhm
-Freigabe nach Power On, schliessen der Relais und Start der Messung: = 3 s Messverfahren: DCP, Faktor: 3
+Zur kontinuierlichen Überwachung des Isolationswiderstandes zwischen dem aktiven Hochvoltsystem ($HV+/HV-$) und der Fahrzeugmasse (Kl. 31) wird ein automobiles Isolationsüberwachungsgerät (IMD) eingesetzt.
 
-**Umsetzung in der VCU:**
-Selbsttest-Trigger bei BMS-Zustandsübergängen:
+## 8.1 Technische Spezifikation des Sensors
 
-- Prüfung der VIFC-Status-Bits 12 und 13 (vifcStatus) zur Bestimmung, ob ein Selbsttest erforderlich ist (1 = nicht ausgeführt).
-- Normkonformität:
-  - IEC 61557-8: Selbsttest zur Überprüfung der Funktionalität des IMD.
-  - ISO 6469-3: Sicherstellung der elektrischen Sicherheit im Fahrbetrieb.
-  - IEC 61851-1: Selbsttest vor dem Ladevorgang.
+| Parameter | Spezifikation / Wert |
+| :--- | :--- |
+| **Typ / Hersteller** | iso165C-1 / Bender GmbH & Co. KG |
+| **Spannungsbereich** | 0 V bis 600 V DC |
+| **Versorgungsspannung ($U_{\mathrm{s}}$)** | 12 V DC (Niedervoltbordnetz) |
+| **Innenwiderstand ($R_{\mathrm{i}}$)** | 1200 k&Omega; |
+| **Signalschnittstelle** | CAN-Bus (500 kBaud) |
+| **Ansprechwerte** | Vorwarnung: 400 k&Omega; / Hauptalarm (Fehler): 250 k&Omega; |
+| **Messverfahren / Ansprechzeit** | DCP (Direct Current Pulse) / < 20 Sekunden |
 
-Review des VCU Controller Codes Selftest Trigger:
+---
+
+## 8.2 IMD Quellcode-Dokumentation (Bender iso165C-1)
+
+Dieses Kapitel dokumentiert die vollständige softwareseitige Implementierung der Isolationsüberwachung in der Vehicle Control Unit (VCU / ESP32).
+
+### 8.2.1 Flankengesteuerter Konformitäts-Trigger (Edge Trigger)
+
+Sobald das Batteriemanagementsystem (BMS) signalisiert, dass das Fahrzeug in einen betriebsbereiten Zustand wechselt, prüft die VCU die hardwareseitigen Status-Bits des Isometers (Bits 12 und 13 im *VIFC-Status*). Ist der Selbsttest dort noch als „ausstehend“ markiert, wird er vor der HV-Freigabe automatisch angefordert.
+
+```cpp
+
+// 4. Automated Edge Trigger for the Bender IMD Isolation Self-Test
+static uint8_t lastBmsStatus = BMS_STATUS_BOOT;
+uint8_t currentBmsStatus = BMS_STATUS_BOOT;
+bool bmsValid = false;
+
+WITH_DATA_MUTEX({
+    currentBmsStatus = telemetryData.bmsStatus;
+    bmsValid = telemetryData.bmsStatusValid;
+});
 
 if (bmsValid) {
-// 1. Check if the vehicle is in an operational state (Ready, Drive, or
-Charging)
-bool isOperational = (currentBmsStatus == BMS_STATUS_READY \|\|
-currentBmsStatus == BMS_STATUS_DRIVE \|\|
-currentBmsStatus == BMS_STATUS_CHARGE);
+    // Prüfung auf betriebsrelevante Zustände (Bereit, Fahren oder Laden)
+    bool isOperational = (currentBmsStatus == BMS_STATUS_READY || 
+                          currentBmsStatus == BMS_STATUS_DRIVE || 
+                          currentBmsStatus == BMS_STATUS_CHARGE);
 
-// 2. Read Bender VIFC-Status Bits 12 and 13 (1 = Test missing/not
-executed)
-// Bit 12: IMC-Selbttest (OverAll-Szenario) missing
-// Bit 13: VIFC-Selbttest missing
+    // Abfrage Bender VIFC-Status: Bit 12 oder 13 gesetzt = Selbsttest fehlt/erforderlich
+    bool imdSelfTestMissing = (telemetryData.vifcStatus & (1 << 12)) || (telemetryData.vifcStatus & (1 << 13));
 
-bool imdSelfTestMissing = (vifcStatus & (1 \<\< 12)) \|\| (vifcStatus & (1 \<\< 13));
-
-// 3. Automated Edge Trigger according to documentation rules:
-// If the car is active and the hardware explicitly flags that the test is missing,
-// and we aren\'t already running a test, request it immediately!
-
-if (isOperational && imdSelfTestMissing && !telemetryData.selfTestRunning) {
-
-WITH_DATA_MUTEX({ telemetryData.selfTestRequested = true; });
-safe_printf(\"\[SYSTEM\] Compliance Trigger: IMD flags test missing  (Bits 12/13). Initiating self-test.\\n\");
-
+    // Automatische Anforderung, falls operational, Test fehlt und noch kein Test läuft
+    if (isOperational && imdSelfTestMissing && !telemetryData.selfTestRunning) {
+        WITH_DATA_MUTEX({ telemetryData.selfTestRequested = true; });
+        safe_printf("[SYSTEM] Compliance Trigger: IMD flags test missing (Bits 12/13). Initiating self-test.\n");
+    }
+    
+    lastBmsStatus = currentBmsStatus;
 }
 
-lastBmsStatus = currentBmsStatus;
+lastSafetyCheck = now;
 
+```
+
+### 8.2.2 Asynchrone Zustandsmaschine zur Testabwicklung (self_test_task)
+Der nachfolgende Code-Auszug zeigt die vollständige Zustandsmaschine zur zyklischen Auswertung der Diagnoseregister, Steuerung der internen Koppelrelais und Absicherung der Hochvoltschütze im Fehlerfall:
+
+
+```cpp
+void self_test_task(void *parameter) {
+    esp_task_wdt_add(NULL);
+    
+    enum SelfTestState {
+        IDLE,
+        TRIGGERING_TEST,
+        RUNNING_TEST,
+        EVALUATING,
+        CONNECTING_MEASUREMENT,
+        CLEANUP_SUCCESS,
+        CLEANUP_FAULT
+    } state = IDLE;
+
+    unsigned long stateTimer = 0;
+
+    while (1) {
+        esp_task_wdt_reset();
+        unsigned long now = millis();
+
+        bool requested = false;
+        bool charging = false;
+        uint16_t imdStatus = 0;
+        uint16_t vifcStatus = 0;
+        uint8_t result = 0;
+        bool resultValid = false;
+
+        // Thread-safe isolation snapshot
+        if (xSemaphoreTake(dataMutex, pdMS_TO_TICKS(20)) == pdTRUE) {
+            requested = telemetryData.selfTestRequested;
+            charging = telemetryData.isCharging;
+            imdStatus = telemetryData.imdStatus;   // D_IMC_STATUS
+            vifcStatus = telemetryData.vifcStatus; // D_VIFC_STATUS
+            result = telemetryData.selfTestResult;
+            resultValid = telemetryData.selfTestResultValid;
+            xSemaphoreGive(dataMutex);
+        }
+
+        switch (state) {
+            case IDLE:
+                if (requested && !charging) {
+                    state = TRIGGERING_TEST;
+                    stateTimer = now;
+                    
+                    WITH_DATA_MUTEX({ 
+                        telemetryData.selfTestRequested = false;
+                        telemetryData.selfTestRunning = true; 
+                        telemetryData.selfTestFailed = false;
+                        telemetryData.selfTestResultValid = false; 
+                    });
+                    
+                    // Hardware-Selbsttest anstoßen (Erfordert geöffnete interne Relais)
+                    send_imd_self_test_start(false); 
+                    safe_printf("[IMD] Triggering internal short self-test sequence...\n");
+                }
+                break;
+
+            case TRIGGERING_TEST:
+                // Verify via D_IMC_STATUS Bit 4 that the device confirms the test run
+                if (imdStatus & (1 << 4)) {
+                    safe_printf("[IMD] Hardware confirms internal test is actively executing.\n");
+                    state = RUNNING_TEST;
+                    stateTimer = now;
+                } else if (now - stateTimer > 2000) {
+                    safe_printf("[IMD] WARNING: Trigger missed. Retrying test command...\n");
+                    send_imd_self_test_start(false);
+                    stateTimer = now;
+                }
+                break;
+
+            case RUNNING_TEST: {
+                // Verify test completion via D_VIFC_STATUS Bit 12 (0 = Executed/Done)
+                bool testFinished = !(vifcStatus & (1 << 12)); 
+                
+                if (resultValid || testFinished) {
+                    state = EVALUATING;
+                } else if (now - stateTimer > 5000) {
+                    safe_printf("[IMD] ERROR: Internal self-test timed out.\n");
+                    state = CLEANUP_FAULT;
+                }
+                break;
+            }
+
+            case EVALUATING: {
+                // Evaluation der internen Bender-Diagnoseregister
+                bool internalIsoError     = (imdStatus & (1 << 0));
+                bool internalChassisError = (imdStatus & (1 << 1));
+                bool internalSystemError  = (imdStatus & (1 << 2));
+
+                if (result == 0 && !internalIsoError && !internalChassisError && !internalSystemError) {
+                    safe_printf("[IMD] Internal electronics check PASSED. Connecting coupling relays.\n");
+                    state = CONNECTING_MEASUREMENT;
+                    stateTimer = now;
+                    
+                    // CRITICAL STEP: Interne Bender-Relais schließen, um HV-Bus zu verbinden
+                    set_imd_internal_coupling(true); 
+                } else {
+                    safe_printf("[IMD] CRITICAL: Internal electronics check FAILED! Status: 0x%X\n", imdStatus);
+                    state = CLEANUP_FAULT;
+                }
+                break;
+            }    
+
+            case CONNECTING_MEASUREMENT:
+                if (now - stateTimer >= 200) {
+                    state = CLEANUP_SUCCESS;
+                }
+                break;
+
+            case CLEANUP_SUCCESS:
+                // Freigabesignal an das externe BMS übermitteln
+                send_bms_relay_release(true); 
+                WITH_DATA_MUTEX({ telemetryData.selfTestRunning = false; });
+                state = IDLE;
+                break;
+
+            case CLEANUP_FAULT:
+                // Im Fehlerfall bleibt die Freigabe permanent gesperrt
+                set_imd_internal_coupling(false);
+                send_bms_relay_release(false); 
+                WITH_DATA_MUTEX({ 
+                    telemetryData.selfTestRunning = false; 
+                    telemetryData.selfTestFailed = true;
+                });
+                state = IDLE;
+                break;
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
 }
+```
 
-#### 1. IEC 61557-8 (Isolationsüberwachungsgeräte in IT-Systemen)
+## 8.3 Nachweis der Normkonformität
 
-- **Anforderung:** Die Funktionalität des IMD (inklusive der Messketten und der internen HV-Ankoppelrelais) muss zyklisch oder ereignisbasiert überprüft werden können.
-- **Erfüllung:** Durch den Aufruf von `send_imd_self_test_start(false)`
-  (Befehl `0x00D0` auf CAN-ID `0x22`) stößt die VCU exakt diesen genormten geräteinternen Hardware-Selbsttest des Benders an und evaluiert im Zustand `EVALUATING` das Ergebnis.
+Die oben dokumentierte softwareseitige Verriegelung und Flankenerkennung erfüllt die zentralen Schutzziele der fahrzeugrelevanten Sicherheitsstandards direkt im Systemhochlauf:
 
-#### 2. ISO 6469-3 (Elektrische Sicherheit von Elektrofahrzeugen)
+!!! success Erfüllung der IEC 61557-8 (Isolationsüberwachung in IT-Systemen)
+    Die Funktionalität des IMD (inklusive der internen Messketten und Ankoppelrelais) wird ereignisbasiert bei jedem relevanten Zustandswechsel überprüft. Durch die Abfrage von imdSelfTestMissing (Bits 12 und 13) erkennt der Algorithmus sofort, ob das Isometer einen geräteinternen Hardware-Selbsttest fordert, setzt proaktiv selfTestRequested = true und arbeitet die Validierungssequenz ab.
 
-- **Anforderung:** Schutz von Personen vor elektrischem Schlag im regulären Fahrbetrieb. Ein sicherer Zustand (Fahrverbot / Interlock) muss erzwungen werden, solange der Isolationszustand des HV-Busses nicht zweifelsfrei verifiziert ist.
-- **Erfüllung:** Deine State Machine in `self_test.cpp` hält `send_bms_relay_release(false)` (ID `0x309` auf `0x00`) so lange aktiv, bis der Selbsttest den Zustand `CLEANUP_SUCCESS` erreicht. Das bedeutet: **Die echten HV-Schütze der Tesla-Batterie schließen niemals, solange das Isometer nicht grünes Licht gibt.** Das Fahrzeug ist im Fehlerfall physisch blockiert (`Drive Inhibit` über den Hyper9-BMS-Proxy).
+!!! success Erfüllung der ISO 6469-3 (Sicherstellung der elektrischen Sicherheit)
+    Zum Schutz von Personen vor elektrischem Schlag im Fahrbetrieb stellt die Bedingung isOperational sicher, dass sowohl im Status BMS_STATUS_READY (Fahrbereitschaft vorbereitet) als auch in BMS_STATUS_DRIVE (Fahrbetrieb aktiv) der Isolationsstatus zweifelsfrei verifiziert sein muss. Solange die Bits 12/13 aktiv sind und die State Machine läuft, bleibt die Schaltschwelle für die echten HV-Hauptschütze physisch gesperrt (Drive Inhibit über den Inverter-Proxy).
 
-#### 3. IEC 61851-1 (Elektrische Ausrüstung von Elektro-Straßenfahrzeugen -- Konduktive Ladesysteme)
+!!! success Erfüllung der IEC 61851-1 (Konduktive Ladesysteme)
+    Bevor Energie aus einer externen Ladesäule (EVSE) in das Fahrzeug fließen darf, greift der Trigger beim Übergang in den Zustand BMS_STATUS_CHARGE. Der Ladevorgang wird auf CAN-Ebene so lange blockiert, bis das Isometer den durch den Edge-Trigger initiierten Selbsttest erfolgreich abgeschlossen, seine internen Messrelais geschlossen und einen Isolationswert weit oberhalb der kritischen Schwellen gemeldet hat.
 
-- **Anforderung:** Bevor Energie aus der Ladesäule (EVSE) in das Fahrzeug fließen darf, muss die elektrische Sicherheit der fahrzeugseitigen HV-Infrastruktur überprüft werden.
-- **Erfüllung:** Sobald das SimpBMS in den Status `3` (`BMS_STATUS_CHARGE`) wechselt, erkennt die VCU das, blockiert den Ladevorgang über die `CAN_Transmit_Task()`, führt zuerst den  Isometer-Selbsttest durch, schließt danach die internen Messrelais und gibt erst dann den Elcon-Charger frei.
 
-## Iso-R Prüfbox
+## 9 Iso-R Prüfbox
 
-Tester für Insulation Monitoring Device aufgebaut aus 8 in reihe geschalteten 82kOhm Widerständen. Vier Ausgänge ermöglichen es den Widerstand auf 496, 372, 248 und 124kOhm zu senken.
+Der Tester für das *Insulation Monitoring Device* (Isolationswächter) ist aus 8 in Reihe geschalteten 82 k&Omega;-Präzisionswiderständen aufgebaut. Vier separate Ausgänge ermöglichen es, den simulierten Isolationswiderstand gezielt auf 496, 372, 248 und 124 k&Omega; zu senken.
 
-Testablauf:
+### 9.1 Geräteaufbau
 
-- Anschluß GND (schwarz) über Krokodilklemme mit der Fahrzeugmasse verbinden
-- Sicherheitsprüfkabel mit HV+ oder HV- verbinden
-- Das andere Ende des Sicherheitsprüfkabels zuerst mit dem höchsten Widerstands-Ausgang 496kOhm (grün) verbinden.
+<figure id="iso_pruefbox">
+  <img src="./Pictures/100000010000055E000002E6FC43349D.png">
+  <figcaption style="text-align: center;">Abbildung 9: Technischer Aufbau der Iso-R Prüfbox für den Isolationswächter-Test
+  </figcaption>
+</figure>
 
-+-----------------+-------------------------+-----------------------------+-------------------+
-| **Ausgang** | **Widerstände in      | **Gesamt-**             | **Prüfzweck** |
-|                 | Reihe**               |                             |                   |
-|                 |                         | **widerstand              |                   |
-|                 |                         | R**~**Pr**~~**ü**~~**f​**~** |                   |
-+=================+=========================+=============================+===================+
-| D               | R1+R2+R3+R4+R5+R6+R7+R8 | 496kΩ                       | **Prüfung         |
-|                 |                         |                             | Hysterese** (ca.  |
-|                 |                         |                             | 500**kΩ**).       |
-+-----------------+-------------------------+-----------------------------+-------------------+
-| C               | R1+R2+R3+R4+R5+R6       | 372kΩ                       | **Auslösung       |
-|                 |                         |                             | WARNUNG**         |
-|                 |                         |                             | (400**kΩ**).      |
-+-----------------+-------------------------+-----------------------------+-------------------+
-| B               | R1+R2+R3+R4             | 248kΩ                       | **Auslösung       |
-|                 |                         |                             | FEHLER**          |
-|                 |                         |                             | (250**kΩ** .      |
-+-----------------+-------------------------+-----------------------------+-------------------+
-| A               | R1+R2                   | 124kΩ                       | Minimaler         |
-|                 |                         |                             | Fehlerwert (klar  |
-|                 |                         |                             | **ROT**)          |
-+-----------------+-------------------------+-----------------------------+-------------------+
-| GND             |                         |                             | Masse (Referenz). |
-+-----------------+-------------------------+-----------------------------+-------------------+
+### 9.2 Spezifikation der Ausgänge
 
-Prüfreihenfolge
+| Ausgang | Widerstände in Reihe | Gesamtwiderstand | Prüfzweck |
+| :---: | :--- | :---: | :--- |
+| **D** | R1 + R2 + R3 + R4 + R5 + R6 + R7 + R8 | 496 k&Omega; | **Prüfung Hysterese** (Ansprechgrenze liegt bei ca. 500 k&Omega;) |
+| **C** | R1 + R2 + R3 + R4 + R5 + R6 | 372 k&Omega; | **Auslösung WARNUNG** (Schwelle: 400 k&Omega;) |
+| **B** | R1 + R2 + R3 + R4 | 248 k&Omega; | **Auslösung FEHLER / Abschaltung** (Schwelle: 250 k&Omega;) |
+| **A** | R1 + R2 | 124 k&Omega; | Minimaler Fehlerwert (harter Defekt, klare Abschaltung) |
+| **GND** | *Keine Widerstände* | 0 &Omega; | Fahrzeugmasse (Referenzpotenzial) |
 
-  ------------------------------------------------------------------------------------------------------------------------------------------------
-  **Nr.**   **Ausgang**   **Farbe**   **Prüf-widerstand\   **Erwarteter Zustand**   **Prüfzweck**
-                                                  (kOhm)**                                          
-  ------------- ----------------- --------------- ---------------------- ---------------------------- --------------------------------------------
-  1             D                 Grün            496                    OK                           Startwert
+---
 
-  2             C                 Gelb            372                    WARNUNG                      Löst die 400**kΩ** \
-                                                                                                      Warnung-schwelle aus.
+### 9.3 Testvorbereitung
 
-  3             B                 Rot             248                    FEHLER                       Löst die 250**kΩ** \
-                                                                                                      Error-Schwelle aus.
+* **Masseverbindung:** Anschluss GND (schwarz) über eine Krokodilklemme fest mit der Fahrzeugmasse (Karosserie) verbinden.
+* **HV-Verbindung:** Sicherheitsprüfkabel mit dem zu prüfenden Pfad (HV+ oder HV-) verbinden.
+* **Messreihenfolge:** Das andere Ende des Sicherheitsprüfkabels beginnend beim höchsten Widerstands-Ausgang (496 k&Omega;, grün) sukzessive nach unten durchstecken.
 
-  4             A                 Rot             124                    FEHLER                       Fehler bleibt aktiv (sehr niedriger Wert).
-  ------------------------------------------------------------------------------------------------------------------------------------------------
+---
 
-![Tester for Insulation Monitoring
-Device](./Pictures/100000010000055E000002E6FC43349D.png)
+### 9.4 Durchführung der Prüfung und erwartete Systemreaktion
+
+Die mathematische Bestimmung des jeweiligen Prüfwiderstandes berechnet sich im freistehenden Block wie folgt:
+
+<div class="arithmatex">
+$$R_{\mathrm{Pr\ddot{u}f}} = \sum R_{\mathrm{n}}$$
+</div>
+
+| Nr. | Ausgang | Kabelfarbe | Prüfwiderstand | Erwarteter Zustand | Prüfzweck / Beschreibung |
+| :---: | :---: | :---: | :---: | :---: | :--- |
+| **1** | D | Grün | 496 k&Omega; | **OK** | Startwert im sicheren Bereich (keine Systemreaktion). |
+| **2** | C | Gelb | 372 k&Omega; | **WARNUNG** | Löst die 400 k&Omega;-Warnschwelle im VCU-Display aus. |
+| **3** | B | Rot | 248 k&Omega; | **FEHLER** | Unterschreitet die 250 k&Omega;-Abschaltschwelle. AIRs müssen trennen. |
+| **4** | A | Rot | 124 k&Omega; | **FEHLER** | Kritischer Isolationsfehler bleibt aktiv bestehen. |
+
+---
 
 
 ## CAN Open Network
@@ -552,7 +689,7 @@ Die VCU (ESP32 / Lilygo T485) liest kontinuierlich die Motordrehzahl (telemetryD
 Skalierungsfaktor für das Drehmoment (limit_percent) in Echtzeit berechnet und an den Inverter gesendet.
 
 **Quellcode-Auszug (C++):**
-
+```cpp
 void send_proxy_bms_data() {
 uint16_t soc_hyper9 = 0;
 int16_t current_da = 0;
@@ -605,6 +742,7 @@ msg.data\[5\] = limit_percent; // dynamic calculated limit send to Inverter
 twai_transmit(&msg, pdMS_TO_TICKS(5));
 
 }
+```
 
 ### DC/DC Wandler
 

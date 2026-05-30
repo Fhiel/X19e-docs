@@ -1,4 +1,4 @@
-# 6 Umfassender Personenschutz -- Schutz für Dritte
+# 6 Umfassender Personenschutz - Schutz für Dritte
 
 Dieses Kapitel beschreibt Maßnahmen, die über die unmittelbare Fahrzeugsicherheit hinausgehen und dem Schutz Dritter im Falle eines Unfalls, einer Bergung oder bei Wartungsarbeiten dienen.
 
@@ -24,7 +24,12 @@ Zur sicheren und schnellen Deaktivierung des Hochvoltsystems im Falle eines Unfa
 - Die Lage der Hochvoltleitungen (orange Kabel), HV-Komponenten und der 12V-Batterie.
 - Die exakte Position der Rettungs-Trennschleife und der MSDs.
 - Die empfohlene Vorgehensweise zur schnellen Deaktivierung.
-- **Verfügbarkeit:** Das Rettungsdatenblatt wird im Fahrzeug mitgeführt (z.B. hinter der Sonnenblende) und kann direkt über den Link [*Rettungskarte Bertone X1/9e*](https://fhiel.github.io/x19e-electric-speed/safety/Rettungskarte_Bertone_X19e.pdf) oder diesen QR-Code ![](./Pictures/10038B520000E0B00000E0B004383720.svg)abgerufen werden.
+- **Verfügbarkeit:** Das Rettungsdatenblatt wird im Fahrzeug mitgeführt (z.B. hinter der Sonnenblende) und kann direkt über den Link [*Rettungskarte Bertone X1/9e*](https://fhiel.github.io/x19e-electric-speed/safety/Rettungskarte_Bertone_X19e.pdf) oder diesen QR-Code abgerufen werden. 
+  
+<figure id="qrcode1">
+  <img src="./Pictures/10038B520000E0B00000E0B004383720.svg">
+  <figcaption style="text-align: center;">Abbildung 8: QR-Code zum Rettungsdatenblatt</figcaption>
+</figure>
 
 ## 6.3 Schutz bei Wartung und Instandsetzung
 

@@ -8,7 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Erzwingt Schreibrechte direkt im Skript
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -27,10 +27,13 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-pdf-export-plugin
 
-      - name: Un-comment PDF Plugin for Build
+      - name: Pre-Build to generate PDF
         run: |
-          sed -i 's/#  - pdf-export:/- pdf-export:/g' mkdocs.yml
-          sed -i 's/#      combined: true/    combined: true/g' mkdocs.yml
+          mkdocs build
+          # Das generierte PDF wird aus dem site-Ordner gerettet und in den docs-Ordner für die Webseite kopiert
+          # Falls das PDF anders heißt, passe den Namen kurz an (meistens site_name.pdf)
+          mkdir -p docs/pdf
+          cp site/*.pdf docs/pdf/technische_dokumentation.pdf 2>/dev/null || cp site/pdf/*.pdf docs/pdf/technische_dokumentation.pdf 2>/dev/null || true
 
       - name: Build and Deploy to GitHub Pages
         run: |
