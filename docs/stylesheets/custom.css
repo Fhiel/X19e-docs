@@ -53,3 +53,40 @@ h1, h2, h3 {
 .md-typeset .admonition.note {
     border-left-color: var(--instrument-green);
 }
+
+@media print {
+    /* Hebt jegliche Flexbox- und Höhenbegrenzungen des Themes auf */
+    .md-content, 
+    .md-content__inner, 
+    article, 
+    body, 
+    html {
+        display: block !important;
+        height: auto !important;
+        overflow: visible !important;
+        float: none !important;
+        max-height: none !important;
+    }
+
+    /* Verhindert, dass leere Container Seitenumbrüche erzwingen */
+    .md-sidebar, 
+    .md-header, 
+    .md-footer, 
+    .md-nav {
+        display: none !important;
+    }
+
+    /* Sorgt dafür, dass Infoboxen und Tabellen sauber mitwandern */
+    .admonition {
+        page-break-inside: avoid !important;
+    }
+    
+    table {
+        width: 100% !important;
+        page-break-inside: auto !important;
+    }
+    
+    tr {
+        page-break-inside: avoid !important;
+    }
+}
