@@ -62,3 +62,10 @@ plugins:
   - search
   - enumerate-headings:
       strict: false 
+      exclude:
+        - index.md
+  - with-pdf:
+      author: Frank Hielscher
+      output_path: downloads/X19e_Technische_Dokumentation.pdf
+      cover: true
+      backcover: false
