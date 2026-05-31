@@ -54,7 +54,20 @@ h1, h2, h3 {
     border-left-color: var(--instrument-green);
 }
 
+/* ==========================================================================
+   PRINT-STYLES (Optimiert für den TÜV-Gutachten-Ausdruck via mkdocs-with-pdf)
+   ========================================================================== */
 @media print {
+    /* Verhindert das automatische, generische Cover des Plugins */
+    .pdf-cover {
+        display: none !important;
+    }
+
+    /* Erzwingt, dass deine Projektdokumentation (index.md) direkt auf Seite 1 beginnt */
+    div.md-content article h1:first-of-type {
+        page-break-before: avoid !important;
+    }
+
     /* Container-Layouts für den Fließtext öffnen */
     .md-content, .md-content__inner, article {
         display: block !important;
@@ -89,8 +102,8 @@ h1, h2, h3 {
         page-break-inside: auto !important;
     }
 
-    /* Bilder und Boxen stabilisieren */
-    figure, img, .admonition {
+    /* Bilder, Tabellen und Boxen gegen unschöne Seitenbrüche stabilisieren */
+    figure, img, .admonition, table, tr {
         page-break-inside: avoid !important;
         max-width: 100% !important;
         height: auto !important;

@@ -51,17 +51,17 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Inhalt:
-    - 1 Technische Kurzbeschreibung: kurzbeschreibung.md
-    - 2 Funktionssicherheit: funktionssicherheit.md
-    - 3 Elektrische Sicherheit: elektrische_sicherheit.md
-    - 4 Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
-    - 5 Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
-    - 6 Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
+      - Technische Kurzbeschreibung: kurzbeschreibung.md
+      - Funktionssicherheit: funktionssicherheit.md
+      - Elektrische Sicherheit: elektrische_sicherheit.md
+      - Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
+      - Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
+      - Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
 
 plugins:
   - search
   - enumerate-headings:
-      strict: false 
+      strict: false
       exclude:
         - index.md
   - with-pdf:
@@ -69,3 +69,5 @@ plugins:
       output_path: downloads/X19e_Technische_Dokumentation.pdf
       cover: true
       backcover: false
+      toc_title: "Inhaltsverzeichnis"
+      heading_shift: false
