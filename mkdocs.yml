@@ -34,7 +34,8 @@ extra_css:
 extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
-
+  - stylesheets/katex-config.js
+  
 markdown_extensions:
   - tables
   - attr_list
