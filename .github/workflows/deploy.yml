@@ -18,6 +18,10 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install Python Dependencies
+        run: |
+          pip install mkdocs-material mkdocs-enumerate-headings-plugin
+
       - name: Install System Dependencies for PDF (Ubuntu)
         run: |
           sudo apt-get update
