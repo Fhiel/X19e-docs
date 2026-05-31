@@ -50,20 +50,18 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Inhalt:
-      - Technische Kurzbeschreibung: kurzbeschreibung.md
-      - Funktionssicherheit: funktionssicherheit.md
-      - Elektrische Sicherheit: elektrische_sicherheit.md
-      - Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
-      - Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
-      - Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
-  - Anhang:
-      - Anhang: anhang.md
+  - Technische Kurzbeschreibung: kurzbeschreibung.md
+  - Funktionssicherheit: funktionssicherheit.md
+  - Elektrische Sicherheit: elektrische_sicherheit.md
+  - Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
+  - Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
+  - Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
+  - Anhang: anhang.md
 
 plugins:
   - search
   - enumerate-headings:
-      strict: false
+      strict: true
       exclude:
         - index.md
         - anhang.md

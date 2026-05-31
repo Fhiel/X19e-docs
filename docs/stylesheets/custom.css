@@ -58,16 +58,20 @@ h1, h2, h3 {
    PRINT-STYLES (Optimiert für den TÜV-Gutachten-Ausdruck via mkdocs-with-pdf)
    ========================================================================== */
 @media print {
-    /* Killt das fehlerhafte, automatische Cover des Plugins restlos */
-    .pdf-cover, #app-cover, .cover {
+    /* Deaktiviert das automatische Cover und alle künstlichen Platzhalter des Plugins restlos */
+    .pdf-cover, #app-cover, .cover, #cover, section[data-type="cover"] {
         display: none !important;
         height: 0 !important;
         page-break-after: avoid !important;
+        page-break-before: avoid !important;
+        margin: 0 !important;
+        padding: 0 !important;
     }
 
-    /* LÖST DAS NUMMERN-PROBLEM: Deaktiviert die CSS-Counter des PDF-Plugins vor den Überschriften */
-    h1::before, h2::before, h3::before, h4::before,
-    .with-pdf h1::before, .with-pdf h2::before, .with-pdf h3::before {
+    /* RADIKALER NUMMERN-KILLER: Entfernt die CSS-Generatoren des PDF-Renderers auf allen Überschriften */
+    h1::before, h2::before, h3::before, h4::before, h5::before,
+    .with-pdf h1::before, .with-pdf h2::before, .with-pdf h3::before,
+    [class*="heading"]::before {
         content: none !important;
         display: none !important;
     }
@@ -79,7 +83,7 @@ h1, h2, h3 {
         overflow: visible !important;
     }
 
-    /* Radikal alle ungenutzten Web-Elemente ausblenden */
+    /* Alle ungenutzten Web-Elemente (Sidebar, Header, Navigation) ausblenden */
     .md-sidebar, .md-header, .md-footer, .md-nav, .md-top, .md-banner {
         display: none !important;
         visibility: hidden !important;
@@ -88,31 +92,32 @@ h1, h2, h3 {
         padding: 0 !important;
     }
 
-    /* Erzwungener Seitenumbruch vor Hauptkapiteln */
+    /* Erzwungener Seitenumbruch vor echten Hauptkapiteln (H1) */
     h1 {
         page-break-before: always !important;
         page-break-inside: avoid !important;
     }
 
-    /* Die allererste Überschrift der Dokumentation (Deckblatt / index.md) startet auf Seite 1 */
+    /* Das allererste H1 (deine index.md / Deckblatt) darf KEINEN Umbruch davor haben */
     article h1:first-of-type, 
-    .md-content article h1:first-of-type {
+    .md-content article h1:first-of-type,
+    main h1:first-of-type {
         page-break-before: avoid !important;
     }
 
-    /* Unterüberschriften dürfen NICHT alleine am Seitenende stehen */
+    /* Unterüberschriften stabilisieren */
     h2, h3, h4 {
         page-break-before: auto !important;
         page-break-after: avoid !important;
         page-break-inside: avoid !important;
     }
 
-    /* Absätze und Listen dürfen frei fließen */
+    /* Absätze und Listen fließen lassen */
     p, li {
         page-break-inside: auto !important;
     }
 
-    /* Bilder, Tabellen und Boxen gegen unschöne Seitenbrüche stabilisieren */
+    /* Medien und Boxen sichern */
     figure, img, .admonition, table, tr {
         page-break-inside: avoid !important;
         max-width: 100% !important;
