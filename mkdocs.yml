@@ -67,7 +67,8 @@ plugins:
   - with-pdf:
       author: Frank Hielscher
       output_path: downloads/X19e_Technische_Dokumentation.pdf
-      cover: true
+      cover: false
       backcover: false
+      headings: false
       toc_title: "Inhaltsverzeichnis"
       heading_shift: false

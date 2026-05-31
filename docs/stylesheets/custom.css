@@ -58,14 +58,9 @@ h1, h2, h3 {
    PRINT-STYLES (Optimiert für den TÜV-Gutachten-Ausdruck via mkdocs-with-pdf)
    ========================================================================== */
 @media print {
-    /* Verhindert das automatische, generische Cover des Plugins */
-    .pdf-cover {
-        display: none !important;
-    }
-
-    /* Erzwingt, dass deine Projektdokumentation (index.md) direkt auf Seite 1 beginnt */
-    div.md-content article h1:first-of-type {
-        page-break-before: avoid !important;
+    /* Verhindert doppelte Nummerierungen durch den PDF-Renderer */
+    h1::before, h2::before, h3::before, h4::before {
+        content: none !important;
     }
 
     /* Container-Layouts für den Fließtext öffnen */
@@ -84,10 +79,15 @@ h1, h2, h3 {
         padding: 0 !important;
     }
 
-    /* Kontrollierte Seitenumbrüche: NUR bei Hauptkapiteln (H1) zwingend */
+    /* Erzwungener Seitenumbruch NUR nach dem Deckblatt (index.md) und vor Hauptkapiteln */
     h1 {
         page-break-before: always !important;
         page-break-inside: avoid !important;
+    }
+
+    /* Die allererste Überschrift der Dokumentation (Deckblatt) braucht keinen Umbruch davor */
+    article h1:first-of-type {
+        page-break-before: avoid !important;
     }
 
     /* Unterüberschriften dürfen NICHT alleine am Seitenende stehen */
@@ -97,7 +97,7 @@ h1, h2, h3 {
         page-break-inside: avoid !important;
     }
 
-    /* Absätze und Listen dürfen frei fließen (beseitigt willkürliche Leerseiten) */
+    /* Absätze und Listen dürfen frei fließen */
     p, li {
         page-break-inside: auto !important;
     }
