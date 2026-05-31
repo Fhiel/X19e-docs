@@ -57,6 +57,8 @@ nav:
       - Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
       - Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
       - Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
+  - Anhang:
+      - Anhang: anhang.md
 
 plugins:
   - search
@@ -64,11 +66,12 @@ plugins:
       strict: false
       exclude:
         - index.md
+        - anhang.md
   - with-pdf:
       author: Frank Hielscher
       output_path: downloads/X19e_Technische_Dokumentation.pdf
-      cover: false
-      backcover: false
-      headings: false
+      cover: true
+      cover_title: " "
+      cover_subtitle: " "
       toc_title: "Inhaltsverzeichnis"
       heading_shift: false

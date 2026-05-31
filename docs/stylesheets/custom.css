@@ -58,9 +58,18 @@ h1, h2, h3 {
    PRINT-STYLES (Optimiert für den TÜV-Gutachten-Ausdruck via mkdocs-with-pdf)
    ========================================================================== */
 @media print {
-    /* Verhindert doppelte Nummerierungen durch den PDF-Renderer */
-    h1::before, h2::before, h3::before, h4::before {
+    /* Killt das fehlerhafte, automatische Cover des Plugins restlos */
+    .pdf-cover, #app-cover, .cover {
+        display: none !important;
+        height: 0 !important;
+        page-break-after: avoid !important;
+    }
+
+    /* LÖST DAS NUMMERN-PROBLEM: Deaktiviert die CSS-Counter des PDF-Plugins vor den Überschriften */
+    h1::before, h2::before, h3::before, h4::before,
+    .with-pdf h1::before, .with-pdf h2::before, .with-pdf h3::before {
         content: none !important;
+        display: none !important;
     }
 
     /* Container-Layouts für den Fließtext öffnen */
@@ -79,14 +88,15 @@ h1, h2, h3 {
         padding: 0 !important;
     }
 
-    /* Erzwungener Seitenumbruch NUR nach dem Deckblatt (index.md) und vor Hauptkapiteln */
+    /* Erzwungener Seitenumbruch vor Hauptkapiteln */
     h1 {
         page-break-before: always !important;
         page-break-inside: avoid !important;
     }
 
-    /* Die allererste Überschrift der Dokumentation (Deckblatt) braucht keinen Umbruch davor */
-    article h1:first-of-type {
+    /* Die allererste Überschrift der Dokumentation (Deckblatt / index.md) startet auf Seite 1 */
+    article h1:first-of-type, 
+    .md-content article h1:first-of-type {
         page-break-before: avoid !important;
     }
 
