@@ -1,5 +1,4 @@
 site_name: "X1/9e - Technische Dokumentation"
-site_description: "Dokumentation für den Elektro-Umbau des Fiat Bertone X1/9 nach TÜV-Vorgaben"
 site_author: "Frank Hielscher"
 
 theme:
@@ -31,11 +30,9 @@ markdown_extensions:
       generic: true
   - admonition
   - pymdownx.details
-  - pymdownx.inlinehilite
-  - def_list
 
 nav:
-  - index.md
+  - Home: index.md
   - Technische Kurzbeschreibung: kurzbeschreibung.md
   - Funktionssicherheit: funktionssicherheit.md
   - Elektrische Sicherheit: elektrische_sicherheit.md
