@@ -1,5 +1,3 @@
-<div class="cover" style="page-break-after: always; text-align: left;">
-
 # Projektdokumentation
 
 **BERTONE X1/9e**
@@ -30,11 +28,3 @@ Tel. 0172 6811397
 E-Mail <FHielscher@web.de>  
 
 **Ausgabe** 2026-05-31
-
-</div>
-
-<div id="pdf-toc" style="page-break-after: always;">
-
-# Inhaltsverzeichnis
-
-</div>

@@ -58,10 +58,22 @@ h1, h2, h3 {
    PRINT-STYLES (Optimiert für den TÜV-Gutachten-Ausdruck via mkdocs-with-pdf)
    ========================================================================== */
 @media print {
-    /* Schaltet alle standardmäßigen, künstlichen Nummern-Injektionen des Weasyprint-Renderers aus */
+    /* Rammt das fehlerhafte, automatische Vorlagen-Cover des Plugins ungespitzt in den Boden */
+    .pdf-cover, #app-cover, .cover, [data-type="cover"] {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        page-break-after: avoid !important;
+        page-break-before: avoid !important;
+    }
+
+    /* Radikale Vernichtung ALLER doppelten CSS-Nummernzähler des PDF-Renderers */
     h1::before, h2::before, h3::before, h4::before,
-    .with-pdf h1::before, .with-pdf h2::before, .with-pdf h3::before,
-    .data-number, .pdf-header, .pdf-footer-custom {
+    .md-typeset h1::before, .md-typeset h2::before, .md-typeset h3::before,
+    section h1::before, section h2::before, .data-number,
+    .pdf-header, .pdf-footer-custom {
         content: none !important;
         display: none !important;
     }
@@ -73,7 +85,7 @@ h1, h2, h3 {
         overflow: visible !important;
     }
 
-    /* Alle ungenutzten Web-Elemente (Sidebar, Header, Navigation) ausblenden */
+    /* Alle Web-UI-Elemente ausblenden */
     .md-sidebar, .md-header, .md-footer, .md-nav, .md-top, .md-banner {
         display: none !important;
         visibility: hidden !important;
@@ -88,7 +100,14 @@ h1, h2, h3 {
         page-break-inside: avoid !important;
     }
 
-    /* Unterüberschriften stabilisieren (keine verwaisten Zeilen am Seitenende) */
+    /* Deine index.md (die allererste Überschrift) startet sauber auf Seite 1 ohne Umbruch davor */
+    div.md-content article h1:first-of-type,
+    main h1:first-of-type,
+    article h1:first-of-type {
+        page-break-before: avoid !important;
+    }
+
+    /* Unterüberschriften vor dem Umbruch-Abreißen schützen */
     h2, h3, h4 {
         page-break-before: auto !important;
         page-break-after: avoid !important;
