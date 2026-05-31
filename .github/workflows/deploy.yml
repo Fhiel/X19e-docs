@@ -18,19 +18,26 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install System Dependencies (Chromium for PDF)
+      - name: Install Google Chrome & Puppeteer CLI (For reliable PDF)
         run: |
           sudo apt-get update
           sudo apt-get install -y chromium-browser --no-install-recommends
+          npm install -g @puppeteer/cli
 
       - name: Install Python Dependencies
         run: |
-          pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-with-pdf
+          pip install mkdocs-material mkdocs-enumerate-headings-plugin
 
-      - name: Create Downloads Directory
+      - name: Build Static Site HTML
         run: |
-          mkdir -p docs/downloads
+          mkdocs build
 
-      - name: Build and Deploy to GitHub Pages
+      - name: Generate PDF via Headless Chrome
+        run: |
+          mkdir -p site/downloads
+          # Chrome druckt die gebaute Index-Datei inklusive aller CSS-Styles direkt als PDF
+          chromium-browser --headless --disable-gpu --print-to-pdf=site/downloads/X19e_Technische_Dokumentation.pdf site/index.html
+
+      - name: Deploy to GitHub Pages
         run: |
           mkdocs gh-deploy --force

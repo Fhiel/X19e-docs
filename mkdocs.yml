@@ -47,13 +47,5 @@ plugins:
   - search
   - enumerate-headings:
       strict: true
-      increment_headings: false
       exclude:
         - index.md
-  - with-pdf:
-      author: Frank Hielscher
-      output_path: downloads/X19e_Technische_Dokumentation.pdf
-      cover: true
-      cover_title: "Projektdokumentation"
-      cover_subtitle: "BERTONE X1/9e — Technische Dokumentation"
-      heading_shift: true
