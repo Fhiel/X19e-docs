@@ -1,8 +1,8 @@
-# 4 Sicherheit des Energiespeichers
+# Sicherheit des Energiespeichers
 
 Dieses Kapitel beschreibt die Maßnahmen, die getroffen wurden, um die Sicherheit des wiederaufladbaren Energiespeichersystems (REESS) gemäß VdTÜV-Merkblatt 764 (Kap. 5) zu gewährleisten.
 
-## 4.1 Belüftung (Schutz vor Gasansammlung)
+## Belüftung (Schutz vor Gasansammlung)
 
 Die beiden Batteriepacks des REESS sind außerhalb des Fahrgastraums im vorderen Kofferraum sowie im hinteren Motorraum verbaut. Jeder dieser Bereiche ist durch eine stabile Spritzwand vom Fahrgastraum getrennt.
 
@@ -10,11 +10,11 @@ Um die Ansammlung von potenziell entzündlichen Gasen (z. B. im Fehlerfall einer
 
 ---
 
-## 4.2 Konstruktions- und Einbaubedingungen (Schutz im Crash- & Betriebszustand)
+## Konstruktions- und Einbaubedingungen (Schutz im Crash- & Betriebszustand)
 
 Die Konstruktion der Batteriegehäuse, deren Befestigung sowie die Wahl des Einbauortes wurden so ausgelegt, dass die Anforderungen des VdTÜV-Merkblatts 764 (Kap. 5.2) vollumfänglich erfüllt werden.
 
-### 4.2.1 Schutz vor Deformationszonen (Knautschzonen)
+### Schutz vor Deformationszonen (Knautschzonen)
 
 Die Einhaltung der empfohlenen Mindestabstände des VdTÜV-Merkblatts 764 zur äußeren Fahrzeugbegrenzung wurde messtechnisch überprüft:
 
@@ -27,7 +27,7 @@ Die Einhaltung der empfohlenen Mindestabstände des VdTÜV-Merkblatts 764 zur ä
 
 **Ergebnis:** Die Batteriepacks sind tief innerhalb der stabilen Fahrzeugstruktur positioniert und nicht in den primären Energieabsorptionszonen (Knautschzonen) verbaut.
 
-### 4.2.2 Mechanischer Schutz und Insassensicherheit
+### Mechanischer Schutz und Insassensicherheit
 
 * **Schutz vor mechanischer Beschädigung von unten:** Beide Batteriepacks sind oberhalb der Fahrzeugbodenwanne montiert. Sie sind durch die tragende Karosseriestruktur und geschlossene Bodenbleche vollständig vor direktem Fahrbahnkontakt, Aufsetzen oder Steinschlag geschützt. Der Überfahrwinkel des Fahrzeugs wird nicht negativ beeinflusst.
 * **Schutz des Fahrgastraums:** Die robuste Konstruktion der Batteriegehäuse aus Aluminium-Systemprofilen und die stabile Verschraubung mit der Karosseriestruktur stellen sicher, dass sich das REESS auch bei schweren Verzögerungen (Unfall) nicht unkontrolliert in Bewegung setzt oder Komponenten davon in den Fahrgastraum eindringen.
