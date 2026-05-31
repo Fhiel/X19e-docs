@@ -97,34 +97,34 @@ Dieses Kapitel belegt die rechnerische Leistungsfähigkeit des elektrischen Antr
 
 Der eingesetzte Elektromotor (NetGain HyPer 9) verfügt über eine nominelle Dauerleistung von 38 kW. Die Hochvoltbatterie besteht aus 5 Tesla Model S Modulen mit einer Gesamtkapazität von 26,5 kWh bei einer Nennspannung von 114 V DC. 
 
-Nachfolgend wird die physische Fähigkeit des Speichers zur Bereitstellung der Ströme hergeleitet:
+Nachfolgend wird die physische Fähigkeit des Speichers zur Bereitstellung der Ströme hergeleitet.
 
-* **Strombedarf bei kontinuierlicher Dauerleistung (38 kW):**
-  Zur Bereitstellung der Dauerleistung von 38 kW bei der System-Nennspannung von 114 V DC ergibt sich ein kontinuierlicher Strombedarf von:
+**Strombedarf bei kontinuierlicher Dauerleistung (38 kW):**
+Zur Bereitstellung der Dauerleistung von 38 kW bei der System-Nennspannung von 114 V DC ergibt sich ein kontinuierlicher Strombedarf von:
 
 <div class="arithmatex">
-$$I_{\text{Motor}_{\text{Dauer}}} = \frac{P}{U_{\text{Batt}}} = \frac{38.000\text{ W}}{114\text{ V}} \approx 333,3\text{ A}$$
+$$I_{\mathrm{Motor,Dauer}} = \frac{P}{U_{\mathrm{Batt}}} = \frac{38.000\text{ W}}{114\text{ V}} \approx 333,3\text{ A}$$
 </div>
 
-* **Rechnerische Batteriekapazität ($Q_{\text{Batt}}$):**
-  Aus der bereitgestellten Energie von 26,5 kWh und der Nennspannung resultiert eine Gesamtkapazität von:
+**Rechnerische Batteriekapazität ($Q_{\mathrm{Batt}}$):**
+Aus der bereitgestellten Energie von 26,5 kWh und der Nennspannung resultiert eine Gesamtkapazität von:
 
 <div class="arithmatex">
-$$Q_{\text{Batt}} = \frac{\text{Energie (kWh)} \times 1000}{U_{\text{Standard}}} = \frac{26,5\text{ kWh} \times 1000}{114\text{ V}} \approx 232,5\text{ Ah}$$
+$$Q_{\mathrm{Batt}} = \frac{\text{Energie (kWh)} \times 1000}{U_{\mathrm{Standard}}} = \frac{26,5\text{ kWh} \times 1000}{114\text{ V}} \approx 232,5\text{ Ah}$$
 </div>
 
-* **Maximaler physikalischer Entladestrom (C-Rating):**
-  Basierend auf dem konservativen C-Rating von 3 (Zell-Herstellerangabe für kontinuierliche Entladung) kann der Akkupack theoretisch folgenden maximalen Dauerstrom abgeben:
+**Maximaler physikalischer Entladestrom (C-Rating):**
+Basierend auf dem konservativen C-Rating von 3 (Zell-Herstellerangabe für kontinuierliche Entladung) kann der Akkupack theoretisch folgenden maximalen Dauerstrom abgeben:
 
 <div class="arithmatex">
-$$I_{\text{Batt}_{\text{max}}} = Q_{\text{Batt}} \times C_{\text{Rating}} = 232,5\text{ Ah} \times 3 \approx 697,5\text{ A}$$
+$$I_{\mathrm{Batt,max}} = Q_{\mathrm{Batt}} \times C_{\mathrm{Rating}} = 232,5\text{ Ah} \times 3 \approx 697,5\text{ A}$$
 </div>
 
-* **Maximale physikalische Leistungsabgabe der Batterie:**
-  Daraus resultiert eine maximale, vom Energiespeicher physisch bereitstellbare Leistung von:
+**Maximale physikalische Leistungsabgabe der Batterie:**
+Daraus resultiert eine maximale, vom Energiespeicher physisch bereitstellbare Leistung von:
 
 <div class="arithmatex">
-$$P_{\text{Batt}_{\text{max}}} = U_{\text{Batt}} \times I_{\text{Batt}_{\text{max}}} = 114\text{ V} \times 697,5\text{ A} \approx 79.515\text{ W} \approx 79,5\text{ kW}$$
+$$P_{\mathrm{Batt,max}} = U_{\mathrm{Batt}} \times I_{\mathrm{Batt,max}} = 114\text{ V} \times 697,5\text{ A} \approx 79.515\text{ W} \approx 79,5\text{ kW}$$
 </div>
 
 !!! success ""
@@ -136,77 +136,71 @@ $$P_{\text{Batt}_{\text{max}}} = U_{\text{Batt}} \times I_{\text{Batt}_{\text{ma
 
 Die folgenden mechanischen Berechnungen basieren auf den ermittelten Ist-Werten des umgerüsteten Fahrzeugs ($m = 995\text{ kg}$ Leergewicht).
 
-**Fahrzeug-Eckdaten für die Simulation:** * **Effektiver Raddurchmesser (185/60 R13):** 0,552 m (Radius $r = 0,276\text{ m}$)  
-* **Luftwiderstandsbeiwert ($c_{\text{w}}$):** 0,36 (konservative Schätzung für Karosserieform)  
+**Fahrzeug-Eckdaten für die Simulation:**
+
+* **Effektiver Raddurchmesser (185/60 R13):** 0,552 m (Radius $r = 0,276\text{ m}$)  
+* **Luftwiderstandsbeiwert ($c_{\mathrm{w}}$):** 0,36  
 * **Stirnfläche ($A$):** ca. 1,7 m²  
 * **Gesamtwirkungsgrad Antrieb ($\eta$):** ca. 90 % (Motor inkl. Inverter)  
 * **Getriebeübersetzung (konstant im 4. Gang):** $i = 4,252$  
 
 #### A. Anfahrvermögen an Steigungen (gemäß VdTÜV 764, Kap. 3.3)
-Das Fahrzeug muss eine Steigung von 12 % ($\alpha \approx 6,82^\circ$) aus dem Stillstand heraus problemlos fünfmal innerhalb von pfünf Minuten bewältigen können.
 
-* **Hangabtriebskraft ($F_{\text{Steigung}}$):**
+Das Fahrzeug muss eine Steigung von 12 % ($\alpha \approx 6,82^\circ$) aus dem Stillstand heraus problemlos fünfmal innerhalb von fünf Minuten bewältigen können.
 
+**Hangabtriebskraft ($F_{\mathrm{Steigung}}$):**
 <div class="arithmatex">
-$$F_{\text{Steigung}} = m \times g \times \sin(\alpha) = 995\text{ kg} \times 9,81\text{ m/s}^2 \times \sin(6,82^\circ) \approx 1172,7\text{ N}$$
+$$F_{\mathrm{Steigung}} = m \times g \times \sin(\alpha) = 995\text{ kg} \times 9,81\text{ m/s}^2 \times \sin(6,82^\circ) \approx 1172,7\text{ N}$$
 </div>
 
-* **Rollwiderstandskraft ($F_{\text{Roll}}$) bei $c_{\text{rr}} = 0,01$:**
-
+**Rollwiderstandskraft ($F_{\mathrm{Roll}}$) bei $c_{\mathrm{rr}} = 0,01$:**
 <div class="arithmatex">
-$$F_{\text{Roll}} = m \times g \times c_{\text{rr}} = 995\text{ kg} \times 9,81\text{ m/s}^2 \times 0,01 \approx 97,6\text{ N}$$
+$$F_{\mathrm{Roll}} = m \times g \times c_{\mathrm{rr}} = 995\text{ kg} \times 9,81\text{ m/s}^2 \times 0,01 \approx 97,6\text{ N}$$
 </div>
 
-* **Erforderliche Gesamtzugkraft beim Anfahren:**
-
+**Erforderliche Gesamtzugkraft beim Anfahren:**
 <div class="arithmatex">
-$$F_{\text{Total}_{\text{Anfahren}}} = F_{\text{Steigung}} + F_{\text{Roll}} = 1172,7\text{ N} + 97,6\text{ N} \approx 1270,3\text{ N}$$
+$$F_{\mathrm{Total,Anfahren}} = F_{\mathrm{Steigung}} + F_{\mathrm{Roll}} = 1172,7\text{ N} + 97,6\text{ N} \approx 1270,3\text{ N}$$
 </div>
 
-* **Erforderliches Drehmoment an den Hinterrädern:**
-
+**Erforderliches Drehmoment an den Hinterrädern:**
 <div class="arithmatex">
-$$M_{\text{Rad}_{\text{Anfahren}}} = F_{\text{Total}_{\text{Anfahren}}} \times r = 1270,3\text{ N} \times 0,276\text{ m} \approx 350,6\text{ Nm}$$
+$$M_{\mathrm{Rad,Anfahren}} = F_{\mathrm{Total,Anfahren}} \times r = 1270,3\text{ N} \times 0,276\text{ m} \approx 350,6\text{ Nm}$$
 </div>
 
-* **Resultierendes Motordrehmoment (im 4. Gang):**
-
+**Resultierendes Motordrehmoment (im 4. Gang):**
 <div class="arithmatex">
-$$M_{\text{Motor}_{\text{Anfahren}}} = \frac{M_{\text{Rad}_{\text{Anfahren}}}}{i} = \frac{350,6\text{ Nm}}{4,252} \approx 82,5\text{ Nm}$$
+$$M_{\mathrm{Motor,Anfahren}} = \frac{M_{\mathrm{Rad,Anfahren}}}{i} = \frac{350,6\text{ Nm}}{4,252} \approx 82,5\text{ Nm}$$
 </div>
 
 !!! note ""
     **Anmerkung zum Single-Speed-Betrieb:** Da der Motor das benötigte Drehmoment von 82,5 Nm im 4. Gang aus dem Stand heraus spielend bereitstellt (Maximalmoment ungedrosselt 234 Nm), ist ein permanentes Fahren im 4. Gang als „Single-Speed-Konzept“ möglich. Ein mechanischer Schaltvorgang ist im Regelbetrieb nicht erforderlich.
 
 #### B. Energieverbrauch und Reichweitenprognose (konstant 80 km/h)
-* **Luftwiderstandskraft ($F_{\text{Luft}}$) bei $v = 22,2\text{ m/s}$ ($80\text{ km/h}$) und Luftdichte $\rho = 1,225\text{ kg/m}^3$:**
 
+**Luftwiderstandskraft ($F_{\mathrm{Luft}}$) bei $v = 22,2\text{ m/s}$ (80 km/h) und Luftdichte $\rho = 1,225\text{ kg/m}^3$:**
 <div class="arithmatex">
-$$F_{\text{Luft}} = 0,5 \times c_{\text{w}} \times A \times \rho \times v^2 = 0,5 \times 0,36 \times 1,7\text{ m}^2 \times 1,225\text{ kg/m}^3 \times (22,2\text{ m/s})^2 \approx 194,0\text{ N}$$
+$$F_{\mathrm{Luft}} = 0,5 \times c_{\mathrm{w}} \times A \times \rho \times v^2 = 0,5 \times 0,36 \times 1,7\text{ m}^2 \times 1,225\text{ kg/m}^3 \times (22,2\text{ m/s})^2 \approx 194,0\text{ N}$$
 </div>
 
-* **Gesamtfahrwiderstandskraft ($F_{\text{Total}}$):**
-
+**Gesamtfahrwiderstandskraft ($F_{\mathrm{Total}}$):**
 <div class="arithmatex">
-$$F_{\text{Total}} = F_{\text{Roll}} + F_{\text{Luft}} = 97,6\text{ N} + 194,0\text{ N} = 291,6\text{ N}$$
+$$F_{\mathrm{Total}} = F_{\mathrm{Roll}} + F_{\mathrm{Luft}} = 97,6\text{ N} + 194,0\text{ N} = 291,6\text{ N}$$
 </div>
 
-* **Leistungsbedarf an der Radachse:**
-
+**Leistungsbedarf an der Radachse:**
 <div class="arithmatex">
-$$P_{\text{Achse}} = F_{\text{Total}} \times v = 291,6\text{ N} \times 22,2\text{ m/s} \approx 6472\text{ W} \approx 6,5\text{ kW}$$
+$$P_{\mathrm{Achse}} = F_{\mathrm{Total}} \times v = 291,6\text{ N} \times 22,2\text{ m/s} \approx 6472\text{ W} \approx 6,5\text{ kW}$$
 </div>
 
-* **Elektrischer Leistungsbedarf (ab Batterie, bei $\eta = 0,90$):**
-
+**Elektrischer Leistungsbedarf (ab Batterie, bei $\eta = 0,90$):**
 <div class="arithmatex">
-$$P_{\text{Elektrisch}} = \frac{P_{\text{Achse}}}{\eta} = \frac{6,5\text{ kW}}{0,90} \approx 7,2\text{ kW}$$
+$$P_{\mathrm{Elektrisch}} = \frac{P_{\mathrm{Achse}}}{\eta} = \frac{6,5\text{ kW}}{0,90} \approx 7,2\text{ kW}$$
 </div>
 
-* **Mathematischer Netto-Verbrauch pro 100 km:**
-
+**Mathematischer Netto-Verbrauch pro 100 km:**
 <div class="arithmatex">
-$$\text{Verbrauch}_{100} = P_{\text{Elektrisch}} \times \left(\frac{100\text{ km}}{80\text{ km/h}}\right) = 7,2\text{ kW} \times 1,25\text{ h} = 9,0\text{ kWh/100 km}$$
+$$\text{Verbrauch}_{100} = P_{\mathrm{Elektrisch}} \times \left(\frac{100\text{ km}}{80\text{ km/h}}\right) = 7,2\text{ kW} \times 1,25\text{ h} = 9,0\text{ kWh/100 km}$$
 </div>
 
 !!! info ""
