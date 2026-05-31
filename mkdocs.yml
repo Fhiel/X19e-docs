@@ -14,22 +14,14 @@ theme:
 
 extra_css:
   - stylesheets/custom.css
-  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
-
-extra_javascript:
-  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
-  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
-  - stylesheets/katex-config.js
 
 markdown_extensions:
   - tables
   - attr_list
   - md_in_html
   - pymdownx.superfences
-  - pymdownx.arithmatex:
-      generic: true
   - admonition
-  - pymdownx.details
+  - def_list
 
 nav:
   - Home: index.md
