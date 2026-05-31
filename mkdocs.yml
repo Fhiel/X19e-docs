@@ -35,7 +35,7 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
   - stylesheets/katex-config.js
-  
+
 markdown_extensions:
   - tables
   - attr_list
@@ -57,8 +57,6 @@ nav:
     - 4 Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
     - 5 Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
     - 6 Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
-  - Anhang:
-    - Anhang: anhang.md
 
 plugins:
   - search
