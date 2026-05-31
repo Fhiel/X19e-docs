@@ -27,14 +27,4 @@ Zum Muschbach 17
 Tel. 0172 6811397  
 E-Mail <FHielscher@web.de>  
 
-**Ausgabe** 2026-05-28
-
----
-
-## 📄 Download als PDF (Druckversion)
-
-Die gesamte Dokumentation als zusammenhängendes PDF-Dokument herunterladen:
-
-👉 **[X1/9e_Technische_Dokumentation.pdf](./downloads/X19e_Technische_Dokumentation.pdf)**
-
----
+**Ausgabe** 2026-05-31
