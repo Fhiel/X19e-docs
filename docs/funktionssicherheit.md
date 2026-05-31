@@ -305,6 +305,7 @@ Die Kraftübertragung zwischen Motor- und Getriebewelle erfolgt über eine **Kla
 ***Begründung der Auslegung und Maßnahmen zur Dauerhaltbarkeit:***
 Die Verwendung dieser Kupplungsart bietet den Vorteil, minimale Fluchtungsungenauigkeiten sowie hochfrequente Vibrationen des Antriebsstrangs durch das elastische Zwischenelement effektiv zu dämpfen.
 Um die für Klauenkupplungen kritischen, harten Lastwechsel zu minimieren und die Dauerhaltbarkeit des Elastomerelements zu maximieren, wurden im Motorcontroller (MCU) folgende Maßnahmen parametriert:
+
 * **Drehmomentenrampen ("Slew Rate"):** Die Anstiegs- und Abfallzeit des Drehmoments wurde auf einen weichen Übergang eingestellt, um schlagartige Belastungen auf die Kupplung zu vermeiden.
 * **Begrenzung des Maximaldrehmoments:** Das maximale Motordrehmoment wurde softwareseitig auf 154 Nm begrenzt, was sowohl dem Schutz des Original-Getriebes als auch der Entlastung des Kupplungselements dient.
 
