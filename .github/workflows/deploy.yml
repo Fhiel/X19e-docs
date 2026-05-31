@@ -18,25 +18,18 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install Python Dependencies
-        run: |
-          pip install mkdocs-material mkdocs-enumerate-headings-plugin
-
-      - name: Install System Dependencies for PDF (Ubuntu)
+      - name: Install System Dependencies (Chromium for PDF)
         run: |
           sudo apt-get update
-          sudo apt-get install -y weasyprint
+          sudo apt-get install -y chromium-browser --no-install-recommends
 
       - name: Install Python Dependencies
         run: |
-          pip install mkdocs-material mkdocs-with-pdf
+          pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-with-pdf
 
-      - name: Pre-Build to generate PDF
+      - name: Create Downloads Directory
         run: |
           mkdir -p docs/downloads
-          mkdocs build
-          # mkdocs-with-pdf legt das fertige Dokument direkt als "document.pdf" in site/ ab
-          cp site/pdf/document.pdf docs/downloads/X19e_Technische_Dokumentation.pdf 2>/dev/null || cp site/document.pdf docs/downloads/X19e_Technische_Dokumentation.pdf 2>/dev/null || find site/ -name "*.pdf" -exec cp {} docs/downloads/X19e_Technische_Dokumentation.pdf \;
 
       - name: Build and Deploy to GitHub Pages
         run: |
