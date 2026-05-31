@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Set up Node.js (For reliable HTML manipulation)
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
@@ -27,7 +27,7 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-enumerate-headings-plugin
 
-      - name: Install Puppeteer & Cheerio (Chrome Headless Driver)
+      - name: Install Node.js Drivers (Puppeteer & Cheerio)
         run: |
           npm install cheerio puppeteer
 
@@ -35,65 +35,9 @@ jobs:
         run: |
           mkdocs build
 
-      - name: Generate Monolithic PDF via Headless Chrome
+      - name: Generate Monolithic PDF via Chrome Script
         run: |
-          node -e "
-          const fs = require('fs');
-          const cheerio = require('cheerio');
-          const puppeteer = require('puppeteer');
-
-          (async () => {
-            // 1. Alle HTML-Dateien in der richtigen Reihenfolge einlesen
-            const files = [
-              'site/index.html',
-              'site/kurzbeschreibung/index.html',
-              'site/funktionssicherheit/index.html',
-              'site/elektrische_sicherheit/index.html',
-              'site/sicherheit_des_energiespeichers/index.html',
-              'site/umweltschutz_und_vertraeglichkeit/index.html',
-              'site/umfassender_personenschutz/index.html'
-            ];
-
-            let combinedHtml = '';
-            let tocHtml = '<div id=\"pdf-toc\"><h1>Inhaltsverzeichnis</h1><br>';
-
-            // 2. Inhalt extrahieren und für das Gesamt-PDF aufbereiten
-            files.forEach((f, idx) => {
-              if (!fs.existsSync(f)) return;
-              const $ = cheerio.load(fs.readFileSync(f, 'utf8'));
-              const content = $('article').html();
-              if (idx === 0) {
-                combinedHtml += '<div class=\"cover\">' + content + '</div><div class=\"page-break\"></div>';
-              } else {
-                combinedHtml += '<section class=\"chapter\">' + content + '</section><div class=\"page-break\"></div>';
-              }
-            });
-
-            // Zusammenfügen in ein valides Druckdokument
-            let finalDocument = '<html><head><link rel=\"stylesheet\" href=\"site/stylesheets/custom.css\"></head><body>' + combinedHtml + '</body></html>';
-            fs.writeFileSync('site/print_preview.html', finalDocument);
-
-            // 3. Headless Chrome starten und echtes PDF mit nativen Seitenzahlen drucken
-            const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] });
-            const page = await browser.newPage();
-            await page.goto('file://' + process.cwd() + '/site/print_preview.html', { waitUntil: 'networkidle0' });
-            
-            // Hier nutzen wir den nativen Chrome-Druckertreiber
-            fs.mkdirSync('site/downloads', { recursive: true });
-            await page.pdf({
-              path: 'site/downloads/X19e_Technische_Dokumentation.pdf',
-              format: 'A4',
-              printBackground: true,
-              displayHeaderFooter: true,
-              headerTemplate: '<div></div>',
-              footerTemplate: '<div style=\"font-size:9pt; font-family:Montserrat; width:100%; text-align:right; padding-right:20mm;\">Seite <span class=\"pageNumber\"></span></div>',
-              margin: { top: '20mm', bottom: '20mm', left: '15mm', right: '15mm' }
-            });
-
-            await browser.close();
-            console.log('PDF erfolgreich generiert!');
-          })();
-          "
+          node generate_pdf.js
 
       - name: Deploy to GitHub Pages
         run: |
