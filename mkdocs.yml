@@ -61,4 +61,4 @@ nav:
 plugins:
   - search
   - enumerate-headings:
-      strict: false
+      strict: false 
