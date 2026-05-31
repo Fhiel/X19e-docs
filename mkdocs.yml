@@ -47,9 +47,45 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.inlinehilite
   - def_list
-  
+
+site_name: "X1/9e - Technische Dokumentation"
+site_description: "Dokumentation für den Elektro-Umbau des Fiat Bertone X1/9 nach TÜV-Vorgaben"
+site_author: "Frank Hielscher"
+
+theme:
+  name: material
+  language: de
+  font:
+    text: Montserrat
+    code: Roboto Mono
+  palette:
+    - scheme: slate
+      primary: black
+      accent: amber
+
+extra_css:
+  - stylesheets/custom.css
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
+
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
+  - stylesheets/katex-config.js
+
+markdown_extensions:
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - def_list
+
 nav:
-  - Home: index.md
+  - index.md
   - Technische Kurzbeschreibung: kurzbeschreibung.md
   - Funktionssicherheit: funktionssicherheit.md
   - Elektrische Sicherheit: elektrische_sicherheit.md
@@ -61,14 +97,10 @@ plugins:
   - search
   - enumerate-headings:
       strict: true
-      increment_headings: false
       exclude:
         - index.md
   - with-pdf:
       author: Frank Hielscher
       output_path: downloads/X19e_Technische_Dokumentation.pdf
-      cover: true
-      cover_title: "Projektdokumentation"
-      cover_subtitle: "BERTONE X1/9e — Technische Dokumentation"
-      toc_title: "Inhaltsverzeichnis"
-      heading_shift: false
+      cover: false
+      toc: false

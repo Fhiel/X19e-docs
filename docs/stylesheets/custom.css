@@ -58,17 +58,10 @@ h1, h2, h3 {
    PRINT-STYLES (Optimiert für den TÜV-Gutachten-Ausdruck via mkdocs-with-pdf)
    ========================================================================== */
 @media print {
-    /* Nutzt das vom Plugin generierte Cover, bereinigt aber die Standard-Textausgabe */
-    .pdf-cover h1, .pdf-cover h2 {
-        color: var(--bertone-gold) !important;
-        text-align: center;
-        font-family: 'Montserrat', sans-serif;
-    }
-
-    /* Löscht die doppelten CSS-Zähler im PDF-Druckstrom radikal */
+    /* Schaltet alle standardmäßigen, künstlichen Nummern-Injektionen des Weasyprint-Renderers aus */
     h1::before, h2::before, h3::before, h4::before,
-    .md-typeset h1::before, .md-typeset h2::before, .md-typeset h3::before,
-    section h1::before, section h2::before {
+    .with-pdf h1::before, .with-pdf h2::before, .with-pdf h3::before,
+    .data-number, .pdf-header, .pdf-footer-custom {
         content: none !important;
         display: none !important;
     }
@@ -80,7 +73,7 @@ h1, h2, h3 {
         overflow: visible !important;
     }
 
-    /* Ungenutzte Web-Elemente ausblenden */
+    /* Alle ungenutzten Web-Elemente (Sidebar, Header, Navigation) ausblenden */
     .md-sidebar, .md-header, .md-footer, .md-nav, .md-top, .md-banner {
         display: none !important;
         visibility: hidden !important;
@@ -89,19 +82,13 @@ h1, h2, h3 {
         padding: 0 !important;
     }
 
-    /* Seitenumbrüche für Hauptkapiteln (H1) */
+    /* Erzwungener Seitenumbruch vor den Hauptkapiteln (H1) */
     h1 {
         page-break-before: always !important;
         page-break-inside: avoid !important;
     }
 
-    /* Verhindert Leerseite direkt nach dem Deckblatt */
-    .pdf-cover + h1, 
-    div.md-content article h1:first-of-type {
-        page-break-before: avoid !important;
-    }
-
-    /* Unterüberschriften stabilisieren */
+    /* Unterüberschriften stabilisieren (keine verwaisten Zeilen am Seitenende) */
     h2, h3, h4 {
         page-break-before: auto !important;
         page-break-after: avoid !important;
@@ -113,7 +100,7 @@ h1, h2, h3 {
         page-break-inside: auto !important;
     }
 
-    /* Medien und Tabellen sichern */
+    /* Medien, Tabellen und Boxen gegen unschöne Seitenbrüche sichern */
     figure, img, .admonition, table, tr {
         page-break-inside: avoid !important;
         max-width: 100% !important;
