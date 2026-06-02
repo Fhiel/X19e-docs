@@ -22,30 +22,26 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin
 
-      # 1. Druckversion separat in temporären Ordner bauen
-      - name: Build print site
-        run: |
-          mkdocs build --config-file mkdocs.print.yml --site-dir site_print
-
-      # 2. Druckversion in docs/print/ injizieren
-      - name: Inject print site into docs
-        run: |
-          mkdir -p docs/print
-          cp -r site_print/* docs/print/
-          rm -rf site_print
-
-      # 3. Haupt-Webseite in /site bauen
+      # 1. Wir bauen zuerst die normale Haupt-Webseite. Das Ergebnis landet in /site
       - name: Build main site
         run: |
           mkdocs build --site-dir site
 
-      # 4. CHIRURGISCHER SCHNITT: Die alte, fehlerhafte Druckseite restlos auslöschen!
-      # Verhindert, dass der falsche Link jemals wieder ein Ziel findet.
-      - name: Remove legacy print page artifact
+      # 2. Jetzt bauen wir die perfekte Druckseite separat aus der print.yml
+      - name: Build perfect print site
+        run: |
+          mkdocs build --config-file mkdocs.print.yml --site-dir site_print
+
+      # 3. DER GENIALE SCHNITT: Wir überschreiben die fehlerhafte Druckseite der Hauptseite
+      # mit der perfekten Druckseite aus dem separaten Build!
+      - name: Overwrite legacy print page with perfect print site
         run: |
           rm -rf site/print_page
+          mkdir -p site/print_page
+          cp -r site_print/print_page/* site/print_page/
+          rm -rf site_print
 
-      # 5. Sauberer Upload ohne Neubau-Voodoo
+      # 4. Sauberer Upload direkt ins Netz
       - name: Upload artifact and deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
