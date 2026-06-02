@@ -38,7 +38,7 @@ plugins:
   - search
   - print-site:                  # ← als letztes Plugin!
       enumerate_headings: true
-      enumerate_headings_depth: 6
+      enumerate_headings_depth: 4
       enumerate_figures: true
       add_cover_page: true       # nutzt index.md als Deckblatt
       include_css: true 
