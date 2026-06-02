@@ -22,19 +22,29 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin
 
-      # Baue die Druckseite mit der dedizierten Druck-Konfiguration
+      # 1. Wir bauen die Druckversion aus der print.yml in einen temporären Ordner
+      # (Ohne die index.md im NAV, damit das Verzeichnis fehlerfrei startet!)
       - name: Build print site
         run: |
           mkdocs build --config-file mkdocs.print.yml --site-dir site_print
 
-      # Schiebe die fertige Druckseite als statisches Asset in den docs-Ordner der Hauptseite
+      # 2. Wir kopieren die fertigen Druckdateien als statischen Ordner direkt in docs/
+      # Dadurch wird er im nächsten Schritt automatisch Teil der Hauptseite
       - name: Inject print site into docs
         run: |
           mkdir -p docs/print
           cp -r site_print/* docs/print/
           rm -rf site_print
 
-      # Der finale Deploy baut das Hauptsystem und lädt alles hoch
-      - name: Deploy to GitHub Pages
+      # 3. Wir bauen die Haupt-Webseite. Das Ergebnis landet sauber in /site
+      - name: Build main site
         run: |
-          mkdocs gh-deploy --force
+          mkdocs build --site-dir site
+
+      # 4. GITHUB-EIGENER UPLOAD: Schiebt den fertigen /site Ordner ohne Neubau ins Netz!
+      - name: Upload artifact and deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          force_orphan: true

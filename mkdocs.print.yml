@@ -27,7 +27,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-# RADIKALER SCHNITT: Keine index.md mehr in der Druckversion!
+# Keine index.md im Druckstrom, damit die Zählung sauber startet
 nav:
   - Technische Kurzbeschreibung: kurzbeschreibung.md
   - Funktionssicherheit: funktionssicherheit.md
@@ -39,18 +39,11 @@ nav:
 
 plugins:
   - search
-  # Das Zähl-Plugin steuert die Nummern im Fließtext absolut sauber
-  - enumerate-headings:
-      strict: true
-      heading_depth: 4
-      exclude:
-        - print_page.md # Ignoriert die Überschrift des Inhaltsverzeichnisses
-  # Das Print-Plugin baut NUR noch die Struktur
   - print-site:
       add_to_navigation: false
       add_cover_page: false
-      add_table_of_contents: true   # Automatisch an!
+      add_table_of_contents: true
       toc_title: "Inhaltsverzeichnis"
       toc_depth: 3
-      enumerate_headings: false     # Dem Print-Plugin verbieten zu pfuschen
-      include_css: true             # Aktiv, damit die Struktur steht
+      enumerate_headings: true       # Das Plugin nummeriert den Text im PDF durch
+      include_css: true
