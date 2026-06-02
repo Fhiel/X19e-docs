@@ -49,9 +49,8 @@ nav.print-site-toc-page {
 .print-site-toc h1, .print-site-toc h2 {
     color: var(--bertone-gold) !important;
 }
-
 /* ==========================================================================
-   PRINT-STYLES (Für das Papier/PDF)
+   PRINT-STYLES (Kompletter Reset und Schutz für das Plugin-TOC)
    ========================================================================== */
 @media print {
     @page { 
@@ -59,12 +58,15 @@ nav.print-site-toc-page {
         margin: 20mm 15mm 20mm 15mm; 
     }
 
+    /* Web-UI restlos entfernen */
     .md-header, .md-footer, .md-sidebar, .md-nav, header, footer, 
     .md-main__inner > :not(.md-content), .print-site-banner, .print-site-toc-banner {
         display: none !important;
+        visibility: hidden !important;
         height: 0 !important;
     }
 
+    /* Seitenhintergrund auf Papier-Weiß zwingen */
     .md-content, .print-site-content, main, article { 
         width: 100% !important; 
         max-width: 100% !important;
@@ -78,6 +80,7 @@ nav.print-site-toc-page {
         color: #000000 !important; 
     }
 
+    /* Überschriften druckoptimiert schwärzen */
     h1, h2, h3, .md-typeset h1, .md-typeset h2, .md-typeset h3 { 
         color: #000000 !important; 
         text-shadow: none !important; 
@@ -86,12 +89,37 @@ nav.print-site-toc-page {
     
     h1 { page-break-before: always !important; padding-top: 10mm !important; }
 
-    /* Inhaltsverzeichnis auf Papier tiefschwarz */
-    .print-site-toc-page, .print-site-toc-page a, .print-site-toc-page span, .print-site-toc-page li, .print-site-toc-page h1, .print-site-toc-page h2, .print-site-toc-page .toctext, .print-site-toc-page .tocnumber {
+    /* ----------------------------------------------------------------------
+       THEME-BLOCKADE BRECHEN: Das automatische Inhaltsverzeichnis erzwingen
+       ---------------------------------------------------------------------- */
+    /* Zwinge alle verschachtelten Listen (H2, H3) des Plugins zur Anzeige auf Papier */
+    .print-site-toc-page,
+    .print-site-toc-page nav,
+    .print-site-toc-page ul,
+    .print-site-toc-page li,
+    .print-site-toc-page a {
+        display: list-item !important; /* Verhindert das Verstecken durch das Theme */
+        visibility: visible !important;
+        opacity: 1 !important;
         color: #000000 !important;
     }
 
-    /* Tabellen-Rettung auf Papier */
+    .print-site-toc-page ul {
+        padding-left: 20px !important; /* Sorgt für die saubere Einrückung */
+        list-style-type: none !important;
+    }
+
+    /* ----------------------------------------------------------------------
+       SEITENNUMMERN IM VERZEICHNIS AKTIVIEREN
+       ---------------------------------------------------------------------- */
+    /* Version 2.8 nutzt CSS-Gedankengänge für die Seitenzahlen. Wir schalten sie scharf: */
+    .print-site-toc-page a::after {
+        content: target-counter(attr(href), page) !important; /* Holt die echte Seitenzahl des Ziels */
+        float: right !important;
+        font-weight: bold !important;
+    }
+
+    /* Tabellen-Rettung (Damit nichts schwarz gedruckt wird) */
     table, th, td, .md-typeset table, .md-typeset th, .md-typeset td {
         background: #ffffff !important;
         color: #000000 !important;
