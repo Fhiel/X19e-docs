@@ -46,6 +46,9 @@ plugins:
   - enumerate-headings:
       strict: true
       heading_depth: 4
+      exclude:
+        - index.md
+        - Home
   - print-site:
       add_to_navigation: true
       print_page_title: "Druckversion (PDF)"
