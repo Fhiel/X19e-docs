@@ -26,6 +26,12 @@ jobs:
         run: |
           python - <<'PY'
           import yaml
+          
+          # TRICK: Wir sagen dem SafeLoader, dass er unbekannte Python-Tags einfach als Text fressen soll
+          def default_constructor(loader, tag_suffix, node):
+              return node.value
+          yaml.SafeLoader.add_multi_constructor('tag:yaml.org,2002:python/name:', default_constructor)
+          
           cfg = yaml.safe_load(open('mkdocs.yml'))
           
           # Entferne das enumerate-headings Plugin restlos
