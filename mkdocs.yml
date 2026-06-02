@@ -55,7 +55,6 @@ plugins:
         - "Home"                         # zusätzlich versuchen
       heading_shift: false
       include_home: false
-      toc_title: "Inhaltsverzeichnis"
 
 extra_javascript:
   - javascripts/mathjax.js
