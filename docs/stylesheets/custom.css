@@ -49,31 +49,24 @@ nav.print-site-toc-page {
 .print-site-toc h1, .print-site-toc h2 {
     color: var(--bertone-gold) !important;
 }
-/* ==========================================================================
-   PRINT-STYLES (Exakter Struktur-Fix für Print-Site Plugin v2.8)
-   ========================================================================== */
 @media print {
     @page { 
         size: A4; 
         margin: 20mm 15mm 20mm 15mm; 
     }
 
-    /* Web-UI restlos entfernen */
-    .md-header, .md-footer, .md-sidebar, .md-nav:not(.print-site-toc-page .md-nav), 
-    header, footer, .md-main__inner > :not(.md-content), 
-    .print-site-banner, .print-site-toc-banner {
+    /* Web-UI entfernen */
+    .md-header, .md-footer, .md-sidebar, .md-nav, header, footer, 
+    .md-main__inner > :not(.md-content), .print-site-banner, .print-site-toc-banner {
         display: none !important;
-        visibility: hidden !important;
         height: 0 !important;
     }
 
-    /* Seitenhintergrund auf Papier-Weiß zwingen */
     .md-content, .print-site-content, main, article { 
         width: 100% !important; 
         max-width: 100% !important;
         background: #ffffff !important; 
         color: #000000 !important; 
-        padding: 0 !important;
     }
     
     body, .md-typeset { 
@@ -81,79 +74,57 @@ nav.print-site-toc-page {
         color: #000000 !important; 
     }
 
-    /* Überschriften druckoptimiert schwärzen */
-    h1, h2, h3, .md-typeset h1, .md-typeset h2, .md-typeset h3 { 
-        color: #000000 !important; 
-        text-shadow: none !important; 
-        page-break-after: avoid !important; 
-    }
-    
-    h1 { page-break-before: always !important; padding-top: 10mm !important; }
-
     /* ----------------------------------------------------------------------
-       STRUKTUR-DURCHBRUCH V2.8: Unterebenen (H2/H3) im TOC sichtbar machen
+       UNSER NATIVER TOC-STYLING BLOCK
        ---------------------------------------------------------------------- */
-    /* Version 2.8 versteckt verschachtelte Navigationspunkte im Material-Theme standardmäßig.
-       Wir zwingen das komplette Navigationsnetz des Druck-TOCs ans Licht! */
-    .print-site-toc-page .md-nav__item,
-    .print-site-toc-page .md-nav,
-    .print-site-toc-page .md-nav__list {
+    .print-site-toc-page {
         display: block !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
-    /* Erzeugt die korrekte, visuelle Einrückung der Unterkapitel auf dem Papier */
-    .print-site-toc-page .md-nav .md-nav {
-        padding-left: 15px !important;
-    }
-
-    /* Alle Texte im Inhaltsverzeichnis tiefschwarz färben */
-    .print-site-toc-page, 
-    .print-site-toc-page a, 
-    .print-site-toc-page span,
-    .print-site-toc-page .md-nav__link {
-        color: #000000 !important;
-        display: flex !important;
-        justify-content: space-between !important; /* Schiebt Text nach links, Zahl nach rechts */
         width: 100% !important;
-        text-decoration: none !important;
+        page-break-after: always !important;
     }
 
-/* ----------------------------------------------------------------------
-       SEITENNUMMERN-FIX FÜR VERSION 2.8 (Bug-Korrektur für Chrome/Edge)
-       ---------------------------------------------------------------------- */
-    /* Wir entziehen dem Link den Flexbox-Status des Themes, damit der Browser 
-       die Seitenzahl berechnen kann. Wir nutzen stattdessen ein stabiles Inline-Block Layout. */
-    .print-site-toc-page .md-nav__link {
+    .manual-toc ul {
+        list-style-type: none !important;
+        padding-left: 0 !important;
+        margin: 0 !important;
+    }
+
+    .manual-toc ul ul {
+        padding-left: 25px !important; /* Saubere Einrückung für H2 */
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .manual-toc li {
+        margin-bottom: 8px !important;
+        font-size: 12pt !important;
+    }
+
+    /* Der mathematische Seitenzahl-Befehl auf den reinen HTML-Ankern */
+    .manual-toc a {
+        color: #000000 !important;
+        text-decoration: none !important;
         display: block !important;
         position: relative !important;
         width: 100% !important;
-        color: #000000 !important;
-        text-decoration: none !important;
     }
 
-    /* Wir positionieren die Seitenzahl absolut am rechten Rand des Blattes */
-    .print-site-toc-page .md-nav__link::after {
-        content: target-counter(attr(href), page) !important; /* Berechnet die echte PDF-Seite */
+    /* Setzt die berechnete Seitenzahl rechtsbündig ab */
+    .manual-toc a::after {
+        content: target-counter(attr(href), page) !important;
         position: absolute !important;
         right: 0 !important;
-        bottom: 0 !important;
         font-weight: bold !important;
-        background: #ffffff !important; /* Überdeckt eventuelle Unterstreichungen */
-        padding-left: 5px !important;
     }
 
-    /* Tabellen-Rettung (Damit nichts schwarz gedruckt wird) */
+    /* Tabellen- und Layout-Rettung */
     table, th, td, .md-typeset table, .md-typeset th, .md-typeset td {
         background: #ffffff !important;
         color: #000000 !important;
         border: 1px solid #cccccc !important;
     }
     th, .md-typeset th { background: #f2f2f2 !important; }
-
     .admonition { background: #ffffff !important; color: #000000 !important; border: 1px solid #cccccc !important; page-break-inside: avoid; }
     table, img, figure { page-break-inside: avoid; }
     img, figure { max-width: 100%; height: auto; }
-    .md-typeset { font-size: 11pt; line-height: 1.5; }
 }

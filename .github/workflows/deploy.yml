@@ -22,27 +22,52 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin
 
-      # 1. ZUERST bauen wir die ganz normale Haupt-Webseite. Das Ergebnis landet sauber in /site
-      # (Hierbei entsteht automatisch der unvollständige Ordner site/print_page/)
+      # 1. Hauptseite ganz normal für das Web bauen
       - name: Build main site
         run: |
           mkdocs build --site-dir site
 
-      # 2. JETZT bauen wir die perfekte Druckseite separat aus der print.yml in einen eigenen Ordner
-      - name: Build perfect print site
+      # 2. HACK: Wir manipulieren die print_page direkt im fertigen HTML-Output!
+      # Wir lesen die fertige Druckseite ein und injizieren unser strukturiertes Inhaltsverzeichnis
+      - name: Inject perfect TOC into print page
         run: |
-          mkdocs build --config-file mkdocs.print.yml --site-dir site_print
+          python - <<'PY'
+          import os
+          print_path = 'site/print_page/index.html'
+          if os.path.exists(print_path):
+              html = open(print_path, 'r', encoding='utf-8').read()
+              
+              # Wir suchen den Startpunkt der ersten echten Überschrift und setzen das Verzeichnis davor
+              marker = '<h1 id="1-technische-kurzbeschreibung"'
+              if marker in html:
+                  toc_html = """
+                  <div class="print-site-toc-page">
+                      <h1>Inhaltsverzeichnis</h1>
+                      <div class="manual-toc">
+                          <ul>
+                              <li><a href="#1-technische-kurzbeschreibung">1 Technische Kurzbeschreibung</a>
+                                  <ul>
+                                      <li><a href="#11-fahrzeug-eckdaten">1.1 Fahrzeug-Eckdaten</a></li>
+                                      <li><a href="#12-antriebskonzept">1.2 Antriebskonzept</a></li>
+                                  </ul>
+                              </li>
+                              <li><a href="#2-funktionssicherheit">2 Funktionssicherheit</a></li>
+                              <li><a href="#3-elektrische-sicherheit">3 Elektrische Sicherheit</a></li>
+                              <li><a href="#4-sicherheit-des-energiespeichers">4 Sicherheit des Energiespeichers</a></li>
+                              <li><a href="#5-umweltschutz-und-umweltvertraeglichkeit">5 Umweltschutz und Umweltverträglichkeit</a></li>
+                              <li><a href="#6-umfassender-personenschutz-schutz-fuer-dritte">6 Umfassender Personenschutz - Schutz für Dritte</a></li>
+                              <li><a href="#7-anhang">7 Anhang</a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div style="page-break-before: always;"></div>
+                  """
+                  html = html.replace(marker, toc_html + marker)
+                  open(print_path, 'w', encoding='utf-8').write(html)
+                  print("TOC successfully injected into HTML!")
+          PY
 
-      # 3. DER CHIRURGISCHE SCHNITT: Wir löschen die unvollständige Druckseite der Hauptseite 
-      # und ersetzen sie exakt an der Stelle, wo das Plugin sie erwartet, durch die perfekte Druckseite!
-      - name: Replace legacy print page with perfect build
-        run: |
-          rm -rf site/print_page
-          mkdir -p site/print_page
-          cp -r site_print/print_page/* site/print_page/
-          rm -rf site_print
-
-      # 4. GITHUB-DEPLOYMENT: Schiebt den perfekt manipulierten /site Ordner direkt online
+      # 3. Direkt online schieben
       - name: Upload artifact and deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
