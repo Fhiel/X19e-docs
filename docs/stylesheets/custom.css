@@ -120,15 +120,28 @@ nav.print-site-toc-page {
         text-decoration: none !important;
     }
 
-    /* ----------------------------------------------------------------------
-       NATIVER SEITENZAHL-ZÄHLER (Browser-Engine)
+/* ----------------------------------------------------------------------
+       SEITENNUMMERN-FIX FÜR VERSION 2.8 (Bug-Korrektur für Chrome/Edge)
        ---------------------------------------------------------------------- */
-    /* Da Version 2.8 echte HTML-Anker (href) erzeugt, lassen wir die Druck-Engine 
-       die Seitenzahlen im PDF jetzt live berechnen und rechts bündig platzieren */
+    /* Wir entziehen dem Link den Flexbox-Status des Themes, damit der Browser 
+       die Seitenzahl berechnen kann. Wir nutzen stattdessen ein stabiles Inline-Block Layout. */
+    .print-site-toc-page .md-nav__link {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        color: #000000 !important;
+        text-decoration: none !important;
+    }
+
+    /* Wir positionieren die Seitenzahl absolut am rechten Rand des Blattes */
     .print-site-toc-page .md-nav__link::after {
-        content: target-counter(attr(href), page) !important;
+        content: target-counter(attr(href), page) !important; /* Berechnet die echte PDF-Seite */
+        position: absolute !important;
+        right: 0 !important;
+        bottom: 0 !important;
         font-weight: bold !important;
-        margin-left: auto !important;
+        background: #ffffff !important; /* Überdeckt eventuelle Unterstreichungen */
+        padding-left: 5px !important;
     }
 
     /* Tabellen-Rettung (Damit nichts schwarz gedruckt wird) */
