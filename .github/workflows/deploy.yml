@@ -71,7 +71,8 @@ jobs:
 
       - name: Verify headings in print output 
         run: | 
-          echo "Searching for H2+ in print output..." grep -n "
+          echo "Searching for H2+ in print output..." 
+          grep -n '*
 
       - name: Deploy to GitHub Pages
         run: |
