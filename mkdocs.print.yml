@@ -11,6 +11,8 @@ theme:
     - scheme: slate
       primary: black
       accent: amber
+  toc:
+    toc_depth: 3
 
 extra_css:
   - stylesheets/custom.css
@@ -25,7 +27,6 @@ markdown_extensions:
   - toc:
       permalink: true
       slugify: !!python/name:pymdownx.slugs.uslugify # Falls du den Umlaut-Fix nutzt
-      toc_depth: 3  # <-- DAS HIER REISST DIE STRUKTUR AUF EBENE 1, 2 UND 3 AUF!
   - pymdownx.arithmatex:
       generic: true
   
