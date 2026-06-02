@@ -22,9 +22,9 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - def_list
-  - toc:                    # wichtig für gutes TOC
+  - toc:
       permalink: true
-  - pymdownx.arithmatex:     # ← wichtig für Formeln
+  - pymdownx.arithmatex:      # für Formeln
       generic: true
 
 nav:
@@ -38,17 +38,19 @@ nav:
 
 plugins:
   - search
-  - print-site:                  # ← als letztes Plugin!
-      enumerate_headings: true
-      enumerate_headings_depth: 6
-      toc_depth: 6
-      enumerate_figures: true
-      add_cover_page: true       # nutzt index.md als Deckblatt
-      exclude: 
-        - index.md              # index.md wird als Deckblatt genutzt, daher hier ausschließen
-      include_css: true 
+  - enumerate-headings:       # Nummerierung auf der Webseite (optional)
+      strict: true
+      exclude:
+        - index.md
+  - to-pdf:                   # ← PDF Plugin
+      enabled: true
+      cover: true
+      cover_title: "X1/9e - Technische Dokumentation"
+      cover_subtitle: "Technische Dokumentation des BERTONE X1/9e Elektro-Umbau"
       # toc_title: "Inhaltsverzeichnis"
-      # add_full_urls: false
+      output_path: "pdf/X1-9e_Technische_Dokumentation.pdf"
+      # Weitere nützliche Optionen:
+      # verbose: true
 
 extra_javascript:
   - javascripts/mathjax.js

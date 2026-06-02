@@ -23,8 +23,13 @@ jobs:
       - name: Install Python Dependencies
         run: |
           pip install --upgrade pip
-          pip install mkdocs-material mkdocs-print-site-plugin
+          pip install mkdocs-material mkdocs-to-pdf weasyprint
 
-      - name: Build & Deploy
+      - name: Build MkDocs & Generate PDF
         run: |
-          mkdocs gh-deploy --force --verbose
+          mkdocs build
+          # PDF wird automatisch im pdf/ Ordner erzeugt
+
+      - name: Deploy to GitHub Pages
+        run: |
+          mkdocs gh-deploy --force
