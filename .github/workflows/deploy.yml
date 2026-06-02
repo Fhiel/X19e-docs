@@ -69,6 +69,10 @@ jobs:
           cp -r site_print/* docs/print/
           rm -rf site_print
 
+      - name: Verify headings in print output 
+        run: | 
+          echo "Searching for H2+ in print output..." grep -n "
+
       - name: Deploy to GitHub Pages
         run: |
           mkdocs gh-deploy --force

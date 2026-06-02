@@ -52,6 +52,7 @@ plugins:
       add_table_of_contents: true   # Das Plugin MUSS das Verzeichnis wieder selbst bauen!
       toc_title: 'Inhaltsverzeichnis'
       toc_depth: 3
+      add_page_numbers: true
       exclude:
         - 'index.md'
       
