@@ -38,10 +38,10 @@ nav:
 
 plugins:
   - search
-  - enumerate-headings:
-      strict: true
-      exclude:
-        - index.md
+  #- enumerate-headings:
+  #    strict: true
+  #    exclude:
+  #      - index.md
   - to-pdf:
       enabled: true
       cover: true
