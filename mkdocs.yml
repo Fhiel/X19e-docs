@@ -46,9 +46,12 @@ plugins:
       enabled: true
       cover: true
       cover_title: "X1/9e - Technische Dokumentation"
+      cover_subtitle: "BERTONE X1/9e Umrüstung auf Elektroantrieb"
       output_path: "pdf/X1-9e_Technische_Dokumentation.pdf"
       verbose: true          # hilft beim Debuggen
-
+      exclude:                     # ← neu
+        - index.md        
+      heading_shift: 0        
 extra_javascript:
   - javascripts/mathjax.js
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
