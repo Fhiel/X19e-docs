@@ -20,37 +20,52 @@ jobs:
 
       - name: Install Python Dependencies
         run: |
-          pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin
+          # PyYAML wird zwingend für das Skript benötigt!
+          pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin pyyaml
 
-      - name: Build normal site (with enumerate-headings)
+      # SCHRITT A: Wir bauen erst die Spezial-Druckseite OHNE enumerate-headings
+      - name: Generate config and build print site
         run: |
-          mkdocs build
-
-      - name: Build print site (without enumerate-headings)
-        run: |
-          # create a temporary mkdocs config that removes the enumerate-headings plugin
           python - <<'PY'
-import yaml,sys
-cfg = yaml.safe_load(open('mkdocs.yml'))
-# remove enumerate-headings from plugins list
-plugins = cfg.get('plugins', [])
-new_plugins = []
-for p in plugins:
-    if isinstance(p, dict) and 'enumerate-headings' in p:
-        continue
-    if p == 'enumerate-headings':
-        continue
-    new_plugins.append(p)
-cfg['plugins'] = new_plugins
-open('mkdocs.print.yml','w').write(yaml.safe_dump(cfg, sort_keys=False))
-print('Wrote mkdocs.print.yml without enumerate-headings')
-PY
+          import yaml
+          cfg = yaml.safe_load(open('mkdocs.yml'))
+          
+          # Entferne das enumerate-headings Plugin restlos
+          plugins = cfg.get('plugins', [])
+          new_plugins = []
+          for p in plugins:
+              if isinstance(p, dict) and 'enumerate-headings' in p:
+                  continue
+              if p == 'enumerate-headings':
+                  continue
+              new_plugins.append(p)
+          cfg['plugins'] = new_plugins
+          
+          # Zwinge das Print-Plugin hier das Verzeichnis zu generieren
+          for p in cfg['plugins']:
+              if isinstance(p, dict) and 'print-site' in p:
+                  p['print-site']['add_table_of_contents'] = True
+                  p['print-site']['enumerate_headings'] = True # Plugin darf hier nummerieren!
+          
+          yaml.safe_dump(cfg, open('mkdocs.print.yml', 'w'), sort_keys=False)
+          print('Wrote mkdocs.print.yml successfully')
+          PY
+          
+          # Baue die Druckseite in einen temporären Ordner
           mkdocs build --config-file mkdocs.print.yml --site-dir site_print
-          # place the generated print output into the main site so it will be published
-          mkdir -p site/print
-          cp -r site_print/* site/print/
           rm mkdocs.print.yml
 
+      # SCHRITT B: Wir schieben die Druckversion direkt in die docs/ Struktur
+      # Dadurch kriegt mkdocs gh-deploy im nächsten Schritt den Ordner automatisch mit!
+      <div style="background: rgba(212,175,55,0.05); border-left: 4px solid #d4af37; padding: 10px; margin: 15px 0;">
+      - name: Inject print site into docs
+        run: |
+          mkdir -p docs/print
+          cp -r site_print/* docs/print/
+          rm -rf site_print
+      </div>
+
+      # SCHRITT C: Der finale Deploy baut die Hauptseite UND nimmt den injizierten Print-Ordner mit
       - name: Deploy to GitHub Pages
         run: |
           mkdocs gh-deploy --force
