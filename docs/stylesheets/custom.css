@@ -50,7 +50,7 @@ nav.print-site-toc-page {
     color: var(--bertone-gold) !important;
 }
 /* ==========================================================================
-   PRINT-STYLES (Kompletter Reset und Schutz für das Plugin-TOC)
+   PRINT-STYLES (Exakter Struktur-Fix für Print-Site Plugin v2.8)
    ========================================================================== */
 @media print {
     @page { 
@@ -59,8 +59,9 @@ nav.print-site-toc-page {
     }
 
     /* Web-UI restlos entfernen */
-    .md-header, .md-footer, .md-sidebar, .md-nav, header, footer, 
-    .md-main__inner > :not(.md-content), .print-site-banner, .print-site-toc-banner {
+    .md-header, .md-footer, .md-sidebar, .md-nav:not(.print-site-toc-page .md-nav), 
+    header, footer, .md-main__inner > :not(.md-content), 
+    .print-site-banner, .print-site-toc-banner {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
@@ -90,33 +91,44 @@ nav.print-site-toc-page {
     h1 { page-break-before: always !important; padding-top: 10mm !important; }
 
     /* ----------------------------------------------------------------------
-       THEME-BLOCKADE BRECHEN: Das automatische Inhaltsverzeichnis erzwingen
+       STRUKTUR-DURCHBRUCH V2.8: Unterebenen (H2/H3) im TOC sichtbar machen
        ---------------------------------------------------------------------- */
-    /* Zwinge alle verschachtelten Listen (H2, H3) des Plugins zur Anzeige auf Papier */
-    .print-site-toc-page,
-    .print-site-toc-page nav,
-    .print-site-toc-page ul,
-    .print-site-toc-page li,
-    .print-site-toc-page a {
-        display: list-item !important; /* Verhindert das Verstecken durch das Theme */
+    /* Version 2.8 versteckt verschachtelte Navigationspunkte im Material-Theme standardmäßig.
+       Wir zwingen das komplette Navigationsnetz des Druck-TOCs ans Licht! */
+    .print-site-toc-page .md-nav__item,
+    .print-site-toc-page .md-nav,
+    .print-site-toc-page .md-nav__list {
+        display: block !important;
         visibility: visible !important;
         opacity: 1 !important;
-        color: #000000 !important;
     }
 
-    .print-site-toc-page ul {
-        padding-left: 20px !important; /* Sorgt für die saubere Einrückung */
-        list-style-type: none !important;
+    /* Erzeugt die korrekte, visuelle Einrückung der Unterkapitel auf dem Papier */
+    .print-site-toc-page .md-nav .md-nav {
+        padding-left: 15px !important;
+    }
+
+    /* Alle Texte im Inhaltsverzeichnis tiefschwarz färben */
+    .print-site-toc-page, 
+    .print-site-toc-page a, 
+    .print-site-toc-page span,
+    .print-site-toc-page .md-nav__link {
+        color: #000000 !important;
+        display: flex !important;
+        justify-content: space-between !important; /* Schiebt Text nach links, Zahl nach rechts */
+        width: 100% !important;
+        text-decoration: none !important;
     }
 
     /* ----------------------------------------------------------------------
-       SEITENNUMMERN IM VERZEICHNIS AKTIVIEREN
+       NATIVER SEITENZAHL-ZÄHLER (Browser-Engine)
        ---------------------------------------------------------------------- */
-    /* Version 2.8 nutzt CSS-Gedankengänge für die Seitenzahlen. Wir schalten sie scharf: */
-    .print-site-toc-page a::after {
-        content: target-counter(attr(href), page) !important; /* Holt die echte Seitenzahl des Ziels */
-        float: right !important;
+    /* Da Version 2.8 echte HTML-Anker (href) erzeugt, lassen wir die Druck-Engine 
+       die Seitenzahlen im PDF jetzt live berechnen und rechts bündig platzieren */
+    .print-site-toc-page .md-nav__link::after {
+        content: target-counter(attr(href), page) !important;
         font-weight: bold !important;
+        margin-left: auto !important;
     }
 
     /* Tabellen-Rettung (Damit nichts schwarz gedruckt wird) */
