@@ -27,6 +27,10 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
 nav:
   - Home: index.md
   - Technische Kurzbeschreibung: kurzbeschreibung.md
@@ -42,10 +46,10 @@ plugins:
   - enumerate-headings:
       strict: true
       heading_depth: 4
-      exclude:
-        - index.md
   - print-site:
       add_to_navigation: true
       print_page_title: "Druckversion (PDF)"
+      # --- MANUELLER PFAD-FIX FÜR DIE PIPELINE ---
+      print_page_path: "print/print_page" 
       add_cover_page: false
-      add_table_of_contents: false # Lokal aus, um Geister-TOCs zu verhindern
+      add_table_of_contents: false

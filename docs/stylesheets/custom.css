@@ -26,18 +26,27 @@ h1, h2, h3 { color: var(--bertone-gold) !important; }
 body:has(.print-site-content) .md-sidebar--secondary { display: none !important; }
 body:has(.print-site-content) .md-content { margin-right: 0 !important; }
 
-/* Zwinge das Inhaltsverzeichnis der Version 2.8 am Monitor zur Anzeige */
+/* ==========================================================================
+   ERWEITERTE SCREEN-FIXES FÜR VERSION 2.8 (TOC-Erzwingung)
+   ========================================================================== */
 .print-site-toc-page, 
-#print-site-toc {
+#print-site-toc,
+.print-site-toc,
+div.print-site-toc-page,
+nav.print-site-toc-page {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+    height: auto !important;
 }
 
-.print-site-toc-page, .print-site-toc-page a, .print-site-toc-page span, .print-site-toc-page li {
+/* Verzeichnis-Text am Monitor (Slate-Theme Kompatibilität) */
+.print-site-toc-page, .print-site-toc-page a, .print-site-toc-page span, .print-site-toc-page li,
+.print-site-toc, .print-site-toc a, .print-site-toc span, .print-site-toc li {
     color: #ffffff !important;
 }
-.print-site-toc-page h1, .print-site-toc-page h2 {
+.print-site-toc-page h1, .print-site-toc-page h2,
+.print-site-toc h1, .print-site-toc h2 {
     color: var(--bertone-gold) !important;
 }
 

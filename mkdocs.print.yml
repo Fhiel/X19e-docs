@@ -27,6 +27,10 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML      
+
 # Keine index.md im Druckstrom, damit die Zählung sauber startet
 nav:
   - Technische Kurzbeschreibung: kurzbeschreibung.md
