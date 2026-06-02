@@ -6,28 +6,16 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install System Dependencies for WeasyPrint
+      - name: Install System Dependencies (WeasyPrint)
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            python3-pip \
-            libcairo2 \
-            libpango-1.0-0 \
-            libpangocairo-1.0-0 \
-            libgdk-pixbuf2.0-0 \
-            libffi-dev \
-            libjpeg-dev \
-            libssl-dev \
-            shared-mime-info
+          sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev libjpeg-dev
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -42,11 +30,28 @@ jobs:
                       mkdocs-to-pdf \
                       weasyprint
 
-      - name: Build MkDocs & Generate PDF
+      - name: Build MkDocs + PDF
         run: |
           mkdocs build --verbose
-          ls -la site/pdf/ || echo "PDF-Ordner nicht gefunden"
+          echo "=== PDF Check ==="
+          ls -la site/pdf/ || echo "Kein pdf-Ordner"
+          ls -la site/ | grep -E '\.pdf$' || echo "Keine PDF gefunden"
 
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
-        run: |
-          mkdocs gh-deploy --force
+        id: deployment
+        uses: actions/deploy-pages@v4
