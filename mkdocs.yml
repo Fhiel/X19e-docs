@@ -40,9 +40,12 @@ plugins:
   - search
   - print-site:                  # ← als letztes Plugin!
       enumerate_headings: true
-      enumerate_headings_depth: 4
+      enumerate_headings_depth: 6
+      toc_depth: 6
       enumerate_figures: true
       add_cover_page: true       # nutzt index.md als Deckblatt
+      exclude: 
+        - "index.md"              # index.md wird als Deckblatt genutzt, daher hier ausschließen
       include_css: true 
       # toc_title: "Inhaltsverzeichnis"
       # add_full_urls: false
