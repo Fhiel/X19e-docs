@@ -15,6 +15,20 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Install System Dependencies for WeasyPrint
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            python3-pip \
+            libcairo2 \
+            libpango-1.0-0 \
+            libpangocairo-1.0-0 \
+            libgdk-pixbuf2.0-0 \
+            libffi-dev \
+            libjpeg-dev \
+            libssl-dev \
+            shared-mime-info
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -30,7 +44,8 @@ jobs:
 
       - name: Build MkDocs & Generate PDF
         run: |
-          mkdocs build
+          mkdocs build --verbose
+          ls -la site/pdf/ || echo "PDF-Ordner nicht gefunden"
 
       - name: Deploy to GitHub Pages
         run: |

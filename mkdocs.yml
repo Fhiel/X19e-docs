@@ -38,19 +38,16 @@ nav:
 
 plugins:
   - search
-  - enumerate-headings:       # Nummerierung auf der Webseite (optional)
+  - enumerate-headings:
       strict: true
       exclude:
         - index.md
-  - to-pdf:                   # ← PDF Plugin
+  - to-pdf:
       enabled: true
       cover: true
       cover_title: "X1/9e - Technische Dokumentation"
-      cover_subtitle: "Technische Dokumentation des BERTONE X1/9e Elektro-Umbau"
-      # toc_title: "Inhaltsverzeichnis"
       output_path: "pdf/X1-9e_Technische_Dokumentation.pdf"
-      # Weitere nützliche Optionen:
-      # verbose: true
+      verbose: true          # hilft beim Debuggen
 
 extra_javascript:
   - javascripts/mathjax.js
