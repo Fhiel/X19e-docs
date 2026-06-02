@@ -1,5 +1,5 @@
 /* Custom Styles für das X1/9e Handbuch (Bildschirm) */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght=300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
 :root {
     --bg-color: #000000;
@@ -23,14 +23,10 @@
 
 h1, h2, h3 { color: var(--bertone-gold) !important; }
 
-/* Rechte Spalte auf dem Monitor bei der Print-Page verstecken */
 body:has(.print-site-content) .md-sidebar--secondary { display: none !important; }
 body:has(.print-site-content) .md-content { margin-right: 0 !important; }
 
-
-/* ==========================================================================
-   NEU: SCREEN-FIXES FÜR VERSION 2.8 (Damit das TOC am Monitor sichtbar wird)
-   ========================================================================== */
+/* Zwinge das Inhaltsverzeichnis der Version 2.8 am Monitor zur Anzeige */
 .print-site-toc-page, 
 #print-site-toc {
     display: block !important;
@@ -38,7 +34,6 @@ body:has(.print-site-content) .md-content { margin-right: 0 !important; }
     opacity: 1 !important;
 }
 
-/* Verzeichnis-Text am Monitor weiß/gold passend zum dunklen Web-Design */
 .print-site-toc-page, .print-site-toc-page a, .print-site-toc-page span, .print-site-toc-page li {
     color: #ffffff !important;
 }
@@ -46,9 +41,8 @@ body:has(.print-site-content) .md-content { margin-right: 0 !important; }
     color: var(--bertone-gold) !important;
 }
 
-
 /* ==========================================================================
-   PRINT-STYLES (Reines Farb- und Layout-Reset für das PDF auf Papier)
+   PRINT-STYLES (Für das Papier/PDF)
    ========================================================================== */
 @media print {
     @page { 
@@ -56,7 +50,6 @@ body:has(.print-site-content) .md-content { margin-right: 0 !important; }
         margin: 20mm 15mm 20mm 15mm; 
     }
 
-    /* Web-UI weg */
     .md-header, .md-footer, .md-sidebar, .md-nav, header, footer, 
     .md-main__inner > :not(.md-content), .print-site-banner, .print-site-toc-banner {
         display: none !important;
@@ -76,7 +69,6 @@ body:has(.print-site-content) .md-content { margin-right: 0 !important; }
         color: #000000 !important; 
     }
 
-    /* Überschriften druckoptimiert */
     h1, h2, h3, .md-typeset h1, .md-typeset h2, .md-typeset h3 { 
         color: #000000 !important; 
         text-shadow: none !important; 
@@ -85,21 +77,12 @@ body:has(.print-site-content) .md-content { margin-right: 0 !important; }
     
     h1 { page-break-before: always !important; padding-top: 10mm !important; }
 
-    /* Inhaltsverzeichnis und alle Plugin-Texte auf Papier tiefschwarz färben */
+    /* Inhaltsverzeichnis auf Papier tiefschwarz */
     .print-site-toc-page, .print-site-toc-page a, .print-site-toc-page span, .print-site-toc-page li, .print-site-toc-page h1, .print-site-toc-page h2, .print-site-toc-page .toctext, .print-site-toc-page .tocnumber {
         color: #000000 !important;
     }
 
-    /* ----------------------------------------------------------------------
-       NEU: Die falsche "1" der Rechts-vor-Links Startseite löschen
-       ---------------------------------------------------------------------- */
-    .print-site-page:first-of-type h1 .tocnumber,
-    .print-site-page:first-of-type h1::before {
-        display: none !important;
-        content: "" !important;
-    }
-
-    /* Tabellen-Rettung: Keine schwarzen Blöcke mehr auf Papier! */
+    /* Tabellen-Rettung auf Papier */
     table, th, td, .md-typeset table, .md-typeset th, .md-typeset td {
         background: #ffffff !important;
         color: #000000 !important;

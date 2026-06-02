@@ -27,26 +27,30 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
+# RADIKALER SCHNITT: Keine index.md mehr in der Druckversion!
 nav:
-  - Home: index.md
   - Technische Kurzbeschreibung: kurzbeschreibung.md
   - Funktionssicherheit: funktionssicherheit.md
   - Elektrische Sicherheit: elektrische_sicherheit.md
   - Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
   - Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
   - Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
-  # - Anhang: anhang.md
+  - Anhang: anhang.md
 
 plugins:
   - search
-  # HIER IST ENUMERATE-HEADINGS RAUS!
+  # Das Zähl-Plugin steuert die Nummern im Fließtext absolut sauber
+  - enumerate-headings:
+      strict: true
+      heading_depth: 4
+      exclude:
+        - print_page.md # Ignoriert die Überschrift des Inhaltsverzeichnisses
+  # Das Print-Plugin baut NUR noch die Struktur
   - print-site:
       add_to_navigation: false
       add_cover_page: false
-      add_table_of_contents: true   # Das Plugin darf hier nativ das volle Verzeichnis bauen!
+      add_table_of_contents: true   # Automatisch an!
       toc_title: "Inhaltsverzeichnis"
-      toc_depth: 3                  # Holt H1, H2 und H3 mit Seitenzahlen rein
-      enumerate_headings: true       # Das Plugin übernimmt die Nummerierung im Fließtext
-      include_css: true             # Lädt die nötigen Stile für Seitenzahlen
-      exclude:
-        - "index.md"
+      toc_depth: 3
+      enumerate_headings: false     # Dem Print-Plugin verbieten zu pfuschen
+      include_css: true             # Aktiv, damit die Struktur steht
