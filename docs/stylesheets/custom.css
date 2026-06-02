@@ -1,182 +1,85 @@
-/* Custom Styles für das X1/9e Handbuch */
+/* Custom Styles für das X1/9e Handbuch (Bildschirm) */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
 :root {
-    /* Deine Farbpalette */
     --bg-color: #000000;
     --card-bg: #0d0d0d;
     --bertone-gold: #d4af37;
     --instrument-green: #00e68a; 
-    --instrument-glow: rgba(0, 230, 138, 0.65);
-    --warning-red: #ff1a1a; 
     --text-main: #ffffff;
-    --text-dim: #888888;
     --border-ui: #1a1a1a;
-
-    /* Überschreiben der MkDocs Material Farbvariablen */
     --md-text-font: 'Montserrat', sans-serif;
-    
-    /* Farbzuweisungen für Primär (Header) und Akzente (Links, Buttons) */
     --md-primary-fg-color: var(--bg-color);
-    --md-primary-fg-color--dark: var(--bg-color);
     --md-accent-fg-color: var(--bertone-gold);
-    --md-accent-fg-color--transparent: rgba(212, 175, 55, 0.1);
 }
 
-/* Dunkles Schema für die gesamte App erzwingen / anpassen */
 [data-md-color-scheme="slate"] {
     --md-default-bg-color: var(--bg-color);
     --md-default-bg-color--light: var(--card-bg);
     --md-default-fg-color: var(--text-main);
-    --md-default-fg-color--light: var(--text-dim);
-    
-    /* Akzente im Text */
     --md-typeset-color: var(--text-main);
-    --md-typeset-a-color: var(--instrument-green); /* Links leuchten instrumenten-grün */
-    
-    /* Rahmen und UI-Linien */
     --md-border-color: var(--border-ui);
 }
 
-/* Kleiner Design-Glow für aktive Menüpunkte und Überschriften */
-.md-nav__link--active {
-    color: var(--bertone-gold) !important;
-    font-weight: bold;
-}
+h1, h2, h3 { color: var(--bertone-gold) !important; }
 
-h1, h2, h3 {
-    color: var(--bertone-gold) !important;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
-}
-
-/* Wichtige Hinweise/Admonitions im Instrumenten-Look */
-.md-typeset .admonition.note {
-    border-left-color: var(--instrument-green);
-}
+/* Rechte Spalte auf dem Monitor bei der Print-Page verstecken */
+body:has(.print-site-content) .md-sidebar--secondary { display: none !important; }
+body:has(.print-site-content) .md-content { margin-right: 0 !important; }
 
 /* ==========================================================================
-   NATIVE PRINT-STYLES (Optimiert für Headless Google Chrome)
+   PRINT-STYLES (Reines Farb- und Layout-Reset für das PDF)
    ========================================================================== */
 @media print {
-    /* Seiteneinstellungen: Definiert das A4-Format und die Ränder für Chrome */
-    @page {
-        size: A4;
-        margin: 20mm 18mm 20mm 18mm;
+    @page { 
+        size: A4; 
+        margin: 20mm 15mm 20mm 15mm; 
     }
 
-    /* Alles außer dem eigentlichen Inhalt ausblenden */
-    .md-header,
-    .md-footer,
-    .md-sidebar,
-    .md-nav,
-    .md-top,
-    .md-banner,
-    .md-search,
-    header,
-    footer,
-    .md-main__inner > :not(.md-content),
-    .print-site-banner,
-    .print-site-toc-banner {
+    /* Web-UI weg */
+    .md-header, .md-footer, .md-sidebar, .md-nav, header, footer, 
+    .md-main__inner > :not(.md-content), .print-site-banner, .print-site-toc-banner {
         display: none !important;
-        visibility: hidden !important;
         height: 0 !important;
     }
 
-    /* Hauptinhalt auf volle Breite */
-    .md-content,
-    .md-content__inner,
-    article,
-    main,
-    .print-site-content {
-        width: 100% !important;
+    .md-content, .print-site-content, main, article { 
+        width: 100% !important; 
         max-width: 100% !important;
+        background: #ffffff !important; 
+        color: #000000 !important; 
         padding: 0 !important;
-        margin: 0 auto !important;
+    }
+    
+    body, .md-typeset { 
+        background: #ffffff !important; 
+        color: #000000 !important; 
+    }
+
+    /* Überschriften druckoptimiert */
+    h1, h2, h3, .md-typeset h1, .md-typeset h2, .md-typeset h3 { 
+        color: #000000 !important; 
+        text-shadow: none !important; 
+        page-break-after: avoid !important; 
+    }
+    
+    h1 { page-break-before: always !important; padding-top: 10mm !important; }
+
+    /* Inhaltsverzeichnis und alle Plugin-Texte tiefschwarz färben */
+    .print-site-toc-page, .print-site-toc-page a, .print-site-toc-page span, .print-site-toc-page li {
+        color: #000000 !important;
+    }
+
+    /* Tabellen-Rettung: Keine schwarzen Blöcke mehr auf Papier! */
+    table, th, td, .md-typeset table, .md-typeset th, .md-typeset td {
         background: #ffffff !important;
         color: #000000 !important;
+        border: 1px solid #cccccc !important;
     }
+    th, .md-typeset th { background: #f2f2f2 !important; }
 
-    /* Druckfreundliche Farben */
-    body, .md-typeset {
-        background: #ffffff !important;
-        color: #000000 !important;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        color: #000000 !important;
-        text-shadow: none !important;
-        page-break-after: avoid;
-        page-break-inside: avoid;
-    }
-
-    /* Kapitel beginnen auf neuer Seite */
-    h1 {
-        page-break-before: always;
-        padding-top: 30px;
-    }
-
-    /* Nummerierte Überschriften deutlicher machen */
-    .print-site-content h1::before,
-    .md-typeset h1::before {
-        content: attr(data-number) " ";
-        font-weight: bold;
-    }
-
-    /* Inhaltsverzeichnis verbessern */
-    #print-site-toc,
-    .print-site-toc {
-        page-break-after: always;
-        margin-bottom: 40px;
-    }
-
-    #print-site-toc h2 {
-        color: #000000;
-        border-bottom: 2px solid #000;
-        padding-bottom: 8px;
-    }
-
-    /* Cover Page Styling */
-    #print-site-cover-page {
-        page-break-after: always;
-        text-align: center;
-        padding: 80px 0 40px 0;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    #print-site-cover-page h1 {
-        font-size: 2.8em;
-        color: #000000;
-        margin-bottom: 30px;
-    }
-
-    #print-site-cover-page p {
-        font-size: 1.2em;
-        color: #333333;
-    }
-
-    /* Tabellen und Admonitions */
-    table, .admonition {
-        page-break-inside: avoid;
-    }
-
-    img, figure {
-        max-width: 100%;
-        height: auto;
-        page-break-inside: avoid;
-    }
-
-    /* Bessere Lesbarkeit auf Papier */
-    .md-typeset {
-        font-size: 11pt;
-        line-height: 1.55;
-    }
-}
-
-/* Cover Page auf der Print-Seite (auch ohne @media print) */
-#print-site-cover-page {
-    text-align: center;
-    padding: 60px 20px;
+    .admonition { background: #ffffff !important; color: #000000 !important; border: 1px solid #cccccc !important; page-break-inside: avoid; }
+    table, img, figure { page-break-inside: avoid; }
+    img, figure { max-width: 100%; height: auto; }
+    .md-typeset { font-size: 11pt; line-height: 1.5; }
 }

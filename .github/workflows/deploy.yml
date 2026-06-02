@@ -1,54 +1,56 @@
 name: Deploy Documentation
-
 on:
   push:
     branches:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-
-      - name: Install System Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev libjpeg-dev
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install Dependencies
+      - name: Install Python Dependencies
         run: |
-          pip install --upgrade pip
-          pip install mkdocs-material mkdocs-to-pdf weasyprint
+          pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin
 
-      - name: Build MkDocs + Generate PDF
+      - name: Build normal site (with enumerate-headings)
         run: |
-          mkdocs build --verbose
-          echo "=== PDF Check ==="
-          ls -la site/pdf/ || echo "Kein pdf-Ordner"
-          ls -la site/pdf/
+          mkdocs build
 
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./site
+      - name: Build print site (without enumerate-headings)
+        run: |
+          # create a temporary mkdocs config that removes the enumerate-headings plugin
+          python - <<'PY'
+import yaml,sys
+cfg = yaml.safe_load(open('mkdocs.yml'))
+# remove enumerate-headings from plugins list
+plugins = cfg.get('plugins', [])
+new_plugins = []
+for p in plugins:
+    if isinstance(p, dict) and 'enumerate-headings' in p:
+        continue
+    if p == 'enumerate-headings':
+        continue
+    new_plugins.append(p)
+cfg['plugins'] = new_plugins
+open('mkdocs.print.yml','w').write(yaml.safe_dump(cfg, sort_keys=False))
+print('Wrote mkdocs.print.yml without enumerate-headings')
+PY
+          mkdocs build --config-file mkdocs.print.yml --site-dir site_print
+          # place the generated print output into the main site so it will be published
+          mkdir -p site/print
+          cp -r site_print/* site/print/
+          rm mkdocs.print.yml
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-    steps:
       - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+        run: |
+          mkdocs gh-deploy --force

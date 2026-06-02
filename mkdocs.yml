@@ -24,8 +24,7 @@ markdown_extensions:
   - def_list
   - toc:
       permalink: true
-  - pymdownx.arithmatex:      # für Formeln
-      generic: true
+      slugify: !!python/name:pymdownx.slugs.uslugify
 
 nav:
   - Home: index.md
@@ -35,27 +34,25 @@ nav:
   - Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
   - Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
   - Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
+  # Wenn du den Anhang erweiterst, schreibst du ihn einfach NUR hier drunter:
+  # - Anhang: anhang.md
 
 plugins:
   - search
-  #- enumerate-headings:
-  #    strict: true
-  #    exclude:
-  #      - index.md
-  - to-pdf:
-      enabled: true
-      cover: true
-      cover_title: ""                    # leer
-      cover_subtitle: ""                 # leer
-      custom_template_path: "templates"
-      output_path: "pdf/X1-9e_Technische_Dokumentation.pdf"
-      verbose: true
-      exclude_pages:
-        - "index.md"
-        - "Home"                         # zusätzlich versuchen
-      heading_shift: false
-      include_home: false
+  - enumerate-headings:
+      strict: true
+      toc_depth: 3
+      # Das hier sorgt dafür, dass die index.md NIEMALS eine Nummer bekommt:
+      exclude:
+        - index.md
+  - print-site:
+      add_to_navigation: true
+      print_page_title: "Druckversion (PDF)"
+      add_cover_page: false         # Wir brauchen kein Plugin-Cover
+      add_table_of_contents: true   # Das Plugin MUSS das Verzeichnis wieder selbst bauen!
+      toc_title: 'Inhaltsverzeichnis'
+      toc_depth: 3
+      exclude:
+        - 'index.md'
+      
 
-extra_javascript:
-  - javascripts/mathjax.js
-  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
