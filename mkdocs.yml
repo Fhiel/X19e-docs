@@ -45,7 +45,7 @@ plugins:
       enumerate_figures: true
       add_cover_page: true       # nutzt index.md als Deckblatt
       exclude: 
-        - "index.md"              # index.md wird als Deckblatt genutzt, daher hier ausschließen
+        - index.md              # index.md wird als Deckblatt genutzt, daher hier ausschließen
       include_css: true 
       # toc_title: "Inhaltsverzeichnis"
       # add_full_urls: false

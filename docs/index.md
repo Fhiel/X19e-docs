@@ -1,4 +1,4 @@
-
+# X1/9e - Technische Dokumentation
 
 **BERTONE X1/9e**
 
@@ -17,12 +17,14 @@ Umrüstung eines BERTONE X1/9 auf Elektro-Antrieb
 * Fahrzeugklasse: M1
 * Betriebsspannung HV-Batterie: 114 V DC
 
-**Projektdokumentation und Umrüstung:** 
+**Projektdokumentation und Umrüstung:**
+
 Frank Hielscher  
 Dipl.-Wirtschaftsingenieur (FH)  
 Staatlich geprüfter Techniker, Fachrichtung Elektrotechnik  
 
-**Kontakt:** 
+**Kontakt:**
+
 Frank Hielscher  
 Zum Muschbach 17  
 97816 Lohr  
