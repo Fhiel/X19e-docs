@@ -45,13 +45,15 @@ plugins:
   - to-pdf:
       enabled: true
       cover: true
-      cover_title: ""                    # leer lassen
-      cover_subtitle: ""                 # leer lassen
-      custom_template_path: "templates"  # wichtig!
+      cover_title: ""                    # leer
+      cover_subtitle: ""                 # leer
+      custom_template_path: "templates"
       output_path: "pdf/X1-9e_Technische_Dokumentation.pdf"
       verbose: true
       exclude_pages:
-        - "index.md"  
+        - "index.md"
+        - "Home"                         # zusätzlich versuchen
+      heading_shift: false
 
 extra_javascript:
   - javascripts/mathjax.js
