@@ -20,43 +20,46 @@ jobs:
 
       - name: Install Python Dependencies
         run: |
-          pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin pyyaml
+          pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin
 
       - name: Generate config and build print site
         run: |
           python - <<'PY'
-          import yaml
+          # Wir lesen die Konfiguration einfach als reinen Text ein
+          with open('mkdocs.yml', 'r', encoding='utf-8') as f:
+              lines = f.readlines()
           
-          # TRICK: Wir sagen dem SafeLoader, dass er unbekannte Python-Tags einfach als Text fressen soll
-          def default_constructor(loader, tag_suffix, node):
-              return node.value
-          yaml.SafeLoader.add_multi_constructor('tag:yaml.org,2002:python/name:', default_constructor)
+          new_lines = []
+          skip_block = False
           
-          cfg = yaml.safe_load(open('mkdocs.yml'))
-          
-          # Entferne das enumerate-headings Plugin restlos
-          plugins = cfg.get('plugins', [])
-          new_plugins = []
-          for p in plugins:
-              if isinstance(p, dict) and 'enumerate-headings' in p:
+          for line in lines:
+              # Wenn das Plugin enumerate-headings beginnt, schalten wir das Überspringen an
+              if '- enumerate-headings:' in line or line.strip() == '- enumerate-headings':
+                  skip_block = True
                   continue
-              if p == 'enumerate-headings':
-                  continue
-              new_plugins.append(p)
-          cfg['plugins'] = new_plugins
+              
+              # Falls eingerückte Unteroptionen nach dem Plugin folgen, überspringe sie ebenfalls
+              if skip_block:
+                  if line.startswith('   ') or line.strip() == '' or line.startswith('  -') == False:
+                      if '- print-site:' not in line and 'plugins:' not in line:
+                          continue
+                  skip_block = False
+              
+              # Zwinge das Print-Plugin, das Inhaltsverzeichnis und die Nummern zu generieren
+              if 'add_table_of_contents:' in line:
+                  line = line.replace('false', 'true')
+              if 'enumerate_headings:' in line:
+                  line = line.replace('false', 'true')
+                  
+              new_lines.append(line)
           
-          # Zwinge das Print-Plugin hier das Verzeichnis zu generieren
-          for p in cfg['plugins']:
-              if isinstance(p, dict) and 'print-site' in p:
-                  if not isinstance(p['print-site'], dict):
-                      p['print-site'] = {}
-                  p['print-site']['add_table_of_contents'] = True
-                  p['print-site']['enumerate_headings'] = True
-          
-          yaml.safe_dump(cfg, open('mkdocs.print.yml', 'w'), sort_keys=False)
-          print('Wrote mkdocs.print.yml successfully')
+          # Schreibe die saubere, unmanipulierte Print-Konfiguration
+          with open('mkdocs.print.yml', 'w', encoding='utf-8') as f:
+              f.writelines(new_lines)
+          print('Wrote mkdocs.print.yml via text manipulation successfully')
           PY
           
+          # Der Build nutzt jetzt das saubere, temporäre YAML
           mkdocs build --config-file mkdocs.print.yml --site-dir site_print
           rm mkdocs.print.yml
 
