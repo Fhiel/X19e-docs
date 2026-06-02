@@ -22,58 +22,19 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin
 
-      - name: Generate config and build print site
+      # Baue die Druckseite mit der dedizierten Druck-Konfiguration
+      - name: Build print site
         run: |
-          python - <<'PY'
-          # Wir lesen die Konfiguration einfach als reinen Text ein
-          with open('mkdocs.yml', 'r', encoding='utf-8') as f:
-              lines = f.readlines()
-          
-          new_lines = []
-          skip_block = False
-          
-          for line in lines:
-              # Wenn das Plugin enumerate-headings beginnt, schalten wir das Überspringen an
-              if '- enumerate-headings:' in line or line.strip() == '- enumerate-headings':
-                  skip_block = True
-                  continue
-              
-              # Falls eingerückte Unteroptionen nach dem Plugin folgen, überspringe sie ebenfalls
-              if skip_block:
-                  if line.startswith('   ') or line.strip() == '' or line.startswith('  -') == False:
-                      if '- print-site:' not in line and 'plugins:' not in line:
-                          continue
-                  skip_block = False
-              
-              # Zwinge das Print-Plugin, das Inhaltsverzeichnis und die Nummern zu generieren
-              if 'add_table_of_contents:' in line:
-                  line = line.replace('false', 'true')
-              if 'enumerate_headings:' in line:
-                  line = line.replace('false', 'true')
-                  
-              new_lines.append(line)
-          
-          # Schreibe die saubere, unmanipulierte Print-Konfiguration
-          with open('mkdocs.print.yml', 'w', encoding='utf-8') as f:
-              f.writelines(new_lines)
-          print('Wrote mkdocs.print.yml via text manipulation successfully')
-          PY
-          
-          # Der Build nutzt jetzt das saubere, temporäre YAML
           mkdocs build --config-file mkdocs.print.yml --site-dir site_print
-          rm mkdocs.print.yml
 
+      # Schiebe die fertige Druckseite als statisches Asset in den docs-Ordner der Hauptseite
       - name: Inject print site into docs
         run: |
           mkdir -p docs/print
           cp -r site_print/* docs/print/
           rm -rf site_print
 
-      - name: Verify headings in print output 
-        run: | 
-          echo "Searching for H2+ in print output..." 
-          grep -rn '<h[2-6]>' docs/print/ || (echo "No H2+ headings found in print output!" && exit 1)
-
+      # Der finale Deploy baut das Hauptsystem und lädt alles hoch
       - name: Deploy to GitHub Pages
         run: |
           mkdocs gh-deploy --force

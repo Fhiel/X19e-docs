@@ -37,13 +37,12 @@ nav:
 
 plugins:
   - search
-  - enumerate-headings:
-      strict: true
-      heading_depth: 4
-      exclude:
-        - index.md
+  # HIER IST ENUMERATE-HEADINGS RAUS!
   - print-site:
-      add_to_navigation: true
-      print_page_title: "Druckversion (PDF)"
+      add_to_navigation: false
       add_cover_page: false
-      add_table_of_contents: false # Lokal aus, um Geister-TOCs zu verhindern
+      add_table_of_contents: true   # Das Plugin darf hier nativ das volle Verzeichnis bauen!
+      toc_title: "Inhaltsverzeichnis"
+      toc_depth: 3                  # Holt H1, H2 und H3 mit Seitenzahlen rein
+      enumerate_headings: true       # Das Plugin übernimmt die Nummerierung im Fließtext
+      include_css: true             # Lädt die nötigen Stile für Seitenzahlen
