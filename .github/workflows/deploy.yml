@@ -10,15 +10,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install System Deps
+      - name: Install System Dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y libcairo2 libpango-1.0-0 libpangocairo-1.0-0 libgdk-pixbuf2.0-0 libffi-dev libjpeg-dev
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -28,11 +28,17 @@ jobs:
           pip install --upgrade pip
           pip install mkdocs-material mkdocs-to-pdf weasyprint
 
-      - name: Build + PDF
+      - name: Build MkDocs + Generate PDF
         run: |
           mkdocs build --verbose
           echo "=== PDF Check ==="
+          ls -la site/pdf/ || echo "Kein pdf-Ordner"
           ls -la site/pdf/
+
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
 
   deploy:
     needs: build
