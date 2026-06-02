@@ -24,6 +24,8 @@ markdown_extensions:
   - def_list
   - toc:                    # wichtig für gutes TOC
       permalink: true
+  - pymdownx.arithmatex:     # ← wichtig für Formeln
+      generic: true
 
 nav:
   - Home: index.md
@@ -44,3 +46,7 @@ plugins:
       include_css: true 
       # toc_title: "Inhaltsverzeichnis"
       # add_full_urls: false
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
