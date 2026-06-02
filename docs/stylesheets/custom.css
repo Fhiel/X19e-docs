@@ -61,64 +61,122 @@ h1, h2, h3 {
     /* Seiteneinstellungen: Definiert das A4-Format und die Ränder für Chrome */
     @page {
         size: A4;
-        margin: 20mm 15mm 20mm 15mm;
+        margin: 20mm 18mm 20mm 18mm;
     }
 
-    /* Radikal alle ungenutzten Web-Elemente (Navigation, Suche, Header) ausblenden */
-    .md-sidebar, .md-header, .md-footer, .md-nav, .md-top, .md-banner, header, footer {
+    /* Alles außer dem eigentlichen Inhalt ausblenden */
+    .md-header,
+    .md-footer,
+    .md-sidebar,
+    .md-nav,
+    .md-top,
+    .md-banner,
+    .md-search,
+    header,
+    footer,
+    .md-main__inner > :not(.md-content),
+    .print-site-banner,
+    .print-site-toc-banner {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
     }
 
-    /* Textbereiche auf volle Breite aufweiten */
-    .md-content, .md-content__inner, article, main {
-        display: block !important;
+    /* Hauptinhalt auf volle Breite */
+    .md-content,
+    .md-content__inner,
+    article,
+    main,
+    .print-site-content {
         width: 100% !important;
         max-width: 100% !important;
         padding: 0 !important;
-        margin: 0 !important;
-        background: transparent !important;
-        color: #000000 !important; /* Druckfreundliches Schwarz für das Papier */
+        margin: 0 auto !important;
+        background: #ffffff !important;
+        color: #000000 !important;
     }
 
-    /* Überschriften für den Formulardruck anpassen (kein Leucht-Effekt auf Papier) */
-    h1, h2, h3, h4 {
+    /* Druckfreundliche Farben */
+    body, .md-typeset {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
         color: #000000 !important;
         text-shadow: none !important;
-        page-break-inside: avoid !important;
+        page-break-after: avoid;
+        page-break-inside: avoid;
     }
 
-    /* Jedes Hauptkapitel (H1) zwingend auf einer neuen Seite beginnen lassen */
+    /* Kapitel beginnen auf neuer Seite */
     h1 {
-        page-break-before: always !important;
+        page-break-before: always;
+        padding-top: 30px;
     }
 
-    /* Seitenumbruch direkt nach dem Deckblatt und dem Inhaltsverzeichnis erzwingen */
-    .page-break {
-        page-break-before: always !important;
-        clear: both;
+    /* Nummerierte Überschriften deutlicher machen */
+    .print-site-content h1::before,
+    .md-typeset h1::before {
+        content: attr(data-number) " ";
+        font-weight: bold;
     }
 
-    /* Unterüberschriften vor dem unschönen Abreißen am Seitenende schützen */
-    h2, h3, h4 {
-        page-break-after: avoid !important;
+    /* Inhaltsverzeichnis verbessern */
+    #print-site-toc,
+    .print-site-toc {
+        page-break-after: always;
+        margin-bottom: 40px;
     }
 
-    /* Absätze und Listen dürfen frei fließen */
-    p, li {
-        page-break-inside: auto !important;
+    #print-site-toc h2 {
+        color: #000000;
+        border-bottom: 2px solid #000;
+        padding-bottom: 8px;
     }
 
-    /* Medien, Tabellen und Boxen gegen unschöne Schnitte absichern */
-    figure, img, .admonition, table, tr {
-        page-break-inside: avoid !important;
-        max-width: 100% !important;
-        height: auto !important;
+    /* Cover Page Styling */
+    #print-site-cover-page {
+        page-break-after: always;
+        text-align: center;
+        padding: 80px 0 40px 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
-    /* Styling für das neue, saubere Inhaltsverzeichnis */
-    #pdf-toc h1 {
-        page-break-before: always !important;
+    #print-site-cover-page h1 {
+        font-size: 2.8em;
+        color: #000000;
+        margin-bottom: 30px;
     }
+
+    #print-site-cover-page p {
+        font-size: 1.2em;
+        color: #333333;
+    }
+
+    /* Tabellen und Admonitions */
+    table, .admonition {
+        page-break-inside: avoid;
+    }
+
+    img, figure {
+        max-width: 100%;
+        height: auto;
+        page-break-inside: avoid;
+    }
+
+    /* Bessere Lesbarkeit auf Papier */
+    .md-typeset {
+        font-size: 11pt;
+        line-height: 1.55;
+    }
+}
+
+/* Cover Page auf der Print-Seite (auch ohne @media print) */
+#print-site-cover-page {
+    text-align: center;
+    padding: 60px 20px;
 }

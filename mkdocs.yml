@@ -22,6 +22,8 @@ markdown_extensions:
   - pymdownx.superfences
   - admonition
   - def_list
+  - toc:                    # wichtig für gutes TOC
+      permalink: true
 
 nav:
   - Home: index.md
@@ -34,7 +36,11 @@ nav:
 
 plugins:
   - search
-  - enumerate-headings:
-      strict: true
-      exclude:
-        - index.md
+  - print-site:                  # ← als letztes Plugin!
+      enumerate_headings: true
+      enumerate_headings_depth: 6
+      enumerate_figures: true
+      add_cover_page: true       # nutzt index.md als Deckblatt
+      include_css: true 
+      # toc_title: "Inhaltsverzeichnis"
+      # add_full_urls: false
