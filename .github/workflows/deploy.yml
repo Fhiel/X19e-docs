@@ -22,26 +22,27 @@ jobs:
         run: |
           pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin
 
-      # 1. Wir bauen zuerst die normale Haupt-Webseite. Das Ergebnis landet in /site
+      # 1. ZUERST bauen wir die ganz normale Haupt-Webseite. Das Ergebnis landet sauber in /site
+      # (Hierbei entsteht automatisch der unvollständige Ordner site/print_page/)
       - name: Build main site
         run: |
           mkdocs build --site-dir site
 
-      # 2. Jetzt bauen wir die perfekte Druckseite separat aus der print.yml
+      # 2. JETZT bauen wir die perfekte Druckseite separat aus der print.yml in einen eigenen Ordner
       - name: Build perfect print site
         run: |
           mkdocs build --config-file mkdocs.print.yml --site-dir site_print
 
-      # 3. DER GENIALE SCHNITT: Wir überschreiben die fehlerhafte Druckseite der Hauptseite
-      # mit der perfekten Druckseite aus dem separaten Build!
-      - name: Overwrite legacy print page with perfect print site
+      # 3. DER CHIRURGISCHE SCHNITT: Wir löschen die unvollständige Druckseite der Hauptseite 
+      # und ersetzen sie exakt an der Stelle, wo das Plugin sie erwartet, durch die perfekte Druckseite!
+      - name: Replace legacy print page with perfect build
         run: |
           rm -rf site/print_page
           mkdir -p site/print_page
           cp -r site_print/print_page/* site/print_page/
           rm -rf site_print
 
-      # 4. Sauberer Upload direkt ins Netz
+      # 4. GITHUB-DEPLOYMENT: Schiebt den perfekt manipulierten /site Ordner direkt online
       - name: Upload artifact and deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
