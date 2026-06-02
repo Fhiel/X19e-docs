@@ -25,7 +25,7 @@ markdown_extensions:
   - toc:
       permalink: true
       slugify: !!python/name:pymdownx.slugs.uslugify # Falls du den Umlaut-Fix nutzt
-      depth: 3  # <-- DAS HIER REISST DIE STRUKTUR AUF EBENE 1, 2 UND 3 AUF!
+      toc_depth: 3  # <-- DAS HIER REISST DIE STRUKTUR AUF EBENE 1, 2 UND 3 AUF!
   - pymdownx.arithmatex:
       generic: true
   
