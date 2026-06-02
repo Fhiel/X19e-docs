@@ -72,7 +72,7 @@ jobs:
       - name: Verify headings in print output 
         run: | 
           echo "Searching for H2+ in print output..." 
-          grep -n '*
+          grep -rn '<h[2-6]>' docs/print/ || (echo "No H2+ headings found in print output!" && exit 1)
 
       - name: Deploy to GitHub Pages
         run: |
