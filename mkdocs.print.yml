@@ -24,6 +24,8 @@ markdown_extensions:
   - def_list
   - toc:
       permalink: true
+  - pymdownx.arithmatex:
+      generic: true
 
 nav:
   - Home: index.md
@@ -33,7 +35,7 @@ nav:
   - Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
   - Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
   - Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
-  - Anhang: anhang.md
+  # - Anhang: anhang.md
 
 plugins:
   - search
@@ -46,3 +48,5 @@ plugins:
       toc_depth: 3                  # Holt H1, H2 und H3 mit Seitenzahlen rein
       enumerate_headings: true       # Das Plugin übernimmt die Nummerierung im Fließtext
       include_css: true             # Lädt die nötigen Stile für Seitenzahlen
+      exclude:
+        - index.md

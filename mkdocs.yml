@@ -24,6 +24,8 @@ markdown_extensions:
   - def_list
   - toc:
       permalink: true
+  - pymdownx.arithmatex:
+      generic: true
 
 nav:
   - Home: index.md
@@ -33,7 +35,7 @@ nav:
   - Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
   - Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
   - Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
-  - Anhang: anhang.md
+  # - Anhang: anhang.md
 
 plugins:
   - search
