@@ -49,4 +49,4 @@ plugins:
       enumerate_headings: true       # Das Plugin übernimmt die Nummerierung im Fließtext
       include_css: true             # Lädt die nötigen Stile für Seitenzahlen
       exclude:
-        - index.md
+        - 'index.md'
