@@ -23,12 +23,14 @@ jobs:
       - name: Install Python Dependencies
         run: |
           pip install --upgrade pip
-          pip install mkdocs-material mkdocs-to-pdf weasyprint
+          pip install mkdocs-material \
+                      mkdocs-enumerate-headings-plugin \
+                      mkdocs-to-pdf \
+                      weasyprint
 
       - name: Build MkDocs & Generate PDF
         run: |
           mkdocs build
-          # PDF wird automatisch im pdf/ Ordner erzeugt
 
       - name: Deploy to GitHub Pages
         run: |
