@@ -1,0 +1,130 @@
+/* Custom Styles für das X1/9e Handbuch (Bildschirm) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
+
+:root {
+    --bg-color: #000000;
+    --card-bg: #0d0d0d;
+    --bertone-gold: #d4af37;
+    --instrument-green: #00e68a; 
+    --text-main: #ffffff;
+    --border-ui: #1a1a1a;
+    --md-text-font: 'Montserrat', sans-serif;
+    --md-primary-fg-color: var(--bg-color);
+    --md-accent-fg-color: var(--bertone-gold);
+}
+
+[data-md-color-scheme="slate"] {
+    --md-default-bg-color: var(--bg-color);
+    --md-default-bg-color--light: var(--card-bg);
+    --md-default-fg-color: var(--text-main);
+    --md-typeset-color: var(--text-main);
+    --md-border-color: var(--border-ui);
+}
+
+h1, h2, h3 { color: var(--bertone-gold) !important; }
+
+body:has(.print-site-content) .md-sidebar--secondary { display: none !important; }
+body:has(.print-site-content) .md-content { margin-right: 0 !important; }
+
+/* ==========================================================================
+   ERWEITERTE SCREEN-FIXES FÜR VERSION 2.8 (TOC-Erzwingung)
+   ========================================================================== */
+.print-site-toc-page, 
+#print-site-toc,
+.print-site-toc,
+div.print-site-toc-page,
+nav.print-site-toc-page {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    height: auto !important;
+}
+
+/* Verzeichnis-Text am Monitor (Slate-Theme Kompatibilität) */
+.print-site-toc-page, .print-site-toc-page a, .print-site-toc-page span, .print-site-toc-page li,
+.print-site-toc, .print-site-toc a, .print-site-toc span, .print-site-toc li {
+    color: #ffffff !important;
+}
+.print-site-toc-page h1, .print-site-toc-page h2,
+.print-site-toc h1, .print-site-toc h2 {
+    color: var(--bertone-gold) !important;
+}
+@media print {
+    @page { 
+        size: A4; 
+        margin: 20mm 15mm 20mm 15mm; 
+    }
+
+    /* Web-UI entfernen */
+    .md-header, .md-footer, .md-sidebar, .md-nav, header, footer, 
+    .md-main__inner > :not(.md-content), .print-site-banner, .print-site-toc-banner {
+        display: none !important;
+        height: 0 !important;
+    }
+
+    .md-content, .print-site-content, main, article { 
+        width: 100% !important; 
+        max-width: 100% !important;
+        background: #ffffff !important; 
+        color: #000000 !important; 
+    }
+    
+    body, .md-typeset { 
+        background: #ffffff !important; 
+        color: #000000 !important; 
+    }
+
+    /* ----------------------------------------------------------------------
+       UNSER NATIVER TOC-STYLING BLOCK
+       ---------------------------------------------------------------------- */
+    .print-site-toc-page {
+        display: block !important;
+        width: 100% !important;
+        page-break-after: always !important;
+    }
+
+    .manual-toc ul {
+        list-style-type: none !important;
+        padding-left: 0 !important;
+        margin: 0 !important;
+    }
+
+    .manual-toc ul ul {
+        padding-left: 25px !important; /* Saubere Einrückung für H2 */
+        margin-top: 5px !important;
+        margin-bottom: 5px !important;
+    }
+
+    .manual-toc li {
+        margin-bottom: 8px !important;
+        font-size: 12pt !important;
+    }
+
+    /* Der mathematische Seitenzahl-Befehl auf den reinen HTML-Ankern */
+    .manual-toc a {
+        color: #000000 !important;
+        text-decoration: none !important;
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+    }
+
+    /* Setzt die berechnete Seitenzahl rechtsbündig ab */
+    .manual-toc a::after {
+        content: target-counter(attr(href), page) !important;
+        position: absolute !important;
+        right: 0 !important;
+        font-weight: bold !important;
+    }
+
+    /* Tabellen- und Layout-Rettung */
+    table, th, td, .md-typeset table, .md-typeset th, .md-typeset td {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #cccccc !important;
+    }
+    th, .md-typeset th { background: #f2f2f2 !important; }
+    .admonition { background: #ffffff !important; color: #000000 !important; border: 1px solid #cccccc !important; page-break-inside: avoid; }
+    table, img, figure { page-break-inside: avoid; }
+    img, figure { max-width: 100%; height: auto; }
+}
