@@ -136,7 +136,7 @@ Die folgenden mechanischen Berechnungen basieren auf den ermittelten Ist-Werten 
 * **Gesamtwirkungsgrad Antrieb ($\eta$):** ca. 90 % (Motor inkl. Inverter)  
 * **Getriebeübersetzung (konstant im 4. Gang):** $i = 4,252$  
 
-#### A. Anfahrvermögen an Steigungen (gemäß VdTÜV 764, Kap. 3.3)
+**A. Anfahrvermögen an Steigungen (gemäß VdTÜV 764, Kap. 3.3):**
 
 Das Fahrzeug muss eine Steigung von 12 % ($\alpha \approx 6,82^\circ$) aus dem Stillstand heraus problemlos fünfmal innerhalb von fünf Minuten bewältigen können.
 
@@ -163,11 +163,16 @@ $$M_{\mathrm{Motor,Anfahren}} = \frac{M_{\mathrm{Rad,Anfahren}}}{i} = \frac{350,
 !!! note ""
     **Anmerkung zum Single-Speed-Betrieb:** Da der Motor das benötigte Drehmoment von 82,5 Nm im 4. Gang aus dem Stand heraus spielend bereitstellt (Maximalmoment ungedrosselt 234 Nm), ist ein permanentes Fahren im 4. Gang als „Single-Speed-Konzept“ möglich. Ein mechanischer Schaltvorgang ist im Regelbetrieb nicht erforderlich.
 
-#### B. Energieverbrauch und Reichweitenprognose (konstant 80 km/h)
+**B. Energieverbrauch und Reichweitenprognose (konstant 80 km/h):**
 
 **Luftwiderstandskraft ($F_{\mathrm{Luft}}$) bei $v = 22,2\text{ m/s}$ (80 km/h) und Luftdichte $\rho = 1,225\text{ kg/m}^3$:**
 
-$$F_{\mathrm{Luft}} = 0,5 \times c_{\mathrm{w}} \times A \times \rho \times v^2 = 0,5 \times 0,36 \times 1,7\text{ m}^2 \times 1,225\text{ kg/m}^3 \times (22,2\text{ m/s})^2 \approx 194,0\text{ N}$$
+$$
+\begin{aligned}
+F_{\mathrm{Luft}} &= 0,5 \times c_{\mathrm{w}} \times A \times \rho \times v^2 \\
+&= 0,5 \times 0,36 \times 1,7\text{ m}^2 \times 1,225\text{ kg/m}^3 \times (22,2\text{ m/s})^2 \approx 194,0\text{ N}
+\end{aligned}
+$$
 
 **Gesamtfahrwiderstandskraft ($F_{\mathrm{Total}}$):**
 
@@ -183,7 +188,12 @@ $$P_{\mathrm{Elektrisch}} = \frac{P_{\mathrm{Achse}}}{\eta} = \frac{6,5\text{ kW
 
 **Mathematischer Netto-Verbrauch pro 100 km:**
 
-$$\text{Verbrauch}_{100} = P_{\mathrm{Elektrisch}} \times \left(\frac{100\text{ km}}{80\text{ km/h}}\right) = 7,2\text{ kW} \times 1,25\text{ h} = 9,0\text{ kWh/100 km}$$
+$$
+\begin{aligned}
+\text{Verbrauch}_{100} &= P_{\mathrm{Elektrisch}} \times \left(\frac{100\text{ km}}{80\text{ km/h}}\right) \\
+&= 7,2\text{ kW} \times 1,25\text{ h} = 9,0\text{ kWh/100 km}
+\end{aligned}
+$$
 
 !!! info ""
     **Reichweitenprognose unter Realbedingungen:** Unter Berücksichtigung von Nebenverbrauchern (Heizung, LV-Bordnetzwandler) sowie variablen Fahrzyklen wird ein realistischer Praxisverbrauch von **10 bis 12 kWh/100 km** projektiert. Mit der nutzbaren Batteriekapazität von 26,5 kWh resultiert daraus eine verlässliche Aktionsreichweite von **200 bis 250 km**.

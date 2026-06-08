@@ -45,10 +45,15 @@ nav:
       - Übersicht: anhang.md
       - Isolationsüberwachungssystem (IMD): imd.md
       - Batterie-Management-System (BMS): bms.md
-      - Motorcontroller: motor_controller.md
+      - Inverter (MCU): mcu.md
       - Ladegerät (OBC): charger.md
-      - DC-DC-Wandler: dc_dc.md
-      - Iso-R Test: iso_r_test.md
+      - DC-DC-Wandler (DC_DC): dc_dc.md
+      - Vehicle Control Unit (VCU): vcu.md
+      - Instrumente und Anzeigen: instruments.md
+      - Fahrpedal: pedal.md
+      - Wasserpumpe Batterie: bat_pump.md
+      - Wasserpumpe Inverter: inv_pump.md
+      - Iso-R Tester: iso_r_test.md
       # Weitere Dateien (z.B. motor_controller.md) einfach hier drunter einreihen!
 
 # ==========================================================================

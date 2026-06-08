@@ -24,9 +24,14 @@ nav:
   - Übersicht: anhang.md
   - (IMD): imd.md
   - (BMS): bms.md
-  - Motor Controller: motor_controller.md
+  - Mcu: mcu.md
   - Charger: charger.md
   - Dc Dc: dc_dc.md
+  - Vcu: vcu.md
+  - Instruments: instruments.md
+  - Pedal: pedal.md
+  - Bat Pump: bat_pump.md
+  - Inv Pump: inv_pump.md
   - Iso R Test: iso_r_test.md
 plugins:
 - search
