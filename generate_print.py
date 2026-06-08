@@ -49,12 +49,12 @@ if 'plugins' in config:
         'search',
         'git-revision-date-localized',
         {'enumerate-headings': {
-            'strict': True  # Zählt jetzt nativ ab Kurzbeschreibung = 1
+            'strict': True
         }},
         {'print-site': {
             'add_to_navigation': False,
-            'add_cover_page': False,         # Auf True setzen für das automatische Deckblatt
-            'add_table_of_contents': False,  # Keine gedruckte ToC-Seite, wir nutzen PDF-Lesezeichen!
+            'add_cover_page': False,
+            'add_table_of_contents': False,
             'exclude': ['index.md']
         }}
     ]
