@@ -57,17 +57,23 @@ nav:
       # Weitere Dateien (z.B. motor_controller.md) einfach hier drunter einreihen!
 
 # ==========================================================================
-# PLUGINS (Saubere Zählung und Print-Vorbereitung für die Webseite)
+# PLUGINS (Saubere Zählung, Datum und Print-Vorbereitung für die Webseite)
 # ==========================================================================
 plugins:
   - search
+  
+  - git-revision-date-localized:
+      type: date
+      locale: de                     # Formatiert das Datum schön auf Deutsch (z.B. 08.06.2026)
+
   - enumerate-headings:
       strict: true
       exclude:
         - index.md   # Verhindert die Geister-"1" auf der Web-Startseite
-        - toc.md     # Schützt das generierte Verzeichnis (wird im Web-Build ignoriert)
+                     # toc.md wurde hier gelöscht, da die Datei nicht mehr existiert!
+
   - print-site:
       add_to_navigation: true
       print_page_title: "Druckversion (PDF)"
       add_cover_page: false
-      add_table_of_contents: false # Deaktiviert, da unser Parser das perfekte TOC baut
+      add_table_of_contents: false   # Wir vertrauen voll auf die digitalen PDF-Lesezeichen!
