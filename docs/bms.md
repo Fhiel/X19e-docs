@@ -4,8 +4,6 @@
 
 ## BMS
 
-![](../Pictures/100000010000020F0000017315DB413A.png)
-
 <figure id="simpBMS">
   <img src="../Pictures/100000010000020F0000017315DB413A.png">
   <figcaption style="text-align: center;">Abbildung: SimpBMS Battery Management System
