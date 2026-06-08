@@ -27,13 +27,12 @@ body:has(.print-site-content) .md-sidebar--secondary { display: none !important;
 body:has(.print-site-content) .md-content { margin-right: 0 !important; }
 
 /* ==========================================================================
-   ERWEITERTE SCREEN-FIXES FÜR VERSION 2.8 (TOC-Erzwingung)
+   ERWEITERTE SCREEN-FIXES (Sichtbarkeit auf dem Monitor)
    ========================================================================== */
-.print-site-toc-page, 
-#print-site-toc,
-.print-site-toc,
-div.print-site-toc-page,
-nav.print-site-toc-page {
+.print-toc-title { color: var(--bertone-gold) !important; font-family: var(--md-text-font); font-size: 2em; font-weight: 700; margin-bottom: 1em; }
+
+
+.print-site-toc-page {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
@@ -41,90 +40,144 @@ nav.print-site-toc-page {
 }
 
 /* Verzeichnis-Text am Monitor (Slate-Theme Kompatibilität) */
-.print-site-toc-page, .print-site-toc-page a, .print-site-toc-page span, .print-site-toc-page li,
-.print-site-toc, .print-site-toc a, .print-site-toc span, .print-site-toc li {
+.print-site-toc-page, .print-site-toc-page a {
     color: #ffffff !important;
 }
-.print-site-toc-page h1, .print-site-toc-page h2,
-.print-site-toc h1, .print-site-toc h2 {
+.print-site-toc-page h1 {
     color: var(--bertone-gold) !important;
 }
+
+/* ==========================================================================
+   STABILER DRUCK-BLOCK (Nativ abgestimmt auf den Pipeline-Parser)
+   ========================================================================== */
 @media print {
+    /* A4-Grundkonfiguration: Definiert das physikalische Druckfenster */
     @page { 
         size: A4; 
         margin: 20mm 15mm 20mm 15mm; 
     }
 
-    /* Web-UI entfernen */
-    .md-header, .md-footer, .md-sidebar, .md-nav, header, footer, 
-    .md-main__inner > :not(.md-content), .print-site-banner, .print-site-toc-banner {
-        display: none !important;
-        height: 0 !important;
+    /* ----------------------------------------------------------------------
+       RADIKALER LAYOUT-RESET GEGEN ABSCHNEIDEN (TEXT, TABELLEN & FORMELN)
+       ---------------------------------------------------------------------- */
+    html, body, .md-container, .md-main, .md-main__inner, 
+    .md-content, .md-content__inner, .print-site-content, main, article {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        display: block !important;     /* Hebelt das Flex-Grid des Themes aus */
+        overflow: visible !important;   /* Zwingt den Browser zum natürlichen Umbruch */
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #ffffff !important;
+        color: #000000 !important;
     }
 
-    .md-content, .print-site-content, main, article { 
-        width: 100% !important; 
-        max-width: 100% !important;
-        background: #ffffff !important; 
-        color: #000000 !important; 
-    }
-    
-    body, .md-typeset { 
-        background: #ffffff !important; 
-        color: #000000 !important; 
+    /* Textfluss und automatische Silbentrennung für den Ausdruck aktivieren */
+    p, li, span, td, th {
+        word-break: normal !important;        
+        overflow-wrap: break-word !important;   
+        hyphens: auto !important;             
     }
 
     /* ----------------------------------------------------------------------
-       UNSER NATIVER TOC-STYLING BLOCK
+       FORMEL-RETTUNG (Verhindert Abschneiden von langen mathematischen Blöcken)
        ---------------------------------------------------------------------- */
-    .print-site-toc-page {
-        display: block !important;
+    /* Falls Formeln in MathJax, KaTeX oder Code-Blöcken zu lang werden, 
+       stauchen wir sie leicht und erlauben einen kontrollierten inneren Umbruch */
+    .arithmatex, .math, .MathJax, .katex, math, pre, code {
+        max-width: 100% !important;
+        overflow-x: auto !important;    /* Erlaubt Notfall-Scrollbalken im Web / sauberen Cut im PDF */
+        white-space: pre-wrap !important; /* Zwingt reinen Text-Code zum Zeilenumbruch */
+        word-wrap: break-word !important;
+        font-size: 10pt !important;     /* Leicht herabgesetzte Größe exklusiv für den Druck */
+    }
+
+    /* Web-UI rigoros entfernen */
+    .md-header, .md-footer, .md-sidebar, .md-nav, 
+    header, footer, .md-main__inner > :not(.md-content), 
+    .print-site-banner, .print-site-toc-banner {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+    }
+
+    /* Überschriften-Formatierung */
+    h1, h2, h3, .md-typeset h1, .md-typeset h2, .md-typeset h3 { 
+        color: #000000 !important; 
+        page-break-after: avoid !important; 
+    }
+    
+    h1 { 
+        page-break-before: always !important; 
+        padding-top: 10mm !important; 
+    }
+
+    /* ----------------------------------------------------------------------
+       TABELLEN, INFOBOXEN UND BILDER-RETTUNG
+       ---------------------------------------------------------------------- */
+    table, .md-typeset table {
         width: 100% !important;
-        page-break-after: always !important;
-    }
-
-    .manual-toc ul {
-        list-style-type: none !important;
-        padding-left: 0 !important;
-        margin: 0 !important;
-    }
-
-    .manual-toc ul ul {
-        padding-left: 25px !important; /* Saubere Einrückung für H2 */
-        margin-top: 5px !important;
-        margin-bottom: 5px !important;
-    }
-
-    .manual-toc li {
-        margin-bottom: 8px !important;
-        font-size: 12pt !important;
-    }
-
-    /* Der mathematische Seitenzahl-Befehl auf den reinen HTML-Ankern */
-    .manual-toc a {
-        color: #000000 !important;
-        text-decoration: none !important;
-        display: block !important;
-        position: relative !important;
-        width: 100% !important;
-    }
-
-    /* Setzt die berechnete Seitenzahl rechtsbündig ab */
-    .manual-toc a::after {
-        content: target-counter(attr(href), page) !important;
-        position: absolute !important;
-        right: 0 !important;
-        font-weight: bold !important;
-    }
-
-    /* Tabellen- und Layout-Rettung */
-    table, th, td, .md-typeset table, .md-typeset th, .md-typeset td {
+        max-width: 100% !important;
+        table-layout: auto !important;     
+        display: table !important;         
+        word-break: break-word !important;      
+        overflow-wrap: break-word !important;
         background: #ffffff !important;
         color: #000000 !important;
         border: 1px solid #cccccc !important;
+        border-collapse: collapse !important;  
+        page-break-inside: auto !important;    
     }
-    th, .md-typeset th { background: #f2f2f2 !important; }
-    .admonition { background: #ffffff !important; color: #000000 !important; border: 1px solid #cccccc !important; page-break-inside: avoid; }
-    table, img, figure { page-break-inside: avoid; }
-    img, figure { max-width: 100%; height: auto; }
+
+    th, td, .md-typeset th, .md-typeset td {
+        border: 1px solid #cccccc !important;
+        padding: 6px 10px !important;
+        vertical-align: top !important;
+    }
+
+    th, .md-typeset th { 
+        background: #f2f2f2 !important; 
+    }
+    
+    tr { 
+        page-break-inside: avoid !important;   
+        page-break-after: auto !important;
+    }
+    
+    thead { 
+        display: table-header-group !important; 
+    }
+
+    .admonition { 
+        background: #ffffff !important; 
+        color: #000000 !important; 
+        border: 1px solid #cccccc !important; 
+        page-break-inside: avoid !important; 
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    img, figure { 
+        page-break-inside: avoid !important; 
+        max-width: 100% !important; 
+        height: auto !important; 
+    }
+
+    /* ----------------------------------------------------------------------
+       BILDUNTERSCHRIFTEN-BEREINIGUNG (Entfernt das automatische "Figure 1")
+       ---------------------------------------------------------------------- */
+    /* Wir blenden das vom Plugin automatisch generierte Präfix im PDF komplett aus,
+       damit ausschließlich deine saubere, manuelle Nummerierung gedruckt wird */
+    figure figcaption::before,
+    .figure-caption::before,
+    figcaption::before {
+        display: none !important;
+        content: "" !important;
+    }
+    
+    .md-typeset { 
+        font-size: 11pt; 
+        line-height: 1.5; 
+    }
 }

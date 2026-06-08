@@ -27,10 +27,12 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
+# ==========================================================================
+# DEINE STRUKTURIERTE NAVIGATION (Inklusive modularer Anhangs-Dateien)
+# ==========================================================================
 nav:
   - Home: index.md
   - Technische Kurzbeschreibung: kurzbeschreibung.md
@@ -39,18 +41,28 @@ nav:
   - Sicherheit des Energiespeichers: sicherheit_des_energiespeichers.md
   - Umweltschutz und Umweltverträglichkeit: umweltschutz_und_vertraeglichkeit.md
   - Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
-  # - Anhang: anhang.md
+  - Anhang:
+      - Übersicht: anhang.md
+      - Isolationsüberwachungssystem (IMD): imd.md
+      - Batterie-Management-System (BMS): bms.md
+      - Motorcontroller: motor_controller.md
+      - Ladegerät (OBC): charger.md
+      - DC-DC-Wandler: dc_dc.md
+      - Iso-R Test: iso_r_test.md
+      # Weitere Dateien (z.B. motor_controller.md) einfach hier drunter einreihen!
 
+# ==========================================================================
+# PLUGINS (Saubere Zählung und Print-Vorbereitung für die Webseite)
+# ==========================================================================
 plugins:
   - search
   - enumerate-headings:
       strict: true
-      heading_depth: 4
       exclude:
-        - index.md
-        - Home
+        - index.md   # Verhindert die Geister-"1" auf der Web-Startseite
+        - toc.md     # Schützt das generierte Verzeichnis (wird im Web-Build ignoriert)
   - print-site:
       add_to_navigation: true
       print_page_title: "Druckversion (PDF)"
       add_cover_page: false
-      add_table_of_contents: false
+      add_table_of_contents: false # Deaktiviert, da unser Parser das perfekte TOC baut

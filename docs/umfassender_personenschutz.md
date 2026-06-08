@@ -25,7 +25,7 @@ Zur sicheren und schnellen Deaktivierung des Hochvoltsystems im Falle eines Unfa
 * Die exakte Position der Rettungs-Trennschleife und der MSDs.
 * Die empfohlene Vorgehensweise zur schnellen Deaktivierung.
 
-**Verfügbarkeit:** Das Rettungsdatenblatt wird im Fahrzeug mitgeführt (z.B. hinter der Sonnenblende) und kann direkt über den Link [*Rettungskarte Bertone X1/9e*](./downloads/Rettungskarte_Bertone_X19e.pdf) oder diesen QR-Code abgerufen werden.
+**Verfügbarkeit:** Das Rettungsdatenblatt wird im Fahrzeug mitgeführt (z.B. hinter der Sonnenblende) und kann direkt über den Link [*Rettungskarte Bertone X1/9e*](https://fhiel.github.io/x19e-electric-speed/safety/Rettungskarte_Bertone_X19e.pdf) oder diesen QR-Code abgerufen werden.
 
 <figure id="qrcode1">
   <img src="../Pictures/10038B520000E0B00000E0B004383720.svg">

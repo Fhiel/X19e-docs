@@ -84,6 +84,8 @@ Frank Hielscher, 97816 Lohr a. Main
 | **Maintenance Service Disconnect (MSD)** | **Typ:** NISTAR NI4-1-S630-2NYA (je Batteriepack).<br>**Funktion:** Trennt bei Entfernung die interne Serienschaltung der Module und senkt die Spannung auf Kleinspannungsniveau (< 60V DC). |
 | **Sicherung** | EATON BUSSMANN EBSD-630A (je Batteriepack) |
 
+---
+
 ### Schematische Darstellung des Funktionsbereiches
 
 <figure id="schaltschema">
