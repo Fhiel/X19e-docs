@@ -47,6 +47,7 @@ config['nav'] = print_nav
 if 'plugins' in config:
     config['plugins'] = [
         'search',
+        'macros',
         'git-revision-date-localized',
         {'enumerate-headings': {
             'strict': True

@@ -61,6 +61,8 @@ nav:
 # ==========================================================================
 plugins:
   - search
+
+  - macros
   
   - git-revision-date-localized:
       type: date

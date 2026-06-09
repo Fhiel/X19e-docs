@@ -22,7 +22,7 @@ jobs:
 
       - name: Install Python Dependencies
         run: |
-          pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin mkdocs-git-revision-date-localized-plugin pyyaml
+          pip install mkdocs-material mkdocs-enumerate-headings-plugin mkdocs-print-site-plugin mkdocs-git-revision-date-localized-plugin mkdocs-macros-plugin pyyaml
 
       # ----------------------------------------------------------------------
       # NATIVE CONFIG GENERIERUNG (Wartet deine mkdocs.print.yml automatisch)
