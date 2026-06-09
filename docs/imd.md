@@ -1,8 +1,6 @@
-## Isolationsüberwachungsgerät (IMD)
-
 Zur kontinuierlichen Überwachung des Isolationswiderstandes zwischen dem aktiven Hochvoltsystem ($HV+/HV-$) und der Fahrzeugmasse (Kl. 31) wird ein automobiles Isolationsüberwachungsgerät (IMD) eingesetzt.
 
-### Technische Spezifikation des Sensors
+## Technische Spezifikation des Gerätes
 
 | Parameter | Spezifikation / Wert |
 | :--- | :--- |
@@ -16,7 +14,7 @@ Zur kontinuierlichen Überwachung des Isolationswiderstandes zwischen dem aktive
 
 ---
 
-### IMD Quellcode-Dokumentation (Bender iso165C-1)
+## IMD Quellcode-Dokumentation (Bender iso165C-1)
 
 Dieses Kapitel dokumentiert die vollständige softwareseitige Implementierung der Isolationsüberwachung in der Vehicle Control Unit (VCU / ESP32).
 
@@ -195,7 +193,7 @@ void self_test_task(void *parameter) {
 }
 ```
 
-### Nachweis der Normkonformität
+## Nachweis der Normkonformität
 
 Die oben dokumentierte softwareseitige Verriegelung und Flankenerkennung erfüllt die zentralen Schutzziele der fahrzeugrelevanten Sicherheitsstandards direkt im Systemhochlauf:
 
