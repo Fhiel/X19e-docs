@@ -40,3 +40,12 @@ jobs:
       - name: Build Print Site
         run: |
           mkdocs build --config-file mkdocs.print.yml --site-dir site/print_page
+
+      # ==========================================================================
+      # 6. REALE VERÖFFENTLICHUNG AUF GITHUB PAGES
+      # ==========================================================================
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site  # Lädt den gesamten site-Ordner inkl. print_page hoch!
