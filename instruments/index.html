@@ -1,0 +1,690 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Frank Hielscher" name="author"/>
+<link href="../vcu/" rel="prev"/>
+<link href="../pedal/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Instrumente und Anzeigen - X1/9e - Technische Dokumentation</title>
+<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Montserrat";--md-code-font:"Roboto Mono"}</style>
+<link href="../css/print-site.css" rel="stylesheet"/>
+<link href="../css/print-site-material.css" rel="stylesheet"/>
+<link href="../stylesheets/custom.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="amber" data-md-color-primary="black" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#instrumente">
+          Zum Inhalt
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Kopfzeile" class="md-header__inner md-grid">
+<a aria-label="X1/9e - Technische Dokumentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="X1/9e - Technische Dokumentation">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            X1/9e - Technische Dokumentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Instrumente und Anzeigen
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-hidden="true" class="md-option" data-md-color-accent="amber" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Suche" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Suche" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Suche" class="md-search__options">
+<button aria-label="Zurücksetzen" class="md-search__icon md-icon" tabindex="-1" title="Zurücksetzen" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="X1/9e - Technische Dokumentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="X1/9e - Technische Dokumentation">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    X1/9e - Technische Dokumentation
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../kurzbeschreibung/">
+<span class="md-ellipsis">
+    
+  
+    Technische Kurzbeschreibung
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../funktionssicherheit/">
+<span class="md-ellipsis">
+    
+  
+    Funktionssicherheit
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../elektrische_sicherheit/">
+<span class="md-ellipsis">
+    
+  
+    Elektrische Sicherheit
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sicherheit_des_energiespeichers/">
+<span class="md-ellipsis">
+    
+  
+    Sicherheit des Energiespeichers
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../umweltschutz_und_vertraeglichkeit/">
+<span class="md-ellipsis">
+    
+  
+    Umweltschutz und Umweltverträglichkeit
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../umfassender_personenschutz/">
+<span class="md-ellipsis">
+    
+  
+    Umfassender Personenschutz - Schutz für Dritte
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Anhang
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_8_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Anhang
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../anhang/">
+<span class="md-ellipsis">
+    
+  
+    Übersicht
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../imd/">
+<span class="md-ellipsis">
+    
+  
+    Isolationsüberwachungssystem (IMD)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bms/">
+<span class="md-ellipsis">
+    
+  
+    Batterie-Management-System (BMS)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mcu/">
+<span class="md-ellipsis">
+    
+  
+    Inverter (MCU)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../charger/">
+<span class="md-ellipsis">
+    
+  
+    Ladegerät (OBC)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dc_dc/">
+<span class="md-ellipsis">
+    
+  
+    DC-DC-Wandler (DC_DC)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vcu/">
+<span class="md-ellipsis">
+    
+  
+    Vehicle Control Unit (VCU)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Instrumente und Anzeigen
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Instrumente und Anzeigen
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Inhaltsverzeichnis" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#r-n-d-schalter">
+<span class="md-ellipsis">
+      
+        R-N-D Schalter
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kombi-instrument">
+<span class="md-ellipsis">
+      
+        Kombi-Instrument
+      
+    </span>
+</a>
+<nav aria-label="Kombi-Instrument" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#microcontroller">
+<span class="md-ellipsis">
+      
+        MicroController
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#display-1-zentrale-meldungsanzeige">
+<span class="md-ellipsis">
+      
+        Display 1 -- Zentrale Meldungsanzeige
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#display-2-ganganzeige-und-fehlerzustande">
+<span class="md-ellipsis">
+      
+        Display 2 -- Ganganzeige und Fehlerzustände
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#display-3-odometer">
+<span class="md-ellipsis">
+      
+        Display 3 - Odometer
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#impulsgeber">
+<span class="md-ellipsis">
+      
+        Impulsgeber
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pedal/">
+<span class="md-ellipsis">
+    
+  
+    Fahrpedal
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bat_pump/">
+<span class="md-ellipsis">
+    
+  
+    Wasserpumpe Batterie
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../inv_pump/">
+<span class="md-ellipsis">
+    
+  
+    Wasserpumpe Inverter
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iso_r_test/">
+<span class="md-ellipsis">
+    
+  
+    Iso-R Tester
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../print_page/">
+<span class="md-ellipsis">
+    
+  
+    Druckversion (PDF)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Inhaltsverzeichnis" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#r-n-d-schalter">
+<span class="md-ellipsis">
+      
+        R-N-D Schalter
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kombi-instrument">
+<span class="md-ellipsis">
+      
+        Kombi-Instrument
+      
+    </span>
+</a>
+<nav aria-label="Kombi-Instrument" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#microcontroller">
+<span class="md-ellipsis">
+      
+        MicroController
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#display-1-zentrale-meldungsanzeige">
+<span class="md-ellipsis">
+      
+        Display 1 -- Zentrale Meldungsanzeige
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#display-2-ganganzeige-und-fehlerzustande">
+<span class="md-ellipsis">
+      
+        Display 2 -- Ganganzeige und Fehlerzustände
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#display-3-odometer">
+<span class="md-ellipsis">
+      
+        Display 3 - Odometer
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#impulsgeber">
+<span class="md-ellipsis">
+      
+        Impulsgeber
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="instrumente"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.</span> Instrumente<a class="headerlink" href="#instrumente" title="Permanent link">¶</a></h1>
+<h2 id="r-n-d-schalter"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.1</span> R-N-D Schalter<a class="headerlink" href="#r-n-d-schalter" title="Permanent link">¶</a></h2>
+<p><img alt="" src="../Pictures/10000001000001B1000000F3BFD67744.png"/></p>
+<h2 id="kombi-instrument"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.2</span> Kombi-Instrument<a class="headerlink" href="#kombi-instrument" title="Permanent link">¶</a></h2>
+<p>Das Kombi-Instrument verfügt über digitale Anzeigen und nutzt weiterhin die analogen Instrumente um digitale Informationen darzustellen.</p>
+<h3 id="microcontroller"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.2.1</span> MicroController<a class="headerlink" href="#microcontroller" title="Permanent link">¶</a></h3>
+<p>Hersteller: LONGAN, Typ: CanBed RP2040</p>
+<p>Aufgabe:
+Der Microcontroller erweitert das Kombi-Instrument um digitale Anzeigen und reaktiviert die analogen Instrumente. Er stellt Daten vom Inverter und zusätzliche CanBus Informationen dar.</p>
+<p><strong>Specifications:</strong></p>
+<ul>
+<li>Microcontroller: Raspberry Pi RP2040</li>
+<li>Clock speed: 133 MHz</li>
+<li>Flash memory: 2MB</li>
+<li>RAM: 264KB</li>
+<li>Operating voltage: 9-28V</li>
+</ul>
+<h3 id="display-1-zentrale-meldungsanzeige"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.2.2</span> Display 1 -- Zentrale Meldungsanzeige<a class="headerlink" href="#display-1-zentrale-meldungsanzeige" title="Permanent link">¶</a></h3>
+<p>Typ: <a href="https://www.ebay.de/itm/174255778938?var=473236321890"><em>0.91 Zoll OLED Display SSD1306 I2C/IIC 128x32 Modul 4 PIN
+Weiß</em></a></p>
+<p>Aufgabe:
+Berichtet über Systemmeldungen beim Start und weitere Zustände. Die
+Standardanzeige ist „<strong>BERTONE</strong>".</p>
+<h3 id="display-2-ganganzeige-und-fehlerzustande"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.2.3</span> Display 2 -- Ganganzeige und Fehlerzustände<a class="headerlink" href="#display-2-ganganzeige-und-fehlerzustande" title="Permanent link">¶</a></h3>
+<p>Typ: <a href="https://www.ebay.de/itm/175071126309">0.49 Zoll OLED Display Module IIC I2C/SSD1306
+Weiß</a></p>
+<p>Aufgabe:\
+Wertet die korrespondierenden System Statusmeldungen des Inverters aus.</p>
+<p>Anzeigewerte:\
+<strong>R</strong> Reverse Rückwärtsfahrt</p>
+<p><strong>N</strong> Neutral Neutral</p>
+<p><strong>D</strong> Drive Vorwärtsfahrt</p>
+<p><strong>P</strong> Park Handbremse</p>
+<pre><code>RND-Display Fehlercodes:
+NDT: Kein Datenempfang
+CRSH: Systemabsturz
+</code></pre>
+<p>Anzeige   Bedeutung                     Beschreibung
+  NODT      Kein Datenempfang (Timeout)   Keine Telemetriedaten vom ESP32 empfangen (länger als 2 Sekunden).</p>
+<p>CRSH      Systemabsturz Dispay Unit     System durch Watchdog zurückgesetzt nach einem Softwarefehler.</p>
+<h3 id="display-3-odometer"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.2.4</span> Display 3 - Odometer<a class="headerlink" href="#display-3-odometer" title="Permanent link">¶</a></h3>
+<p>Bereifung: 185/60 R13\
+Reifendurchmesser: 55,2 cm\
+Abrollumfang: 167,9 cm -- 173,5 cm</p>
+<p>Beispiel: 180 km/h = 50 m/s,*<em>*</em>
+Umdrehungen pro Sekunde = geschwindigkeit/umfang\
+50 m/s : 1,71 m = 29,24 umdrehungen/sek</p>
+<p>10 km/h = 2,77 m/s,*<em>*</em>
+Umdrehungen pro Sekunde = geschwindigkeit/umfang\
+2,77777 m/s : 1,71 m = 1,624 umdrehungen/sek</p>
+<p><em>Auszug aus dem Code zur Ermittelung der Geschwindigkeit:</em>
+from machine import Pin, PWM
+import time</p>
+<div class="highlight"><pre><span></span><code><span class="n">WHEEL_CIRCUMFERENCE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.71</span><span class="w"> </span><span class="err">\#</span><span class="w"> </span><span class="n">Radumfang</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Metern</span>
+<span class="n">PULSES_PER_REVOLUTION</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="err">\#</span><span class="w"> </span><span class="n">Anzahl</span><span class="w"> </span><span class="n">der</span><span class="w"> </span><span class="n">Pulse</span><span class="w"> </span><span class="n">pro</span><span class="w"> </span><span class="n">Radumdrehung</span>
+<span class="n">INPUT_PIN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="err">\#</span><span class="w"> </span><span class="n">GPIO</span><span class="o">-</span><span class="n">Pin</span><span class="w"> </span><span class="n">für</span><span class="w"> </span><span class="n">den</span><span class="w"> </span><span class="n">Eingangspuls</span>
+
+<span class="err">\#</span><span class="w"> </span><span class="n">PWM</span><span class="w"> </span><span class="n">für</span><span class="w"> </span><span class="n">Pulszählung</span><span class="w"> </span><span class="n">einrichten</span>
+<span class="n">pwm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PWM</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="n">INPUT_PIN</span><span class="p">))</span>
+<span class="n">pwm</span><span class="p">.</span><span class="n">freq</span><span class="p">(</span><span class="mi">100000</span><span class="p">)</span><span class="w"> </span><span class="err">\#</span><span class="w"> </span><span class="n">Hohe</span><span class="w"> </span><span class="n">Frequenz</span><span class="w"> </span><span class="n">für</span><span class="w"> </span><span class="n">genaue</span><span class="w"> </span><span class="n">Messung</span>
+<span class="n">def</span><span class="w"> </span><span class="n">calculate_speed</span><span class="p">()</span><span class="o">:</span>
+<span class="n">start_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">.</span><span class="n">ticks_us</span><span class="p">()</span>
+<span class="n">start_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pwm</span><span class="p">.</span><span class="n">duty_u16</span><span class="p">()</span>
+<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span><span class="w"> </span><span class="err">\#</span><span class="w"> </span><span class="n">Messintervall</span><span class="w"> </span><span class="p">(</span><span class="n">anpassbar</span><span class="w"> </span><span class="n">für</span><span class="w"> </span><span class="n">verschiedene</span><span class="w"> </span><span class="n">Geschwindigkeiten</span><span class="p">)</span>
+<span class="n">end_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">.</span><span class="n">ticks_us</span><span class="p">()</span>
+<span class="n">end_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pwm</span><span class="p">.</span><span class="n">duty_u16</span><span class="p">()</span>
+<span class="n">duration</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">.</span><span class="n">ticks_diff</span><span class="p">(</span><span class="n">end_time</span><span class="p">,</span><span class="w"> </span><span class="n">start_time</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">1000000</span><span class="w"> </span><span class="err">\#</span><span class="w"> </span><span class="n">inSekunden</span>
+<span class="n">pulse_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">end_count</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start_count</span>
+<span class="k">if</span><span class="w"> </span><span class="n">pulse_count</span><span class="w"> </span><span class="err">\</span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="o">:</span>
+<span class="n">revolutions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pulse_count</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">PULSES_PER_REVOLUTION</span>
+<span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">revolutions</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="w"> </span><span class="n">WHEEL_CIRCUMFERENCE</span>
+<span class="n">speed_mps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">duration</span>
+<span class="n">speed_kmh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">speed_mps</span><span class="w"> </span><span class="err">\</span><span class="o">*</span><span class="w"> </span><span class="mf">3.6</span>
+<span class="k">return</span><span class="w"> </span><span class="n">speed_kmh</span>
+<span class="nl">else</span><span class="p">:</span>
+<span class="k">return</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">while</span><span class="w"> </span><span class="n">rue</span><span class="o">:</span>
+<span class="n">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">calculate_speed</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="n">f</span><span class="err">\</span><span class="s">"Aktuelle Geschwindigkeit: {speed:.2f} km/h</span><span class="se">\"</span><span class="s">)</span>
+<span class="n">time</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span><span class="w"> </span><span class="err">\#</span><span class="w"> </span><span class="n">Aktualisierungsintervall</span><span class="w"> </span><span class="n">Dieser</span><span class="w"> </span><span class="n">Code</span><span class="w"> </span><span class="n">nutzt</span><span class="w"> </span><span class="n">die</span><span class="w"> </span><span class="n">PWM</span><span class="o">-</span><span class="n">Funktionalität</span><span class="w"> </span><span class="n">des</span><span class="w"> </span><span class="n">RP2040</span><span class="p">,</span><span class="w"> </span><span class="n">um</span><span class="w"> </span><span class="n">die</span><span class="w"> </span><span class="n">Pulse</span><span class="w"> </span><span class="n">präzise</span><span class="w"> </span><span class="n">zu</span><span class="w"> </span><span class="n">zählen</span><span class="err">\</span><span class="p">[</span><span class="mi">1</span><span class="err">\</span><span class="p">]</span><span class="err">\</span><span class="p">[</span><span class="mi">3</span><span class="err">\</span><span class="p">].</span><span class="w"> </span><span class="n">Hier</span><span class="w"> </span><span class="n">sind</span><span class="w"> </span><span class="n">die</span><span class="w"> </span><span class="n">Hauptpunkte</span><span class="o">:</span>
+<span class="mi">1</span><span class="err">\</span><span class="p">.</span><span class="w"> </span><span class="n">Wir</span><span class="w"> </span><span class="n">verwenden</span><span class="w"> </span><span class="n">PWM</span><span class="w"> </span><span class="n">im</span><span class="w"> </span><span class="n">Eingangsmodus</span><span class="p">,</span><span class="w"> </span><span class="n">um</span><span class="w"> </span><span class="n">die</span><span class="w"> </span><span class="n">Pulse</span><span class="w"> </span><span class="n">zu</span><span class="w"> </span><span class="n">zählen</span><span class="p">.</span>
+<span class="mi">2</span><span class="err">\</span><span class="p">.</span><span class="w"> </span><span class="n">Die</span><span class="w"> </span><span class="n">Funktion</span><span class="w"> </span><span class="err">\`</span><span class="n">calculate_speed</span><span class="p">()</span><span class="err">\`</span><span class="w"> </span><span class="n">misst</span><span class="w"> </span><span class="n">die</span><span class="w"> </span><span class="n">Anzahl</span><span class="w"> </span><span class="n">der</span><span class="w"> </span><span class="n">Pulse</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">einem</span><span class="w"> </span><span class="n">kurzen</span><span class="w"> </span><span class="n">Zeitintervall</span><span class="p">.</span>
+<span class="mi">3</span><span class="err">\</span><span class="p">.</span><span class="w"> </span><span class="n">Die</span><span class="w"> </span><span class="n">Geschwindigkeit</span><span class="w"> </span><span class="n">wird</span><span class="w"> </span><span class="n">aus</span><span class="w"> </span><span class="n">der</span><span class="w"> </span><span class="n">Anzahl</span><span class="w"> </span><span class="n">der</span><span class="w"> </span><span class="n">Umdrehungen</span><span class="p">,</span><span class="w"> </span><span class="n">dem</span><span class="w"> </span><span class="n">Radumfang</span><span class="w"> </span><span class="n">und</span><span class="w"> </span><span class="n">der</span><span class="w"> </span><span class="n">verstrichenen</span><span class="w"> </span><span class="n">Zeit</span><span class="w"> </span><span class="n">berechnet</span><span class="p">.</span>
+<span class="mi">4</span><span class="err">\</span><span class="p">.</span><span class="w"> </span><span class="n">Das</span><span class="w"> </span><span class="n">Messintervall</span><span class="w"> </span><span class="n">von</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="w"> </span><span class="n">Sekunden</span><span class="w"> </span><span class="n">ermöglicht</span><span class="w"> </span><span class="n">die</span><span class="w"> </span><span class="n">Erfassung</span><span class="w"> </span><span class="n">von</span><span class="w"> </span><span class="n">Geschwindigkeiten</span><span class="w"> </span><span class="n">von</span><span class="w"> </span><span class="n">etwa</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="n">km</span><span class="o">/</span><span class="n">h</span><span class="w"> </span><span class="n">bis</span><span class="w"> </span><span class="n">über</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="n">km</span><span class="o">/</span><span class="n">h</span><span class="p">.</span>
+
+<span class="n">Für</span><span class="w"> </span><span class="n">genauere</span><span class="w"> </span><span class="n">Messungen</span><span class="w"> </span><span class="n">bei</span><span class="w"> </span><span class="n">sehr</span><span class="w"> </span><span class="n">niedrigen</span><span class="w"> </span><span class="n">oder</span><span class="w"> </span><span class="n">sehr</span><span class="w"> </span><span class="n">hohen</span><span class="w"> </span><span class="n">Geschwindigkeiten</span><span class="w"> </span><span class="n">können</span><span class="w"> </span><span class="n">Sie</span><span class="w"> </span><span class="n">das</span><span class="w"> </span><span class="n">Messintervall</span><span class="w"> </span><span class="n">dynamisch</span><span class="w"> </span><span class="n">anpassen</span><span class="p">.</span><span class="w"> </span><span class="n">Bei</span><span class="w"> </span><span class="n">niedrigen</span><span class="w"> </span><span class="n">Geschwindigkeiten</span><span class="w"> </span><span class="n">verlängern</span><span class="w"> </span><span class="n">Sie</span><span class="w"> </span><span class="n">das</span><span class="w"> </span><span class="n">Intervall</span><span class="p">,</span><span class="w"> </span><span class="n">bei</span><span class="w"> </span><span class="n">hohen</span><span class="w"> </span><span class="n">Geschwindigkeiten</span><span class="w"> </span><span class="n">verkürzen</span><span class="w"> </span><span class="n">Sie</span><span class="w"> </span><span class="n">es</span><span class="p">.</span>
+
+<span class="n">Beachten</span><span class="w"> </span><span class="n">Sie</span><span class="p">,</span><span class="w"> </span><span class="n">dass</span><span class="w"> </span><span class="n">die</span><span class="w"> </span><span class="n">tatsächliche</span><span class="w"> </span><span class="n">Genauigkeit</span><span class="w"> </span><span class="n">von</span><span class="w"> </span><span class="n">der</span><span class="w"> </span><span class="n">Stabilität</span><span class="w"> </span><span class="n">und</span><span class="w"> </span><span class="n">Frequenz</span><span class="w"> </span><span class="n">der</span><span class="w"> </span><span class="n">Eingangspulse</span><span class="w"> </span><span class="n">abhängt</span><span class="p">.</span><span class="w"> </span><span class="n">Für</span><span class="w"> </span><span class="n">sehr</span><span class="w"> </span><span class="n">präzise</span><span class="w"> </span><span class="n">Messungen</span><span class="p">,</span><span class="w"> </span><span class="n">insbesondere</span><span class="w"> </span><span class="n">bei</span><span class="w"> </span><span class="n">hohen</span><span class="w"> </span><span class="n">Geschwindigkeiten</span><span class="p">,</span><span class="w"> </span><span class="n">sollten</span><span class="w"> </span><span class="n">Sie</span><span class="w"> </span><span class="n">möglicherweise</span><span class="w"> </span><span class="n">zusätzliche</span><span class="w"> </span><span class="n">Filtertechniken</span><span class="w"> </span><span class="n">oder</span><span class="w"> </span><span class="n">eine</span><span class="w"> </span><span class="n">Mittelwertbildung</span><span class="w"> </span><span class="n">über</span><span class="w"> </span><span class="n">mehrere</span><span class="w"> </span><span class="n">Messungen</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Betracht</span><span class="w"> </span><span class="n">ziehen</span><span class="p">.</span>
+
+<span class="nl">Citations</span><span class="p">:</span>
+
+<span class="err">\</span><span class="p">[</span><span class="mi">1</span><span class="err">\</span><span class="p">]</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//hackaday.com/2023/08/26/accurate-cycle-counting-on-rp2040-micropython/</span>
+<span class="err">\</span><span class="p">[</span><span class="mi">2</span><span class="err">\</span><span class="p">]</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//docs.micropython.org/en/latest/rp2/quickref.html</span>
+<span class="err">\</span><span class="p">[</span><span class="mi">3</span><span class="err">\</span><span class="p">]</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//iosoft.blog/2023/08/21/picofreq_python/</span>
+<span class="err">\</span><span class="p">[</span><span class="mi">4</span><span class="err">\</span><span class="p">]</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//www.youtube.com/watch?v=y2EDhzDiPTE</span>
+<span class="err">\</span><span class="p">[</span><span class="mi">5</span><span class="err">\</span><span class="p">]</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//forum.micropython.org/viewtopic.php?t=9692</span>
+<span class="err">\</span><span class="p">[</span><span class="mi">6</span><span class="err">\</span><span class="p">]</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//forums.raspberrypi.com/viewtopic.php?t=310796</span>
+<span class="err">\</span><span class="p">[</span><span class="mi">7</span><span class="err">\</span><span class="p">]</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//forum.micropython.org/viewtopic.php?t=9695</span>
+<span class="err">\</span><span class="p">[</span><span class="mi">8</span><span class="err">\</span><span class="p">]</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//media.ccc.de/v/sps22-4239-micropython-on-the-rp2040 **\**</span>
+</code></pre></div>
+<h2 id="impulsgeber"><span class="enumerate-headings-plugin enumerate-heading-plugin">14.3</span> Impulsgeber<a class="headerlink" href="#impulsgeber" title="Permanent link">¶</a></h2>
+<p>Der Impulszähler liefert 2 Impulse pro Radumdrehung und ist direkt am Getriebe installiert.</p>
+<p>Hersteller: RIDEX, Typ: 833C0073</p>
+<p><img alt="" src="../Pictures/1000000100000233000003A19614529B.png"/><img alt="" src="../Pictures/10000001000004C700000398D821AD82.png"/>Abb. Stecker und Belegung Impulsgeber</p>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Letztes Update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="8. Juni 2026 14:54:30 UTC">8. Juni 2026</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../js/print-site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

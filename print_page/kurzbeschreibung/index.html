@@ -1,0 +1,1426 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="de">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Frank Hielscher" name="author"/>
+<link href="../funktionssicherheit/" rel="next"/>
+<link href="../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Kurzbeschreibung - X1/9e - Technische Dokumentation</title>
+<link href="../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Montserrat";--md-code-font:"Roboto Mono"}</style>
+<link href="../css/print-site.css" rel="stylesheet"/>
+<link href="../css/print-site-material.css" rel="stylesheet"/>
+<link href="../stylesheets/custom.css" rel="stylesheet"/>
+<script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="amber" data-md-color-primary="black" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#technische-kurzbeschreibung">
+          Zum Inhalt
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Kopfzeile" class="md-header__inner md-grid">
+<a aria-label="X1/9e - Technische Dokumentation" class="md-header__button md-logo" data-md-component="logo" href=".." title="X1/9e - Technische Dokumentation">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            X1/9e - Technische Dokumentation
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Kurzbeschreibung
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-hidden="true" class="md-option" data-md-color-accent="amber" data-md-color-media="" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Suche" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Suche" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Suche" class="md-search__options">
+<button aria-label="Zurücksetzen" class="md-search__icon md-icon" tabindex="-1" title="Zurücksetzen" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Suche wird initialisiert
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="X1/9e - Technische Dokumentation" class="md-nav__button md-logo" data-md-component="logo" href=".." title="X1/9e - Technische Dokumentation">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    X1/9e - Technische Dokumentation
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Kurzbeschreibung
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Kurzbeschreibung
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Inhaltsverzeichnis" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#allgemeines">
+<span class="md-ellipsis">
+      
+        Allgemeines
+      
+    </span>
+</a>
+<nav aria-label="Allgemeines" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#angaben-zum-fahrzeug">
+<span class="md-ellipsis">
+      
+        Angaben zum Fahrzeug
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#name-und-anschrift-des-umrusters">
+<span class="md-ellipsis">
+      
+        Name und Anschrift des Umrüsters
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#antriebssystem-powertrain">
+<span class="md-ellipsis">
+      
+        Antriebssystem (Powertrain)
+      
+    </span>
+</a>
+<nav aria-label="Antriebssystem (Powertrain)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elektromotor-antriebsmotor">
+<span class="md-ellipsis">
+      
+        Elektromotor (Antriebsmotor)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inverter-motor-controller">
+<span class="md-ellipsis">
+      
+        Inverter / Motor Controller
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#zusammenfassende-leistungsdaten-des-gesamtsystems-eintragungswerte">
+<span class="md-ellipsis">
+      
+        Zusammenfassende Leistungsdaten des Gesamtsystems (Eintragungswerte)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#energiespeichersystem-reess">
+<span class="md-ellipsis">
+      
+        Energiespeichersystem REESS
+      
+    </span>
+</a>
+<nav aria-label="Energiespeichersystem REESS" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#technische-daten">
+<span class="md-ellipsis">
+      
+        Technische Daten
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#schematische-darstellung-des-funktionsbereiches">
+<span class="md-ellipsis">
+      
+        Schematische Darstellung des Funktionsbereiches
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#beschreibung-und-gehauseaufbau-des-reess">
+<span class="md-ellipsis">
+      
+        Beschreibung und Gehäuseaufbau des REESS
+      
+    </span>
+</a>
+<nav aria-label="Beschreibung und Gehäuseaufbau des REESS" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#battery-pack-rear-aufbau-werkstoffe-und-physische-abmessungen">
+<span class="md-ellipsis">
+      
+        Battery Pack rear (Aufbau, Werkstoffe und physische Abmessungen)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#battery-pack-front-aufbau-werkstoffe-und-physische-abmessungen">
+<span class="md-ellipsis">
+      
+        Battery Pack front (Aufbau, Werkstoffe und physische Abmessungen)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#geometrische-integration-des-reess-im-fahrzeug">
+<span class="md-ellipsis">
+      
+        Geometrische Integration des REESS im Fahrzeug
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mechanische-integration-und-crashsicherheit-reess-befestigung">
+<span class="md-ellipsis">
+      
+        Mechanische Integration und Crashsicherheit (REESS-Befestigung)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#thermomanagement-und-elektronische-steuerung">
+<span class="md-ellipsis">
+      
+        Thermomanagement und elektronische Steuerung
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ladesystem">
+<span class="md-ellipsis">
+      
+        Ladesystem
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hochvolt-leitungen">
+<span class="md-ellipsis">
+      
+        Hochvolt-Leitungen
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sicherheitskomponenten">
+<span class="md-ellipsis">
+      
+        Sicherheitskomponenten
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elektrisches-netzsystem">
+<span class="md-ellipsis">
+      
+        Elektrisches Netzsystem
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gewichtsbilanz-und-achslasten">
+<span class="md-ellipsis">
+      
+        Gewichtsbilanz und Achslasten
+      
+    </span>
+</a>
+<nav aria-label="Gewichtsbilanz und Achslasten" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referenzwerte-aus-dem-fahrzeugschein-serienzustand-vor-umbau">
+<span class="md-ellipsis">
+      
+        Referenzwerte aus dem Fahrzeugschein (Serienzustand vor Umbau)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ermittelte-ist-werte-radlastwaage-nach-ev-umbau">
+<span class="md-ellipsis">
+      
+        Ermittelte Ist-Werte (Radlastwaage nach EV-Umbau)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#umbaukonzept-und-gewichtsverteilung-zuladung">
+<span class="md-ellipsis">
+      
+        Umbaukonzept und Gewichtsverteilung (Zuladung)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bauliche-manahmen-zur-einhaltung-der-achslasten">
+<span class="md-ellipsis">
+      
+        Bauliche Maßnahmen zur Einhaltung der Achslasten
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../funktionssicherheit/">
+<span class="md-ellipsis">
+    
+  
+    Funktionssicherheit
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../elektrische_sicherheit/">
+<span class="md-ellipsis">
+    
+  
+    Elektrische Sicherheit
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sicherheit_des_energiespeichers/">
+<span class="md-ellipsis">
+    
+  
+    Sicherheit Des Energiespeichers
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../umweltschutz_und_vertraeglichkeit/">
+<span class="md-ellipsis">
+    
+  
+    Umweltschutz Und Vertraeglichkeit
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../umfassender_personenschutz/">
+<span class="md-ellipsis">
+    
+  
+    Umfassender Personenschutz
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Anhang
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_7_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Anhang
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../anhang/">
+<span class="md-ellipsis">
+    
+  
+    Übersicht
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../imd/">
+<span class="md-ellipsis">
+    
+  
+    (IMD)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bms/">
+<span class="md-ellipsis">
+    
+  
+    (BMS)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mcu/">
+<span class="md-ellipsis">
+    
+  
+    Mcu
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../charger/">
+<span class="md-ellipsis">
+    
+  
+    Charger
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dc_dc/">
+<span class="md-ellipsis">
+    
+  
+    Dc Dc
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../vcu/">
+<span class="md-ellipsis">
+    
+  
+    Vcu
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../instruments/">
+<span class="md-ellipsis">
+    
+  
+    Instruments
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pedal/">
+<span class="md-ellipsis">
+    
+  
+    Pedal
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bat_pump/">
+<span class="md-ellipsis">
+    
+  
+    Bat Pump
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../inv_pump/">
+<span class="md-ellipsis">
+    
+  
+    Inv Pump
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iso_r_test/">
+<span class="md-ellipsis">
+    
+  
+    Iso R Test
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Inhaltsverzeichnis" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Inhaltsverzeichnis
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#allgemeines">
+<span class="md-ellipsis">
+      
+        Allgemeines
+      
+    </span>
+</a>
+<nav aria-label="Allgemeines" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#angaben-zum-fahrzeug">
+<span class="md-ellipsis">
+      
+        Angaben zum Fahrzeug
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#name-und-anschrift-des-umrusters">
+<span class="md-ellipsis">
+      
+        Name und Anschrift des Umrüsters
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#antriebssystem-powertrain">
+<span class="md-ellipsis">
+      
+        Antriebssystem (Powertrain)
+      
+    </span>
+</a>
+<nav aria-label="Antriebssystem (Powertrain)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elektromotor-antriebsmotor">
+<span class="md-ellipsis">
+      
+        Elektromotor (Antriebsmotor)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inverter-motor-controller">
+<span class="md-ellipsis">
+      
+        Inverter / Motor Controller
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#zusammenfassende-leistungsdaten-des-gesamtsystems-eintragungswerte">
+<span class="md-ellipsis">
+      
+        Zusammenfassende Leistungsdaten des Gesamtsystems (Eintragungswerte)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#energiespeichersystem-reess">
+<span class="md-ellipsis">
+      
+        Energiespeichersystem REESS
+      
+    </span>
+</a>
+<nav aria-label="Energiespeichersystem REESS" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#technische-daten">
+<span class="md-ellipsis">
+      
+        Technische Daten
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#schematische-darstellung-des-funktionsbereiches">
+<span class="md-ellipsis">
+      
+        Schematische Darstellung des Funktionsbereiches
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#beschreibung-und-gehauseaufbau-des-reess">
+<span class="md-ellipsis">
+      
+        Beschreibung und Gehäuseaufbau des REESS
+      
+    </span>
+</a>
+<nav aria-label="Beschreibung und Gehäuseaufbau des REESS" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#battery-pack-rear-aufbau-werkstoffe-und-physische-abmessungen">
+<span class="md-ellipsis">
+      
+        Battery Pack rear (Aufbau, Werkstoffe und physische Abmessungen)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#battery-pack-front-aufbau-werkstoffe-und-physische-abmessungen">
+<span class="md-ellipsis">
+      
+        Battery Pack front (Aufbau, Werkstoffe und physische Abmessungen)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#geometrische-integration-des-reess-im-fahrzeug">
+<span class="md-ellipsis">
+      
+        Geometrische Integration des REESS im Fahrzeug
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mechanische-integration-und-crashsicherheit-reess-befestigung">
+<span class="md-ellipsis">
+      
+        Mechanische Integration und Crashsicherheit (REESS-Befestigung)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#thermomanagement-und-elektronische-steuerung">
+<span class="md-ellipsis">
+      
+        Thermomanagement und elektronische Steuerung
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ladesystem">
+<span class="md-ellipsis">
+      
+        Ladesystem
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hochvolt-leitungen">
+<span class="md-ellipsis">
+      
+        Hochvolt-Leitungen
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sicherheitskomponenten">
+<span class="md-ellipsis">
+      
+        Sicherheitskomponenten
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elektrisches-netzsystem">
+<span class="md-ellipsis">
+      
+        Elektrisches Netzsystem
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#gewichtsbilanz-und-achslasten">
+<span class="md-ellipsis">
+      
+        Gewichtsbilanz und Achslasten
+      
+    </span>
+</a>
+<nav aria-label="Gewichtsbilanz und Achslasten" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#referenzwerte-aus-dem-fahrzeugschein-serienzustand-vor-umbau">
+<span class="md-ellipsis">
+      
+        Referenzwerte aus dem Fahrzeugschein (Serienzustand vor Umbau)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ermittelte-ist-werte-radlastwaage-nach-ev-umbau">
+<span class="md-ellipsis">
+      
+        Ermittelte Ist-Werte (Radlastwaage nach EV-Umbau)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#umbaukonzept-und-gewichtsverteilung-zuladung">
+<span class="md-ellipsis">
+      
+        Umbaukonzept und Gewichtsverteilung (Zuladung)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bauliche-manahmen-zur-einhaltung-der-achslasten">
+<span class="md-ellipsis">
+      
+        Bauliche Maßnahmen zur Einhaltung der Achslasten
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="technische-kurzbeschreibung"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Technische Kurzbeschreibung<a class="headerlink" href="#technische-kurzbeschreibung" title="Permanent link">¶</a></h1>
+<h2 id="allgemeines"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Allgemeines<a class="headerlink" href="#allgemeines" title="Permanent link">¶</a></h2>
+<h3 id="angaben-zum-fahrzeug"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.1</span> Angaben zum Fahrzeug<a class="headerlink" href="#angaben-zum-fahrzeug" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Fahrzeugparameter</th>
+<th style="text-align: left;">Spezifikation / Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Marke</strong></td>
+<td style="text-align: left;">BERTONE (I)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Typ</strong></td>
+<td style="text-align: left;">128AS1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tag der Erstzulassung</strong></td>
+<td style="text-align: left;">1983</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Fahrzeugklasse</strong></td>
+<td style="text-align: left;">M1</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bezeichnung</strong></td>
+<td style="text-align: left;">Bertone X1/9e <br/> umgerüstet auf batterieelektrischen Antrieb (BEV) <br/> durch Privatperson</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kraftübertragung</strong></td>
+<td style="text-align: left;">Durch konventionelles Getriebe</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Betriebsspannung HV-Batterie</strong></td>
+<td style="text-align: left;">114 V DC</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p><strong>Zusätzliche Informationen zur Fahrzeugtechnik:</strong> Die Bremsanlage (ohne Unterdruckkraftverstärker) und Lenkung (ohne Servo) des Basisfahrzeugs bleiben mechanisch und hydraulisch unangetastet. Die Beheizung der Frontscheibe wurde durch ein elektrisches System ersetzt.</p>
+</div>
+<h3 id="name-und-anschrift-des-umrusters"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2</span> Name und Anschrift des Umrüsters<a class="headerlink" href="#name-und-anschrift-des-umrusters" title="Permanent link">¶</a></h3>
+<p>Frank Hielscher, 97816 Lohr a. Main</p>
+<hr/>
+<h2 id="antriebssystem-powertrain"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Antriebssystem (Powertrain)<a class="headerlink" href="#antriebssystem-powertrain" title="Permanent link">¶</a></h2>
+<p><strong>Systembezeichnung:</strong> NetGain HyPer 9 IS™ (Integrated System)</p>
+<h3 id="elektromotor-antriebsmotor"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Elektromotor (Antriebsmotor)<a class="headerlink" href="#elektromotor-antriebsmotor" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Spezifikation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Hersteller</strong></td>
+<td style="text-align: left;">NetGain Motors, Inc. (Gefertigt durch: SME S.p.A., Italien)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Modell / Typ</strong></td>
+<td style="text-align: left;">HyPer 9™ (SRIPM - Synchronous Reluctance Internal Permanent Magnet)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nennspannung</strong></td>
+<td style="text-align: left;">100 V</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nennstrom</strong></td>
+<td style="text-align: left;">350 A</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nenndrehzahl</strong></td>
+<td style="text-align: left;">3.200 U/min (S1-Dauerbetrieb)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maximaldrehzahl</strong></td>
+<td style="text-align: left;">8.000 U/min</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inverter-motor-controller"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Inverter / Motor Controller<a class="headerlink" href="#inverter-motor-controller" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Spezifikation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Hersteller</strong></td>
+<td style="text-align: left;">SME S.p.A., Italien</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Modell</strong></td>
+<td style="text-align: left;">AC-X1 80/100V 750A SWS</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Type Code</strong></td>
+<td style="text-align: left;">ACX1S75000000</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Rating Data</strong></td>
+<td style="text-align: left;">80/100V, 750 A (Maximalstrom)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="zusammenfassende-leistungsdaten-des-gesamtsystems-eintragungswerte"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3</span> Zusammenfassende Leistungsdaten des Gesamtsystems (Eintragungswerte)<a class="headerlink" href="#zusammenfassende-leistungsdaten-des-gesamtsystems-eintragungswerte" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Leistungsdaten</th>
+<th style="text-align: left;">Wert / Zustand</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Maximale 30-Minuten-Leistung</strong></td>
+<td style="text-align: left;">38 kW (Dauerleistung gemäß Herstellerangabe Systemintegrator NetGain; abgeleitet aus S1-Betrieb)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maximale Nutzleistung</strong></td>
+<td style="text-align: left;">95 kW (Spitzenleistung)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maximales Drehmoment</strong></td>
+<td style="text-align: left;">234 Nm <br/><em>(Hinweis: Begrenzung via Controller-Mapping auf </em><em>154 Nm</em><em> zum Schutz des Original-Getriebes parametriert)</em></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="energiespeichersystem-reess"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Energiespeichersystem REESS<a class="headerlink" href="#energiespeichersystem-reess" title="Permanent link">¶</a></h2>
+<h3 id="technische-daten"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Technische Daten<a class="headerlink" href="#technische-daten" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Spezifikation / Angabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Hersteller (Zellen)</strong></td>
+<td style="text-align: left;">Panasonic</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hersteller (Module)</strong></td>
+<td style="text-align: left;">TESLA (gebrauchte Module aus TESLA Model S mit je 5,3 kWh)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Typ (Zellen)</strong></td>
+<td style="text-align: left;">NCR18650B, NCA (Nickel-Cobalt-Aluminium)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Anzahl und Anordnung der Module</strong></td>
+<td style="text-align: left;">5 Module, aufgeteilt in einen 2er-Pack und einen 3er-Pack (jeweils in separatem Gehäuse)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zellkonfiguration pro Modul</strong></td>
+<td style="text-align: left;">6S74P</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zellkonfiguration Gesamt</strong></td>
+<td style="text-align: left;">30S74P</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zellenanzahl</strong></td>
+<td style="text-align: left;">2220</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nennspannung</strong></td>
+<td style="text-align: left;">114 V DC (3,8 V/Zelle x 30 Zellen in Serie)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ladeschlussspannung</strong></td>
+<td style="text-align: left;">126 V DC (4,2 V/Zelle x 30 Zellen in Serie)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abschaltspannung</strong></td>
+<td style="text-align: left;">90 V DC (3,0 V/Zelle x 30 Zellen in Serie)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kapazität</strong></td>
+<td style="text-align: left;">232 Ah (26,5 kWh)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Höchststrom</strong></td>
+<td style="text-align: left;">870 A (10 Sek.)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Batteriemanagementsystem (BMS)</strong></td>
+<td style="text-align: left;">SimpBMS (Master-Slave-System mit TESLA Slave Boards)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Überladeschutz</strong></td>
+<td style="text-align: left;">Integriert im BMS (automatische Abschaltung)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Überhitzungsschutz</strong></td>
+<td style="text-align: left;">2 Temperatursensoren pro Modul und Notabschaltung durch BMS</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Thermomanagement</strong></td>
+<td style="text-align: left;"><strong>Typ:</strong> Aktive Flüssigkeitskühlung<br/><strong>Konstruktion:</strong> Die Kühlung erfolgt über Kühlschleifen, die direkt entlang der Zellen innerhalb jedes Moduls geführt sind.<br/><strong>Verschaltung:</strong> Alle Kühlkreisläufe der einzelnen Module sind parallel geschaltet.<br/><strong>Medium:</strong> G48 (Glysantin) korrosionsgeschützt und frostsicher</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gehäusematerial</strong></td>
+<td style="text-align: left;">Aluminium</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gewicht (gesamt)</strong></td>
+<td style="text-align: left;">185 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maintenance Service Disconnect (MSD)</strong></td>
+<td style="text-align: left;"><strong>Typ:</strong> NISTAR NI4-1-S630-2NYA (je Batteriepack).<br/><strong>Funktion:</strong> Trennt bei Entfernung die interne Serienschaltung der Module und senkt die Spannung auf Kleinspannungsniveau (&lt; 60V DC).</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sicherung</strong></td>
+<td style="text-align: left;">EATON BUSSMANN EBSD-630A (je Batteriepack)</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3 id="schematische-darstellung-des-funktionsbereiches"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Schematische Darstellung des Funktionsbereiches<a class="headerlink" href="#schematische-darstellung-des-funktionsbereiches" title="Permanent link">¶</a></h3>
+<figure id="schaltschema">
+<img alt="Schaltschema des Batterie-Packs" src="../Pictures/10000001000001AE000001E644E7AB05.png"/>
+<figcaption style="text-align: center;">Abbildung 1: Schaltschema des Batterie-Packs</figcaption>
+</figure>
+<h3 id="beschreibung-und-gehauseaufbau-des-reess"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> Beschreibung und Gehäuseaufbau des REESS<a class="headerlink" href="#beschreibung-und-gehauseaufbau-des-reess" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Aufbau Tesla 5,3 kWh Modul</strong> (5 x vorhanden):</li>
+</ul>
+<figure id="teslamodul">
+<img src="../Pictures/10000001000003EF0000029355764FB8.png"/>
+<figcaption style="text-align: center;">Abbildung 2: TESLA 5,3 kWh Modul</figcaption>
+</figure>
+<ul>
+<li><strong>Module im Battery Pack eingebaut</strong> (2 x vorhanden):</li>
+</ul>
+<figure id="batterypack">
+<img src="../Pictures/10000001000002FF00000275EB32AD3B.png"/>
+<figcaption style="text-align: center;">Abbildung 3: Pack mit zwei Modulen (Deckel entfernt)</figcaption>
+</figure>
+<h4 id="battery-pack-rear-aufbau-werkstoffe-und-physische-abmessungen"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3.1</span> Battery Pack rear (Aufbau, Werkstoffe und physische Abmessungen)<a class="headerlink" href="#battery-pack-rear-aufbau-werkstoffe-und-physische-abmessungen" title="Permanent link">¶</a></h4>
+<p>Eigenbau, basierend auf zwei gebrauchten TESLA Model S 5,3 kWh Modulen inkl. HV-Buchse mit HVIL Kontakten, MSD und HV-Relais, integrierter Kühlkreislauf, Notentlüftungs- &amp; Druckausgleichselement.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Spezifikation / Angabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Konstruktion:</strong></td>
+<td style="text-align: left;">Seitenwände aus 28 mm x 240 mm Aluminium-Systemprofil verschraubt mit <br/> Front- und Rückseite aus 6 mm Aluminiumplatten. <br/> Deckel- und Boden aus 5 mm Aluminiumplatten.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abdichtung:</strong></td>
+<td style="text-align: left;">Neopren Zellkautschuk CR-150</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abmessung:</strong></td>
+<td style="text-align: left;">340 mm x 240 mm x 788 mm</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gewicht:</strong></td>
+<td style="text-align: left;">80 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kapazität:</strong></td>
+<td style="text-align: left;">10,6 kWh</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nennspannung:</strong></td>
+<td style="text-align: left;">45,6 V</td>
+</tr>
+</tbody>
+</table>
+<h4 id="battery-pack-front-aufbau-werkstoffe-und-physische-abmessungen"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3.2</span> Battery Pack front (Aufbau, Werkstoffe und physische Abmessungen)<a class="headerlink" href="#battery-pack-front-aufbau-werkstoffe-und-physische-abmessungen" title="Permanent link">¶</a></h4>
+<p>Eigenbau, basierend auf drei gebrauchten TESLA Model S 5,3 kWh Modulen inkl. HV-Buchse mit HVIL Kontakten, MSD und HV-Relais, integrierter Kühlkreislauf, Notentlüftungs- &amp; Druckausgleichselement.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Spezifikation / Angabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Konstruktion:</strong></td>
+<td style="text-align: left;">Seitenwände aus 28 mm Aluminium-Systemprofil verschraubt mit <br/> Front- und Rückseite aus 6 mm Aluminiumplatten. <br/> Deckel- und Boden aus 5 mm Aluminiumplatten.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abdichtung:</strong></td>
+<td style="text-align: left;">Neopren Zellkautschuk CR-150</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Abmessung:</strong></td>
+<td style="text-align: left;">340 mm x 320 mm x 788 mm</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Gewicht:</strong></td>
+<td style="text-align: left;">105 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Kapazität:</strong></td>
+<td style="text-align: left;">15,9 kWh</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Nennspannung:</strong></td>
+<td style="text-align: left;">68,4 V</td>
+</tr>
+</tbody>
+</table>
+<h3 id="geometrische-integration-des-reess-im-fahrzeug"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.4</span> Geometrische Integration des REESS im Fahrzeug<a class="headerlink" href="#geometrische-integration-des-reess-im-fahrzeug" title="Permanent link">¶</a></h3>
+<figure id="x19esideview">
+<img src="../Pictures/10000001000004780000018607BE8E65.png"/>
+<figcaption style="text-align: center;">Abbildung 4: Seitenansicht Bertone X1/9 Platzierung der Batterie</figcaption>
+</figure>
+<figure id="x19etopview">
+<img src="../Pictures/10000001000002E10000014B954768BF.png"/>
+<figcaption style="text-align: center;">Abbildung 5: Draufsicht Bertone X1/9 Platzierung Batterie Module</figcaption>
+</figure>
+<h3 id="mechanische-integration-und-crashsicherheit-reess-befestigung"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.5</span> Mechanische Integration und Crashsicherheit (REESS-Befestigung)<a class="headerlink" href="#mechanische-integration-und-crashsicherheit-reess-befestigung" title="Permanent link">¶</a></h3>
+<p>Die physische Integration der Batteriegehäuse im Fahrzeug wurde unter Berücksichtigung der statischen und dynamischen Lastanforderungen konstruiert:</p>
+<ul>
+<li><strong>Vorderer Batterie-Pack (3er-Modulblock):</strong> Die Platzierung erfolgt im vorderen Kofferraum. Die mechanische Verbindung mit der Karosserie wird über vier hochfeste Stahlwinkel realisiert. Diese sind mit jeweils zwei M8-Schrauben am Pack-Gehäuse sowie mit 7/16" UNF-Schrauben am Fahrzeug-Zwischenboden und der Spritzwand verschraubt. Zur flächigen Lasteinleitung in das Karosserieblech kommen großflächige, FIA-konforme Gurt-Verstärkungsplatten aus Stahl auf den Außenseiten zum Einsatz.</li>
+<li><strong>Hinterer Batterie-Pack (2er-Modulblock):</strong> Die Montage erfolgt im Motorraum oberhalb des Getriebes (Position des ehemaligen Zylinderkopfs/Einspritzanlage). Zur Befestigung werden die fahrzeugseitigen Original-Aufnahmepunkte der oberen Werks-Motoraufhängung genutzt.</li>
+</ul>
+<h3 id="thermomanagement-und-elektronische-steuerung"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.6</span> Thermomanagement und elektronische Steuerung<a class="headerlink" href="#thermomanagement-und-elektronische-steuerung" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Systemkomponente</th>
+<th style="text-align: left;">Technische Ausführung / Spezifikation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Typ der Wärmeregelung</strong></td>
+<td style="text-align: left;"><strong>Geschlossener Flüssigkeitskreislauf</strong> bestehend aus:<br/>• Wärmetauscher: THERMOTEC D7W073TT<br/>• Umwälzpumpe: Original Tesla Wasserpumpe<br/>• Ausgleichsbehälter und EPDM-Kühlschläuche (8 x 3,5 mm)<br/>• Kühlmedium: G48 (frost- und korrosionsgeschützt)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Elektronische Steuerung (BMS)</strong></td>
+<td style="text-align: left;"><strong>SimpBMS (Master-Slave-System)</strong><br/>Kommunikation und Überwachung erfolgt über die originalen Tesla Slave-Boards direkt auf den Modulen.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Überladeschutz</strong></td>
+<td style="text-align: left;"><strong>Integriert (Hardware &amp; Software):</strong> Automatische Trennung der HV-Schütze bei Erreichen der parametrierten Zell-Ladeschlussspannung durch das SimpBMS.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Überhitzungsschutz</strong></td>
+<td style="text-align: left;"><strong>Redundante Temperaturüberwachung:</strong> Kontinuierliche Erfassung über zwei Sensoren pro Modul. Bei Überschreitung der Grenztemperatur erfolgt eine automatische Notabschaltung des Gesamtsystems.</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="ladesystem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Ladesystem<a class="headerlink" href="#ladesystem" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Spezifikation / Angabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ladeanschluss</strong></td>
+<td style="text-align: left;">Typ 2 („Mennekes“) nach IEC 62196</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ladebetriebsart</strong></td>
+<td style="text-align: left;">Mode 2 und Mode 3</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Maximale Ladeleistung</strong></td>
+<td style="text-align: left;">3,3 kW</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ladespannung</strong></td>
+<td style="text-align: left;">230 V AC (einphasig, 16 A)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ladezeit (SOC 0–100 %)</strong></td>
+<td style="text-align: left;">Ca. 8 Stunden für vollständige Ladung</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sicherheitsfunktionen</strong></td>
+<td style="text-align: left;">Automatische Verriegelung des Ladekabels im Injektor während des Ladevorgangs</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="hochvolt-leitungen"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Hochvolt-Leitungen<a class="headerlink" href="#hochvolt-leitungen" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Spezifikation / Angabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Leitungsart</strong></td>
+<td style="text-align: left;">Geschirmte, einadrige, flexible Hochvolt-Leitungen (Orange, ISO 19642)<br/>• Halogenfrei und flammwidrig<br/>• Doppelt isoliert</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Leitermaterial</strong></td>
+<td style="text-align: left;">Kupfer (Cu)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Isolationsmaterial</strong></td>
+<td style="text-align: left;">Vernetztes Polyethylen (VPE / XLPE)</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="sicherheitskomponenten"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Sicherheitskomponenten<a class="headerlink" href="#sicherheitskomponenten" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Spezifikation / Angabe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Isolationsüberwachung (IMD)</strong></td>
+<td style="text-align: left;"><strong>BENDER iso165C-1</strong><br/>Kontinuierliche Überwachung des Isolationswiderstands zwischen dem aktiven HV-Kreis und der Fahrzeugmasse (Kl. 31).<br/>• Vorwarnung: 400 kΩ<br/>• Hauptalarm (Abschaltung): 250 kΩ</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hochvolt-Relais (Schütze)</strong></td>
+<td style="text-align: left;">Allpolige (Plus- und Minusseite) galvanische Trennung des REESS durch integrierte HV-Schütze. Die Ansteuerung erfolgt redundant durch das BMS, die LV-Bordnetzspannung und die HVIL-Sicherheitskette.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>High-Voltage Interlock (HVIL)</strong></td>
+<td style="text-align: left;"><strong>Echtzeit-Sicherheitskreis:</strong> Eine durchgehende Niedervolt-Schleife überwacht alle HV-Steckverbindungen. Bei physischer Entriegelung eines Steckers wird die HVIL-Kette unterbrochen und die HV-Schütze fallen sofort ab.</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="elektrisches-netzsystem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Elektrisches Netzsystem<a class="headerlink" href="#elektrisches-netzsystem" title="Permanent link">¶</a></h2>
+<p><strong>Ausführung:</strong> Isoliertes Netz (IT-System)</p>
+<div class="admonition info">
+<p><strong>Schnittstelle zur Ladeinfrastruktur (Schutzleiter PE):</strong> Es erfolgt fahrzeugseitig keine separate Überwachung des Schutzleiters (PE) im reinen IT-Fahrnetz. Die Schutzleiterverbindung wird beim Ladevorgang durch die externe Wallbox über das standardisierte Typ-2-Ladekabel hergestellt. Es wird regulatorisch vorausgesetzt, dass die speisende Ladeinfrastruktur einen normgerechten Schutzleiter bereitstellt und diesen eigenständig überwacht.</p>
+</div>
+<hr/>
+<h2 id="gewichtsbilanz-und-achslasten"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> Gewichtsbilanz und Achslasten<a class="headerlink" href="#gewichtsbilanz-und-achslasten" title="Permanent link">¶</a></h2>
+<h3 id="referenzwerte-aus-dem-fahrzeugschein-serienzustand-vor-umbau"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.1</span> Referenzwerte aus dem Fahrzeugschein (Serienzustand vor Umbau)<a class="headerlink" href="#referenzwerte-aus-dem-fahrzeugschein-serienzustand-vor-umbau" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Zulässiger Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Leergewicht</strong></td>
+<td style="text-align: left;">970 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zulässige Achslast vorne</strong></td>
+<td style="text-align: left;">510 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zulässige Achslast hinten</strong></td>
+<td style="text-align: left;">700 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Zulässiges Gesamtgewicht</strong></td>
+<td style="text-align: left;">1200 kg</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ermittelte-ist-werte-radlastwaage-nach-ev-umbau"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.2</span> Ermittelte Ist-Werte (Radlastwaage nach EV-Umbau)<a class="headerlink" href="#ermittelte-ist-werte-radlastwaage-nach-ev-umbau" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Parameter</th>
+<th style="text-align: left;">Gemessener Ist-Wert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ist-Gewicht Vorderachse</strong></td>
+<td style="text-align: left;">440 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ist-Gewicht Hinterachse</strong></td>
+<td style="text-align: left;">480 kg</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Neues Gesamt-Leergewicht</strong></td>
+<td style="text-align: left;">995 kg</td>
+</tr>
+</tbody>
+</table>
+<h3 id="umbaukonzept-und-gewichtsverteilung-zuladung"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.3</span> Umbaukonzept und Gewichtsverteilung (Zuladung)<a class="headerlink" href="#umbaukonzept-und-gewichtsverteilung-zuladung" title="Permanent link">¶</a></h3>
+<p>Aufgrund der klassischen Mittelmotor-Architektur des Basisfahrzeugs und der strengen gesetzlichen Limitierung der vorderen Achslast auf maximal 510 kg wurde bei der Umrüstung besonderer Wert auf eine gesetzeskonforme, ausgewogene Gewichtsverteilung gelegt. </p>
+<h3 id="bauliche-manahmen-zur-einhaltung-der-achslasten"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.4</span> Bauliche Maßnahmen zur Einhaltung der Achslasten<a class="headerlink" href="#bauliche-manahmen-zur-einhaltung-der-achslasten" title="Permanent link">¶</a></h3>
+<p>Um eine Überladung der Vorderachse im regulären Fahr- und Passagierbetrieb konstruktiv auszuschließen, steht der vordere Gepäckraum durch die feste Positionierung des vorderen Batterie-Packs (105 kg) für weiteres Gepäck nicht mehr zur Verfügung. Er ist baulich so dimensioniert, dass er rein funktionsbedingt nur noch der Aufnahme des originalen Targa-Dachs dient.</p>
+<p>Zum Ausgleich der Transportkapazität wurde der Heckbereich modifiziert. Der durch den vollständigen Entfall der Abgasanlage freigewordene Bauraum unterhalb des hinteren Kofferraums wurde genutzt, um das hintere Gepäckraumvolumen spürbar zu erweitern (Gewinn von ca. 70 Litern).</p>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Letztes Update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="8. Juni 2026 13:26:37 UTC">8. Juni 2026</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "In Zwischenablage kopiert", "clipboard.copy": "In Zwischenablage kopieren", "search.result.more.one": "1 weiteres Suchergebnis auf dieser Seite", "search.result.more.other": "# weitere Suchergebnisse auf dieser Seite", "search.result.none": "Keine Suchergebnisse", "search.result.one": "1 Suchergebnis", "search.result.other": "# Suchergebnisse", "search.result.placeholder": "Suchbegriff eingeben", "search.result.term.missing": "Es fehlt", "select.version": "Version ausw\u00e4hlen"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../js/print-site.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
