@@ -2196,9 +2196,9 @@ Um die für Klauenkupplungen kritischen, harten Lastwechsel zu minimieren und di
                         </h1>
                     <section class="print-page" id="anhang" heading-number="7.1"><h1 id="anhang-anhang">Anhang<a class="headerlink" href="#anhang-anhang" title="Permanent link">&para;</a></h1>
 <p>Im Anhang werden alle neu im Fahrzeug verbauten Komponenten aufgeführt, ihre Aufgabe erläutert und die Implementierung im Fahrzeug beschrieben.
-Wo verfügbar wird das Gerät bzw. das Typenschild dargestellt, die Original-Bedienungsanleitung verlinkt und die Anschlußbelegung aufgeführt.</p></section><section class="print-page" id="imd" heading-number="7.2"><h1 id="imd-isolationsuberwachungsgerat-imd">Isolationsüberwachungsgerät (IMD)<a class="headerlink" href="#imd-isolationsuberwachungsgerat-imd" title="Permanent link">&para;</a></h1>
+Wo verfügbar wird das Gerät bzw. das Typenschild dargestellt, die Original-Bedienungsanleitung verlinkt und die Anschlußbelegung aufgeführt.</p></section><section class="print-page" id="imd" heading-number="7.2"><h1 id="imd-imd">(IMD)</h1><h2 id="isolationsuberwachungsgerat-imd">Isolationsüberwachungsgerät (IMD)<a class="headerlink" href="#imd-isolationsuberwachungsgerat-imd" title="Permanent link">&para;</a></h2>
 <p>Zur kontinuierlichen Überwachung des Isolationswiderstandes zwischen dem aktiven Hochvoltsystem (<span class="arithmatex">\(HV+/HV-\)</span>) und der Fahrzeugmasse (Kl. 31) wird ein automobiles Isolationsüberwachungsgerät (IMD) eingesetzt.</p>
-<h2 id="imd-technische-spezifikation-des-sensors">Technische Spezifikation des Sensors<a class="headerlink" href="#imd-technische-spezifikation-des-sensors" title="Permanent link">&para;</a></h2>
+<h3 id="imd-technische-spezifikation-des-sensors">Technische Spezifikation des Sensors<a class="headerlink" href="#imd-technische-spezifikation-des-sensors" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
 <tr>
@@ -2238,9 +2238,9 @@ Wo verfügbar wird das Gerät bzw. das Typenschild dargestellt, die Original-Bed
 </tbody>
 </table>
 <hr />
-<h2 id="imd-imd-quellcode-dokumentation-bender-iso165c-1">IMD Quellcode-Dokumentation (Bender iso165C-1)<a class="headerlink" href="#imd-imd-quellcode-dokumentation-bender-iso165c-1" title="Permanent link">&para;</a></h2>
+<h3 id="imd-imd-quellcode-dokumentation-bender-iso165c-1">IMD Quellcode-Dokumentation (Bender iso165C-1)<a class="headerlink" href="#imd-imd-quellcode-dokumentation-bender-iso165c-1" title="Permanent link">&para;</a></h3>
 <p>Dieses Kapitel dokumentiert die vollständige softwareseitige Implementierung der Isolationsüberwachung in der Vehicle Control Unit (VCU / ESP32).</p>
-<h3 id="imd-flankengesteuerter-konformitats-trigger-edge-trigger">Flankengesteuerter Konformitäts-Trigger (Edge Trigger)<a class="headerlink" href="#imd-flankengesteuerter-konformitats-trigger-edge-trigger" title="Permanent link">&para;</a></h3>
+<p><strong>Flankengesteuerter Konformitäts-Trigger (Edge Trigger):</strong></p>
 <p>Sobald das Batteriemanagementsystem (BMS) signalisiert, dass das Fahrzeug in einen betriebsbereiten Zustand wechselt, prüft die VCU die hardwareseitigen Status-Bits des Isometers (Bits 12 und 13 im <em>VIFC-Status</em>). Ist der Selbsttest dort noch als „ausstehend“ markiert, wird er vor der HV-Freigabe automatisch angefordert.</p>
 <div class="highlight"><pre><span></span><code><span class="c1">// 4. Automated Edge Trigger for the Bender IMD Isolation Self-Test</span>
 <span class="k">static</span><span class="w"> </span><span class="kt">uint8_t</span><span class="w"> </span><span class="n">lastBmsStatus</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BMS_STATUS_BOOT</span><span class="p">;</span>
@@ -2272,8 +2272,8 @@ Wo verfügbar wird das Gerät bzw. das Typenschild dargestellt, die Original-Bed
 
 <span class="n">lastSafetyCheck</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">;</span>
 </code></pre></div>
-<h3 id="imd-asynchrone-zustandsmaschine-zur-testabwicklung-self_test_task">Asynchrone Zustandsmaschine zur Testabwicklung (self_test_task)<a class="headerlink" href="#imd-asynchrone-zustandsmaschine-zur-testabwicklung-self_test_task" title="Permanent link">&para;</a></h3>
-<p>Der nachfolgende Code-Auszug zeigt die vollständige Zustandsmaschine zur zyklischen Auswertung der Diagnoseregister, Steuerung der internen Koppelrelais und Absicherung der Hochvoltschütze im Fehlerfall:</p>
+<p><strong>Asynchrone Zustandsmaschine zur Testabwicklung (self_test_task):</strong>
+Der nachfolgende Code-Auszug zeigt die vollständige Zustandsmaschine zur zyklischen Auswertung der Diagnoseregister, Steuerung der internen Koppelrelais und Absicherung der Hochvoltschütze im Fehlerfall:</p>
 <div class="highlight"><pre><span></span><code><span class="kt">void</span><span class="w"> </span><span class="nf">self_test_task</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">parameter</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="n">esp_task_wdt_add</span><span class="p">(</span><span class="nb">NULL</span><span class="p">);</span>
 
@@ -2405,7 +2405,7 @@ Wo verfügbar wird das Gerät bzw. das Typenschild dargestellt, die Original-Bed
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h2 id="imd-nachweis-der-normkonformitat">Nachweis der Normkonformität<a class="headerlink" href="#imd-nachweis-der-normkonformitat" title="Permanent link">&para;</a></h2>
+<h3 id="imd-nachweis-der-normkonformitat">Nachweis der Normkonformität<a class="headerlink" href="#imd-nachweis-der-normkonformitat" title="Permanent link">&para;</a></h3>
 <p>Die oben dokumentierte softwareseitige Verriegelung und Flankenerkennung erfüllt die zentralen Schutzziele der fahrzeugrelevanten Sicherheitsstandards direkt im Systemhochlauf:</p>
 <p>!!! success Erfüllung der IEC 61557-8 (Isolationsüberwachung in IT-Systemen)
     Die Funktionalität des IMD (inklusive der internen Messketten und Ankoppelrelais) wird ereignisbasiert bei jedem relevanten Zustandswechsel überprüft. Durch die Abfrage von imdSelfTestMissing (Bits 12 und 13) erkennt der Algorithmus sofort, ob das Isometer einen geräteinternen Hardware-Selbsttest fordert, setzt proaktiv selfTestRequested = true und arbeitet die Validierungssequenz ab.</p>
