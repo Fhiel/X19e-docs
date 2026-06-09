@@ -1,8 +1,8 @@
-# Isolationsüberwachungsgerät (IMD)
+## Isolationsüberwachungsgerät (IMD)
 
 Zur kontinuierlichen Überwachung des Isolationswiderstandes zwischen dem aktiven Hochvoltsystem ($HV+/HV-$) und der Fahrzeugmasse (Kl. 31) wird ein automobiles Isolationsüberwachungsgerät (IMD) eingesetzt.
 
-## Technische Spezifikation des Sensors
+### Technische Spezifikation des Sensors
 
 | Parameter | Spezifikation / Wert |
 | :--- | :--- |
@@ -16,11 +16,11 @@ Zur kontinuierlichen Überwachung des Isolationswiderstandes zwischen dem aktive
 
 ---
 
-## IMD Quellcode-Dokumentation (Bender iso165C-1)
+### IMD Quellcode-Dokumentation (Bender iso165C-1)
 
 Dieses Kapitel dokumentiert die vollständige softwareseitige Implementierung der Isolationsüberwachung in der Vehicle Control Unit (VCU / ESP32).
 
-### Flankengesteuerter Konformitäts-Trigger (Edge Trigger)
+**Flankengesteuerter Konformitäts-Trigger (Edge Trigger):**
 
 Sobald das Batteriemanagementsystem (BMS) signalisiert, dass das Fahrzeug in einen betriebsbereiten Zustand wechselt, prüft die VCU die hardwareseitigen Status-Bits des Isometers (Bits 12 und 13 im *VIFC-Status*). Ist der Selbsttest dort noch als „ausstehend“ markiert, wird er vor der HV-Freigabe automatisch angefordert.
 
@@ -58,7 +58,7 @@ lastSafetyCheck = now;
 
 ```
 
-### Asynchrone Zustandsmaschine zur Testabwicklung (self_test_task)
+**Asynchrone Zustandsmaschine zur Testabwicklung (self_test_task):**
 Der nachfolgende Code-Auszug zeigt die vollständige Zustandsmaschine zur zyklischen Auswertung der Diagnoseregister, Steuerung der internen Koppelrelais und Absicherung der Hochvoltschütze im Fehlerfall:
 
 
@@ -195,7 +195,7 @@ void self_test_task(void *parameter) {
 }
 ```
 
-## Nachweis der Normkonformität
+### Nachweis der Normkonformität
 
 Die oben dokumentierte softwareseitige Verriegelung und Flankenerkennung erfüllt die zentralen Schutzziele der fahrzeugrelevanten Sicherheitsstandards direkt im Systemhochlauf:
 
