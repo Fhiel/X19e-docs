@@ -26,12 +26,8 @@ Staatlich geprüfter Techniker, Fachrichtung Elektrotechnik
 **Kontakt:**
 
 Frank Hielscher  
-Zum Muschbach 17  
-97816 Lohr  
-Tel. 0172 6811397  
-E-Mail <FHielscher@web.de>  
-
-**Ausgabe:** {{ git_creation_date }} (Erstellt) / {{ git_revision_date }} (Letztes Update)
+97816 Lohr a. Main  
+E-Mail <x19e@web.de>  
 
 <a href="print_page/index.html" class="md-button md-button--primary">
   <span class="twemoji">
