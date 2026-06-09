@@ -26,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#isolationsuberwachungsgerat-imd">
+<a class="md-skip" href="#technische-spezifikation-des-gerates">
           Zum Inhalt
         </a>
 </div>
@@ -243,20 +243,10 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#isolationsuberwachungsgerat-imd">
+<a class="md-nav__link" href="#technische-spezifikation-des-gerates">
 <span class="md-ellipsis">
       
-        Isolationsüberwachungsgerät (IMD)
-      
-    </span>
-</a>
-<nav aria-label="Isolationsüberwachungsgerät (IMD)" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#technische-spezifikation-des-sensors">
-<span class="md-ellipsis">
-      
-        Technische Spezifikation des Sensors
+        Technische Spezifikation des Gerätes
       
     </span>
 </a>
@@ -278,9 +268,6 @@
       
     </span>
 </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -423,20 +410,10 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#isolationsuberwachungsgerat-imd">
+<a class="md-nav__link" href="#technische-spezifikation-des-gerates">
 <span class="md-ellipsis">
       
-        Isolationsüberwachungsgerät (IMD)
-      
-    </span>
-</a>
-<nav aria-label="Isolationsüberwachungsgerät (IMD)" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#technische-spezifikation-des-sensors">
-<span class="md-ellipsis">
-      
-        Technische Spezifikation des Sensors
+        Technische Spezifikation des Gerätes
       
     </span>
 </a>
@@ -461,18 +438,14 @@
 </li>
 </ul>
 </nav>
-</li>
-</ul>
-</nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1><span class="enumerate-headings-plugin enumerate-heading-plugin">8.</span> (IMD)</h1>
-<h2 id="isolationsuberwachungsgerat-imd"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.1</span> Isolationsüberwachungsgerät (IMD)<a class="headerlink" href="#isolationsuberwachungsgerat-imd" title="Permanent link">¶</a></h2>
 <p>Zur kontinuierlichen Überwachung des Isolationswiderstandes zwischen dem aktiven Hochvoltsystem (<span class="arithmatex">\(HV+/HV-\)</span>) und der Fahrzeugmasse (Kl. 31) wird ein automobiles Isolationsüberwachungsgerät (IMD) eingesetzt.</p>
-<h3 id="technische-spezifikation-des-sensors"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.1.1</span> Technische Spezifikation des Sensors<a class="headerlink" href="#technische-spezifikation-des-sensors" title="Permanent link">¶</a></h3>
+<h2 id="technische-spezifikation-des-gerates"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.1</span> Technische Spezifikation des Gerätes<a class="headerlink" href="#technische-spezifikation-des-gerates" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -512,7 +485,7 @@
 </tbody>
 </table>
 <hr/>
-<h3 id="imd-quellcode-dokumentation-bender-iso165c-1"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.1.2</span> IMD Quellcode-Dokumentation (Bender iso165C-1)<a class="headerlink" href="#imd-quellcode-dokumentation-bender-iso165c-1" title="Permanent link">¶</a></h3>
+<h2 id="imd-quellcode-dokumentation-bender-iso165c-1"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.2</span> IMD Quellcode-Dokumentation (Bender iso165C-1)<a class="headerlink" href="#imd-quellcode-dokumentation-bender-iso165c-1" title="Permanent link">¶</a></h2>
 <p>Dieses Kapitel dokumentiert die vollständige softwareseitige Implementierung der Isolationsüberwachung in der Vehicle Control Unit (VCU / ESP32).</p>
 <p><strong>Flankengesteuerter Konformitäts-Trigger (Edge Trigger):</strong></p>
 <p>Sobald das Batteriemanagementsystem (BMS) signalisiert, dass das Fahrzeug in einen betriebsbereiten Zustand wechselt, prüft die VCU die hardwareseitigen Status-Bits des Isometers (Bits 12 und 13 im <em>VIFC-Status</em>). Ist der Selbsttest dort noch als „ausstehend“ markiert, wird er vor der HV-Freigabe automatisch angefordert.</p>
@@ -679,7 +652,7 @@ Der nachfolgende Code-Auszug zeigt die vollständige Zustandsmaschine zur zyklis
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<h3 id="nachweis-der-normkonformitat"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.1.3</span> Nachweis der Normkonformität<a class="headerlink" href="#nachweis-der-normkonformitat" title="Permanent link">¶</a></h3>
+<h2 id="nachweis-der-normkonformitat"><span class="enumerate-headings-plugin enumerate-heading-plugin">8.3</span> Nachweis der Normkonformität<a class="headerlink" href="#nachweis-der-normkonformitat" title="Permanent link">¶</a></h2>
 <p>Die oben dokumentierte softwareseitige Verriegelung und Flankenerkennung erfüllt die zentralen Schutzziele der fahrzeugrelevanten Sicherheitsstandards direkt im Systemhochlauf:</p>
 <p>!!! success Erfüllung der IEC 61557-8 (Isolationsüberwachung in IT-Systemen)
     Die Funktionalität des IMD (inklusive der internen Messketten und Ankoppelrelais) wird ereignisbasiert bei jedem relevanten Zustandswechsel überprüft. Durch die Abfrage von imdSelfTestMissing (Bits 12 und 13) erkennt der Algorithmus sofort, ob das Isometer einen geräteinternen Hardware-Selbsttest fordert, setzt proaktiv selfTestRequested = true und arbeitet die Validierungssequenz ab.</p>
@@ -692,7 +665,7 @@ Der nachfolgende Code-Auszug zeigt die vollständige Zustandsmaschine zur zyklis
 <span class="md-icon" title="Letztes Update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="9. Juni 2026 19:51:03 UTC">9. Juni 2026</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="9. Juni 2026 20:04:06 UTC">9. Juni 2026</span>
 </span>
 </aside>
 </article>
