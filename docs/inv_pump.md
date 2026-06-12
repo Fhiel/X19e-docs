@@ -1,8 +1,10 @@
-# Wasserpumpe Inverter
+# Wasserpumpe Inverterkühlung
 
-- Rote Leitung: An den Pluspol der Stromversorgung anschließen (12 V)
-- Schwarze Leitung: Verbinden Sie den Minuspol der Stromversorgung und den Minuspol des PWM-Signals (GND).
-- Gelbe Linie: FG-Leitung des Ausgangssignals 
-- Blaue Linie: 5V PWM-Signal 
+<figure><img src="../Pictures/10000001000001BD000002BF94532313.png"><figcaption>Wasserpumpe Inverter</figcaption></figure>
 
-![](./Pictures/10000001000001BD000002BF94532313.png)
+## Anschlussbelegung
+
+- Rote Leitung: Stromversorgung 12 V DC
+- Schwarze Leitung: Masse
+- Gelbe Leitung: FG-Leitung des Ausgangssignals
+- Blaue Leitung: 5V PWM-Signal

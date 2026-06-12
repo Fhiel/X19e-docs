@@ -1,8 +1,8 @@
-# X1/9e - Technische Dokumentation
+# BERTONE X1/9e - Technische Dokumentation
 
 **BERTONE X1/9e**
 
-Umrüstung eines BERTONE X1/9 auf Elektro-Antrieb
+Umrüstung eines 1983er BERTONE X1/9 auf Elektro-Antrieb
 
 <figure id="title-image">
   <img src="Pictures/10000001000003D9000001789A922AF3.png" alt="Bertone X1/9e Titelbild">

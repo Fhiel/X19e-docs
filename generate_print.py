@@ -50,7 +50,8 @@ if 'plugins' in config:
         'macros',
         'git-revision-date-localized',
         {'enumerate-headings': {
-            'strict': True
+            'strict': True,
+            'increment_level': 1
         }},
         {'print-site': {
             'add_to_navigation': False,

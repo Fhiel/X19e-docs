@@ -1,8 +1,9 @@
-site_name: "X1/9e - Technische Dokumentation"
+site_name: "Technische Dokumentation"
 site_author: "Frank Hielscher"
 
 theme:
   name: material
+  logo: Pictures/logo.png
   language: de
   font:
     text: Montserrat
@@ -43,6 +44,8 @@ nav:
   - Umfassender Personenschutz - Schutz für Dritte: umfassender_personenschutz.md
   - Anhang:
       - Übersicht: anhang.md
+      - Schaltplan: schaltplan.md
+      - Batteriepacks: battery.md
       - Isolationsüberwachungssystem (IMD): imd.md
       - Batterie-Management-System (BMS): bms.md
       - Inverter (MCU): mcu.md
@@ -71,8 +74,20 @@ plugins:
   - enumerate-headings:
       strict: true
       exclude:
-        - index.md   # Verhindert die Geister-"1" auf der Web-Startseite
-                     # toc.md wurde hier gelöscht, da die Datei nicht mehr existiert!
+        - index.md
+        - schaltplan.md
+        - battery.md
+        - imd.md
+        - bms.md
+        - mcu.md
+        - charger.md
+        - dc_dc.md
+        - vcu.md
+        - instruments.md
+        - pedal.md
+        - bat_pump.md
+        - inv_pump.md
+        - iso_r_test.md
 
   - print-site:
       add_to_navigation: true
