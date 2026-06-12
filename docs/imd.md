@@ -1,4 +1,4 @@
-# Anhang B: Isolationsüberwachungsgerät (IMD)
+# Anhang C: Isolationsüberwachungsgerät (IMD)
 
 Zur kontinuierlichen Überwachung des Isolationswiderstandes zwischen dem aktiven Hochvoltsystem ($HV+/HV-$) und der Fahrzeugmasse (Kl. 31) wird ein automobiles Isolationsüberwachungsgerät (IMD) eingesetzt.
 

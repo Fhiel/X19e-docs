@@ -1,4 +1,4 @@
-# Batteriepacks
+# Anhang B: Batteriepacks
 
 Aus Platzgründen und zur Optimierung der Gewichtsverteilung wurden die 5 Module auf zwei Einbauorte im Fahrzeug verteilt. Beide Batteriepacks sind als Eigenbau umgesetzt. Alle Module stammen aus einem 2017er TESLA Model S mit ca. 60.000 km Fahrleistung (lt. Angabe des Händlers).
 

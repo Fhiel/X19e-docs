@@ -52,7 +52,7 @@ nav:
       - Ladegerät (OBC): charger.md
       - DC-DC-Wandler (DC_DC): dc_dc.md
       - Vehicle Control Unit (VCU): vcu.md
-      - Instrumente und Anzeigen: instruments.md
+      - Cockpit: instruments.md
       - Fahrpedal: pedal.md
       - Wasserpumpe Batterie: bat_pump.md
       - Wasserpumpe Inverter: inv_pump.md

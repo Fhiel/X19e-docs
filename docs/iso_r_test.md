@@ -1,4 +1,4 @@
-#  Iso-R Test
+# Anhang M: Iso-R Test
 
 Das eingebaute IMD überwacht im Betriebsmode CHARGE und DRIVE ständig den Isolationswiderstand zwischen dem Hochspannungsteil HV und der Bordspannung 12V. Zum Test der Ansprechschwellen wurde eine Prüfbox entworfen mit der die Ansprechschwellen für WARNUNG und FEHLER geprüft werden können. Diese Prüfung sollte in regelmäßigen Abständen, mindestens 1 Mal jährlich, durchgeführt werden.
 

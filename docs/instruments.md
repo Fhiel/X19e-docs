@@ -1,4 +1,4 @@
-# Cockpit
+# Anhang I: Cockpit
 
 Im Cockpit wurden einige Modifikation und Ergänzungen durchgeführt. Dies betrifft insbesondere den Instrumententräger, die Mittelkonsole und die zentrale Bedieneinheit in der sich normalerweise das Radio befindet. 
 

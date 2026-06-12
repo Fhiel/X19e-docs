@@ -1,4 +1,4 @@
-# Onboard Ladegerät
+# Anhang F: Onboard Ladegerät
 
 Das TCCHarger Onboard Ladegerät der 4. Generation 3.3 kW HK-M wurde in der Konfiguration "CAN" geordert. Alle Steuersignale werden dabei über CANbus initiiert und ausgewertet. Die Kontrolle des Ladevorgangs wird über die VCU durchgeführt. Zur Schonung der HV-Batterie wird der Ladevorgang bei einem SoC von 80 % automatisch abgeschaltet, der sogenannte "DAILY" Mode. Beim "TRIP" Mode kann die HV-Batterie auf bis zu 100 % geladen werden.  
 
