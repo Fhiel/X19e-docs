@@ -2329,7 +2329,7 @@ Wo verfügbar wird das Gerät bzw. das Typenschild dargestellt, die Original-Bed
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-6 11v-4h2v4h3l-4 4-4-4h3m6 4H5V5h14v14Z"/></svg>
   </span>
   Schaltplan im PDF-Format öffnen
-</a></p></section><section class="print-page" id="battery" heading-number="7.3"><h1 id="battery-batteriepacks">Batteriepacks<a class="headerlink" href="#battery-batteriepacks" title="Permanent link">&para;</a></h1>
+</a></p></section><section class="print-page" id="battery" heading-number="7.3"><h1 id="battery-anhang-b-batteriepacks">Anhang B: Batteriepacks<a class="headerlink" href="#battery-anhang-b-batteriepacks" title="Permanent link">&para;</a></h1>
 <p>Aus Platzgründen und zur Optimierung der Gewichtsverteilung wurden die 5 Module auf zwei Einbauorte im Fahrzeug verteilt. Beide Batteriepacks sind als Eigenbau umgesetzt. Alle Module stammen aus einem 2017er TESLA Model S mit ca. 60.000 km Fahrleistung (lt. Angabe des Händlers).</p>
 <h2 id="battery-bewertung-der-module">Bewertung der Module<a class="headerlink" href="#battery-bewertung-der-module" title="Permanent link">&para;</a></h2>
 <p>Beim Erwerb der Module wurde mit einem Batterie-Tester Modul-Spannung und Innenwiderstand ermittelt. Auf Basis der Datenbank des Forums <strong>akkudoktor.net</strong> die eine <a href="https://lili.akkudoktor.net/de-prediction.html" target="_blank">Zell-Vorhersage</a> durchführt, wurden die Werte für eine einzelne Zelle ermittelt. Anschliessend wurden diese Werte auf den Gesamtwiderstand der vorhandenen Konstellation der 6S74P 5.3 kWh Module als Erwartungswerte übertragen:</p>
@@ -2358,7 +2358,7 @@ Wo verfügbar wird das Gerät bzw. das Typenschild dargestellt, die Original-Bed
 <h2 id="battery-stuckliste">Stückliste<a class="headerlink" href="#battery-stuckliste" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Schütze:</strong> 4 x Tyco EV200AAANA <a href="https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=EV200_R_TBD_KILOVAC_EV200_Ser_C" target="_blank">Datenblatt (externer Link)</a></li>
-</ul></section><section class="print-page" id="imd" heading-number="7.4"><h1 id="imd-anhang-b-isolationsuberwachungsgerat-imd">Anhang B: Isolationsüberwachungsgerät (IMD)<a class="headerlink" href="#imd-anhang-b-isolationsuberwachungsgerat-imd" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="imd" heading-number="7.4"><h1 id="imd-anhang-c-isolationsuberwachungsgerat-imd">Anhang C: Isolationsüberwachungsgerät (IMD)<a class="headerlink" href="#imd-anhang-c-isolationsuberwachungsgerat-imd" title="Permanent link">&para;</a></h1>
 <p>Zur kontinuierlichen Überwachung des Isolationswiderstandes zwischen dem aktiven Hochvoltsystem (<span class="arithmatex">\(HV+/HV-\)</span>) und der Fahrzeugmasse (Kl. 31) wird ein automobiles Isolationsüberwachungsgerät (IMD) eingesetzt.</p>
 <h2 id="imd-technische-spezifikation-des-gerates">Technische Spezifikation des Gerätes<a class="headerlink" href="#imd-technische-spezifikation-des-gerates" title="Permanent link">&para;</a></h2>
 <table>
@@ -2574,7 +2574,7 @@ Der nachfolgende Code-Auszug zeigt die vollständige Zustandsmaschine zur zyklis
 <p>!!! success Erfüllung der ISO 6469-3 (Sicherstellung der elektrischen Sicherheit)
     Zum Schutz von Personen vor elektrischem Schlag im Fahrbetrieb stellt die Bedingung isOperational sicher, dass sowohl im Status BMS_STATUS_READY (Fahrbereitschaft vorbereitet) als auch in BMS_STATUS_DRIVE (Fahrbetrieb aktiv) der Isolationsstatus zweifelsfrei verifiziert sein muss. Solange die Bits 12/13 aktiv sind und die State Machine läuft, bleibt die Schaltschwelle für die echten HV-Hauptschütze physisch gesperrt (Drive Inhibit über den Inverter-Proxy).</p>
 <p>!!! success Erfüllung der IEC 61851-1 (Konduktive Ladesysteme)
-    Bevor Energie aus einer externen Ladesäule (EVSE) in das Fahrzeug fließen darf, greift der Trigger beim Übergang in den Zustand BMS_STATUS_CHARGE. Der Ladevorgang wird auf CAN-Ebene so lange blockiert, bis das Isometer den durch den Edge-Trigger initiierten Selbsttest erfolgreich abgeschlossen, seine internen Messrelais geschlossen und einen Isolationswert weit oberhalb der kritischen Schwellen gemeldet hat.</p></section><section class="print-page" id="bms" heading-number="7.5"><h1 id="bms-batterie-management-system">Batterie Management System<a class="headerlink" href="#bms-batterie-management-system" title="Permanent link">&para;</a></h1>
+    Bevor Energie aus einer externen Ladesäule (EVSE) in das Fahrzeug fließen darf, greift der Trigger beim Übergang in den Zustand BMS_STATUS_CHARGE. Der Ladevorgang wird auf CAN-Ebene so lange blockiert, bis das Isometer den durch den Edge-Trigger initiierten Selbsttest erfolgreich abgeschlossen, seine internen Messrelais geschlossen und einen Isolationswert weit oberhalb der kritischen Schwellen gemeldet hat.</p></section><section class="print-page" id="bms" heading-number="7.5"><h1 id="bms-anhang-d-batterie-management-system">Anhang D: Batterie Management System<a class="headerlink" href="#bms-anhang-d-batterie-management-system" title="Permanent link">&para;</a></h1>
 <h2 id="bms-dokumentation-bms">Dokumentation BMS<a class="headerlink" href="#bms-dokumentation-bms" title="Permanent link">&para;</a></h2>
 <h2 id="bms-bms">BMS<a class="headerlink" href="#bms-bms" title="Permanent link">&para;</a></h2>
 <figure id="simpBMS">
@@ -2617,7 +2617,7 @@ Eine mechanische Not-Entriegelung kann durch Ziehen der Not-Entriegelung unterha
 <li>Fehler Batteriemangementsystem.</li>
 <li>Blitzend: Fehler Isolationswiderstand</li>
 </ul>
-<hr /></section><section class="print-page" id="mcu" heading-number="7.6"><h1 id="mcu-motor-controller">Motor Controller<a class="headerlink" href="#mcu-motor-controller" title="Permanent link">&para;</a></h1>
+<hr /></section><section class="print-page" id="mcu" heading-number="7.6"><h1 id="mcu-anhang-e-motor-controller">Anhang E: Motor Controller<a class="headerlink" href="#mcu-anhang-e-motor-controller" title="Permanent link">&para;</a></h1>
 <h2 id="mcu-can-open-network">CAN Open Network<a class="headerlink" href="#mcu-can-open-network" title="Permanent link">&para;</a></h2>
 <p>Baudrate: 500k</p>
 <h3 id="mcu-inverter-canbus-meldungen">Inverter CanBus Meldungen<a class="headerlink" href="#mcu-inverter-canbus-meldungen" title="Permanent link">&para;</a></h3>
@@ -2718,7 +2718,7 @@ Akteur: RND Schalter Ort: Mittelkonsole</p>
 Akteur: Recu Schalter Ort: Mittelkonsole</p>
 <p>K1-18 Pedal Bremse
 Akteur: Bremslicht über Relais Ort: Pedale (Relaiseinheit)</p>
-<p>K1-19 tbd</p></section><section class="print-page" id="charger" heading-number="7.7"><h1 id="charger-onboard-ladegerat">Onboard Ladegerät<a class="headerlink" href="#charger-onboard-ladegerat" title="Permanent link">&para;</a></h1>
+<p>K1-19 tbd</p></section><section class="print-page" id="charger" heading-number="7.7"><h1 id="charger-anhang-f-onboard-ladegerat">Anhang F: Onboard Ladegerät<a class="headerlink" href="#charger-anhang-f-onboard-ladegerat" title="Permanent link">&para;</a></h1>
 <p>Das TCCHarger Onboard Ladegerät der 4. Generation 3.3 kW HK-M wurde in der Konfiguration "CAN" geordert. Alle Steuersignale werden dabei über CANbus initiiert und ausgewertet. Die Kontrolle des Ladevorgangs wird über die VCU durchgeführt. Zur Schonung der HV-Batterie wird der Ladevorgang bei einem SoC von 80 % automatisch abgeschaltet, der sogenannte "DAILY" Mode. Beim "TRIP" Mode kann die HV-Batterie auf bis zu 100 % geladen werden.  </p>
 <h2 id="charger-modell">Modell<a class="headerlink" href="#charger-modell" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2740,7 +2740,7 @@ Akteur: Bremslicht über Relais Ort: Pedale (Relaiseinheit)</p>
 <figure><img src="../Pictures/100000010000018800000181B6B8CB34.png"><figcaption>Signalstecker</figcaption></figure>
 
 <h2 id="charger-dokumentation">Dokumentation<a class="headerlink" href="#charger-dokumentation" title="Permanent link">&para;</a></h2>
-<p><a href="https://shop.fellten.com/shop/hk-mf-108-32-hk-mf-108-32-charger-3-3kw-145v-32a-18701/document/609" target="_blank">HK-MF-108-32</a></p></section><section class="print-page" id="dc_dc" heading-number="7.8"><h1 id="dc_dc-dcdc-wandler">DC/DC Wandler<a class="headerlink" href="#dc_dc-dcdc-wandler" title="Permanent link">&para;</a></h1>
+<p><a href="https://shop.fellten.com/shop/hk-mf-108-32-hk-mf-108-32-charger-3-3kw-145v-32a-18701/document/609" target="_blank">HK-MF-108-32</a></p></section><section class="print-page" id="dc_dc" heading-number="7.8"><h1 id="dc_dc-anhang-g-dcdc-wandler">Anhang G: DC/DC Wandler<a class="headerlink" href="#dc_dc-anhang-g-dcdc-wandler" title="Permanent link">&para;</a></h1>
 <h2 id="dc_dc-modell">Modell<a class="headerlink" href="#dc_dc-modell" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Hersteller:</strong> Tiecheng Information Technology Co.,Ltd., China "TC Charger"</li>
@@ -2765,7 +2765,7 @@ Akteur: Bremslicht über Relais Ort: Pedale (Relaiseinheit)</p>
 <p>NOTIZ: 
 Haben Sie bereits versucht, die ID <code>0x18FF51E5</code> zu senden, und erhalten Sie eine <strong>Antwort auf</strong> <code>0x18FF50E5</code> zurück?
 <strong>!!! Die Angabe CAN5100 deutet auf 250kbps hin! Siehe CAN Protokoll !!!</strong>
-Evtl. Komponente an den 2. Canbus verlagern.</p></section><section class="print-page" id="vcu" heading-number="7.9"><h1 id="vcu-vcu-vehicle-control-unit">VCU - Vehicle Control Unit<a class="headerlink" href="#vcu-vcu-vehicle-control-unit" title="Permanent link">&para;</a></h1>
+Evtl. Komponente an den 2. Canbus verlagern.</p></section><section class="print-page" id="vcu" heading-number="7.9"><h1 id="vcu-anhang-h-vcu-vehicle-control-unit">Anhang H: VCU - Vehicle Control Unit<a class="headerlink" href="#vcu-anhang-h-vcu-vehicle-control-unit" title="Permanent link">&para;</a></h1>
 <h2 id="vcu-can-open-network">CAN Open Network<a class="headerlink" href="#vcu-can-open-network" title="Permanent link">&para;</a></h2>
 <p>Baudrate: 500k</p>
 <h3 id="vcu-code-implementierung-des-software-uberlastschutzes-vcu">Code-Implementierung des Software-Überlastschutzes (VCU)<a class="headerlink" href="#vcu-code-implementierung-des-software-uberlastschutzes-vcu" title="Permanent link">&para;</a></h3>
@@ -2823,7 +2823,7 @@ Skalierungsfaktor für das Drehmoment (limit_percent) in Echtzeit berechnet und 
 <span class="n">twai_transmit</span><span class="p">(</span><span class="o">&amp;</span><span class="n">msg</span><span class="p">,</span><span class="w"> </span><span class="n">pdMS_TO_TICKS</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
 
 <span class="p">}</span>
-</code></pre></div></section><section class="print-page" id="instruments" heading-number="7.10"><h1 id="instruments-cockpit">Cockpit<a class="headerlink" href="#instruments-cockpit" title="Permanent link">&para;</a></h1>
+</code></pre></div></section><section class="print-page" id="instruments" heading-number="7.10"><h1 id="instruments-anhang-i-cockpit">Anhang I: Cockpit<a class="headerlink" href="#instruments-anhang-i-cockpit" title="Permanent link">&para;</a></h1>
 <p>Im Cockpit wurden einige Modifikation und Ergänzungen durchgeführt. Dies betrifft insbesondere den Instrumententräger, die Mittelkonsole und die zentrale Bedieneinheit in der sich normalerweise das Radio befindet. </p>
 <figure><img src="../Pictures/cockpit_overview.png"><figcaption>Cockpit Übersicht</figcaption></figure>
 
@@ -3023,12 +3023,12 @@ Wertet die korrespondierenden Systemflags des Inverters aus.</p>
 <figure><img src="../Pictures/button_center.jpg"><figcaption>Schalter Rekuperation AUS und Heizung</figcaption></figure>
 
 <h2 id="instruments-zentrale-bedieneinheit">Zentrale Bedieneinheit<a class="headerlink" href="#instruments-zentrale-bedieneinheit" title="Permanent link">&para;</a></h2>
-<p>Um Platz für eine Anzeige für das Batterie-Management-System BMS zu schaffen, wurde die zentrale Bedieneinheit verändert. Die bisherigen Schalter für die Klimaanlage (ausgebaut) wurden entfernt und durch ein Display mit Touchfunktion ersetzt. </p></section><section class="print-page" id="pedal" heading-number="7.11"><h1 id="pedal-fahrpedalsensor">Fahrpedalsensor<a class="headerlink" href="#pedal-fahrpedalsensor" title="Permanent link">&para;</a></h1>
+<p>Um Platz für eine Anzeige für das Batterie-Management-System BMS zu schaffen, wurde die zentrale Bedieneinheit verändert. Die bisherigen Schalter für die Klimaanlage (ausgebaut) wurden entfernt und durch ein Display mit Touchfunktion ersetzt. </p></section><section class="print-page" id="pedal" heading-number="7.11"><h1 id="pedal-anhang-j-fahrpedalsensor">Anhang J: Fahrpedalsensor<a class="headerlink" href="#pedal-anhang-j-fahrpedalsensor" title="Permanent link">&para;</a></h1>
 <p>Hersteller: BMW, Teilenummer: <strong>6770935</strong></p>
 <p>Das Pedalmodul verfügt über zwei unabhängig voneinander arbeitende Sensoren zur Redundanz- und Plausibilitätskontrolle. Sensor 2 gibt genau die Hälfte der Spannung von Sensor 1 aus. Der Sensor ist direkt mit der MCU verbunden.</p>
 <figure><img src="../Pictures/10000001000001C100000137CA624D62.png"><figcaption>Fahrpedalsensor</figcaption></figure>
 
-<figure><img src="../Pictures/10000001000001C90000013294347C82.png"><figcaption>Anschlußbelegeung</figcaption></figure></section><section class="print-page" id="bat_pump" heading-number="7.12"><h1 id="bat_pump-wasserpumpe-batteriekuhlung">Wasserpumpe Batteriekühlung<a class="headerlink" href="#bat_pump-wasserpumpe-batteriekuhlung" title="Permanent link">&para;</a></h1>
+<figure><img src="../Pictures/10000001000001C90000013294347C82.png"><figcaption>Anschlußbelegeung</figcaption></figure></section><section class="print-page" id="bat_pump" heading-number="7.12"><h1 id="bat_pump-anhang-k-wasserpumpe-batteriekuhlung">Anhang K: Wasserpumpe Batteriekühlung<a class="headerlink" href="#bat_pump-anhang-k-wasserpumpe-batteriekuhlung" title="Permanent link">&para;</a></h1>
 <p>Hersteller: TESLA, Teilenummer: <strong>muss ergänzt werden</strong> **</p>
 <p>Quelle:
 <a href="https://www.evcreate.com/using-tesla-thermal-management-system-parts/">https://www.evcreate.com/using-tesla-thermal-management-system-parts/</a> 13.08.2024.</p>
@@ -3169,7 +3169,7 @@ will control the speed via the SP1 &amp; SP2 pins: [00] = 20% PWM and
 expected range, then the ERR pin is pulled low by the control and
 the <a href="https://www.ossev.info/design/electronics/dcu.php">Driver Control Unit
 (DCU)</a> will then flag
-the error to the driver.</p></section><section class="print-page" id="inv_pump" heading-number="7.13"><h1 id="inv_pump-wasserpumpe-inverterkuhlung">Wasserpumpe Inverterkühlung<a class="headerlink" href="#inv_pump-wasserpumpe-inverterkuhlung" title="Permanent link">&para;</a></h1>
+the error to the driver.</p></section><section class="print-page" id="inv_pump" heading-number="7.13"><h1 id="inv_pump-anhang-l-wasserpumpe-inverterkuhlung">Anhang L: Wasserpumpe Inverterkühlung<a class="headerlink" href="#inv_pump-anhang-l-wasserpumpe-inverterkuhlung" title="Permanent link">&para;</a></h1>
 <figure><img src="../Pictures/10000001000001BD000002BF94532313.png"><figcaption>Wasserpumpe Inverter</figcaption></figure>
 
 <h2 id="inv_pump-anschlussbelegung">Anschlussbelegung<a class="headerlink" href="#inv_pump-anschlussbelegung" title="Permanent link">&para;</a></h2>
@@ -3178,7 +3178,7 @@ the error to the driver.</p></section><section class="print-page" id="inv_pump" 
 <li>Schwarze Leitung: Masse</li>
 <li>Gelbe Leitung: FG-Leitung des Ausgangssignals</li>
 <li>Blaue Leitung: 5V PWM-Signal</li>
-</ul></section><section class="print-page" id="iso_r_test" heading-number="7.14"><h1 id="iso_r_test-iso-r-test">Iso-R Test<a class="headerlink" href="#iso_r_test-iso-r-test" title="Permanent link">&para;</a></h1>
+</ul></section><section class="print-page" id="iso_r_test" heading-number="7.14"><h1 id="iso_r_test-anhang-m-iso-r-test">Anhang M: Iso-R Test<a class="headerlink" href="#iso_r_test-anhang-m-iso-r-test" title="Permanent link">&para;</a></h1>
 <p>Das eingebaute IMD überwacht im Betriebsmode CHARGE und DRIVE ständig den Isolationswiderstand zwischen dem Hochspannungsteil HV und der Bordspannung 12V. Zum Test der Ansprechschwellen wurde eine Prüfbox entworfen mit der die Ansprechschwellen für WARNUNG und FEHLER geprüft werden können. Diese Prüfung sollte in regelmäßigen Abständen, mindestens 1 Mal jährlich, durchgeführt werden.</p>
 <h2 id="iso_r_test-iso-r-prufbox">Iso-R Prüfbox<a class="headerlink" href="#iso_r_test-iso-r-prufbox" title="Permanent link">&para;</a></h2>
 <p>Der Tester für das <em>Insulation Monitoring Device</em> (Isolationswächter) ist aus 8 in Reihe geschalteten 82 k&Omega;-Präzisionswiderständen aufgebaut. Vier separate Ausgänge ermöglichen es, den simulierten Isolationswiderstand gezielt auf 496, 372, 248 und 124 k&Omega; zu senken.</p>
