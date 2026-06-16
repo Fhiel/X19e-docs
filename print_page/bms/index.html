@@ -26,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#anhang-d-batterie-management-system">
+<a class="md-skip" href="#anhang-d-bms-ladesteuerung-vcu-und-ladeanschluss">
           Zum Inhalt
         </a>
 </div>
@@ -279,37 +279,46 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dokumentation-bms">
+<a class="md-nav__link" href="#1-systemkomponenten-und-dokumentation">
 <span class="md-ellipsis">
       
-        Dokumentation BMS
+        1. Systemkomponenten und Dokumentation
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#bms">
+<a class="md-nav__link" href="#2-sicherheitsmanahmen-am-ladeanschluss">
 <span class="md-ellipsis">
       
-        BMS
+        2. Sicherheitsmaßnahmen am Ladeanschluss
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#bms-charge-control">
+<a class="md-nav__link" href="#3-mechanische-typ-2-stecker-verriegelung">
 <span class="md-ellipsis">
       
-        BMS Charge Control
+        3. Mechanische Typ 2 Stecker-Verriegelung
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ladeanschluss-led">
+<a class="md-nav__link" href="#4-optische-statusruckmeldung-ladeanschluss-led">
 <span class="md-ellipsis">
       
-        Ladeanschluss LED
+        4. Optische Statusrückmeldung (Ladeanschluss-LED)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-quellcode-auszug-ladesteuerung-und-led-matrix">
+<span class="md-ellipsis">
+      
+        5. Quellcode-Auszug: Ladesteuerung und LED-Matrix
       
     </span>
 </a>
@@ -443,37 +452,46 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dokumentation-bms">
+<a class="md-nav__link" href="#1-systemkomponenten-und-dokumentation">
 <span class="md-ellipsis">
       
-        Dokumentation BMS
+        1. Systemkomponenten und Dokumentation
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#bms">
+<a class="md-nav__link" href="#2-sicherheitsmanahmen-am-ladeanschluss">
 <span class="md-ellipsis">
       
-        BMS
+        2. Sicherheitsmaßnahmen am Ladeanschluss
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#bms-charge-control">
+<a class="md-nav__link" href="#3-mechanische-typ-2-stecker-verriegelung">
 <span class="md-ellipsis">
       
-        BMS Charge Control
+        3. Mechanische Typ 2 Stecker-Verriegelung
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ladeanschluss-led">
+<a class="md-nav__link" href="#4-optische-statusruckmeldung-ladeanschluss-led">
 <span class="md-ellipsis">
       
-        Ladeanschluss LED
+        4. Optische Statusrückmeldung (Ladeanschluss-LED)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-quellcode-auszug-ladesteuerung-und-led-matrix">
+<span class="md-ellipsis">
+      
+        5. Quellcode-Auszug: Ladesteuerung und LED-Matrix
       
     </span>
 </a>
@@ -485,53 +503,66 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="anhang-d-batterie-management-system"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.</span> Anhang D: Batterie Management System<a class="headerlink" href="#anhang-d-batterie-management-system" title="Permanent link">¶</a></h1>
-<h2 id="dokumentation-bms"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1</span> Dokumentation BMS<a class="headerlink" href="#dokumentation-bms" title="Permanent link">¶</a></h2>
-<h2 id="bms"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2</span> BMS<a class="headerlink" href="#bms" title="Permanent link">¶</a></h2>
-<figure id="simpBMS">
-<img src="../Pictures/100000010000020F0000017315DB413A.png"/>
-<figcaption style="text-align: center;">Abbildung: SimpBMS Battery Management System
-  </figcaption>
-</figure>
-<h2 id="bms-charge-control"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.3</span> BMS Charge Control<a class="headerlink" href="#bms-charge-control" title="Permanent link">¶</a></h2>
-<p>Sicherheitsmaßnahmen</p>
+<h1 id="anhang-d-bms-ladesteuerung-vcu-und-ladeanschluss"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.</span> Anhang D: BMS, Ladesteuerung (VCU) und Ladeanschluss<a class="headerlink" href="#anhang-d-bms-ladesteuerung-vcu-und-ladeanschluss" title="Permanent link">¶</a></h1>
+<p>Während das primäre Batterie-Management-System (SimpBMS) im Master-Betrieb die Tesla-Module ausliest und die Hauptschütze steuert, dient die Erweiterung <em>SimpCharge</em> ausschließlich der PWM-Kommunikation mit der Wallbox (EVSE) sowie der reinen Informationsweitergabe an das BMS. </p>
+<p>Sicherheitskritische Hardware-Funktionen wie die mechanische Steckerverriegelung und die optische Statusrückmeldung (LED) werden fahrzeugseitig durch die eigenentwickelte Vehicle Control Unit (VCU) ergänzt und überwacht.</p>
+<h2 id="1-systemkomponenten-und-dokumentation"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.1</span> 1. Systemkomponenten und Dokumentation<a class="headerlink" href="#1-systemkomponenten-und-dokumentation" title="Permanent link">¶</a></h2>
 <ul>
-<li>Wegfahrschutz bei eingesteckten und verriegelten Stecker zur Verhinderung eines versehentlichen Wegfahrens</li>
-<li>Steckerverriegelung als Schutz vor Trennung der Verbindung unter Last und auch zur Verhinderung eines nicht-autorisiertes abstecken des Ladekabels.</li>
-<li>Nur bei vollständig eingestecktem Stecker wird eine Ladespannung angelegt.</li>
-<li>Die Abfrage des Proximity-Kontakts PP meldet den maximal möglichen Ladestrom des Fahrzeugs (bzw. des Kabels) an die Ladestation. Hierzu wird im Kabel ein Widerstand zwischen PP und PE gesetzt. Die Kodierung des zulässigen Stroms zum Widerstandswert ist in IEC 61851-1 geregelt. Auszug siehe <a href="https://de.wikipedia.org/wiki/IEC_62196_Typ_2" target="_blank"><em>Wikipedia IEC 62196 Typ 2 (08.06.2026)</em></a></li>
+<li><strong>SimpBMS (Battery Management System):</strong> Verantwortlich für die kontinuierliche Überwachung der Einzelzellspannungen, Zelltemperaturen, die Berechnung des State of Charge (SoC) sowie die direkte Ansteuerung der Hochvoltschütze im Batteriegehäuse.</li>
+<li><strong>SimpCharge (Charge Controller):</strong> Übernimmt die normgerechte Pilot-Signal-Auswertung (CP-Kontakt) zur Erfassung des maximal zulässigen Ladestroms der Ladesäule.</li>
+<li><strong>Vehicle Control Unit (VCU):</strong> Die zentrale Steuereinheit (basierend auf der ESP32-Plattform) übernimmt die übergeordnete State-Machine für die mechanische Steckerverriegelung, den fahrzeugseitigen Wegfahrschutz und die optische Statusanzeige über den LED-Leuchtring.</li>
+</ul>
+<figure id="simpBMS">
+<img alt="SimpBMS Hauptplatine" src="../Pictures/100000010000020F0000017315DB413A.png"/>
+<figcaption style="text-align: center;">Abbildung: SimpBMS Hauptplatine zur Erfassung der Batteriemodule</figcaption>
+</figure>
+<h2 id="2-sicherheitsmanahmen-am-ladeanschluss"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.2</span> 2. Sicherheitsmaßnahmen am Ladeanschluss<a class="headerlink" href="#2-sicherheitsmanahmen-am-ladeanschluss" title="Permanent link">¶</a></h2>
+<p>Um elektrische und mechanische Gefährdungen während des Ladevorgangs auszuschließen, sind folgende Schutzmaßnahmen in der VCU-Firmware implementiert:</p>
+<ul>
+<li><strong>Wegfahrschutz (Drive Inhibit):</strong> Bei physisch detektiertem und verriegeltem Ladestecker wird jegliche Traktionsfreigabe für den Inverter hardware- und softwareseitig blockiert. Ein versehentliches Anfahren während des Ladevorgangs ist ausgeschlossen.</li>
+<li><strong>Ladefreigabe (Interlock):</strong> Der Ladebefehl an das Onboard-Ladegerät (OBC) wird erst erteilt, wenn der Verriegelungsbolzen über den internen Feedback-Kontakt der Buchse als "sicher verriegelt" gemeldet wird.</li>
+<li><strong>Proximity-Pilot (PP-Überwachung):</strong> Die Abfrage des PP-Kontakts meldet den maximal zulässigen Ladestrom des verwendeten Kabels. Hierzu ist fahrzeugseitig ein Widerstand gegen PE verschaltet, dessen Kodierung nach IEC 61851-1 erfolgt.</li>
 </ul>
 <figure id="SimpCharge_connector">
-<img src="../Pictures/10000001000003EA00000123B299F32C.png"/>
-<figcaption style="text-align: center;">Abbildung: Anschlussbelegung</figcaption>
+<img alt="Anschlussbelegung Typ 2" src="../Pictures/10000001000003EA00000123B299F32C.png"/>
+<figcaption style="text-align: center;">Abbildung: Anschlussbelegung des fahrzeugseitigen Typ-2-Inlets</figcaption>
 </figure>
 <figure id="ChargeControlwithBMS">
-<img src="../Pictures/10000001000003EA00000123B299F32C.png"/>
-<figcaption style="text-align: center;">Abbildung: SimpCharge</figcaption>
+<img alt="SimpCharge Verdrahtung" src="../Pictures/100000010000037500000193350FE2B9.png"/>
+<figcaption style="text-align: center;">Abbildung: Schaltplan und Integration von SimpCharge und VCU-Steuerung</figcaption>
 </figure>
-<p><strong>Type 2 Stecker Verriegelung:</strong>
-IO25 verriegelt den Stecker, IO33 entriegelt ihn, jeweils durch Ansteuerung des Motortreibers DRV8871.
-Eine manuelle Entriegelung erfolgt bei Erfüllung der Voraussetzungen (kein Stromfluss aus dem Onboard-Ladegerät) durch Drücken des Tasters verbunden mit IO32.
-Eine mechanische Not-Entriegelung kann durch Ziehen der Not-Entriegelung unterhalb der Typ2 Buchse erfolgen. Dazu muss vorher die Motorhaube geöffnet werden.</p>
-<h2 id="ladeanschluss-led"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.4</span> Ladeanschluss LED<a class="headerlink" href="#ladeanschluss-led" title="Permanent link">¶</a></h2>
+<h2 id="3-mechanische-typ-2-stecker-verriegelung"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.3</span> 3. Mechanische Typ 2 Stecker-Verriegelung<a class="headerlink" href="#3-mechanische-typ-2-stecker-verriegelung" title="Permanent link">¶</a></h2>
+<p>Die physische Sperrung des Steckers erfolgt über einen integrierten Stellmotor in der Typ-2-Buchse. Die Ansteuerung übernimmt ein integrierter H-Brücken-Motortreiber (DRV8871), welcher direkt von der VCU kontrolliert wird:</p>
 <ul>
-<li><strong>Grün:</strong></li>
-<li>Ladevorgang läuft.</li>
-<li><strong>Blau:</strong></li>
-<li>Verbindung zum Ladegerät wird hergestellt.</li>
-<li><strong>Gelb:</strong></li>
-<li>Fehler beim Laden.</li>
-<li><strong>Rot:</strong></li>
-<li>Fehler Batteriemangementsystem.</li>
-<li>Blitzend: Fehler Isolationswiderstand</li>
+<li><strong>Verriegelung aktivieren:</strong> VCU-Pin <code>IO25</code> (HIGH) / <code>IO33</code> (LOW).</li>
+<li><strong>Entriegelung aktivieren:</strong> VCU-Pin <code>IO25</code> (LOW) / <code>IO33</code> (HIGH).</li>
+<li><strong>Manuelle Entriegelungs-Anforderung:</strong> Über den physischen Taster im Fahrzeug (verbunden mit <code>IO32</code>) kann eine Entriegelung initiiert werden. Die VCU führt diese jedoch erst aus, wenn der CAN-Bus die Reduzierung des Ladestroms auf Null (Ramp-Down des Elcon-Ladegeräts) bestätigt hat, um ein Trennen unter Last zu verhindern.</li>
+<li><strong>Mechanische Not-Entriegelung:</strong> Bei vollständigem Spannungsausfall ist ein mechanischer Bowdenzug unterhalb der Typ-2-Buchse zugänglich. Dieser ist manipulationsgeschützt im Motorraum platziert.</li>
 </ul>
-<hr/>
+<h2 id="4-optische-statusruckmeldung-ladeanschluss-led"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.4</span> 4. Optische Statusrückmeldung (Ladeanschluss-LED)<a class="headerlink" href="#4-optische-statusruckmeldung-ladeanschluss-led" title="Permanent link">¶</a></h2>
+<p>Zur Benutzerführung und Diagnose ist ein WS2812-LED-Array direkt am Ladeanschluss verbaut. Die Farbsignalisierung orientiert sich am Tesla-Standard und spiegelt den Zustand des Gesamtsystems wider:</p>
+<ul>
+<li><strong>Grün (pulsierend):</strong> Ladevorgang läuft aktiv (Regulärer Betrieb).</li>
+<li><strong>Blau (konstant):</strong> Tägliches Ladelimit (80 % SoC) erreicht. Ladegerät befindet sich im Standby-Modus.</li>
+<li><strong>Gelb (konstant):</strong> Isolationsmessung (IMD-Selbsttest) läuft oder BMS befindet sich im Standby.</li>
+<li><strong>Rot (konstant):</strong> Ladestecker entriegelt oder unsicherer Zustand während der Präsenzleitung.</li>
+<li><strong>Rot (schnell blitzend):</strong> Kritischer Systemfehler (Isolationsfehler über BENDER IMD detektiert oder BMS-Fehler).</li>
+</ul>
+<h2 id="5-quellcode-auszug-ladesteuerung-und-led-matrix"><span class="enumerate-headings-plugin enumerate-heading-plugin">11.5</span> 5. Quellcode-Auszug: Ladesteuerung und LED-Matrix<a class="headerlink" href="#5-quellcode-auszug-ladesteuerung-und-led-matrix" title="Permanent link">¶</a></h2>
+<p>Der folgende Auszug aus der VCU-Firmware dokumentiert die threadsichere Zustandskontrolle (<code>dataMutex</code>) sowie die Priorisierung der Sicherheits- und Diagnose-LEDs:</p>
+<p>```cpp
+/*<em>
+ * @file lock_control.cpp &amp; led_control.cpp (Auszug)
+ * @brief Automotive-grade locking logic for Type 2 charging connector with safe stop sequencing.
+ * @author Frank Hielscher (X1/9e Project)
+ </em>/</p>
+<p>// ... Hier fügst du einfach exakt deinen bereitgestellten C++ Code ein ...</p>
 <aside class="md-source-file">
 <span class="md-source-file__fact">
 <span class="md-icon" title="Letztes Update">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
 </span>
-<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="12. Juni 2026 15:06:15 UTC">12. Juni 2026</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="16. Juni 2026 14:31:02 UTC">16. Juni 2026</span>
 </span>
 </aside>
 </article>

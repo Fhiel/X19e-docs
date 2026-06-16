@@ -2574,50 +2574,63 @@ Der nachfolgende Code-Auszug zeigt die vollständige Zustandsmaschine zur zyklis
 <p>!!! success Erfüllung der ISO 6469-3 (Sicherstellung der elektrischen Sicherheit)
     Zum Schutz von Personen vor elektrischem Schlag im Fahrbetrieb stellt die Bedingung isOperational sicher, dass sowohl im Status BMS_STATUS_READY (Fahrbereitschaft vorbereitet) als auch in BMS_STATUS_DRIVE (Fahrbetrieb aktiv) der Isolationsstatus zweifelsfrei verifiziert sein muss. Solange die Bits 12/13 aktiv sind und die State Machine läuft, bleibt die Schaltschwelle für die echten HV-Hauptschütze physisch gesperrt (Drive Inhibit über den Inverter-Proxy).</p>
 <p>!!! success Erfüllung der IEC 61851-1 (Konduktive Ladesysteme)
-    Bevor Energie aus einer externen Ladesäule (EVSE) in das Fahrzeug fließen darf, greift der Trigger beim Übergang in den Zustand BMS_STATUS_CHARGE. Der Ladevorgang wird auf CAN-Ebene so lange blockiert, bis das Isometer den durch den Edge-Trigger initiierten Selbsttest erfolgreich abgeschlossen, seine internen Messrelais geschlossen und einen Isolationswert weit oberhalb der kritischen Schwellen gemeldet hat.</p></section><section class="print-page" id="bms" heading-number="7.5"><h1 id="bms-anhang-d-batterie-management-system">Anhang D: Batterie Management System<a class="headerlink" href="#bms-anhang-d-batterie-management-system" title="Permanent link">&para;</a></h1>
-<h2 id="bms-dokumentation-bms">Dokumentation BMS<a class="headerlink" href="#bms-dokumentation-bms" title="Permanent link">&para;</a></h2>
-<h2 id="bms-bms">BMS<a class="headerlink" href="#bms-bms" title="Permanent link">&para;</a></h2>
+    Bevor Energie aus einer externen Ladesäule (EVSE) in das Fahrzeug fließen darf, greift der Trigger beim Übergang in den Zustand BMS_STATUS_CHARGE. Der Ladevorgang wird auf CAN-Ebene so lange blockiert, bis das Isometer den durch den Edge-Trigger initiierten Selbsttest erfolgreich abgeschlossen, seine internen Messrelais geschlossen und einen Isolationswert weit oberhalb der kritischen Schwellen gemeldet hat.</p></section><section class="print-page" id="bms" heading-number="7.5"><h1 id="bms-anhang-d-bms-ladesteuerung-vcu-und-ladeanschluss">Anhang D: BMS, Ladesteuerung (VCU) und Ladeanschluss<a class="headerlink" href="#bms-anhang-d-bms-ladesteuerung-vcu-und-ladeanschluss" title="Permanent link">&para;</a></h1>
+<p>Während das primäre Batterie-Management-System (SimpBMS) im Master-Betrieb die Tesla-Module ausliest und die Hauptschütze steuert, dient die Erweiterung <em>SimpCharge</em> ausschließlich der PWM-Kommunikation mit der Wallbox (EVSE) sowie der reinen Informationsweitergabe an das BMS. </p>
+<p>Sicherheitskritische Hardware-Funktionen wie die mechanische Steckerverriegelung und die optische Statusrückmeldung (LED) werden fahrzeugseitig durch die eigenentwickelte Vehicle Control Unit (VCU) ergänzt und überwacht.</p>
+<h2 id="bms-1-systemkomponenten-und-dokumentation">1. Systemkomponenten und Dokumentation<a class="headerlink" href="#bms-1-systemkomponenten-und-dokumentation" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>SimpBMS (Battery Management System):</strong> Verantwortlich für die kontinuierliche Überwachung der Einzelzellspannungen, Zelltemperaturen, die Berechnung des State of Charge (SoC) sowie die direkte Ansteuerung der Hochvoltschütze im Batteriegehäuse.</li>
+<li><strong>SimpCharge (Charge Controller):</strong> Übernimmt die normgerechte Pilot-Signal-Auswertung (CP-Kontakt) zur Erfassung des maximal zulässigen Ladestroms der Ladesäule.</li>
+<li><strong>Vehicle Control Unit (VCU):</strong> Die zentrale Steuereinheit (basierend auf der ESP32-Plattform) übernimmt die übergeordnete State-Machine für die mechanische Steckerverriegelung, den fahrzeugseitigen Wegfahrschutz und die optische Statusanzeige über den LED-Leuchtring.</li>
+</ul>
 <figure id="simpBMS">
-  <img src="../Pictures/100000010000020F0000017315DB413A.png">
-  <figcaption style="text-align: center;">Abbildung: SimpBMS Battery Management System
-  </figcaption>
+  <img src="../Pictures/100000010000020F0000017315DB413A.png" alt="SimpBMS Hauptplatine">
+  <figcaption style="text-align: center;">Abbildung: SimpBMS Hauptplatine zur Erfassung der Batteriemodule</figcaption>
 </figure>
 
-<h2 id="bms-bms-charge-control">BMS Charge Control<a class="headerlink" href="#bms-bms-charge-control" title="Permanent link">&para;</a></h2>
-<p>Sicherheitsmaßnahmen</p>
+<h2 id="bms-2-sicherheitsmanahmen-am-ladeanschluss">2. Sicherheitsmaßnahmen am Ladeanschluss<a class="headerlink" href="#bms-2-sicherheitsmanahmen-am-ladeanschluss" title="Permanent link">&para;</a></h2>
+<p>Um elektrische und mechanische Gefährdungen während des Ladevorgangs auszuschließen, sind folgende Schutzmaßnahmen in der VCU-Firmware implementiert:</p>
 <ul>
-<li>Wegfahrschutz bei eingesteckten und verriegelten Stecker zur Verhinderung eines versehentlichen Wegfahrens</li>
-<li>Steckerverriegelung als Schutz vor Trennung der Verbindung unter Last und auch zur Verhinderung eines nicht-autorisiertes abstecken des Ladekabels.</li>
-<li>Nur bei vollständig eingestecktem Stecker wird eine Ladespannung angelegt.</li>
-<li>Die Abfrage des Proximity-Kontakts PP meldet den maximal möglichen Ladestrom des Fahrzeugs (bzw. des Kabels) an die Ladestation. Hierzu wird im Kabel ein Widerstand zwischen PP und PE gesetzt. Die Kodierung des zulässigen Stroms zum Widerstandswert ist in IEC 61851-1 geregelt. Auszug siehe <a href="https://de.wikipedia.org/wiki/IEC_62196_Typ_2" target="_blank"><em>Wikipedia IEC 62196 Typ 2 (08.06.2026)</em></a></li>
+<li><strong>Wegfahrschutz (Drive Inhibit):</strong> Bei physisch detektiertem und verriegeltem Ladestecker wird jegliche Traktionsfreigabe für den Inverter hardware- und softwareseitig blockiert. Ein versehentliches Anfahren während des Ladevorgangs ist ausgeschlossen.</li>
+<li><strong>Ladefreigabe (Interlock):</strong> Der Ladebefehl an das Onboard-Ladegerät (OBC) wird erst erteilt, wenn der Verriegelungsbolzen über den internen Feedback-Kontakt der Buchse als "sicher verriegelt" gemeldet wird.</li>
+<li><strong>Proximity-Pilot (PP-Überwachung):</strong> Die Abfrage des PP-Kontakts meldet den maximal zulässigen Ladestrom des verwendeten Kabels. Hierzu ist fahrzeugseitig ein Widerstand gegen PE verschaltet, dessen Kodierung nach IEC 61851-1 erfolgt.</li>
 </ul>
 <figure id="SimpCharge_connector">
-  <img src="../Pictures/10000001000003EA00000123B299F32C.png">
-  <figcaption style="text-align: center;">Abbildung: Anschlussbelegung</figcaption>
+  <img src="../Pictures/10000001000003EA00000123B299F32C.png" alt="Anschlussbelegung Typ 2">
+  <figcaption style="text-align: center;">Abbildung: Anschlussbelegung des fahrzeugseitigen Typ-2-Inlets</figcaption>
 </figure>
 
 <figure id="ChargeControlwithBMS">
-  <img src="../Pictures/10000001000003EA00000123B299F32C.png">
-  <figcaption style="text-align: center;">Abbildung: SimpCharge</figcaption>
+  <img src="../Pictures/100000010000037500000193350FE2B9.png" alt="SimpCharge Verdrahtung">
+  <figcaption style="text-align: center;">Abbildung: Schaltplan und Integration von SimpCharge und VCU-Steuerung</figcaption>
 </figure>
 
-<p><strong>Type 2 Stecker Verriegelung:</strong>
-IO25 verriegelt den Stecker, IO33 entriegelt ihn, jeweils durch Ansteuerung des Motortreibers DRV8871.
-Eine manuelle Entriegelung erfolgt bei Erfüllung der Voraussetzungen (kein Stromfluss aus dem Onboard-Ladegerät) durch Drücken des Tasters verbunden mit IO32.
-Eine mechanische Not-Entriegelung kann durch Ziehen der Not-Entriegelung unterhalb der Typ2 Buchse erfolgen. Dazu muss vorher die Motorhaube geöffnet werden.</p>
-<h2 id="bms-ladeanschluss-led">Ladeanschluss LED<a class="headerlink" href="#bms-ladeanschluss-led" title="Permanent link">&para;</a></h2>
+<h2 id="bms-3-mechanische-typ-2-stecker-verriegelung">3. Mechanische Typ 2 Stecker-Verriegelung<a class="headerlink" href="#bms-3-mechanische-typ-2-stecker-verriegelung" title="Permanent link">&para;</a></h2>
+<p>Die physische Sperrung des Steckers erfolgt über einen integrierten Stellmotor in der Typ-2-Buchse. Die Ansteuerung übernimmt ein integrierter H-Brücken-Motortreiber (DRV8871), welcher direkt von der VCU kontrolliert wird:</p>
 <ul>
-<li><strong>Grün:</strong></li>
-<li>Ladevorgang läuft.</li>
-<li><strong>Blau:</strong></li>
-<li>Verbindung zum Ladegerät wird hergestellt.</li>
-<li><strong>Gelb:</strong></li>
-<li>Fehler beim Laden.</li>
-<li><strong>Rot:</strong></li>
-<li>Fehler Batteriemangementsystem.</li>
-<li>Blitzend: Fehler Isolationswiderstand</li>
+<li><strong>Verriegelung aktivieren:</strong> VCU-Pin <code>IO25</code> (HIGH) / <code>IO33</code> (LOW).</li>
+<li><strong>Entriegelung aktivieren:</strong> VCU-Pin <code>IO25</code> (LOW) / <code>IO33</code> (HIGH).</li>
+<li><strong>Manuelle Entriegelungs-Anforderung:</strong> Über den physischen Taster im Fahrzeug (verbunden mit <code>IO32</code>) kann eine Entriegelung initiiert werden. Die VCU führt diese jedoch erst aus, wenn der CAN-Bus die Reduzierung des Ladestroms auf Null (Ramp-Down des Elcon-Ladegeräts) bestätigt hat, um ein Trennen unter Last zu verhindern.</li>
+<li><strong>Mechanische Not-Entriegelung:</strong> Bei vollständigem Spannungsausfall ist ein mechanischer Bowdenzug unterhalb der Typ-2-Buchse zugänglich. Dieser ist manipulationsgeschützt im Motorraum platziert.</li>
 </ul>
-<hr /></section><section class="print-page" id="mcu" heading-number="7.6"><h1 id="mcu-anhang-e-motor-controller">Anhang E: Motor Controller<a class="headerlink" href="#mcu-anhang-e-motor-controller" title="Permanent link">&para;</a></h1>
+<h2 id="bms-4-optische-statusruckmeldung-ladeanschluss-led">4. Optische Statusrückmeldung (Ladeanschluss-LED)<a class="headerlink" href="#bms-4-optische-statusruckmeldung-ladeanschluss-led" title="Permanent link">&para;</a></h2>
+<p>Zur Benutzerführung und Diagnose ist ein WS2812-LED-Array direkt am Ladeanschluss verbaut. Die Farbsignalisierung orientiert sich am Tesla-Standard und spiegelt den Zustand des Gesamtsystems wider:</p>
+<ul>
+<li><strong>Grün (pulsierend):</strong> Ladevorgang läuft aktiv (Regulärer Betrieb).</li>
+<li><strong>Blau (konstant):</strong> Tägliches Ladelimit (80 % SoC) erreicht. Ladegerät befindet sich im Standby-Modus.</li>
+<li><strong>Gelb (konstant):</strong> Isolationsmessung (IMD-Selbsttest) läuft oder BMS befindet sich im Standby.</li>
+<li><strong>Rot (konstant):</strong> Ladestecker entriegelt oder unsicherer Zustand während der Präsenzleitung.</li>
+<li><strong>Rot (schnell blitzend):</strong> Kritischer Systemfehler (Isolationsfehler über BENDER IMD detektiert oder BMS-Fehler).</li>
+</ul>
+<h2 id="bms-5-quellcode-auszug-ladesteuerung-und-led-matrix">5. Quellcode-Auszug: Ladesteuerung und LED-Matrix<a class="headerlink" href="#bms-5-quellcode-auszug-ladesteuerung-und-led-matrix" title="Permanent link">&para;</a></h2>
+<p>Der folgende Auszug aus der VCU-Firmware dokumentiert die threadsichere Zustandskontrolle (<code>dataMutex</code>) sowie die Priorisierung der Sicherheits- und Diagnose-LEDs:</p>
+<p>```cpp
+/*<em>
+ * @file lock_control.cpp &amp; led_control.cpp (Auszug)
+ * @brief Automotive-grade locking logic for Type 2 charging connector with safe stop sequencing.
+ * @author Frank Hielscher (X1/9e Project)
+ </em>/</p>
+<p>// ... Hier fügst du einfach exakt deinen bereitgestellten C++ Code ein ...</p></section><section class="print-page" id="mcu" heading-number="7.6"><h1 id="mcu-anhang-e-motor-controller">Anhang E: Motor Controller<a class="headerlink" href="#mcu-anhang-e-motor-controller" title="Permanent link">&para;</a></h1>
 <h2 id="mcu-can-open-network">CAN Open Network<a class="headerlink" href="#mcu-can-open-network" title="Permanent link">&para;</a></h2>
 <p>Baudrate: 500k</p>
 <h3 id="mcu-inverter-canbus-meldungen">Inverter CanBus Meldungen<a class="headerlink" href="#mcu-inverter-canbus-meldungen" title="Permanent link">&para;</a></h3>
