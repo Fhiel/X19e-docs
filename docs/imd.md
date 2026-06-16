@@ -14,6 +14,11 @@ Zur kontinuierlichen Überwachung des Isolationswiderstandes zwischen dem aktive
 | **Ansprechwerte** | Vorwarnung: 400 k&Omega; / Hauptalarm (Fehler): 250 k&Omega; |
 | **Messverfahren / Ansprechzeit** | DCP (Direct Current Pulse) / < 20 Sekunden |
 
+## Typenschild
+
+
+<figure><img src="../Pictures/imd_type.jpg"><figcaption>Typenschild Bender IMD</figcaption></figure>
+
 ---
 
 ## IMD Quellcode-Dokumentation (Bender iso165C-1)

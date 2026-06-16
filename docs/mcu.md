@@ -1,4 +1,8 @@
-# Anhang E: Motor Controller
+# Anhang E: Motor Control Unit (MCU)
+
+## Typenschild
+
+<figure><img src="../Pictures/inverter_type.jpg"><figcaption>Typenschild Inverter</figcaption></figure>
 
 ## CAN Open Network
 
